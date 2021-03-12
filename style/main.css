@@ -1,0 +1,121 @@
+body {
+  background-color: black;
+  color: grey;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+}
+
+a:link,a:visited,a:active,a:hover {
+  text-decoration: none;
+  color: yellow;
+  font-weight: 600;
+}
+
+div#app {
+  z-index: 700;
+  margin-top: 2em;
+}
+
+#relshell,
+#relwrap {
+  position: relative;
+  height:1px;
+  width: 100%;
+}
+
+#nav-modal-shell {
+  height: 1px;
+  width: 100%;
+  position: relative;
+  display:none;
+}
+
+#nav-modal {
+  position: absolute;
+  width: 100%;
+  z-index: 800;
+}
+
+#nav-hex {
+  width: 61px;
+  height: 55px;
+  margin: 6px;
+  border: 2.25px solid grey;
+  border-radius: 5px;
+  padding-top: 2.25px;
+  position: absolute;
+  z-index: 800;
+  top: -200%;
+  cursor: pointer;
+}
+
+.nav-hex-line {
+  background-color: grey;
+  height: 5px;
+  width: 52px;
+  margin: 3px 5px;
+}
+
+#close-modal {
+  width: 90%;
+  text-align: right;
+  color: grey;
+  font-size: 36px;
+  cursor: pointer;
+}
+
+#close-modal:hover {
+  color: yellow;
+}
+
+ul#nav-list {
+  display: inline-flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  list-style: none;
+  width: 100%;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+}
+
+li.nav-option {
+  margin: 0 0.5em 0 0.5em;
+}
+
+#footer-wrap {
+  width: 100%;
+  position: fixed;
+  z-index: 800;
+  bottom: 0px;;
+}
+
+#refresh-icon,#folder-icon {
+  cursor: pointer;
+  font-size: 36px;
+  background-color: yellow;
+  height: 36px;
+  width: 36px;
+  margin: 0.66em;
+}
+
+.flex-row {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.flex-col {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}

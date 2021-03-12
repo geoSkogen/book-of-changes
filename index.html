@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title>
+     易經 | I Ching | Book of Changes
+  </title>
+
+  <link rel="stylesheet" href="style/main.css"/>
+  <link rel="stylesheet" href="style/throw.css"/>
+
+  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+
+  <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"/> -->
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
+
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>-->
+
+  <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script> -->
+
+</head>
+<body>
+
+  <div id="relshell">
+
+    <div id="nav-hex">
+      <div class="nav-hex-line"></div>
+      <div class="nav-hex-line"></div>
+      <div class="nav-hex-line"></div>
+      <div class="nav-hex-line"></div>
+      <div class="nav-hex-line"></div>
+      <div class="nav-hex-line"></div>
+    </div>
+    <div id="nav-modal-shell">
+      <div id="nav-modal">
+        <div id="close-modal">&laquo;</div>
+        <ul id="nav-list">
+          <li class="nav-option">
+            <a class="nav-anchor" href="#">build</a>
+          </li>
+          <li class="nav-option">
+            <a class="nav-anchor" href="#">explore</a>
+          </li>
+          <li class="nav-option">
+            <a class="nav-anchor" href="#">profile</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div><!-- relshell -->
+
+  <div id="app" class="flex-row flex-center">
+
+    <div id="wheel-frame" class="flex-row flex-center">
+      <div id="wheel-frame-v-align" class="flex-col flex-center control">
+        <div id="wheel-outer" class="flex-row flex-center">
+          <div id="wheel-outer-v-align" class="flex-col flex-center control">
+            <div id="wheel-inner" class="flex-col flex-center">
+              <div id="line-frame-6" class="flex-row flex-center line frame">
+                <div class="full-line"></div>
+              </div>
+              <div id="line-frame-5" class="flex-row flex-center line-frame">
+                <div class="half-line-frame flex-row flex-between">
+                  <div class="half-line"></div>
+                  <div class="half-line"></div>
+                </div>
+              </div>
+              <div id="line-frame-4" class="flex-row flex-center line-frame">
+                <div class="full-line"></div>
+              </div>
+              <div id="line-frame-3" class="flex-row flex-center line-frame">
+                <div class="half-line-frame flex-row flex-between">
+                  <div class="half-line"></div>
+                  <div class="half-line"></div>
+                </div>
+              </div>
+              <div id="line-frame-2" class="flex-row flex-center line-frame">
+                <div class="full-line"></div>
+              </div>
+              <div id="line-frame-1" class="flex-row flex-center line-frame">
+                <div class="half-line-frame flex-row flex-between">
+                  <div class="half-line"></div>
+                  <div class="half-line"></div>
+                </div>
+              </div>
+            </div><!-- wheelinner -->
+          </div>
+        </div><!-- wheelouter -->
+      </div>
+    </div><!-- wheelframe -->
+
+    <div id="results-table" class="flex-row flex-between">
+      <div id="first-hex-name"  class="hex-name">Becoming<br/>Not-Yet-Fording<br/>Incompletion</div>
+      <div id="second-hex-name" class="hex-name">Being<br/>Fording<br/>Completion</div>
+    </div>
+
+    <div id="second-hex" class="flex-col flex-center">
+      <div id="line-frame-6-2" class="flex-row flex-center line frame">
+        <div class="full-line"></div>
+      </div>
+      <div id="line-frame-5-2" class="flex-row flex-center line-frame">
+        <div class="half-line-frame flex-row flex-between">
+          <div class="half-line"></div>
+          <div class="half-line"></div>
+        </div>
+      </div>
+      <div id="line-frame-4-2" class="flex-row flex-center line-frame">
+        <div class="full-line"></div>
+      </div>
+      <div id="line-frame-3-2" class="flex-row flex-center line-frame">
+        <div class="half-line-frame flex-row flex-between">
+          <div class="half-line"></div>
+          <div class="half-line"></div>
+        </div>
+      </div>
+      <div id="line-frame-2-2" class="flex-row flex-center line-frame">
+        <div class="full-line"></div>
+      </div>
+      <div id="line-frame-1-2" class="flex-row flex-center line-frame">
+        <div class="half-line-frame flex-row flex-between">
+          <div class="half-line"></div>
+          <div class="half-line"></div>
+        </div>
+      </div>
+    </div><!-- wheelinner -->
+  </div><!-- app -->
+
+    <div id="footer-wrap" class="flex-row flex-between">
+      <div id="refresh-icon"></div>
+      <div id="folder-icon"></div>
+    </div>
+
+</body>
+
+<script src="script/nav-modal.js"></script>
+<script src="script/touch-wheel.js"></script>
+<!--
+<script src="lib/main.js"></script>
+<script src="lib/throw.js"></script>
+-->
+
+</html>
