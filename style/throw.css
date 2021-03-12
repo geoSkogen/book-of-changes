@@ -11,6 +11,16 @@ div#wheel-outer {
   width: 100%;
   height: 100%;
   background-color: grey;
+  cursor: pointer;
+}
+
+div#wheel-outer-v-align {
+  //cursor: pointer;
+}
+
+div#wheel-outer:hover {
+  cursor: pointer;
+  background-color: lightgrey;
 }
 
 div#wheel-inner {
@@ -20,6 +30,7 @@ div#wheel-inner {
   width: 90%;
   margin: 1em;
   background-color: black;
+  cursor: default;
 }
 
 div#results-table {
@@ -28,6 +39,10 @@ div#results-table {
 
 div.hex-name {
   margin: 1em;
+  //padding: 1em;
+  font-weight: 600;
+  text-align: center;
+  font-size: 18px;
 }
 
 .control {
