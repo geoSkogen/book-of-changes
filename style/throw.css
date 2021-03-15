@@ -15,12 +15,12 @@ div#wheel-outer {
 }
 
 div#wheel-outer-v-align {
-  //cursor: pointer;
+  cursor: pointer;
 }
 
 div#wheel-outer:hover {
   cursor: pointer;
-  background-color: lightgrey;
+  //background-color: lightgrey;
 }
 
 div#wheel-inner {

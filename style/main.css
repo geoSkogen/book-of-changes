@@ -66,8 +66,12 @@ div#app {
   cursor: pointer;
 }
 
-#close-modal:hover,#nav-hex:hover {
+#close-modal:hover {
   color: lightgrey;
+}
+
+#nav-hex:hover {
+  
 }
 
 ul#nav-list {
