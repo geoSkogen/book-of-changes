@@ -2,6 +2,76 @@
 
 var wheel = document.querySelector('#wheel-outer')
 var graph = document.querySelector('#wheel-inner')
+var regraph = document.querySelector('#second-hex')
+
+var hex_builder = {
+  this_hex : [],
+  next_hex : [],
+  moving_lines : [],
+  throw_line : function () {
+    var val = Math.random()
+    if (this.this_hex.length!=6) {
+      if (val >= 0 && val < 0.25) {
+
+        this.this_hex.push(0)
+        if (this.next_hex.length) {
+          this.next_hex.push(0)
+        }
+
+      } else if (val >= 0.25 && val < 0.5) {
+
+        this.this_hex.push(1)
+        if (this.next_hex.length) {
+          this.next_hex.push(1)
+        }
+
+      } else if (val >= 0.5 && val < 0.75) {
+
+        if (!this.next_hex.length) {
+          this.next_hex = this.this_hex
+        }
+        this.this_hex.push(0)
+        this.next_hex.push(1)
+
+        this.moving_lines.push(this.this_hex.length-1)
+
+      } else if (val >= 0.75 && val <= 1 ){
+
+        if (!this.next_hex.length) {
+          this.next_hex = this.this_hex
+        }
+        this.this_hex.push(1)
+        this.next_hex.push(0)
+        this.moving_lines.push(this.this_hex.length-1)
+
+      } else {
+        console.log('math randomization error')
+      }
+    }
+    console.log(this.this_hex)
+    console.log(this.next_hex)
+    console.log(this.moving_lines)
+  },
+  print_hex : function () {
+    var routines = ['yin_line','yang_line']
+    var hex_shells = [graph,regraph]
+    var hex_data = [this.this_hex, this.next_hex]
+
+    for (var i = 0; i < hex_data.length; i++) {
+
+      var parent = hex_shells[i]
+      parent.innerHTML = ''
+
+      for (var ii = hex_data[i].length-1; ii > -1 ; ii-- ) {
+
+        parent.appendChild( line_builder[ routines[ hex_data[i][ii] ] ](true) )
+
+      }
+    }
+  }
+
+}
+
 var line_builder = {
   yang_line :  function (arg) {
     var line = document.createElement('div')
@@ -10,8 +80,8 @@ var line_builder = {
     line.className = "full-line"
     if (!arg) {
       line.style.backgroundColor = 'black'
-      wrapper.appendChild(line)
     }
+    wrapper.appendChild(line)
     return wrapper
   },
   yin_line : function (arg) {
@@ -53,9 +123,9 @@ var line_builder = {
     var trans = Math.random()
     arg = (!index||index===4) ? true : arg
     line = this[funcs[index]](arg)
-    console.log('line testpattern')
-    console.log(funcs[index])
-    console.log(arg)
+    //console.log('line testpattern')
+    //console.log(funcs[index])
+    //console.log(arg)
     trans = (trans >= 0.9) ? trans-0.1 : trans
     line.style.opacity = trans
     return line
@@ -66,8 +136,8 @@ var line_builder = {
       var int = Math.floor(Math.random()*6)
       indices.push(int)
     }
-    console.log('index_ints')
-    console.log(indices)
+    //console.log('index_ints')
+    //console.log(indices)
     graph.innerHTML = ''
     for (var ii = 0; ii < 6; ii++) {
       var dom_obj = (indices.indexOf(ii)>-1) ?
@@ -82,26 +152,27 @@ wheel.addEventListener('click', function (event) {
   if (event.target.id.indexOf('outer')>-1) {
     var n = 129
     var dir = true
-    var value = graph.innerHTML
+    //var value = graph.innerHTML
     var flash = setInterval( function () {
         n = flash_greys(n)
         line_builder.test_pattern()
         if (!dir) {
           if (n > 128) { n-- } else {
             clearInterval(flash)
-            graph.innerHTML = value
+            hex_builder.throw_line()
+            hex_builder.print_hex()
+            //graph.innerHTML = value
           }
         } else {
           n++
           if (n > 211) { dir = false }
         }
-        console.log(n)
+        //console.log(n)
 
       },
       20
     )
-    console.log('clique')
-    console.log(event.target.id)
+    //console.log(event.target.id)
   }
   event.stopPropagation()
 })
