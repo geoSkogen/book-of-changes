@@ -14,40 +14,31 @@ var hex_builder = {
       if (val >= 0 && val < 0.25) {
 
         this.this_hex.push(0)
-        if (this.next_hex.length) {
-          this.next_hex.push(0)
-        }
 
       } else if (val >= 0.25 && val < 0.5) {
 
         this.this_hex.push(1)
-        if (this.next_hex.length) {
-          this.next_hex.push(1)
-        }
 
       } else if (val >= 0.5 && val < 0.75) {
 
-        if (!this.next_hex.length) {
-          this.next_hex = this.this_hex
-        }
         this.this_hex.push(0)
-        this.next_hex.push(1)
-
         this.moving_lines.push(this.this_hex.length-1)
 
       } else if (val >= 0.75 && val <= 1 ){
 
-        if (!this.next_hex.length) {
-          this.next_hex = this.this_hex
-        }
         this.this_hex.push(1)
-        this.next_hex.push(0)
         this.moving_lines.push(this.this_hex.length-1)
 
       } else {
         console.log('math randomization error')
       }
     }
+    this.next_hex = []
+    this.this_hex.forEach(function (this_line) { hex_builder.next_hex.push(this_line) })
+    this.moving_lines.forEach( function (moving_line) {
+      hex_builder.next_hex[moving_line] = (hex_builder.next_hex[moving_line] === 1) ? 0 : 1
+    })
+    console.log(val)
     console.log(this.this_hex)
     console.log(this.next_hex)
     console.log(this.moving_lines)
@@ -132,24 +123,40 @@ var line_builder = {
   },
   test_pattern : function () {
     var indices = []
+    var re_indices = []
+
     for (var i = 0; i < 3; i++) {
       var int = Math.floor(Math.random()*6)
       indices.push(int)
     }
-    //console.log('index_ints')
-    //console.log(indices)
+
+    if (hex_builder.next_hex.length) {
+      for (var j = 0; j < 3; j++) {
+        var re_int = Math.floor(Math.random()*6)
+        re_indices.push(int)
+      }
+    }
+    // console.log('index_ints')
+    // console.log(indices)
     graph.innerHTML = ''
+    regraph.innerHTML = ''
+
     for (var ii = 0; ii < 6; ii++) {
       var dom_obj = (indices.indexOf(ii)>-1) ?
         this.manifest_line() : this.null_line()
       graph.appendChild(dom_obj)
-    }
-  }
-
+      if (hex_builder.next_hex.length) {
+        var re_dom_obj = (re_indices.indexOf(ii)>-1) ?
+          this.manifest_line() : this.null_line()
+        regraph.appendChild(re_dom_obj)
+      } // end next hex cond
+    } // end find three of six loop
+  } // end testpattern
 }
 
 wheel.addEventListener('click', function (event) {
-  if (event.target.id.indexOf('outer')>-1) {
+  if (event.target.id.indexOf('outer-v')>-1) {
+    hex_builder.throw_line()
     var n = 129
     var dir = true
     //var value = graph.innerHTML
@@ -159,7 +166,6 @@ wheel.addEventListener('click', function (event) {
         if (!dir) {
           if (n > 128) { n-- } else {
             clearInterval(flash)
-            hex_builder.throw_line()
             hex_builder.print_hex()
             //graph.innerHTML = value
           }
@@ -172,7 +178,7 @@ wheel.addEventListener('click', function (event) {
       },
       20
     )
-    //console.log(event.target.id)
+    console.log(event.target.id)
   }
   event.stopPropagation()
 })
