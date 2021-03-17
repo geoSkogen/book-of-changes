@@ -51,6 +51,11 @@ div#app {
   cursor: pointer;
 }
 
+#hex-modal {
+  display: none;
+  z-index: 800;
+}
+
 .nav-hex-line {
   background-color: grey;
   height: 4px;
@@ -58,20 +63,20 @@ div#app {
   margin: 3px 5px;
 }
 
-#close-modal {
+.close-modal {
   width: 90%;
   text-align: right;
-  color: grey;
+  color: lightgrey;
   font-size: 36px;
   cursor: pointer;
 }
-
-#close-modal:hover {
+/*
+.close-modal:hover {
   color: lightgrey;
 }
-
+*/
 #nav-hex:hover {
-  
+
 }
 
 ul#nav-list {

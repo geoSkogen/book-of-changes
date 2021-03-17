@@ -2,7 +2,7 @@
 
 var app_shell = document.querySelector('#app')
 var nav_open = document.querySelector('#nav-hex')
-var nav_close = document.querySelector('#close-modal')
+var nav_close = document.querySelector('#close-nav-modal')
 var nav_shell = document.querySelector('#nav-modal-shell')
 
 nav_open.addEventListener('click', function (event) {

@@ -43,6 +43,8 @@ div.hex-name {
   font-weight: 600;
   text-align: center;
   font-size: 18px;
+  cursor: pointer;
+  z-index: 750;
 }
 
 .control {

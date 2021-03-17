@@ -39,7 +39,7 @@
     </div>
     <div id="nav-modal-shell">
       <div id="nav-modal">
-        <div id="close-modal">&laquo;</div>
+        <div id="close-nav-modal" class="close-modal">&laquo;</div>
         <ul id="nav-list">
           <li class="nav-option">
             <a class="nav-anchor" href="#">build</a>
@@ -68,6 +68,26 @@
         <a class="nav-anchor" href="#">the machine</a>
       </li>
     </ul>
+
+    <div id='hex-modal' class="full-modal">
+      <div id="close-hex-modal" class="close-modal">&laquo;</div>
+      <div id="hex-modal-content">
+        <div id="hex-number" class="hex-title"></div>
+        <div id="hex-name-title" class="hex-title"></div>
+        <div id="hex-name-alt" class="hex-title"></div>
+        <div id="hex-name-mod" class="hex-title"></div>
+        <div id="meta-cols" class="flex-row flex-around"></div>
+          <div id="meta-col-inner" class="flex-col flex-center">
+            <div id="hex-meta-inner" class="hex-purport"></div>
+            <div id="moving-lines-inner" class="hex-purport"></div>
+          </div>
+          <div id="meta-col-inner" class="flex-col flex-center">
+            <div id="hex-meta-outer" class="hex-purport"></div>
+            <div id="moving-lines-outer" class="hex-purport"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </div><!-- relshell -->
 
@@ -112,9 +132,9 @@
     </div><!-- wheelframe -->
 
     <div id="results-table" class="flex-row flex-center">
-      <div id="first-hex-name"  class="hex-name">Becoming<br/>Not-Yet-Fording<br/>Incompletion</div>
-      <i id="hex-mover" class="fas fa-arrow-alt-circle-right"></i>
       <div id="second-hex-name" class="hex-name">Being<br/>Fording<br/>Completion</div>
+      <i id="hex-mover" class="fas fa-arrow-alt-circle-right"></i>
+      <div id="first-hex-name"  class="hex-name">Becoming<br/>Not-Yet-Fording<br/>Incompletion</div>
     </div>
 
     <div id="second-hex" class="flex-col flex-center">
@@ -154,12 +174,12 @@
     </div>
 
 </body>
-
+<!--require global-->
 <script src="script/nav-modal.js"></script>
+<script src="script/hex-data.js"></script>
+<script src="script/hex-control.js"></script>
+<!--include local-->
 <script src="script/touch-wheel.js"></script>
-<!--
-<script src="lib/main.js"></script>
-<script src="lib/throw.js"></script>
--->
+<script src="script/throw-control.js"></script>
 
 </html>
