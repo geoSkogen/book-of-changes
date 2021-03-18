@@ -71,7 +71,7 @@ var hex_bin_arr = [
 
 var hex_name_arr = [
                 "error",
-                "Field | The Receptive 'Yin'",
+                "Field | The Receptive | 'Yin'",
                 "Force | The Creative | 'Yang'",
                 "Sprouting | Initial Difficulty | 'Birth'",
                 "Enveloping | Youthful Folly | 'The Novice'",
@@ -88,11 +88,11 @@ var hex_name_arr = [
                 "Humbling | Modesty | 'The Guileless'",
                 "Providing-For | Enthusiasm | 'Music'",
                 "Following | Following | 'Accord'",
-                "Corrupting | Work on the Decayed -'Repair'",
+                "Corrupting | Work on the Decayed | 'Repair'",
                 "Nearing | Approach | 'Quickening'",
                 "Viewing | Contemplation -'Reflection'",
                 "Gnawing Bite | Biting Through | 'Perseverence'",
-                "Adorning- Grace | 'Grace'",
+                "Adorning | Grace | 'Grace'",
                 "Stripping | Spitting Apart | 'Dismantling'",
                 "Returning | Return | 'Genesis'",
                 "Without Embroiling | Innocence | 'The Child'",

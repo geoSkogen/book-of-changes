@@ -2,22 +2,22 @@
 
 var library = {
   get_hex_index : function (the_hex_arr) {
-    var bin_str = the_hex_arr.join()
+    var bin_str = the_hex_arr.join('')
     return (hex_bin_arr.indexOf(bin_str) > 0 ) ?
-      (hex_bin_arr.indexOf(bin_str)) : false
+      hex_bin_arr.indexOf(bin_str) : false
   },
   select_names : function (the_hex_index) {
-    return
-      (the_hex_index && hex_name_arr[the_hex_index]) ?
+    var result = (the_hex_index && hex_name_arr[the_hex_index]) ?
       hex_name_arr[the_hex_index] : false
+    return result
   },
   select_text : function (the_hex_index) {
-    return (purports_inner[the_hex_index] > 0 &&
-      purports_outer[the_hex_index] > 0) ?
+    var result = (the_hex_index > 0 && purports_outer[the_hex_index] ) ?
       {
         inner: purports_inner[the_hex_index],
         outer: purports_outer[the_hex_index]
       } : false
+    return result
   },
   select_moving_lines : function (hex_index,lines_arr,side_arg) {
     var text_arr = []
