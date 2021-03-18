@@ -20,22 +20,6 @@ var modal_dom = {
   }
 }
 
-var modal_dom_scheme = {
-  articles : {
-    classes:['title','title','title','title','flex-row flex-around'],
-    ids:['number','name-title','name-alt','name-mod','meta-cols'],
-    articles : {
-      classes : ['flex-col flex-center'],
-      ids : ['meta-col-inner'],
-      articles: {
-        classes : ['purport','purport'],
-        ids : ['hex-meta','moving-lines'],
-        articles: null,
-      }
-    }
-  }
-}
-
 hex_names.forEach( function (hex_name_el) {
 
   hex_name_el.addEventListener('click', function (event) {
@@ -90,13 +74,11 @@ function open_hex_modal() {
 function close_hex_modal() {
   hex_modal.style.display = 'none'
   app_shell.style.opacity = 1
-  hex_modal.innerHTML = ''
-
+  clear_modal_content();
 }
 
 function render_modal_text(collection) {
-
-  var names = collection.names.split(' | ')
+  var names = (collection.names.length) ? collection.names.split(' | ') : []
   for (var i = 0; i < names.length+1; i++) {
     modal_dom['h'+i].innerHTML = (i) ? names[i-1] : collection.number
   }
@@ -124,5 +106,16 @@ function render_modal_text(collection) {
       }
     })
   })
+}
 
+
+function clear_modal_content() {
+  for (var i = 0 ; i < 4; i++) {
+    modal_dom['h'+i].innerHTML = ''
+  }
+  Object.keys(modal_dom.articles).forEach( function (side_key) {
+    Object.keys(modal_dom.articles[side_key]).forEach( function (content_key) {
+      modal_dom.articles[side_key][content_key].innerHTML = ''
+    })
+  })
 }
