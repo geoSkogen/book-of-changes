@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title>
+     易經 | I Ching | Book of Changes
+  </title>
+
+  <link rel="stylesheet" href="style/main.css"/>
+  <link rel="stylesheet" href="style/throw.css"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"/>
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
+
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>-->
+
+  <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script> -->
+
+</head>
+<body>
+
+  <div id="relshell">
+
+    <div id="nav-hex">
+      <div class="nav-hex-line"></div>
+      <div class="nav-hex-line"></div>
+      <div class="nav-hex-line"></div>
+      <div class="nav-hex-line"></div>
+      <div class="nav-hex-line"></div>
+      <div class="nav-hex-line"></div>
+    </div>
+    <div id="nav-modal-shell">
+      <div id="nav-modal">
+        <div id="close-nav-modal" class="close-modal">&laquo;</div>
+        <ul id="nav-list">
+          <li class="nav-option">
+            <a class="nav-anchor" href="build/index.html">build</a>
+          </li>
+          <li class="nav-option">
+            <a class="nav-anchor" href="#">explore</a>
+            <div id="subnav-modal">
+              <ul id="explore-list" class="nav-sublist">
+                <li class="nav-suboption">
+                  <a class="nav-anchor" href="#">trigrams</a>
+                </li>
+                <li class="nav-suboption">
+                  <a class="nav-anchor" href="#">hexagrams</a>
+                </li>
+                <li class="nav-suboption">
+                  <a class="nav-anchor" href="#">the book</a>
+                </li>
+                <li class="nav-suboption">
+                  <a class="nav-anchor" href="#">ex machina</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-option">
+            <a class="nav-anchor" href="#">profile</a>
+            <ul id="profile-list" class="nav-sublist">
+              <li class="nav-suboption">
+                <a class="nav-anchor" href="#">history</a>
+              </li>
+              <li class="nav-suboption">
+                <a class="nav-anchor" href="#">library</a>
+              </li>
+              <li class="nav-suboption">
+                <a class="nav-anchor" href="#">logout</a>
+              </li>
+              <li class="nav-suboption">
+                <a class="nav-anchor" href="#">help me</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id='hex-modal' class="full-modal">
+      <div id="close-hex-modal" class="close-modal">&laquo;</div>
+      <div id="hex-modal-content">
+        <div id="hex-number" class="hex-title"></div>
+        <div id="hex-name-title" class="hex-title"></div>
+        <div id="hex-name-alt" class="hex-title"></div>
+        <div id="hex-name-mod" class="hex-title"></div>
+        <div id="meta-cols" class="flex-row flex-center">
+          <div id="meta-col-inner" class="flex-col flex-between meta-col">
+            <div id="hex-meta-inner" class="hex-purport hex-meta"></div>
+            <div id="moving-lines-inner" class="hex-purport moving-meta"></div>
+          </div>
+          <div id="meta-col-outer" class="flex-col flex-center meta-col">
+            <div id="hex-meta-outer" class="hex-purport hex-meta"></div>
+            <div id="moving-lines-outer" class="hex-purport moving-meta"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- relshell -->
+
+  <div id="app" class="flex-row flex-center">
+
+  </div><!-- app -->
+
+    <div id="footer-wrap" class="flex-row flex-between">
+      <i id="hex-refresh" class="fas fa-retweet"></i>
+      <i id="hex-archive" class="far fa-folder"></i>
+    </div>
+
+</body>
+<!--require global-->
+<script src="script/nav-modal.js"></script>
+<script src="script/hex-data.js"></script>
+<script src="script/hex-control.js"></script>
+<!--include local-->
+<script src="script/touch-wheel.js"></script>
+<script src="script/throw-control.js"></script>
+
+</html>
