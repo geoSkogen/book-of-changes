@@ -52,7 +52,7 @@ function reset_hexes() {
 }
 
 function open_hex_modal() {
-  hex_modal.style.display = 'flex'
+  hex_modal.style.display = 'block'
   app_shell.style.opacity = 0.33
 }
 
