@@ -127,7 +127,9 @@ function render_modal_text(collection) {
               var line_text = document.createTextNode(line_text)
               var line_el = document.createElement('li')
               line_el.appendChild(line_text)
+              line_el.className = 'moving-line-item'
               list.appendChild(line_el)
+              list.className = 'moving-lines-list'
             })
             modal_dom.articles[side_key][text].appendChild(list)
           }

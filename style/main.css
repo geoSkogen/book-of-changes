@@ -83,6 +83,23 @@ div#app {
 
 .hex-purport {
   font-size: 14px;
+  text-align: left;
+}
+
+ul.moving-lines-list {
+  list-style: none;
+  text-align: left;
+  padding-top: 1.33em;
+  margin-left: 0;
+  margin-right: 0;
+  margin-block-start: 0;
+  margin-block-start: 0;
+  padding-inline-start: 0;
+}
+
+li.moving-lines-item {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .nav-hex-line {
