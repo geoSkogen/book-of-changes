@@ -167,7 +167,12 @@ wheel.addEventListener('click', function (event) {
           if (n > 128) { n-- } else {
             clearInterval(flash)
             hex_builder.print_hex()
-            //graph.innerHTML = value
+            if (hex_builder.this_hex.length===6) {
+              print_hex_headers()
+              if (hex_builder.moving_lines.length) {
+                print_moving_icon()
+              }
+            }
           }
         } else {
           n++
@@ -186,4 +191,26 @@ wheel.addEventListener('click', function (event) {
 function flash_greys(n) {
   wheel.style.backgroundColor = 'rgb(' + n + ',' + n + ',' + n + ')'
   return n
+}
+
+function get_hex_name(bin_arr) {
+  var index = library.get_hex_index(bin_arr)
+  var names = library.select_names(index)
+  return names
+}
+
+function print_hex_headers() {
+  var hexname_els = document.querySelectorAll('.hex-name')
+  var hex_arrs = [hex_builder.this_hex, hex_builder.next_hex]
+  var name_str = ''
+  for (var i = 0; i < hexname_els.length; i++) {
+    name_str = (!i || hex_builder.moving_lines.length) ? get_hex_name(hex_arrs[i]) : ''
+    name_str = (name_str) ? name_str.replace(/\s\|\s/g,'<br/>') : ''
+    hexname_els[i].innerHTML = (name_str) ? name_str : hexname_els[i].innerHTML
+  }
+}
+
+function print_moving_icon() {
+  var icon = document.querySelector('#hex-mover')
+  icon.style.display= 'block'
 }

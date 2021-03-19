@@ -38,13 +38,19 @@ div#results-table {
 }
 
 div.hex-name {
-  margin: 1em;
+  margin: 0.1em;
   //padding: 1em;
   font-weight: 600;
   text-align: center;
   font-size: 18px;
   cursor: pointer;
   z-index: 750;
+}
+
+i#hex-mover {
+  //margin: 0.1em;
+  //padding: 0.25em;
+  display: none;
 }
 
 .control {
