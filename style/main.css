@@ -13,6 +13,11 @@ a:link,a:visited,a:active,a:hover {
   font-weight: 600;
 }
 
+a.hav-anchor,
+a.subhav-anchor {
+
+}
+
 div#app {
   z-index: 700;
   margin-top: 2em;
@@ -137,19 +142,28 @@ ul#nav-list {
 
 li.nav-option {
   margin: 0 0.5em 0 0.5em;
+  max-width: 90px;
+  min-width: 90px;
 }
 
 ul.nav-sublist {
   list-style: none;
-  //width: 150px;
-  padding: 0 0 0 0;
-  margin: 0 0 0 0;
-  display: none;
+  margin-block-start: 0;
+  margin-block-start: 0;
+  padding-inline-start: 0;
+  width: 100%;
 }
 
 li.nav-suboption {
-  margin: 0.75em;
+  margin: 0.75em 0;
+  //padding: 1.25em 0;
+
 }
+
+div#subnav-modal {
+  display: none;
+}
+
 
 #footer-wrap {
   width: 100%;

@@ -42,32 +42,50 @@
         <div id="close-nav-modal" class="close-modal">&laquo;</div>
         <ul id="nav-list">
           <li class="nav-option">
-            <a class="nav-anchor" href="#">build</a>
+            <a class="nav-anchor"id="build" data-display="block,none" data-opacity="10,3.3" data-decor="underline,none" href="build/index.html">build</a>
           </li>
           <li class="nav-option">
-            <a class="nav-anchor" href="#">explore</a>
+            <a class="nav-anchor" id="explore" data-display="block,none" data-opacity="10,3.3" data-decor="underline,none" href="#">explore</a>
+            <div id="subnav-modal">
+              <ul id="explore-list" class="nav-sublist">
+                <li class="nav-suboption">
+                  <a class="subnav-anchor explore" href="#">trigrams</a>
+                </li>
+                <li class="nav-suboption">
+                  <a class="subnav-anchor explore" href="#">hexagrams</a>
+                </li>
+                <li class="nav-suboption">
+                  <a class="subnav-anchor explore" href="#">the book</a>
+                </li>
+                <li class="nav-suboption">
+                  <a class="subnav-anchor explore" href="#">ex machina</a>
+                </li>
+              </ul>
+            </div>
           </li>
           <li class="nav-option">
-            <a class="nav-anchor" href="#">profile</a>
+            <a class="nav-anchor" id="profile" data-display="block,none" data-opacity="10,3.3" data-decor="underline,none" href="#">profile</a>
+            <div id="subnav-modal">
+              <ul id="profile-list" class="nav-sublist">
+                <li class="nav-suboption">
+                  <a class="subnav-anchor profile" href="#">history</a>
+                </li>
+                <li class="nav-suboption">
+                  <a class="subnav-anchor profile" href="#">library</a>
+                </li>
+                <li class="nav-suboption">
+                  <a class="subnav-anchor profile" href="#">logout</a>
+                </li>
+                <li class="nav-suboption">
+                  <a class="subnav-anchor profile" href="#">help me</a>
+                </li>
+              </ul>
+            </div>
           </li>
         </ul>
       </div>
-    </div>
 
-    <ul id="explore-list" class="nav-sublist">
-      <li class="nav-suboption">
-        <a class="nav-anchor" href="#">the trigrams</a>
-      </li>
-      <li class="nav-suboption">
-        <a class="nav-anchor" href="#">the hexagrams</a>
-      </li>
-      <li class="nav-suboption">
-        <a class="nav-anchor" href="#">the book</a>
-      </li>
-      <li class="nav-suboption">
-        <a class="nav-anchor" href="#">the machine</a>
-      </li>
-    </ul>
+    </div>
 
     <div id='hex-modal' class="full-modal">
       <div id="close-hex-modal" class="close-modal">&laquo;</div>
