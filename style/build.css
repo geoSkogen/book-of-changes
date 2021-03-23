@@ -5,8 +5,8 @@
 .trigrams {
   max-width: 25%;
   min-width: 25%;
-  padding: 1em 0 0.5em 0.5em;
-  border: 1px solid white;
+  padding: 0.5em;em 0 0.5em 0.5em;
+  //border: 1px solid white;
 }
 
 .trigram {
@@ -15,4 +15,5 @@
   min-width: 100%;
   margin: 0.66em;
   padding: 0.66em;
+  font-weight: 600;
 }
