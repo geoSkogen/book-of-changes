@@ -8,6 +8,7 @@
   </title>
   <link rel="stylesheet" href="../style/main.css"/>
   <link rel="stylesheet" href="../style/throw.css"/>
+  <link rel="stylesheet" href="../style/build.css"/>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -41,23 +42,23 @@
         <div id="close-nav-modal" class="close-modal">&laquo;</div>
         <ul id="nav-list">
           <li class="nav-option">
-            <a class="nav-anchor"id="build" data-display="block,none" data-opacity="10,3.3" data-decor="underline,none" href="build/index.html">build</a>
+            <a class="nav-anchor"id="build" data-display="block,none" data-opacity="10,3.3" data-decor="underline,none" href="../index.html">throw</a>
           </li>
           <li class="nav-option">
             <a class="nav-anchor" id="explore" data-display="block,none" data-opacity="10,3.3" data-decor="underline,none" href="#">explore</a>
             <div id="subnav-modal">
               <ul id="explore-list" class="nav-sublist">
                 <li class="nav-suboption">
-                  <a class="subnav-anchor explore" href="#">trigrams</a>
+                  <a class="subnav-anchor explore" href="#">八卦<br/>trigrams</a>
                 </li>
                 <li class="nav-suboption">
-                  <a class="subnav-anchor explore" href="#">hexagrams</a>
+                  <a class="subnav-anchor explore" href="#">卦<br/>hexagrams</a>
                 </li>
                 <li class="nav-suboption">
-                  <a class="subnav-anchor explore" href="#">the book</a>
+                  <a class="subnav-anchor explore" href="#">易經<br/>the book</a>
                 </li>
                 <li class="nav-suboption">
-                  <a class="subnav-anchor explore" href="#">ex machina</a>
+                  <a class="subnav-anchor explore" href="#">貞<br/>ex machina</a>
                 </li>
               </ul>
             </div>
@@ -141,13 +142,18 @@
       <!-- -->
     </div><!-- first-hex -->
 
+    <div id="first-trigram-col" class="trigrams flex-row flex-center">
+      <div id="first-trigram-top" class="trigram"></div>
+      <div id="first-trigram-bottom" class="trigram"></div>
+    </div>
+
     <div id="results-table" class="flex-row flex-center">
       <div id="first-hex-name" class="hex-name">
-        <!--Being<br/>Fording<br/>Completion-->
+        <!--Being<br/>Fording<br/>Completion<!---->
       </div>
       <i id="hex-mover" class="fas fa-arrow-alt-circle-right"></i>
       <div id="second-hex-name"  class="hex-name">
-        <!--Becoming<br/>Not-Yet-Fording<br/>Incompletion-->
+        <!--Becoming<br/>Not-Yet-Fording<br/>Incompletion<!---->
       </div>
     </div>
 
@@ -181,7 +187,13 @@
         </div>
       </div>
       <!-- -->
+    </div><!-- second-hex -->
+
+    <div id="second-trigram-col" class="trigrams flex-row flex-center">
+      <div id="second-trigram-top" class="trigram"></div>
+      <div id="second-trigram-bottom" class="trigram"></div>
     </div>
+
   </div><!-- app -->
 
     <div id="footer-wrap" class="flex-row flex-between">
@@ -191,8 +203,9 @@
 
 </body>
 <!--require global-->
-<script src="../script/nav-modal.js"></script>
 <script src="../script/hex-data.js"></script>
+<script src="../resources/hex-chars.js"></script>
+<script src="../script/nav-modal.js"></script>
 <script src="../script/hex-control.js"></script>
 <!--include local-->
 <script src="../script/build-control.js"></script>

@@ -1,7 +1,6 @@
 'use strict'
 
 var all_lines = document.querySelectorAll('.line-frame')
-var hexname_els = document.querySelectorAll('.hex-name')
 
 var line_builder = {
   yang_line :  function () {
@@ -27,28 +26,38 @@ var hex_graph = {
     [1,0,1,0,1,0],
     [0,1,0,1,0,1]
   ],
-   moving_lines : [],
+   moving_lines : [0,1,2,3,4,5],
    lines_els: [
      [], []
    ]
 }
 for (var i = 0; i < 6; i++) {
-  hex_graph.lines_els[0].push(all_lines[i])
-  hex_graph.lines_els[1].push(all_lines[i+6])
+  //hex_graph.lines_els[0].id.push(all_lines[i])
+  //hex_graph.lines_els[1].id.push(all_lines[i+6])
 }
 
 all_lines.forEach( function (line) {
   line.addEventListener('click', function (event) {
-    var id_arr = line.id.split('-')
-    var hex_index = Number(id_arr[id_arr.length-1])-1
-    var line_index = Number(id_arr[id_arr.length-2])-1
-    toggle_line(line,hex_index,line_index)
-    print_hex_headers()
-    if (hex_graph.moving_lines.length) {
-      print_moving_icon()
-    }
+    handle_line_click(line,line.id)
   })
 })
+
+function handle_line_click(line,line_id) {
+  var id_arr = line_id.split('-')
+  var hex_index = Number(id_arr[id_arr.length-1])-1
+  var line_index = Number(id_arr[id_arr.length-2])-1
+  // convert click target to opposite, resets array value
+  if (line.id) { toggle_line(line,hex_index,line_index) }
+  // calculate differences between the two arrays
+  rerack_moving_lines()
+  // find the names for each array and render them
+  print_hex_headers()
+  print_tri_headers()
+  // show the arrow if two arrays are different
+  if (hex_graph.moving_lines.length) {
+    print_moving_icon(true) } else { print_moving_icon(false)
+  }
+}
 
 function toggle_line(line_frame,hex_index,line_index) {
   var line_types = ['yin','yang']
@@ -64,7 +73,6 @@ function toggle_line(line_frame,hex_index,line_index) {
   line_frame.appendChild(new_line)
 
   hex_graph.lines_arr[hex_index][line_index] = line_types.indexOf(new_line_type)
-  rerack_moving_lines()
 
   console.log(hex_graph.lines_arr)
 }
@@ -94,7 +102,25 @@ function print_hex_headers() {
   }
 }
 
-function print_moving_icon() {
-  var icon = document.querySelector('#hex-mover')
-  icon.style.display= 'block'
+function print_tri_headers() {
+  var triname_els = document.querySelectorAll('.trigram')
+  var tri_props = ['top','bottom']
+  var index = 0
+
+  for (var i = 0; i < hex_graph.lines_arr.length; i++) {
+    var collection = {}
+    collection = library.get_trigrams_from_hex(hex_graph.lines_arr[i])
+    tri_props.forEach( function (tri_prop) {
+      triname_els[index].innerHTML =
+        collection[tri_prop].chars + '<br/>' + collection[tri_prop].names
+      index++
+    })
+  }
 }
+
+function print_moving_icon(arg) {
+  var icon = document.querySelector('#hex-mover')
+  icon.style.display=  (arg) ? 'block' : 'none'
+}
+
+handle_line_click({},'')

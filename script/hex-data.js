@@ -1,5 +1,13 @@
 'use strict'
 
+var tri_bin_arr = [
+  '111','110','101','100','011','010','001','000'
+]
+
+var tri_names_arr = [
+  ['sky','creative'],['lake','joyous'],['fire','clinging'],['thunder','arousing'],['wind','gentle'],['water','abyssmal'],['mountain','stillness'],['earth','receptive']
+]
+
 var hex_bin_arr = [
                "error",
                "000000",
