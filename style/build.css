@@ -17,3 +17,13 @@
   padding: 0.66em;
   font-weight: 600;
 }
+
+.line-frame {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 900px) {
+  #second-hex-name {
+    margin-right: 20%;
+  }
+}
