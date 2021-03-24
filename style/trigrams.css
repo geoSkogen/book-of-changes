@@ -1,0 +1,23 @@
+#trigram-menu {
+  margin-top: 2em;
+}
+
+.trigram-frame {
+  padding: 0.5em;
+}
+
+.trigram-char {
+  max-width: 300px;
+  min-width: 300px;
+  margin: 0.123em;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.tri-lines-char {
+  font-size: 32px;
+}
+
+.tri-lines-name {
+  margin: 0.5em 0 0 0.66em;
+}
