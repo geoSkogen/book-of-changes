@@ -3,19 +3,23 @@
 }
 
 .trigram-frame {
-  padding: 0.5em;
+  border: 2px solid lightgrey;
+  border-radius: 6.66px;
+  margin: 0.13em;
 }
 
 .trigram-char {
   max-width: 300px;
   min-width: 300px;
-  margin: 0.123em;
   font-weight: 600;
   font-size: 22px;
+  padding: 0.15em;
 }
 
 .tri-lines-char {
   font-size: 32px;
+  font-weight: 800;
+  padding-left: 0.5em;
 }
 
 .tri-lines-name {
