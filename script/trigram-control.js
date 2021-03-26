@@ -4,18 +4,37 @@ var menu = document.querySelector('#trigram-menu')
 var links = document.querySelectorAll('.trigram-char')
 var reset_icon = document.querySelector('#hex-refresh')
 var tri_assembler = {
-  trigrams : [null,null],
+  trigrams : [null,null,null],
+
   select_handler : function (el) {
     var mode = Number(el.getAttribute('data-toggle'))
     var index = Number(el.getAttribute('data-index'))
 
     var props = [
+      {'color'  : 'lightgrey', 'backround-color' : 'black', 'border-color' : 'lightgrey' },
       {'color' : 'cornflowerblue', 'background-color' : 'lightgrey', 'border-color' : 'cornflowerblue'},
       {'color' : 'red', 'background-color' : 'lightsteelblue', 'border-color' : 'red'},
-      {'color'  : 'lightgrey', 'backround-color' : 'black', 'border-color' : 'lightgrey' }
     ]
 
+    var data_offset = (mode) ?  0 : (this.trigrams[1]) ? 2 : 1
+
+    var data_val = (mode) ? null : index
+
+    var data_index = (mode) ? mode : data_offset
+    if (this.trigrams[2] && this.trigrams[1] &&
+        this.trigrams.indexOf(index)<0) {
+      return
+    } else {
+      el.setAttribute('data-toggle',data_offset)
+
+      this.trigrams[data_index] = data_val
+
+      this.toggle_trigram(index-1,props[data_offset])
+
+      console.log(tri_assembler.trigrams)
+    }
   },
+
   toggle_trigram : function (el_index,prop_obj) {
     var this_style = ''
     var parent_style = ''
@@ -31,6 +50,7 @@ var tri_assembler = {
     links[el_index].setAttribute('style',this_style)
     links[el_index].parentElement.setAttribute('style',parent_style)
   },
+
   reset_model : function () {
     this.trigrams = [null,null]
   }
@@ -44,8 +64,8 @@ function set_dom(arg) {
     anchor.parentElement.id = name
     anchor.id = name + '-link'
     anchor.href += name
-    anchor.setAttribute('data-toggle','2')
-    anchor.setAttribute('data-index',t)
+    anchor.setAttribute('data-toggle','0')
+    anchor.setAttribute('data-index',t+1)
     anchor.querySelector('.tri-lines-char').innerHTML = tri_lines_chars_arr[t]
     anchor.querySelector('.tri-lines-name').innerHTML = name
     if (arg) {
