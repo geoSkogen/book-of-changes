@@ -142,8 +142,7 @@ var hex_name_arr = [
                 "Center Confirming | Inner Truth | 'Empathy'",
                 "Small Exceeding | Small Preponderance | 'Diligence'",
                 "Already Fording | After Completion | 'Being'",
-                "Not-Yet-Fording | Before Completion | 'Becoming'",
-                "error"
+                "Not-Yet-Fording | Before Completion | 'Becoming'"
 
 ];
 
