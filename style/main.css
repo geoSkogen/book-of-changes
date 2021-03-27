@@ -206,3 +206,8 @@ div#subnav-modal {
   display: flex;
   justify-content: space-between;
 }
+
+.flex-around {
+  display: flex;
+  justify-content: space-around;
+}

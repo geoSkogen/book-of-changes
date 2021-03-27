@@ -25,12 +25,11 @@
   opacity: 0.72;
 }
 
-#left-tab {
-  margin-left: 3.66em;
+#left-tab-1 {
+  margin-left: 3.33em;
 }
-
-#right-tab {
-  margin-right: 3.66em;
+#right-tab-3 {
+  margin-right: 3.33em;
 }
 
 .hex-frame {
