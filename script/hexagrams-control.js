@@ -2,15 +2,16 @@
 
 var hexagram_menus = document.querySelectorAll('.hexagram-menu')
 var hexagram_menu_tabs = document.querySelectorAll('.menu-tab')
+var filter_icon = document.querySelector('#hex-filter')
 
 var data_index = 0
 var menu_index = 0
 function set_dom () {
   hex_name_arr.forEach( function (hex_names) {
     if (data_index) {
-    console.log(data_index)
-    console.log(hex_chars_table[data_index][0])
-    console.log(hex_lines_chars_arr[data_index])
+    //console.log(data_index)
+    //console.log(hex_chars_table[data_index][0])
+    //console.log(hex_lines_chars_arr[data_index])
     var el = {}
     var hex_frame = document.createElement('a')
     var anchor_nodes = {
@@ -38,7 +39,10 @@ function set_dom () {
     hexagram_menus[menu_index].appendChild(hex_frame)
     }
     data_index++
-    menu_index = (data_index>48) ? 2 : (data_index>24) ?  1 : 0
+    menu_index = (data_index>48) ? 3 :
+      (data_index>32) ? 2 :
+        (data_index>16) ? 1 :
+          0
   })
 }
 
@@ -69,10 +73,23 @@ function toggle_tab(toggle_arg,id_str) {
   }
 }
 
+function toggle_filter_menu(self,arg) {
+  var props = ['none','block']
+  var select = document.querySelector('#filter-menu')
+  var next_arg = (arg) ? 0 : 1
+  select.style.display = props[arg]
+  self.setAttribute('data-toggle',next_arg.toString())
+}
+
 hexagram_menu_tabs.forEach( function (menu_tab) {
   menu_tab.addEventListener('click', function (event) {
     toggle_tab( this.getAttribute('data-toggle'), this.id )
   })
+})
+
+filter_icon.addEventListener('click', function (event) {
+  var arg = Number(this.getAttribute('data-toggle'))
+  toggle_filter_menu(this,arg)
 })
 
 set_dom()

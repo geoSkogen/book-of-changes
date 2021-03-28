@@ -171,14 +171,14 @@ div#subnav-modal {
   bottom: 0px;;
 }
 
-#hex-refresh,#hex-archive,#hex-mover {
+#hex-refresh,#hex-archive,#hex-mover,#hex-filter {
   cursor: pointer;
   font-size: 36px;
   margin: 0.25em;
   color: grey;
 }
 
-#hex-refresh:hover,#hex-archive:hover,#hex-mover:hover {
+#hex-refresh:hover,#hex-archive:hover,#hex-mover:hover,#hex-filter:hover {
   cursor: pointer;
   color: lightgrey;
 }
