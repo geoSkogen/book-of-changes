@@ -3,9 +3,11 @@
 var menu = document.querySelector('#trigram-menu')
 var links = document.querySelectorAll('.trigram-char')
 var reset_icon = document.querySelector('#hex-refresh')
+var sides = ['top','bottom']
+
 var tri_assembler = {
   trigrams : [null,null,null],
-
+  icon : document.querySelector('#tri-hex'),
   select_handler : function (el) {
     var mode = Number(el.getAttribute('data-toggle'))
     var index = Number(el.getAttribute('data-index'))
@@ -53,6 +55,51 @@ var tri_assembler = {
 
   reset_model : function () {
     this.trigrams = [null,null]
+  },
+
+  toggle_hex_icon : function (arg) {
+    var props = ['none','block']
+    this.icon.style.display = props[arg]
+  },
+
+  build_hex_icon : function() {
+    var sides_index = 0;
+    var bin_arr = [
+      tri_bin_arr[this.trigrams[2]-1].split('').reverse(),
+      tri_bin_arr[this.trigrams[1]-1].split('').reverse()
+    ]
+    var liner = {
+      '0' : function (arg) {
+        var class_str = 'tri-hex-line yin-wrap flex-row flex-between'
+        var wrapper = document.createElement('div')
+        var line_els = [
+          document.createElement('div'),
+          document.createElement('div')
+        ]
+        line_els.forEach( function (line_el) {
+          var this_class = 'half-yin tri-' + sides[arg]
+          line_el.className = this_class
+          wrapper.appendChild(line_el)
+        })
+        wrapper.className = class_str
+        return wrapper
+      },
+      '1' : function (arg) {
+        var class_str = 'tri-hex-line tri-' + sides[arg]
+        var el = document.createElement('div')
+        el.className = class_str
+        return el
+      }
+    }
+    this.icon.innerHTML=''
+    bin_arr.forEach( function (tri_arr) {
+      //
+      tri_arr.forEach( function (line_val) {
+        var line_el = liner[line_val](sides_index)
+        tri_assembler.icon.appendChild(line_el)
+      })
+      sides_index++
+    })
   }
 }
 
@@ -72,6 +119,12 @@ function set_dom(arg) {
       anchor.addEventListener('click', function (event) {
         var active_el = this
         tri_assembler.select_handler(active_el)
+        if (tri_assembler.trigrams[1]!=null&&null!=tri_assembler.trigrams[2]) {
+          tri_assembler.toggle_hex_icon(1)
+          tri_assembler.build_hex_icon()
+        } else {
+          tri_assembler.toggle_hex_icon(0)
+        }
       })
     } else {
       tri_assembler.toggle_trigram(

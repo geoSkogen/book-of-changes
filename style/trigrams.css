@@ -32,3 +32,42 @@ li.nav-option {
   max-width: 60px;
   min-width: 60px;
 }
+
+#tri-hex {
+  width: 55px;
+  height: 48px;
+  margin: 6px;
+  border: 2.25px solid lightgrey;
+  border-radius: 5px;
+  padding-top: 2.25px;
+  position: absolute;
+  z-index: 800;
+  top: -200%;
+  right: 12px;
+  cursor: pointer;
+  display: none;
+}
+
+.tri-hex-line {
+  background-color: lightgrey;
+  height: 4px;
+  width: 46px;
+  margin: 3px 5px;
+}
+
+.yin-wrap {
+  background-color: black;
+}
+
+.half-yin {
+  max-width: 20px;
+  min-width: 20px;
+}
+
+.tri-top {
+  background-color: red;
+}
+
+.tri-bottom {
+  background-color: cornflowerblue;
+}
