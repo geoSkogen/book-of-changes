@@ -29,7 +29,7 @@ hex_names.forEach( function (hex_name_el) {
 
   hex_name_el.addEventListener('click', function (event) {
     if (hex_builder.this_hex.length===6) {
-      var collection = get_hex_collection()
+      var collection = get_hex_collection(event)
       render_modal_text(collection)
       open_hex_modal()
     }// adds hexagram conditional
@@ -73,7 +73,7 @@ function clear_modal_content() {
   })
 }
 
-function get_hex_collection() {
+function get_hex_collection(event) {
   var collection = {
     number: -1,
     names: '',

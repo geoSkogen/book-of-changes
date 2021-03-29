@@ -2,8 +2,17 @@
 
 var menu = document.querySelector('#trigram-menu')
 var links = document.querySelectorAll('.trigram-char')
+var hex_modal = document.querySelector('#hex-modal')
+var hex_modal_closer = document.querySelector('#close-hex-modal')
 var reset_icon = document.querySelector('#hex-refresh')
 var sides = ['top','bottom']
+
+var modal_dom = {
+  h0 : document.querySelector('#hex-number'),
+  h1 : document.querySelector('#hex-name-title'),
+  h2 : document.querySelector('#hex-name-alt'),
+  h3 : document.querySelector('#hex-name-mod')
+}
 
 var tri_assembler = {
   trigrams : [null,null,null],
@@ -134,11 +143,59 @@ function set_dom(arg) {
   }
 }
 
+function render_modal_text(collection) {
+  var names_arr = collection.names.split('|')
+  var data_str = ''
+  for (var i = 0; i < Object.keys(modal_dom).length; i++) {
+    //
+    data_str = (i) ? names_arr[i-1] :  collection.number + ': ' + collection.char
+    modal_dom[Object.keys(modal_dom)[i]].innerHTML = data_str
+  }
+}
+
+function open_hex_modal() {
+  hex_modal.style.display = 'block'
+  app_shell.style.opacity = 0.33
+  tri_assembler.icon.style.display = 'none'
+}
+
+function close_hex_modal() {
+  hex_modal.style.display = 'none'
+  app_shell.style.opacity = 1
+  tri_assembler.icon.style.display = 'block'
+  //clear_modal_content();
+}
+
+function get_hex_collection(hex_bin_arr) {
+  var collection = {
+    number: -1,
+    char:'',
+    names: ''
+  }
+  collection.number
+   = library.get_hex_index(hex_bin_arr)
+  collection.char = library.select_char(collection.number,1,1)
+  collection.names = library.select_names(collection.number)
+
+  return collection
+}
+
 
 reset_icon.addEventListener('click', function () {
   set_dom(false)
   tri_assembler.reset_model()
 })
 
+tri_assembler.icon.addEventListener('click', function (event) {
+  var hex_bin_str = tri_bin_arr[tri_assembler.trigrams[1]-1] +
+    tri_bin_arr[tri_assembler.trigrams[2]-1]
+  var collection = get_hex_collection(hex_bin_str.split(','))
+  console.log(hex_bin_str)
+  console.log(collection)
+  render_modal_text(collection)
+  open_hex_modal()
+})//ends event listener function
+
+hex_modal_closer.addEventListener('click',close_hex_modal)
 
 set_dom(true)

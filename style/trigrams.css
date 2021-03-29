@@ -41,7 +41,7 @@ li.nav-option {
   border-radius: 5px;
   padding-top: 2.25px;
   position: absolute;
-  z-index: 800;
+  z-index: 700;
   top: -200%;
   right: 12px;
   cursor: pointer;
