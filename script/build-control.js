@@ -22,6 +22,8 @@ var modal_dom = {
 }
 
 var all_lines = document.querySelectorAll('.line-frame')
+var hexagram_menus = document.querySelectorAll('.meta-col')
+var hexagram_menu_tabs = document.querySelectorAll('.meta-col-tab')
 
 var line_builder = {
   yang_line :  function () {
@@ -56,12 +58,6 @@ for (var i = 0; i < 6; i++) {
   //hex_graph.lines_els[0].id.push(all_lines[i])
   //hex_graph.lines_els[1].id.push(all_lines[i+6])
 }
-
-all_lines.forEach( function (line) {
-  line.addEventListener('click', function (event) {
-    handle_line_click(line,line.id)
-  })
-})
 
 function handle_line_click(line,line_id) {
   var id_arr = line_id.split('-')
@@ -234,6 +230,39 @@ function render_modal_text(collection) {
   })
 }
 
+function toggle_tab(toggle_arg,id_str) {
+  var next_arg = (toggle_arg) ? 0 : 1
+  var props = { display: ['none','flex'], opacity:['0.72','1'] }
+  var chars = [':',';']
+  var index = Number(id_str.split('-')[id_str.split('-').length-1])-1
+  var els = [hexagram_menus[index],hexagram_menu_tabs[index]]
+  var style_strs = []
+  for (var i = 0; i < els.length; i++) {
+    //console.log(i)
+    //console.log(els[index])
+    style_strs[i] = Object.keys(props)[i] + ':' + props[Object.keys(props)[i]][toggle_arg] + ';'
+    els[i].setAttribute('style',style_strs[i])
+    els[i].setAttribute('data-toggle',next_arg.toString())
+  }
+  // iterate all menu/tab pairs
+  for (var j = 0; j < hexagram_menu_tabs.length;j++) {
+    if (j!=index) {
+      els = [hexagram_menus[j],hexagram_menu_tabs[j]]
+      for (var ii = 0; ii < els.length; ii++) {
+        style_strs[ii] = Object.keys(props)[ii] + ':' + props[Object.keys(props)[ii]][0] + ';'
+        els[ii].setAttribute('style',style_strs[ii])
+        els[ii].setAttribute('data-toggle','1')
+      }
+    }
+  }
+}
+
+all_lines.forEach( function (line) {
+  line.addEventListener('click', function (event) {
+    handle_line_click(line,line.id)
+  })
+})
+
 hex_names.forEach( function (hex_name_el) {
     //
   hex_name_el.addEventListener('click', function (event) {
@@ -241,8 +270,15 @@ hex_names.forEach( function (hex_name_el) {
       var collection = get_hex_collection(event)
       render_modal_text(collection)
       open_hex_modal()
+      toggle_tab('1','id-1')
   })//ends event listener function
 })//ends hex iteration
+
+hexagram_menu_tabs.forEach( function (menu_tab) {
+  menu_tab.addEventListener('click', function (event) {
+    toggle_tab( this.getAttribute('data-toggle'), this.id )
+  })
+})
 
 hex_modal_closer.addEventListener('click',close_hex_modal)
 
