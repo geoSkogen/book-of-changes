@@ -3,7 +3,7 @@
 var hexagram_menus = document.querySelectorAll('.hexagram-menu')
 var hexagram_menu_tabs = document.querySelectorAll('.menu-tab')
 var filter_icon = document.querySelector('#hex-filter')
-
+var top_state = 0;
 var data_index = 0
 var menu_index = 0
 function set_dom () {
@@ -12,37 +12,77 @@ function set_dom () {
     //console.log(data_index)
     //console.log(hex_chars_table[data_index][0])
     //console.log(hex_lines_chars_arr[data_index])
-    var el = {}
-    var hex_frame = document.createElement('a')
-    var anchor_nodes = {
-      lines_frame : document.createElement('div'),
-      name_frame : document.createElement('div'),
-      char_frame : document.createElement('div')
-    }
-    var text_nodes = {
-      lines_text : document.createTextNode(hex_lines_chars_arr[data_index]),
-      name_text : document.createTextNode(hex_names),
-      char_text : document.createTextNode(hex_chars_table[data_index][0]),
-    }
-    var classes = [
-      'lines-frame',
-      'name-frame',
-      'char-frame'
-    ]
-    for (var i = 0; i < Object.keys(anchor_nodes).length;i++) {
-      el = anchor_nodes[ Object.keys(anchor_nodes)[i] ]
-      el.className = classes[i]
-      el.appendChild( text_nodes[ Object.keys(text_nodes)[i] ] )
+      var el = {}
+      var hex_frame = document.createElement('a')
+      var anchor_nodes = {
+        lines_frame : document.createElement('div'),
+        name_frame : document.createElement('div'),
+        char_frame : document.createElement('div')
+      }
+      var text_nodes = {
+        lines_text : document.createTextNode(hex_lines_chars_arr[data_index]),
+        name_text : document.createTextNode(hex_names),
+        char_text : document.createTextNode(hex_chars_table[data_index][0]),
+      }
+      var classes = [
+        'lines-frame',
+        'name-frame',
+        'char-frame'
+      ]
+      for (var i = 0; i < Object.keys(anchor_nodes).length;i++) {
+        el = anchor_nodes[ Object.keys(anchor_nodes)[i] ]
+        el.className = classes[i]
+        el.appendChild( text_nodes[ Object.keys(text_nodes)[i] ] )
+        hex_frame.appendChild(el)
+      }
       hex_frame.className = 'hex-frame'
-      hex_frame.appendChild(el)
-    }
-    hexagram_menus[menu_index].appendChild(hex_frame)
+      hex_frame.id = data_index.toString()
+      hex_frame.href = '#/' + data_index.toString() + '/'
+      hex_frame.setAttribute('data-toggle',0)
+      hex_frame.addEventListener('click', function (event) {
+        inject_hrefs(this.href,this.id)
+        inject_title_text()
+      })
+      hexagram_menus[menu_index].appendChild(hex_frame)
     }
     data_index++
     menu_index = (data_index>48) ? 3 :
       (data_index>32) ? 2 :
         (data_index>16) ? 1 :
           0
+  })
+}
+
+function inject_title_text() {
+  var id_arr = (window.location.href.split('/#/')[1]) ?
+    window.location.href.split('/#/')[1].split('/') : []
+  var names_arr = []
+  var title_str = ''
+  if (id_arr.length && !id_arr[id_arr.length-1]) {
+    id_arr.pop()
+  }
+  id_arr.forEach( function(id_str) {
+    var names = library.select_names(Number(id_str))
+    title_str += names + ' - '
+  })
+  document.querySelector('title').innerHTML = title_str
+}
+
+function inject_hrefs(url_str,id_str) {
+  var anchors = document.querySelectorAll('.hex-frame')
+  var id_arr = (window.location.href.split('#/')[1]) ?
+    window.location.href.split('#/')[1].split('/') : []
+  //if (id_str===id_arr[0]) {   }
+  anchors.forEach( function (anchor) {
+    var toggle = Number( anchor.getAttribute('data-toggle') )
+    var this_uri = '#/' + anchor.id + '/'
+    var urri = url_str + anchor.id + '/'
+    var next_href = (anchor.id === id_str) ? this_uri : urri
+    var inject_href = (toggle) ? ( (toggle > 1) ? this_uri : anchor.href ) : next_href
+    anchor.href = ''
+    anchor.href = inject_href
+    toggle += (toggle>1) ? -2 : 1
+    anchor.setAttribute('data-toggle',toggle.toString())
   })
 }
 
@@ -70,6 +110,12 @@ function toggle_tab(toggle_arg,id_str) {
         els[ii].setAttribute('data-toggle','1')
       }
     }
+  }
+}
+
+function toggle_hexagram_modal(collection) {
+  for (var i = 0; i < Object.keys(collection).length; i++) {
+
   }
 }
 
