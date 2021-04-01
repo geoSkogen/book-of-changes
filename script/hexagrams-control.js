@@ -141,26 +141,6 @@ function raise_light(n) {
   return n
 }
 
-function toggle_hex_modal() {
-  var id_arr = (window.location.href.split('#/')[1]) ?
-    window.location.href.split('#/')[1].split('/') : []
-  var collection = (id_arr[0]&&id_arr[1]) ? collect_hex_data() : []
-  var n = 0
-  var appear
-  if (collection.length) {
-    console.log(collection)
-    appear = setInterval( function () {
-      hex_modal.style.display = 'block'
-      hex_modal.style.opacity = '1'
-      n = raise_light(n)
-      if (n>=1) {
-        clearInterval(appear)
-      }
-    }, 21.32)
-    render_hexagram_modal_text(collection)
-  }
-}
-
 function render_hexagram_modal_text(collection) {
   var props = ['title','alt','mod']
   var collection_keys = []
@@ -188,13 +168,36 @@ function render_hexagram_modal_text(collection) {
   return true
 }
 
-function open_hex_modal() {
-  app_shell.style.opacity = 0.33
+function toggle_hex_modal() {
+  var id_arr = (window.location.href.split('#/')[1]) ?
+    window.location.href.split('#/')[1].split('/') : []
+  var collection = collect_hex_data()
+  var n = 0
+  var appear
+  if (collection.length) {
+    console.log(collection)
+    appear = setInterval( function () {
+      hex_modal.style.display = 'block'
+      hex_modal.style.opacity = '1'
+      n = raise_light(n)
+      if (n>=1) {
+        clearInterval(appear)
+      }
+    }, 21.32)
+    render_hexagram_modal_text(collection)
+  }
+}
+
+function clear_hex_modal() {
+  document.querySelectorAll('.hex-title').forEach( function (title_el) {
+    title_el.innerHTML = ''
+  })
 }
 
 function close_hex_modal() {
   hex_modal.style.display = 'none'
   app_shell.style.opacity = 1
+  clear_hex_modal()
   //clear_modal_content();
 }
 
@@ -222,3 +225,5 @@ hex_modal_closer.addEventListener('click',close_hex_modal)
 set_dom()
 
 toggle_tab('1','id-1')
+
+toggle_hex_modal()
