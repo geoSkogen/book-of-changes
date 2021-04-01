@@ -2,10 +2,13 @@
 
 var hexagram_menus = document.querySelectorAll('.hexagram-menu')
 var hexagram_menu_tabs = document.querySelectorAll('.menu-tab')
+var hex_modal = document.querySelector('#hex-modal')
+var hex_modal_closer = document.querySelector('#close-hex-modal')
 var filter_icon = document.querySelector('#hex-filter')
 var top_state = 0;
 var data_index = 0
 var menu_index = 0
+
 function set_dom () {
   hex_name_arr.forEach( function (hex_names) {
     if (data_index) {
@@ -42,6 +45,7 @@ function set_dom () {
       hex_frame.addEventListener('click', function (event) {
         inject_hrefs(this.href,this.id)
         inject_title_text()
+        setTimeout(function(){ toggle_hex_modal() }, 500);
       })
       hexagram_menus[menu_index].appendChild(hex_frame)
     }
@@ -54,8 +58,8 @@ function set_dom () {
 }
 
 function inject_title_text() {
-  var id_arr = (window.location.href.split('/#/')[1]) ?
-    window.location.href.split('/#/')[1].split('/') : []
+  var id_arr = (window.location.href.split('#/')[1]) ?
+    window.location.href.split('#/')[1].split('/') : []
   var names_arr = []
   var title_str = ''
   if (id_arr.length && !id_arr[id_arr.length-1]) {
@@ -88,7 +92,7 @@ function inject_hrefs(url_str,id_str) {
 
 function toggle_tab(toggle_arg,id_str) {
   var next_arg = (toggle_arg) ? 0 : 1
-  var props = { display: ['none','flex'], opacity:['0.72','1'] }
+  var props = { display:['none','flex'], opacity:['0.72','1'] }
   var chars = [':',';']
   var index = Number(id_str.split('-')[id_str.split('-').length-1])-1
   var els = [hexagram_menus[index],hexagram_menu_tabs[index]]
@@ -113,10 +117,85 @@ function toggle_tab(toggle_arg,id_str) {
   }
 }
 
-function toggle_hexagram_modal(collection) {
-  for (var i = 0; i < Object.keys(collection).length; i++) {
-
+function collect_hex_data() {
+  var id_arr = (window.location.href.split('#/')[1]) ?
+    window.location.href.split('#/')[1].split('/') : []
+  var collection = []
+  for (var i=0; i<id_arr.length; i++) {
+    if (id_arr[i]) {
+      collection[i] = {}
+      collection[i].number = id_arr[i]
+      collection[i].names = library.select_names(collection[i].number)
+      collection[i].char = library.select_char(collection[i].number,true,true)
+      collection[i].pinyin = library.select_char(collection[i].number,true,false)
+      collection[i].lines = hex_lines_chars_arr[collection[i].number]
+    }
   }
+  return collection
+}
+
+function raise_light(n) {
+  hex_modal.style.opacity = n
+  app_shell.style.opacity = 1-n
+  n+=0.1
+  return n
+}
+
+function toggle_hex_modal() {
+  var id_arr = (window.location.href.split('#/')[1]) ?
+    window.location.href.split('#/')[1].split('/') : []
+  var collection = (id_arr[0]&&id_arr[1]) ? collect_hex_data() : []
+  var n = 0
+  var appear
+  if (collection.length) {
+    console.log(collection)
+    appear = setInterval( function () {
+      hex_modal.style.display = 'block'
+      hex_modal.style.opacity = '1'
+      n = raise_light(n)
+      if (n>=1) {
+        clearInterval(appear)
+      }
+    }, 10.66)
+    render_hexagram_modal_text(collection)
+  }
+}
+
+function render_hexagram_modal_text(collection) {
+  var props = ['title','alt','mod']
+  var collection_keys = []
+  var names = []
+  var this_key = ''
+  for (var c = 0; c < collection.length; c++) {
+    collection_keys = Object.keys(collection[c])
+    for (var i = 0; i < collection_keys.length; i++) {
+      console.log(  '#hex-' + this_key + '-' + (c+1).toString())
+      this_key = Object.keys(collection[c])[i]
+      if (this_key!='names') {
+        document.querySelector(
+          '#hex-' + this_key + '-' + (c+1).toString()
+        ).innerHTML = collection[c][ this_key ]
+      } else {
+        names = collection[c].names.split(' | ')
+        for (var ii = 0; ii < props.length; ii++) {
+          document.querySelector(
+            '#hex-name-' + props[i] + '-' + (c+1).toString()
+          ).innerHTML = names[i]
+        }
+      }
+    }
+  }
+  return true
+}
+
+function open_hex_modal() {
+  app_shell.style.opacity = 0.33
+}
+
+function close_hex_modal() {
+  hex_modal.style.display = 'none'
+  app_shell.style.opacity = 1
+  //clear_modal_content();
 }
 
 function toggle_filter_menu(self,arg) {
@@ -137,6 +216,8 @@ filter_icon.addEventListener('click', function (event) {
   var arg = Number(this.getAttribute('data-toggle'))
   toggle_filter_menu(this,arg)
 })
+
+hex_modal_closer.addEventListener('click',close_hex_modal)
 
 set_dom()
 
