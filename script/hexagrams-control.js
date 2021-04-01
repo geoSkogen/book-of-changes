@@ -156,7 +156,7 @@ function toggle_hex_modal() {
       if (n>=1) {
         clearInterval(appear)
       }
-    }, 10.66)
+    }, 21.32)
     render_hexagram_modal_text(collection)
   }
 }
