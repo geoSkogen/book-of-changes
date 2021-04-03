@@ -76,6 +76,31 @@ function handle_line_click(line,line_id) {
   }
 }
 
+function handle_url_query(url_str) {
+  var hex_num_arr = (url_str.split('#/')[1]) ?
+    url_str.split('#/')[1].split('/') : []
+  var hex_modal_index = (url_str.split('#/')[2]) ?
+    Number(url_str.split('#/')[2].replace(/\//g,''))) : null
+  var is_query = hex_num_arr.length ? true : false
+
+  if (is_query) {
+    for (var i = 0; i < hex_num_arr.length; i++) {
+      var hex_data_index = Number(hex_num_arr[i]) ? Number(hex_num_arr[i]) : null
+      if (hex_data_index!=null) {
+        hex_graph.lines_arr[i] = hex_bin_arr[ hex_data_index ].split('')
+      }
+    }
+
+    rerack_moving_lines()
+
+    all_lines.forEach( function (line_el) {
+      handle_line_click(line_el,line_el.id)
+    })
+
+    hex_names[hex_modal_index].click()
+  }
+}
+
 function toggle_line(line_frame,hex_index,line_index) {
   var line_types = ['yin','yang']
   var old_line = line_frame.getAttribute('data-toggle')
