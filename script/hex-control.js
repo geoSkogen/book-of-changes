@@ -56,6 +56,33 @@ var library = {
     }
     return text_arr
   },
+  get_inner_hex : function (number) {
+    var bin_str = hex_bin_arr[number]
+    var bin_arr = bin_str.split('')
+    var indices = [2,3];
+    var result_arrs = [[],[]]
+    var result = null
+    for (var i = 0; i < bin_arr; i++) {
+      for (var ii = 0; ii < indices.length; ii++) {
+        result_arrs[ii] = bin_arr[indices[ii]]
+        indices[ii]++
+      }
+    }
+    result =  result_arrs[0].concat(result_arrs[1] ).join(',')
+    return hex_bin_arr.indexOf( result )
+  },
+  find_moving_lines : function (first_arr,next_arr) {
+    var result = []
+    for (var i = 0; i < first_arr.length; ii++) {
+      if (first_arr[i]!=next_arr[i]) {
+        result.push(i+1)
+      }
+    }
+    return result
+  },
+  get_hex_index_from_trigrams : function (botton_trigram,top_trigram) {
+    
+  },
   get_trigrams_from_hex : function (the_hex_arr) {
     var result = {
       top: {names:'',chars:''},
@@ -86,7 +113,7 @@ var library = {
           tri_chars_arr[ library.get_tri_index( stage[tri_arr] ) ][char_index]
         //
         result[tri_arr].names += (ii) ? '' : ' | '
-        result[tri_arr].chars += (ii) ? '' : ' | ' 
+        result[tri_arr].chars += (ii) ? '' : ' | '
       }
     })
     return result

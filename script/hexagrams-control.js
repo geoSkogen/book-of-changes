@@ -8,6 +8,7 @@ var filter_icon = document.querySelector('#hex-filter')
 var top_state = 0;
 var data_index = 0
 var menu_index = 0
+var inner_hexes = []
 
 function set_dom () {
   hex_name_arr.forEach( function (hex_names) {
@@ -146,6 +147,7 @@ function render_hexagram_modal_text(collection) {
   var collection_keys = []
   var names = []
   var this_key = ''
+  var this_name = ''
   for (var c = 0; c < collection.length; c++) {
     collection_keys = Object.keys(collection[c])
     for (var i = 0; i < collection_keys.length; i++) {
@@ -159,10 +161,16 @@ function render_hexagram_modal_text(collection) {
         names = collection[c].names.split(' | ')
         for (var ii = 0; ii < props.length; ii++) {
           document.querySelector(
-            '#hex-name-' + props[i] + '-' + (c+1).toString()
-          ).innerHTML = names[i]
+            '#hex-name-' + props[ii] + '-' + (c+1).toString()
+          ).innerHTML = names[ii]
         }
       }
+    }
+    console.log(c)
+    this_name = (c) ? collection[c-1].names.split(' | ')[0]+"&nbsp;&raquo;&nbsp;"+names[0] : names[0]
+    console.log(this_name)
+    if ( document.querySelector( '#read-link-' + (c+1).toString() ) ) {
+      document.querySelector( '#read-link-' + (c+1).toString() ).innerHTML = 'read about ' + this_name
     }
   }
   return true

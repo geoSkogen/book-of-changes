@@ -60,10 +60,10 @@
                   <a class="subnav-anchor explore" href="../hexagrams/">卦<br/>hexagrams</a>
                 </li>
                 <li class="nav-suboption">
-                  <a class="subnav-anchor explore" href="#">易經<br/>the book</a>
+                  <a class="subnav-anchor explore" href="../i-ching/">易經<br/>the book</a>
                 </li>
                 <li class="nav-suboption">
-                  <a class="subnav-anchor explore" href="#">貞<br/>ex machina</a>
+                  <a class="subnav-anchor explore" href="../ex-machina">貞<br/>ex machina</a>
                 </li>
               </ul>
             </div>
@@ -94,22 +94,55 @@
     <!-- interpretive text modal -->
     <div id='hex-modal' class="full-modal">
       <div id="close-hex-modal" class="close-modal">&laquo;</div>
-      <div id="hex-modal-content">
-        <div id="hex-number-1" class="hex-title"></div>
-        <div id="hex-char-1" class="hex-title"></div>
-        <div id="hex-pinyin-1" class="hex-title"></div>
-        <div id="hex-lines-1" class="hex-title"></div>
+      <div id="hex-modal-content-first" class="hex-modal-content">
+        <div class="flex-row flex-center">
+          <div id="hex-lines-1" class="hex-title"></div>
+          <div id="hex-number-1" class="hex-title"></div>
+        </div>
+        <div class="flex-row flex-center">
+          <div id="hex-char-1" class="hex-title"></div>
+          <div id="hex-pinyin-1" class="hex-title"></div>
+        </div>
         <div id="hex-name-title-1" class="hex-title"></div>
         <div id="hex-name-alt-1" class="hex-title"></div>
         <div id="hex-name-mod-1" class="hex-title"></div>
-        <br/><br/>
-        <div id="hex-number-2" class="hex-title"></div>
-        <div id="hex-char-2" class="hex-title"></div>
-        <div id="hex-pinyin-2" class="hex-title"></div>
-        <div id="hex-lines-2" class="hex-title"></div>
+        <br/>
+        <div class="read-hex-frame flex-row flex-center">
+          <a id="read-link-1" class="read-hex" href="#"></a>
+        </div>
+        <br/>
+        <div class="inner-hex-frame flex-row flex-center">
+          <a id="inner-link-1" class="inner-hex" href="#">inner</a>
+          <div class="inner-pipe">&nbsp;|&nbsp;</div>
+          <a id="innermost-link-1" class="inner-hex" href="#">innermost</a>
+        </div>
+      </div>
+      <div id="icon-d-frame" class="flex-row flex-center">
+        <i id="hex-mover-d" class="fas fa-arrow-alt-circle-down"></i>
+      </div>
+      <div id="hex-modal-content-next" class="hex-modal-content">
+        <div class="flex-row flex-center">
+          <div id="hex-lines-2" class="hex-title"></div>
+          <div id="hex-number-2" class="hex-title"></div>
+        </div>
+        <div class="flex-row flex-center">
+          <div id="hex-char-2" class="hex-title"></div>
+          <div id="hex-pinyin-2" class="hex-title"></div>
+        </div>
         <div id="hex-name-title-2" class="hex-title"></div>
         <div id="hex-name-alt-2" class="hex-title"></div>
         <div id="hex-name-mod-2" class="hex-title"></div>
+        <br/>
+        <div class="read-hex-frame flex-row flex-center">
+          <a id="read-link-2" class="read-hex" href="#"></a>
+        </div>
+        <br/>
+        <div class="inner-hex-frame flex-row flex-center">
+          <a id="inner-link-2" class="inner-hex" href="#">inner</a>
+          <div class="inner-pipe">&nbsp;|&nbsp;</div>
+          <a id="innermost-link-2" class="inner-hex" href="#">innermost</a>
+        </div>
+
 
       </div>
     </div>

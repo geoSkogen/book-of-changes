@@ -176,7 +176,6 @@ function get_hex_collection(hex_bin_arr) {
    = library.get_hex_index(hex_bin_arr)
   collection.char = library.select_char(collection.number,1,1)
   collection.names = library.select_names(collection.number)
-
   return collection
 }
 
@@ -189,9 +188,9 @@ reset_icon.addEventListener('click', function () {
 tri_assembler.icon.addEventListener('click', function (event) {
   var hex_bin_str = tri_bin_arr[tri_assembler.trigrams[1]-1] +
     tri_bin_arr[tri_assembler.trigrams[2]-1]
+  //console.log(hex_bin_str)
   var collection = get_hex_collection(hex_bin_str.split(','))
-  console.log(hex_bin_str)
-  console.log(collection)
+  //console.log(collection)
   render_modal_text(collection)
   open_hex_modal()
 })//ends event listener function

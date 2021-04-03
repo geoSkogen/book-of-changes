@@ -61,8 +61,9 @@ div#app {
   z-index: 850;
 }
 
-#hex-modal-content {
+.hex-modal-content {
   margin: 0.5em 0.25em 0 0.25em;
+  z-index: 850;
 }
 
 .meta-col-tab {
@@ -145,6 +146,26 @@ li.moving-line-item {
   padding: 0.5em 0 0.5em 0;
 }
 
+.inner-hex {
+
+}
+
+#inner-link-2,
+#innermost-link-2 {
+  //display: none;
+}
+
+#hex-pinyin-1,
+#hex-pinyin-2 {
+  font-style: italic;
+}
+.inner-pipe {
+  font-size: 30px;
+  margin-top: -0.5em;
+  color: lightgrey;
+  font-weight: 700;
+}
+
 .nav-hex-line {
   background-color: grey;
   height: 4px;
@@ -209,7 +230,7 @@ div#subnav-modal {
   bottom: 0px;;
 }
 
-#hex-refresh,#hex-archive,#hex-mover,#hex-filter {
+#hex-refresh,#hex-archive,#hex-mover,#hex-filter,#hex-mover-d {
   cursor: pointer;
   font-size: 36px;
   margin: 0.25em;
