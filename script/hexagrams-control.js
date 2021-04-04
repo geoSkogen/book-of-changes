@@ -148,7 +148,12 @@ function render_hexagram_modal_text(collection) {
   var names = []
   var this_key = ''
   var this_name = ''
+  var inner_path = ''
+  var innermost_path = ''
+  var build_path = ''
+
   for (var c = 0; c < collection.length; c++) {
+    if (c<2) {
     collection_keys = Object.keys(collection[c])
     for (var i = 0; i < collection_keys.length; i++) {
       console.log(  '#hex-' + this_key + '-' + (c+1).toString())
@@ -165,14 +170,48 @@ function render_hexagram_modal_text(collection) {
           ).innerHTML = names[ii]
         }
       }
-    }
+    }// ends collection keys loop
     console.log(c)
-    this_name = (c) ? collection[c-1].names.split(' | ')[0]+"&nbsp;&raquo;&nbsp;"+names[0] : names[0]
+    this_name = (c) ?
+        collection[c-1].names.split(' | ')[0]+"&nbsp;&raquo;&nbsp;"+names[0] :
+        names[0]
+
+    build_path = (c) ?
+      collection[c-1].number + '/' + collection[c].number + '/#/1' :
+      collection[c].number + '/#/0'
+
+    inner_path = (c) ?
+      library.get_inner_hex(Number(collection[c-1].number)) + '/' +
+      library.get_inner_hex(Number(collection[c].number)) :
+      library.get_inner_hex(Number(collection[c].number))
+
+    innermost_path = (c) ?
+      library.get_inner_hex(
+        library.get_inner_hex(Number(collection[c-1].number))
+      ) + '/' + library.get_inner_hex(
+        library.get_inner_hex(Number(collection[c].number))
+      ) : library.get_inner_hex(
+        library.get_inner_hex(Number(collection[c].number))
+      )
+
     console.log(this_name)
+    console.log(library.get_inner_hex(45))
     if ( document.querySelector( '#read-link-' + (c+1).toString() ) ) {
       document.querySelector( '#read-link-' + (c+1).toString() ).innerHTML = 'read about ' + this_name
+      document.querySelector( '#read-link-' + (c+1).toString() ).href = '../build/#/' + build_path
     }
-  }
+    if ( document.querySelector( '#inner-link-' + (c+1).toString() ) ) {
+      document.querySelector( '#inner-link-' + (c+1).toString() ).href = '#/' + inner_path
+     document.querySelector( '#inner-link-' + (c+1).toString() ).
+        addEventListener('click', function () { var mytoggle = setTimeout(toggle_hex_modal,100) })
+    }
+    if ( document.querySelector( '#innermost-link-' + (c+1).toString() ) ) {
+      document.querySelector( '#innermost-link-' + (c+1).toString() ).href = '#/' + innermost_path
+      document.querySelector( '#innermost-link-' + (c+1).toString() ).
+        addEventListener('click', function () { var mytoggle = setTimeout(toggle_hex_modal,100) })
+    }
+  } // ends index conditional - less than two
+  }// ends hex loop
   return true
 }
 
@@ -199,6 +238,13 @@ function toggle_hex_modal() {
 function clear_hex_modal() {
   document.querySelectorAll('.hex-title').forEach( function (title_el) {
     title_el.innerHTML = ''
+  })
+  document.querySelectorAll('.read-hex').forEach( function (read_el) {
+    read_el.innerHTML = ''
+    read_el.href = '#'
+  })
+  document.querySelectorAll('.inner-hex').forEach( function (inner_el) {
+    inner_el.href = '#'
   })
 }
 

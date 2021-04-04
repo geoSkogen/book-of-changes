@@ -59,16 +59,16 @@ var library = {
   get_inner_hex : function (number) {
     var bin_str = hex_bin_arr[number]
     var bin_arr = bin_str.split('')
-    var indices = [2,3];
+    var indices = [2,3]
     var result_arrs = [[],[]]
     var result = null
-    for (var i = 0; i < bin_arr; i++) {
+    for (var i = 0; i < bin_arr.length/2; i++) {
       for (var ii = 0; ii < indices.length; ii++) {
-        result_arrs[ii] = bin_arr[indices[ii]]
+        result_arrs[ii].push(bin_arr[indices[ii]])
         indices[ii]++
       }
     }
-    result =  result_arrs[0].concat(result_arrs[1] ).join(',')
+    result =  result_arrs[0].concat(result_arrs[1] ).join('')
     return hex_bin_arr.indexOf( result )
   },
   find_moving_lines : function (first_arr,next_arr) {
@@ -81,7 +81,7 @@ var library = {
     return result
   },
   get_hex_index_from_trigrams : function (botton_trigram,top_trigram) {
-    
+
   },
   get_trigrams_from_hex : function (the_hex_arr) {
     var result = {

@@ -63,7 +63,7 @@ div#app {
 
 .hex-modal-content {
   margin: 0.5em 0.25em 0 0.25em;
-  z-index: 850;
+  z-index: 875;
 }
 
 .meta-col-tab {
@@ -159,11 +159,23 @@ li.moving-line-item {
 #hex-pinyin-2 {
   font-style: italic;
 }
+
+#hex-lines-1,
+#hex-lines-2 {
+  font-size: 32px;
+  margin-top: -0.33em;
+}
+
 .inner-pipe {
   font-size: 30px;
   margin-top: -0.5em;
   color: lightgrey;
   font-weight: 700;
+}
+
+.read-hex,
+.inner-hex {
+  z-index: 900;
 }
 
 .nav-hex-line {
