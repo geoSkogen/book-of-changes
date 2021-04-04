@@ -59,7 +59,7 @@ var library = {
   get_inner_hex : function (number) {
     var bin_str = hex_bin_arr[number]
     var bin_arr = bin_str.split('')
-    var indices = [2,3]
+    var indices = [1,2]
     var result_arrs = [[],[]]
     var result = null
     for (var i = 0; i < bin_arr.length/2; i++) {
