@@ -79,25 +79,35 @@ function handle_line_click(line,line_id) {
 function handle_url_query(url_str) {
   var hex_num_arr = (url_str.split('#/')[1]) ?
     url_str.split('#/')[1].split('/') : []
+
   var hex_modal_index = (url_str.split('#/')[2]) ?
-    Number(url_str.split('#/')[2].replace(/\//g,''))) : null
+    Number( url_str.split('#/')[2].replace(/\//g,'') ) : null
+
   var is_query = hex_num_arr.length ? true : false
 
   if (is_query) {
     for (var i = 0; i < hex_num_arr.length; i++) {
+      console.log(i)
+      console.log(hex_num_arr)
+
       var hex_data_index = Number(hex_num_arr[i]) ? Number(hex_num_arr[i]) : null
+      var new_lines_arr = (hex_bin_arr[ hex_data_index ]) ? hex_bin_arr[ hex_data_index ].split('') : []
+      console.log(new_lines_arr)
+      console.log(hex_data_index)
+
       if (hex_data_index!=null) {
-        hex_graph.lines_arr[i] = hex_bin_arr[ hex_data_index ].split('')
+
+        for (var ii = 0; ii< new_lines_arr.length; ii++) {
+          if (hex_graph.lines_arr[i][ii] != new_lines_arr[ii]) {
+            var line_index = (i) ? (5-ii)+6 : 5-ii
+            handle_line_click(all_lines[line_index],all_lines[line_index].id)
+          }
+        }
       }
     }
-
-    rerack_moving_lines()
-
-    all_lines.forEach( function (line_el) {
-      handle_line_click(line_el,line_el.id)
-    })
-
-    hex_names[hex_modal_index].click()
+    if (hex_modal_index!=null) {
+      hex_names[hex_modal_index].click()
+    }
   }
 }
 
@@ -106,17 +116,19 @@ function toggle_line(line_frame,hex_index,line_index) {
   var old_line = line_frame.getAttribute('data-toggle')
   var new_line_type = (line_types.indexOf(old_line)) ? line_types[0] : line_types[1]
   var new_line = line_builder[new_line_type+'_line']()
+  /*
   console.log('line_index')
   console.log(line_index)
   console.log('hex_index')
   console.log(hex_index)
+  */
   line_frame.setAttribute('data-toggle',new_line_type)
   line_frame.innerHTML = ''
   line_frame.appendChild(new_line)
 
   hex_graph.lines_arr[hex_index][line_index] = line_types.indexOf(new_line_type)
 
-  console.log(hex_graph.lines_arr)
+//  console.log(hex_graph.lines_arr)
 }
 
 function rerack_moving_lines() {
@@ -207,8 +219,8 @@ function get_hex_collection(event) {
     current_hex = (event.target.id===prop+'-hex-name' && hex_index>-1) ?
       objs[hex_index] : current_hex
   })
-  console.log(current_hex)
-  console.log(event.target.id)
+  //console.log(current_hex)
+  //console.log(event.target.id)
   collection.number
    = library.get_hex_index(current_hex)
   collection.names = library.select_names(collection.number)
@@ -308,3 +320,5 @@ hexagram_menu_tabs.forEach( function (menu_tab) {
 hex_modal_closer.addEventListener('click',close_hex_modal)
 
 handle_line_click({},'')
+
+handle_url_query(window.location.href)
