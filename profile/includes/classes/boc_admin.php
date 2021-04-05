@@ -11,12 +11,22 @@ class BOC_Admin {
       ) ? true : false;
   }
 
-  public function make_session_frame($handler_path) {
+  public function make_session_frame($handler_path,$err) {
     $str = '';
+    $err_msg = '';
     if ($this->logged_in) {
 
     } else {
-      $form_frame = "<form id='login-form' method='POST' action='$handler_path' class='login'>";
+      if (is_numeric($err)) {
+        switch($err) {
+          case 0 :
+            break;
+          default :
+        }
+      } 
+      $form_alert = "<div id='login-alert' class=''>$err_msg</div>";
+      $form_frame = (null!=$err) ? $form_alert : '';
+      $form_frame .= "<form id='login-form' method='POST' action='$handler_path' class='login'>";
       $form_frame .= "<div flex-col flex-start'>";
       $uname_in = "<div id='unmerr' class='form-error flex-row flex-center'>";
       $uname_in .= "<input type='text' name='u_name' id='login-uname' class='login-form'/></div>";

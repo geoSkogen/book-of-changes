@@ -23,7 +23,7 @@ class BOC_Util {
         echo "<link rel='stylesheet' href='$style_path'/>";
       }
       ?>
-      
+
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
@@ -54,14 +54,14 @@ class BOC_Util {
     <?php
   }
 
-  public static function do_page_header() {
+  public static function do_page_header($str) {
     ?>
     <body>
     <header></header>
     <?php
   }
 
-  public static function do_page_footer() {
+  public static function do_page_footer($str) {
     ?>
     <footer></footer>
     </body>
