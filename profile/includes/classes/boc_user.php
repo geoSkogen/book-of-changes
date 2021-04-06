@@ -8,11 +8,13 @@ class BOC_User {
 
   function __construct($uname,$db_client) {
     $this->client = $db_client;
-    $row = $this->select_user($uname);
-    if ($row) {
-      $this->email = $row['email'];
+    $result = $this->select_user($uname);
+    if ($result) {
+      $this->email = $result['email'];
       $this->uname = $uname;
-      $this->id = $row['id'];
+      $this->id = $result['id'];
+    } else {
+      $result = null;
     }
   }
 
@@ -20,16 +22,20 @@ class BOC_User {
     $sql = "INSERT INTO users (u_name,p_word,email) VALUES ('$uname','$pword','$email')";
     $result = $this->client->query($sql);
     if ($result) {
-      $this->email = $result['email'];
+      $this->email = $email;
       $this->uname = $uname;
-      $this->id = $result['id'];
+      //$this->id = $result->id;
     }
   }
 
   public function select_user($uname) {
-    $sql = "SELECT * FROM users WHERE u_name EQUALS '{$uname}' ";
-    $result = $this->client->query($sql);
-    return $result;
+    $result_arr = [];
+    $sql = "SELECT * FROM users WHERE u_name = '{$uname}'";
+    $resp = $this->client->query($sql);
+    while ($row = mysqli_fetch_array($resp)) {
+      $result_arr[] = $row;
+    }
+    return (count($result_arr)) ? $result_arr[0] : null;
   }
 
   public function edit_user($row) {
@@ -37,7 +43,7 @@ class BOC_User {
   }
 
   public function destroy_user($uname) {
-    
+
   }
 
 

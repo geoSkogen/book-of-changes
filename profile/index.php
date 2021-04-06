@@ -19,7 +19,7 @@ $admin = new BOC_Admin();
 $db = new BOC_DB_Control();
 $user = new BOC_User('tim',$db);
 if (!$user->id) {
-  //$user->create_user('tim','password','time@time.ti');
+  $user->create_user('tim','password','time@time.ti');
 }
 $article = $admin->make_session_frame('index.php',$err);
 
