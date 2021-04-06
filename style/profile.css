@@ -2,7 +2,8 @@ form.login {
 
 }
 
-input.login-form {
+input.login-form,
+.new-profile-input {
   padding: 0.75em;
   font-size: 20px;
   margin: 0.5em;
@@ -24,4 +25,6 @@ input.no-button {
   background-color: cornflowerblue;
   color: lightgrey;
   border-radius: 6px;
+  max-width: 200px;
+  min-width: 200px;
 }

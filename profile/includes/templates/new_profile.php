@@ -1,19 +1,29 @@
 <?php
 $new_profile = new stdClass();
 
-$new_profile->form = function ($handler_path,$err) {
+$new_profile->form = function ($handler_path,$err,$input_att,$input_val) {
   ?>
-  <form id="new-profile-form" class="flex-row flex-center"
+  <form id="new-profile-form" class="flex-col flex-start"
         action="<?php echo $handler_path; ?>" method="POST">
-    <input type="email" id="new-profile-email" class="new-proifle-input"/>
-    <div class="form-error" id="emlerr"></div>
-    <input type="text" id="new-profile-uname" class="new-proifle-input"/>
-    <div class="form-error" id="unmerr"></div>
-    <input type="password" id="new-profile-pword" class="new-proifle-input"/>
-    <div class="form-error" id="pw1err"></div>
-    <input type="password" id="new-profile-repword" class="new-proifle-input"/>
-    <div class="form-error" id="pw2err"></div>
-    <input type="submit" id="submit-buttom" class="no-button" value="create user"/>
+    <div class="form-error flex-row flex-center" id="emlerr">
+      <input type="email" name="email" id="new-profile-email" class="new-profile-input"
+      <?php echo $input_att['email'] . '="' . $input_val['email']. '"'; ?> />
+    </div>
+    <div class="form-error flex-row flex-center" id="unmerr">
+      <input type="text" name="u_name" id="new-profile-uname" class="new-profile-input"
+       <?php echo $input_att['u_name'] . '="' . $input_val['u_name']. '"'; ?> />
+    </div>
+    <div class="form-error flex-row flex-center" id="pw1err">
+      <input type="password" name="p_word_1" id="new-profile-pword" class="new-profile-input"
+      <?php echo $input_att['p_word_1'] . '="' . $input_val['p_word_1'] . '"'; ?> />
+    </div>
+    <div class="form-error flex-row flex-center" id="pw2err">
+      <input type="password" name="p_word_2" id="new-profile-repword" class="new-profile-input"
+      <?php echo $input_att['p_word_2'] . '="' . $input_val['p_word_2']. '"' ?> />
+    </div>
+    <div id='submitter' class='form-error flex-row flex-center'>
+      <input type="submit" id="submit-buttom" class="no-button" value="create user" />
+    </div>
   </form>
   <?php
 };

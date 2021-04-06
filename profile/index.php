@@ -14,7 +14,7 @@ if (!class_exists('BOC_User')) {
 }
 
 $err = null;
-$fields = ['u_name','p_word']
+$fields = ['u_name','p_word'];
 if (!empty($_POST)) {
   foreach( $fields as $field) {
     if (!empty($_POST[$field])) {
