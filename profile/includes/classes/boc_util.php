@@ -16,7 +16,7 @@ class BOC_Util {
          易經 &ndash; I Ching &ndash; Book of Changes
       </title>
       <link rel='icon' href='../resources/images/tao-75-red.png' type='image/x-icon'/ >
-      <link rel="stylesheet" href="../style/main.css"/>
+      <link rel="stylesheet" href="/book-of-changes/style/main.css"/>
 
       <?php
       foreach ($style_paths as $style_path) {

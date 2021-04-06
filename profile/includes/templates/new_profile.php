@@ -1,5 +1,7 @@
 <?php
-$new_profile_form = function ($handler_path) {
+$new_profile = new stdClass();
+
+$new_profile->form = function ($handler_path,$err) {
   ?>
   <form id="new-profile-form" class="flex-row flex-center"
         action="<?php echo $handler_path; ?>" method="POST">
@@ -14,22 +16,29 @@ $new_profile_form = function ($handler_path) {
     <input type="submit" id="submit-buttom" class="no-button" value="create user"/>
   </form>
   <?php
-}
+};
 
-$new_profile_message =  function ($uname,$err) {
+$new_profile->message =  function ($uname,$err) {
   if (is_numeric($err)) {
     switch ($err) {
       case 0 :
-        $str = 'Kanye West Sprectrum Disorder';
+        $str = ' | unknown user ';
+        break;
+      case 1 :
+        $str = ' | invalid password ';
+        break;
+      case 1 :
+        $str = ' | passwords do not match';
         break;
       default;
-        $str = 'Meteor Shower Forecasting Crystal';
+        $str = ' | unlisted error';
     }
-    $err_msg = "<h3>something went wrong with our $str </h3>";
+    $err_msg = "<h3>something went wrong&mdash; $str </h3>";
   } else {
-    $err_msg '<h3>the internet is broken, sorry</h3>';
+    $err_msg = '<h3>the internet is broken, sorry</h3>';
   }
   $go_message = "<h3>a new profile has been created for $uname</h3>";
   return (null!=$err) ? $err_msg : $go_msg;
-}
+};
+
 ?>
