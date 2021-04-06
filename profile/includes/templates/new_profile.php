@@ -32,12 +32,13 @@ $new_profile->message =  function ($uname,$err) {
   if (is_numeric($err)) {
     switch ($err) {
       case 0 :
-        $str = ' | unknown user ';
+        $str = ' | duplicate email ';
         break;
       case 1 :
-        $str = ' | invalid password ';
+        $str = ' | duplicate user name ';
         break;
-      case 1 :
+      case 2 :
+      case 3 :
         $str = ' | passwords do not match';
         break;
       default;

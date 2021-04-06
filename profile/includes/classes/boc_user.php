@@ -20,13 +20,21 @@ class BOC_User {
   }
 
   public function create_user($uname,$pword,$email) {
+    $existing = false;
+    $result = array('resp' => null, 'err' => null);
+    $existing = $this->select_user($uname);
+    if ($existing) { $result['err'] = 0; return $result; }
+    $existing = $this->select_user_by_prop($email);
+    if ($existing) { $result['err'] = 1; return $result; }
     $sql = "INSERT INTO users (u_name,p_word,email) VALUES ('$uname','$pword','$email')";
-    $result = $this->client->query($sql);
-    if ($result) {
+    $resp = $this->client->query($sql);
+    if ($resp) {
       $this->email = $email;
       $this->uname = $uname;
       //$this->id = $result->id;
+      $result['resp'] = $resp;
     }
+    return $result;
   }
 
   public function select_user($uname) {
@@ -47,6 +55,16 @@ class BOC_User {
       $result_arr[] = $row;
     }
     return (count($result_arr)) ? $result_arr[0][$prop] : null;
+  }
+
+  public function select_user_by_prop($key,$val) {
+    $result_arr = [];
+    $sql = "SELECT * FROM users WHERE {$key} = '{$val}'";
+    $resp = $this->client->query($sql);
+    while ($row = mysqli_fetch_array($resp)) {
+      $result_arr[] = $row;
+    }
+    return (count($result_arr)) ? $result_arr[0] : null;
   }
 
   public function edit_user($row) {
