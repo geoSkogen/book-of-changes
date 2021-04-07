@@ -13,29 +13,47 @@ if (!class_exists('BOC_User')) {
   include_once 'includes/classes/boc_user.php';
 }
 
-$err = null;
-$fields = ['u_name','p_word'];
-if (!empty($_POST)) {
+function sort_fields($post) {
+  $err_arr = array();
+  $atts_arr = array();
+  $vals_arr = array();
+  $fields = ['u_name','p_word'];
+  $placeholders = ['user name','password'];
   foreach( $fields as $field) {
-    if (!empty($_POST[$field])) {
+    if ( !empty($post) && !empty($post[$field]) ) {
+      $atts_arr[$field] = 'value';
+      $vals_arr[$field] = $post[$field];
     } else {
-      $err = array_search($field,$fields);
+      $err_arr[$field] = true;
+      //
+      $atts_arr[$field] = 'placeholder';
+      $vals_arr[$field] = $placeholders[array_search($field,$fields)];
     }
   }
+  return (object)array(
+    'atts_arr'=>$atts_arr,'vals_arr'=>$vals_arr, 'err_arr'=>$err_arr
+  );
 }
 
+$fields = sort_fields($_POST);
+$err = null;
+$result = array('resp'=>null,'err'=>null);
 $admin = new BOC_Admin();
-$db = new BOC_DB_Control();
-$user = new BOC_User('tim',$db);
 
-if (!$user->id) {
-  $user->create_user('tim','password','time@time.ti');
+if (!empty($_POST)) {
+
+  $db = new BOC_DB_Control();
+  $user = new BOC_User($_POST['u_name'],$db);
+  $token = $user->validate_user($_POST['u_name'],$_POST['p_word']);
+  print($token);
+
+} else {
+  $err = 3;
 }
 
-$token = $user->validate_user('password');
-print($token);
-
-$article = $admin->make_session_frame('index.php',$err);
+$article = $admin->make_session_frame(
+  'index.php',$err,$fields->atts_arr,$fields->vals_arr,$fields->err_arr
+);
 
 BOC_Util::do_doc_head_element(['../style/profile.css']);
 BOC_Util::do_page_header('');

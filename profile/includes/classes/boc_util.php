@@ -15,7 +15,7 @@ class BOC_Util {
       <title>
          易經 &ndash; I Ching &ndash; Book of Changes
       </title>
-      <link rel='icon' href='../resources/images/tao-75-red.png' type='image/x-icon'/ >
+      <link rel='icon' href='/book-of-changes/resources/images/tao-75-red.png' type='image/x-icon'/ >
       <link rel="stylesheet" href="/book-of-changes/style/main.css"/>
 
       <?php
@@ -57,13 +57,82 @@ class BOC_Util {
   public static function do_page_header($str) {
     ?>
     <body>
-    <header></header>
+      <div id="relshell">
+        <!-- navigation icon -->
+        <div id="nav-hex">
+          <div class="nav-hex-line"></div>
+          <div class="nav-hex-line"></div>
+          <div class="nav-hex-line"></div>
+          <div class="nav-hex-line"></div>
+          <div class="nav-hex-line"></div>
+          <div class="nav-hex-line"></div>
+        </div>
+
+        <!-- navigation menu -->
+        <div id="nav-modal-shell">
+          <div id="nav-modal">
+            <div id="close-nav-modal" class="close-modal">&laquo;</div>
+            <ul id="nav-list">
+              <li class="nav-option">
+                <a class="nav-anchor"id="build" data-display="block,none" data-opacity="10,3.3" data-decor="underline,none" href="/book-of-changes/build/">build</a>
+              </li>
+              <li class="nav-option">
+                <a class="nav-anchor" id="explore" data-display="block,none" data-opacity="10,3.3" data-decor="underline,none" href="#">explore</a>
+                <div id="subnav-modal">
+                  <ul id="explore-list" class="nav-sublist">
+                    <li class="nav-suboption">
+                      <a class="subnav-anchor explore" href="/book-of-changes/trigrams/">八卦<br/>trigrams</a>
+                    </li>
+                    <li class="nav-suboption">
+                      <a class="subnav-anchor explore" href="/book-of-changes/hexagrams/">卦<br/>hexagrams</a>
+                    </li>
+                    <li class="nav-suboption">
+                      <a class="subnav-anchor explore" href="/book-of-changes/i-ching/">易經<br/>the book</a>
+                    </li>
+                    <li class="nav-suboption">
+                      <a class="subnav-anchor explore" href="/book-of-changes/ex-machina/">貞<br/>ex machina</a>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-option">
+                <a class="nav-anchor" id="profile" data-display="block,none" data-opacity="10,3.3" data-decor="underline,none" href="#">profile</a>
+                <div id="subnav-modal">
+                  <ul id="profile-list" class="nav-sublist">
+                    <li class="nav-suboption">
+                      <a class="subnav-anchor profile" href="#">history</a>
+                    </li>
+                    <li class="nav-suboption">
+                      <a class="subnav-anchor profile" href="#">library</a>
+                    </li>
+                    <li class="nav-suboption">
+                      <a class="subnav-anchor profile" href="#">guide</a>
+                    </li>
+                    <li class="nav-suboption">
+                      <a class="subnav-anchor profile" href="#">logout</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div><!-- nav modal-->
+        </div><!-- nav modal shell -->
+
+        <!-- interpretive text modal -->
+    <?php echo $str; ?>
+
+      </div><!-- relshell end -->
+
+      <div id="app" class="flex-row flex-center">
+
     <?php
   }
 
   public static function do_page_footer($str) {
     ?>
-    <footer></footer>
+      </div> <!-- ends main app body -->
+
+    <?php echo $str; ?>
+    
     </body>
     <?php
   }

@@ -23,9 +23,9 @@ class BOC_User {
     $existing = false;
     $result = array('resp' => null, 'err' => null);
     $existing = $this->select_user($uname);
-    if ($existing) { $result['err'] = 0; return $result; }
-    $existing = $this->select_user_by_prop($email);
-    if ($existing) { $result['err'] = 1; return $result; }
+    if ($existing) { $result['err'] = 2; }
+    $existing = $this->select_user_by_prop('email',$email);
+    if ($existing) { $result['err'] = 1; }
     $sql = "INSERT INTO users (u_name,p_word,email) VALUES ('$uname','$pword','$email')";
     $resp = $this->client->query($sql);
     if ($resp) {
@@ -75,9 +75,9 @@ class BOC_User {
 
   }
 
-  public function validate_user($pword) {
+  public function validate_user($uname,$pword) {
     $result = null;
-    $resp = $this->select_user_prop('tim','p_word');
+    $resp = $this->select_user_prop($uname,'p_word');
     if ($pword===$resp) {
       $result = microtime();
     }
