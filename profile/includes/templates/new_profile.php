@@ -6,20 +6,20 @@ $new_profile->form = function ($handler_path,$err,$input_att,$input_val,$err_arr
   $names = array_keys($input_val);
   ?>
 <div id="form-wrap" class="flex-col flex-start">
-  <h1>Create a New <i>Book of Changes</i> Profile</h1>
+  <h1>new profile</h1>
   <h2>☰ | ☱ | ☲ | ☳ | ☴ | ☵ | ☶ | ☷</h2>
   <form id="new-profile-form" class="flex-col flex-start"
         action="<?php echo $handler_path; ?>" method="POST">
 
   <?php for ($i = 0 ; $i < count($names); $i++) {
-          $err = ( !empty($err_arr[$names[$i]]) ) ? 'error' : '';
+          $err_class = ( !empty($err_arr[$names[$i]]) ) ? 'error' : '';
           $att = $input_att[$names[$i]];
           $val = $input_val[$names[$i]];
           $type = ( in_array($names[$i],array_keys($types)) ) ? $types[$names[$i]] : 'text';
   ?>
     <div class="form-wrapper flex-row flex-center" id="<?php echo $names[$i]; ?>-wrap" >
       <input type="<?php echo $type; ?>" name="<?php echo $names[$i]; ?>"
-       id="new-profile-<?php echo $names[$i]; ?>" class="new-profile-input <?php echo $err; ?>"
+       id="new-profile-<?php echo $names[$i]; ?>" class="new-profile-input <?php echo $err_class; ?>"
        <?php echo $att . '="' . $val . '"'; ?> />
     </div>
 

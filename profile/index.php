@@ -41,16 +41,18 @@ $result = array('resp'=>null,'err'=>null);
 $admin = new BOC_Admin();
 
 if (!empty($_POST)) {
+  if (!count(array_keys($fields->err_arr))) {
 
-  $db = new BOC_DB_Control();
-  $user = new BOC_User($_POST['u_name'],$db);
-  $token = $user->validate_user($_POST['u_name'],$_POST['p_word']);
-  print($token);
+    $db = new BOC_DB_Control();
+    $user = new BOC_User($_POST['u_name'],$db);
+    $token = $user->validate_user($_POST['u_name'],$_POST['p_word']);
+    $nonce = ($token) ? $admin->validate_session($_POST['u_name'],$token) : null;
+    print($token);
 
-} else {
-  $err = 3;
+  } else {
+    $err = 3;
+  }
 }
-
 $article = $admin->make_session_frame(
   'index.php',$err,$fields->atts_arr,$fields->vals_arr,$fields->err_arr
 );
