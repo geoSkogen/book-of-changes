@@ -33,7 +33,7 @@ $new_profile->form = function ($handler_path,$err,$input_att,$input_val,$err_arr
   <?php
 };
 
-$new_profile->modal = function ($message_str,$err) {
+$new_profile->modal = function ($message,$err) {
   $toggle_class = (!$err) ? 'success' : 'error';
   $toggle_link = (!$err) ? 'proceed to profile' : 'try again';
   ?>
