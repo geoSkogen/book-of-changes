@@ -62,6 +62,12 @@ BOC_Util::do_page_header('');
 
 echo $article;
 
+if ($admin->logged_in) {
+  include 'includes/templates/profile.php';
+  $toggle_form = $profile->toggle_form;
+  $toggle_form($user->uname,$user->email);
+}
+
 BOC_util::do_page_footer('');
 BOC_Util::do_doc_foot_element([]);
 

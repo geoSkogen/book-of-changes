@@ -79,10 +79,14 @@ class BOC_User {
     $result = null;
     $resp = $this->select_user_prop($uname,'p_word');
     if ($pword===$resp) {
-      $result = microtime();
+      $token = microtime();
     }
-    $this->token = $result;
-    return $result;
+    $this->token = $token;
+    $user = $this->select_user($uname);
+    $this->id = $user['id'];
+    $this->uname = $user['u_name'];
+    $this->email = $user['email'];
+    return $token;
   }
 
 
