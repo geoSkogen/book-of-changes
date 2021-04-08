@@ -58,7 +58,7 @@ div.form-wrapper {
 
 
 
-input.no-button {
+.no-button {
   padding: 1em;
   margin: 0.75em;
   font-size: 20px;
@@ -68,6 +68,8 @@ input.no-button {
   border-radius: 6px;
   max-width: 200px;
   min-width: 200px;
+  text-align: center;
+  cursor: pointer;
 }
 
 a.login-anchor {
@@ -82,10 +84,14 @@ a.login-anchor {
 
  .toggle-it,
  .no-toggle {
-   font-size: 12px;
+   font-size: 14px;
    padding-top: 1em;
  }
 
  #lock-icon-wrapper {
    margin-top: -1em;
+ }
+
+ #no-form {
+   display:none;
  }

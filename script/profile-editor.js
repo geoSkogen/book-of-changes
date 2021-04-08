@@ -26,16 +26,20 @@ function toggle_input(el,arg) {
   var new_el = toggle_ops[Number(val)](text)
   var new_att = ( Number(val) ) ? '0' : '1'
   new_el.setAttribute('data-toggle',new_att)
+  new_el.id = el.id
   parent.removeChild(el)
   parent.insertBefore(new_el,sibling)
 }
 
 function init() {
   var appendix = document.querySelector('#form-appendix')
+
   if (!appendix) {
     return false;
   } else {
     var edit_links = document.querySelectorAll('.toggle-it')
+    var submit_button = document.querySelector('#no-submit')
+
     edit_links.forEach( function (edit_link) {
 
       if (edit_link.id!='lock-icon-wrapper') {
@@ -50,6 +54,26 @@ function init() {
           this.setAttribute('data-toggle',new_att)
         })
       }
+    })
+
+    submit_button.addEventListener( 'click', function (event) {
+      var toggle_els = document.querySelectorAll('.toggle-in')
+      var form = document.createElement('form')
+      var submit = document.createElement('input')
+      toggle_els.forEach( function (toggle_el) {
+        var no_in = document.createElement('input')
+        var val = (toggle_el.value) ? toggle_el.value : toggle_el.innerText
+        console.log(val)
+        no_in.value = (toggle_el.value) ? toggle_el.value : toggle_el.innerText
+        no_in.setAttribute('name',toggle_el.id)
+        form.appendChild(no_in)
+      })
+      appendix.appendChild(form)
+      form.id = 'no-form'
+      form.setAttribute('method','POST')
+      form.setAttribute('action','/book-of-changes/profile/edit/index.php')
+      form.appendChild(submit)
+      form.submit()
     })
   }
 }
