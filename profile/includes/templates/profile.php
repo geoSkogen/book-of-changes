@@ -7,13 +7,13 @@ $profile->toggle_form = function ($uname,$email) {
   <div class="flex-col flex-start">
     <h3>
       <div class="flex-row flex-between">
-        <div id="u_name" class="toggle-in" data-toggle="1"><?php echo $uname ?></div>
+        <div id="edit_u_name" class="toggle-in" data-toggle="1"><?php echo $uname ?></div>
         <a class="toggle-it" href='#update_u_name' data-toggle="1">edit</a>
       </div>
     </h3>
     <h4>
       <div class="flex-row flex-between">
-        <div id="email" class="toggle-in" data-toggle="1"><?php echo $email ?></div>
+        <div id="edit_email" class="toggle-in" data-toggle="1"><?php echo $email ?></div>
         <a class="toggle-it" href='#update_email' data-toggle="1">edit</a>
       </div>
     </h4>

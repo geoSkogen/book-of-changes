@@ -29,11 +29,19 @@ function toggle_input(el,arg) {
   new_el.id = el.id
   parent.removeChild(el)
   parent.insertBefore(new_el,sibling)
+  new_el.focus()
 }
 
 function init() {
   var appendix = document.querySelector('#form-appendix')
+  var current_toggle_els = document.querySelectorAll('.toggle-in')
+  var current_vals = {}
 
+  current_toggle_els.forEach( function (current_toggle_el) {
+    current_vals[current_toggle_el.id.replace('edit_','')] =
+      current_toggle_el.innerText
+  })
+  console.log(current_vals)
   if (!appendix) {
     return false;
   } else {
@@ -66,6 +74,12 @@ function init() {
         console.log(val)
         no_in.value = (toggle_el.value) ? toggle_el.value : toggle_el.innerText
         no_in.setAttribute('name',toggle_el.id)
+        form.appendChild(no_in)
+      })
+      Object.keys(current_vals).forEach( function (current_name) {
+        var no_in = document.createElement('input')
+        no_in.value = current_vals[current_name]
+        no_in.setAttribute('name',current_name)
         form.appendChild(no_in)
       })
       appendix.appendChild(form)

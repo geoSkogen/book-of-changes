@@ -67,8 +67,17 @@ class BOC_User {
     return (count($result_arr)) ? $result_arr[0] : null;
   }
 
-  public function edit_user($row) {
-
+  public function edit_user($assoc) {
+    $sql = "UPDATE users SET ";
+    $index = 0;
+    foreach ($assoc as $key => $val) {
+       $sql .= ($index) ? "," : "";
+       $sql .= $key . "= '{$val}'";
+       $index++;
+    }
+    $sql .= " WHERE id = {$this->id}";
+    $resp = $this->client->query($sql);
+    return $resp;
   }
 
   public function destroy_user($uname) {
@@ -79,14 +88,20 @@ class BOC_User {
     $result = null;
     $resp = $this->select_user_prop($uname,'p_word');
     if ($pword===$resp) {
-      $token = microtime();
+      $user = $this->select_user($uname);
+      if ($user['id']) {
+        $this->token = $user['id'] .':'. time();
+        $this->id = $user['id'];
+        $this->uname = $user['u_name'];
+        $this->email = $user['email'];
+        $result = $this->token;
+      } else {
+        $result = 1;
+      }
+    } else {
+      $result = 2;
     }
-    $this->token = $token;
-    $user = $this->select_user($uname);
-    $this->id = $user['id'];
-    $this->uname = $user['u_name'];
-    $this->email = $user['email'];
-    return $token;
+    return $result;
   }
 
 
