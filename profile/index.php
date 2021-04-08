@@ -52,12 +52,14 @@ if (!empty($_POST)) {
   } else {
     $err = 3;
   }
+} else {
+  $fields->err_arr = [];
 }
 $article = $admin->make_session_frame(
   'index.php',$err,$fields->atts_arr,$fields->vals_arr,$fields->err_arr
 );
-
-BOC_Util::do_doc_head_element(['../style/profile.css']);
+$title_str = ($admin->logged_in) ? 'Profile' : 'Log In';
+BOC_Util::do_doc_head_element(['../style/profile.css'],$title_str);
 BOC_Util::do_page_header('');
 
 echo $article;

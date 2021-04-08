@@ -47,7 +47,7 @@ class BOC_Admin {
           case 3 :
             $err_msg = 'some fields left blank';
           default :
-            $err_msg = 'unlisted err';
+            $err_msg = '';
         }
       }
       $inputs = '';
@@ -60,7 +60,7 @@ class BOC_Admin {
        class='login  flex-col flex-start'>";
 
       foreach(array_keys($vals_arr) as $name) {
-        $err_class = ($err_arr[$name]) ? 'error' : '';
+        $err_class = (!empty($err_arr[$name])) ? 'error' : '';
         $inputs .= "<div id='$name-err' class='form-wrapper flex-row flex-center'>";
         $inputs .= "<input type='" . $vals_arr[$name] ."' name='$name' id='login-uname' class='login-form $err_class'";
         $inputs .= $atts_arr[$name] .'="' . $vals_arr[$name] . '" /></div>';

@@ -71,11 +71,13 @@ if (!empty($_POST)) {
   $message = $messenger($_POST['u_name'],$err);
   $modal = $modaler($message,$err);
   print($message);
+} else {
+  $fields->err_arr = [];
 }
 // objectify the form template
 $templater = $new_profile->form;
 // begin document
-BOC_Util::do_doc_head_element(['../../style/profile.css']);
+BOC_Util::do_doc_head_element(['../../style/profile.css'],'Create Profile');
 BOC_Util::do_page_header($modal);
 // pass form status arguments to the template executable
 $templater('index.php',$err,$fields->atts_arr,$fields->vals_arr,$fields->err_arr);

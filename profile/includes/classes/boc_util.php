@@ -5,7 +5,7 @@ class BOC_Util {
 
   }
 
-  public static function do_doc_head_element($style_paths) {
+  public static function do_doc_head_element($style_paths,$title_str) {
     ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -13,7 +13,7 @@ class BOC_Util {
       <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
       <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
       <title>
-         易經 &ndash; I Ching &ndash; Book of Changes
+         <?php echo $title_str; ?> 易經 Book of Changes
       </title>
       <link rel='icon' href='/book-of-changes/resources/images/tao-75-red.png' type='image/x-icon'/ >
       <link rel="stylesheet" href="/book-of-changes/style/main.css"/>
@@ -132,7 +132,7 @@ class BOC_Util {
       </div> <!-- ends main app body -->
 
     <?php echo $str; ?>
-    
+
     </body>
     <?php
   }

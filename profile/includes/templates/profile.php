@@ -29,7 +29,9 @@ $profile->toggle_form = function ($uname,$email) {
   <?php
 };
 
-$profile->badge = "<div id='badge-frame'><img id='badge-img' src='/book-of-changes/resources/images/75px-Tao.svg.png' /></div>";
+$profile->badge = "<div id='badge-frame'>
+  <img id='badge-img' src='/book-of-changes/resources/images/75px-Tao.svg.png' />
+  </div>";
 
 
 

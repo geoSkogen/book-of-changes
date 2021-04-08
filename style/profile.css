@@ -2,9 +2,14 @@ h1, h2, h3, h4, h5 {
   text-align:center;
 }
 
+h1 {
+  margin: 0 0 0.5em 0;
+}
+
 h2 {
   font-weight: 700;
-  font-size: 28px;
+  font-size: 32px;
+  margin: 0 0 0.5em 0;
 }
 
 #badge-frame {
@@ -42,12 +47,19 @@ input.login-form,
   border-radius:6px;
 }
 
-div.form-error {
+div.form-wrapper {
 
 }
 
+.error {
+  border: 2px solid red;
+}
+
+
+
 input.no-button {
   padding: 1em;
+  margin: 0.75em;
   font-size: 20px;
   border: none;
   background-color: cornflowerblue;
