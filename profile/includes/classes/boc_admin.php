@@ -24,12 +24,17 @@ class BOC_Admin {
   }
 
   public function make_session_frame($handler_path,$err,$atts_arr,$vals_arr,$err_arr) {
+    include 'includes/templates/profile.php';
     $str = '';
     $err_msg = '';
     if ($this->logged_in) {
+
       $header = "<div id='profile-wrap' class='flex-col flex-start'>
-      <h1>$this->uname</h1><h2>☰ | ☱ | ☲ | ☳ | ☴ | ☵ | ☶ | ☷</h2></div>";
+      <h1 class='flex-row flex-center'>$profile->badge $this->uname</h1>
+      <h2>☰  ☱  ☲  ☳  ☴  ☵  ☶  ☷</h2></div>";
+
       $str = $header;
+
     } else {
       if (is_numeric($err)) {
         switch($err) {
@@ -47,8 +52,8 @@ class BOC_Admin {
       }
       $inputs = '';
       $header = '<div id="form-wrap" class="flex-col flex-start">
-        <h1>login</h1>
-        <h2>☰ | ☱ | ☲ | ☳ | ☴ | ☵ | ☶ | ☷</h2>';
+        <h1 class="flex-row flex-center">' . $profile->badge . 'login</h1>
+        <h2>☰  ☱  ☲  ☳  ☴  ☵  ☶  ☷</h2>';
       $form_alert = "<div id='login-alert' class=''>$err_msg</div>";
       $form_frame = (null!=$err) ? $form_alert : '';
       $form_frame .= "<form id='login-form' method='POST' action='$handler_path'

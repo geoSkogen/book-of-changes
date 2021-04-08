@@ -69,6 +69,6 @@ if ($admin->logged_in) {
 }
 
 BOC_util::do_page_footer('');
-BOC_Util::do_doc_foot_element([]);
+BOC_Util::do_doc_foot_element(['../script/nav-modal.js']);
 
 ?>

@@ -6,8 +6,13 @@ $new_profile->form = function ($handler_path,$err,$input_att,$input_val,$err_arr
   $names = array_keys($input_val);
   ?>
 <div id="form-wrap" class="flex-col flex-start">
-  <h1>new profile</h1>
-  <h2>☰ | ☱ | ☲ | ☳ | ☴ | ☵ | ☶ | ☷</h2>
+  <h1 class='flex-row flex-center'>
+    <div id='badge-frame'>
+        <img src="/book-of-changes/resources/images/75px-Tao.svg.png" />
+      </div>
+    new profile
+  </h1>
+  <h2>☰  ☱  ☲  ☳  ☴  ☵  ☶  ☷</h2>
   <form id="new-profile-form" class="flex-col flex-start"
         action="<?php echo $handler_path; ?>" method="POST">
 

@@ -1,5 +1,29 @@
-h1, h2 {
+h1, h2, h3, h4, h5 {
   text-align:center;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 28px;
+}
+
+#badge-frame {
+  padding: 0.2em;
+  margin: 0.2em;
+  background-color: white;
+  max-width: 75px;
+  min-width: 75px;
+  text-align: center;
+  border-radius: 100%;
+}
+
+#badge-img {
+
+}
+
+div#form-wrap,
+div#profile-wrap {
+  width: 100%;
 }
 
 form.login {
@@ -37,3 +61,17 @@ a.login-anchor {
   padding: 0.5;
   margin: 1em 0.25em 0 0.25em;
 }
+
+.toggle-in, .toggle-it {
+   padding: 0.5em;
+
+ }
+
+ .toggle-it {
+   font-size: 12px;
+   padding-top: 1em;
+ }
+
+ #lock-icon-wrapper {
+   margin-top: -1em;
+ }
