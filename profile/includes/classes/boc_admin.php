@@ -5,23 +5,38 @@ class BOC_Admin {
   public $email;
 
   function __construct() {
+    session_start();
     $now = time();
 
+
     $this->logged_in = (
-      ( !empty($_SESSION['login']) && !empty($_SESSION['deadline']) ) &&
-      ( !empty($_SESSION['deadline']) && ($_SESSION['deadline']-$now) > 0 )
+      !empty($_SESSION['login']) && !empty($_SESSION['deadline']) &&
+      ( ($_SESSION['deadline']-$now) > 0 )
       ) ? true : false;
   }
 
+  public function is_logged_in() {
+    $now = time();
+    $this->logged_in = (
+      !empty($_SESSION['login']) && !empty($_SESSION['deadline']) &&
+      ( ($_SESSION['deadline']-$now) > 0 )
+      ) ? true : false;
+    return $this->logged_in;
+  }
+
   public function validate_session($uname,$token) {
+    //session_start();
+    $arr = explode(':',$token);
     $_SESSION['login'] = true;
     $_SESSION['user'] = $uname;
-    $_SESSION['token'] = $token;
-    $_SESSION['deadline'] = null;
+    $_SESSION['u_id'] = $arr[0];
+    $_SESSION['deadline'] = $arr[1]+540000;
     $this->logged_in = true;
     $this->uname = $uname;
     return $_SESSION['deadline'];
   }
+
+
 
   public function make_session_frame($handler_path,$err,$atts_arr,$vals_arr,$err_arr) {
     include 'includes/templates/profile.php';

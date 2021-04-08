@@ -35,7 +35,12 @@ function sort_fields($post) {
   );
 }
 
+
 // globals - check form and login states
+
+//session_start();
+
+//$_SESSION['user'] = 'tonky the pocky';
 $fields = sort_fields($_POST);
 $err = null;
 $result = array('resp'=>null,'err'=>null);
@@ -48,8 +53,7 @@ if (!empty($_POST)) {
     $user = new BOC_User($_POST['u_name'],$db);
     $this_user = $user->validate_user($_POST['u_name'],$_POST['p_word']);
     $err = (!is_numeric($this_user)) ? $admin->validate_session($_POST['u_name'],$this_user) : $this_user;
-    print($this_user);
-
+    //print($this_user);
   } else {
     // missing fields error code
     $err = 3;
@@ -70,8 +74,10 @@ BOC_Util::do_page_header('');
 
 echo $article;
 
-if ($admin->logged_in) {
+if ($admin->is_logged_in()) {
   include 'includes/templates/profile.php';
+  $db = new BOC_DB_Control();
+  $user = new BOC_User($_SESSION['user'],$db);
   $toggle_form = $profile->toggle_form;
   $toggle_form($user->uname,$user->email);
 }
