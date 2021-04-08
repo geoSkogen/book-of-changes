@@ -7,25 +7,26 @@ $profile->toggle_form = function ($uname,$email) {
   <div class="flex-col flex-start">
     <h3>
       <div class="flex-row flex-between">
-        <div class="toggle-in"><?php echo $uname ?></div>
-        <a class="toggle-it" href='#'>edit</a>
+        <div class="toggle-in" data-toggle="1"><?php echo $uname ?></div>
+        <a class="toggle-it" href='#update_u_name' data-toggle="1">edit</a>
       </div>
     </h3>
     <h4>
       <div class="flex-row flex-between">
-        <div class="toggle-in"><?php echo $email ?></div>
-        <a class="toggle-it" href='#'>edit</a>
+        <div class="toggle-in" data-toggle="1"><?php echo $email ?></div>
+        <a class="toggle-it" href='#update_email' data-toggle="1">edit</a>
       </div>
     </h4>
     <h5>
       <div class="flex-row flex-between">
         <div class="toggle-in" id="lock-icon-wrapper">
-          <i id="hex-filter" class="fas fa-unlock-alt" data-toggle="1"></i>
+          <i id="lock-icon" class="fas fa-unlock-alt" data-toggle="1"></i>
         </div>
-        <a class="toggle-it" href='#'>change password</a>
+        <a class="no-toggle" href='#update_p_word' >change password</a>
       </div>
     </h5>
-  </dov>
+    <div id="form-appendix"></div>
+  </div>
   <?php
 };
 
