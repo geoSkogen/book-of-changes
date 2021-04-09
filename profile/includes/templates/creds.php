@@ -36,6 +36,4 @@ $creds->header = "<div id='profile-wrap' class='flex-col flex-start'>
   <h1 class='flex-row flex-center'>$creds->badge Change Password</h1>
   <h2>☰  ☱  ☲  ☳  ☴  ☵  ☶  ☷</h2></div>";
 
-
-
 ?>
