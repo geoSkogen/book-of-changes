@@ -32,11 +32,11 @@ foreach($hex_data->names_arr as $hex_name) {
 $select_ui = $users_template->select_form_fraggle;
 $begin_form = $users_template->select_form_top;
 
-$select_field_users = $select_ui($users->all,'msg_addressee','u_name');
+$select_field_users = $select_ui($users->all,'addressee','u_name');
 $select_field_hexes = $select_ui($hexes,'msg_hexagram','hex_name');
 
-$msg_form_top = $begin_form('message','../messages/new/index.php');
-$hex_form_top = $begin_form('hexmessage','../hexmessages/new/index.php');
+$msg_form_top = $begin_form('../messages/new/index.php','message');
+$hex_form_top = $begin_form('../hexmessages/new/index.php','hexmessage');
 
 $msg_modal = $msg_form_top . $users_template->close_modal . $select_field_users .
   $users_template->message_form_fraggle . $users_template->form_coda;
@@ -54,6 +54,8 @@ BOC_Util::do_page_header($modals);
 $table($users->all);
 
 BOC_util::do_page_footer('');
-BOC_Util::do_doc_foot_element(['../../script/nav-modal.js']);
+BOC_Util::do_doc_foot_element(
+  ['../../script/nav-modal.js','../../script/messenger-control.js']
+);
 
 ?>

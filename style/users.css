@@ -22,26 +22,16 @@
   border-radius: 6px;
 }
 
-#message-user,#hexmessage-user {
+.message-user,.hexmessage-user {
   padding: 0.5em;
   font-size: 24px;
-  //background-color: lightgrey;
 }
 
-#message-user {
-  border-radius: 6px 0 0 6px;
-  //color: cornflowerblue;
-}
-
-#hexmessage-user {
-  border-radius: 0 6px 6px 0;
-  //color: red;
-}
 
 .modal-form {
   z-index: 900;
   margin-top: 1em;
-  //display: none;
+  display: none;
 }
 
 .close-modal-form {

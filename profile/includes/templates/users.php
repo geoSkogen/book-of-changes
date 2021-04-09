@@ -9,10 +9,10 @@ $users_template->menu = function ($users_table) {
       <div class="flex-row flex-between user-wrapper">
         <div class="u-name-it"><?php echo $user_row['u_name']?></div>
         <div id="icons-wrapper" cllass="flex-row flex-center">
-          <a href="#message" id="message-user">
+          <a href="#message" class="message-user">
             <i class="far fa-envelope"></i>
           </a>
-          <a href="#hexmessage" id="hexmessage-user">
+          <a href="#hexmessage" class="hexmessage-user">
             <i class="fas fa-bars"></i>
           </a>
         </div>
