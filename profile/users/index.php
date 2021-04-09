@@ -38,11 +38,12 @@ $select_field_hexes = $select_ui($hexes,'msg_hexagram','hex_name');
 $msg_form_top = $begin_form('message','../messages/new/index.php');
 $hex_form_top = $begin_form('hexmessage','../hexmessages/new/index.php');
 
-$msg_modal = $msg_form_top . $select_field_users .
+$msg_modal = $msg_form_top . $users_template->close_modal . $select_field_users .
   $users_template->message_form_fraggle . $users_template->form_coda;
 
-$hex_modal = $hex_form_top . $select_field_users . $select_field_hexes .
-    $users_template->missive_form_fraggle . $users_template->form_coda;
+$hex_modal = $hex_form_top . $users_template->close_modal . $select_field_users .
+  $select_field_hexes . $users_template->missive_form_fraggle .
+  $users_template->form_coda;
 
 $modals = $msg_modal . $hex_modal;
 

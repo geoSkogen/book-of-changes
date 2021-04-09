@@ -283,3 +283,13 @@ div#subnav-modal {
   display: flex;
   justify-content: space-around;
 }
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flex-start {
+  display: flex;
+  justify-content: flex-end;
+}

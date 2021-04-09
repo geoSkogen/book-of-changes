@@ -30,6 +30,9 @@ $users_template->select_form_top = function ($handler_path,$form_name) {
 
 $users_template->form_coda = "</form>";
 
+$users_template->close_modal = "<div class='close-modal-form-wrapper flex-row flex-end'>
+  <div class='close-modal-form'>&times</div></div>";
+
 $users_template->select_form_fraggle = function ($table,$this_field_name,$key_field_name) {
   $str = "<div id='$this_field_name-wrapper' class='flex-row flex-center'>";
   $str .= "<select id='select-$this_field_name' class='chunky' name='$this_field_name' />";
@@ -46,13 +49,13 @@ $users_template->select_form_fraggle = function ($table,$this_field_name,$key_fi
 
 $users_template->message_form_fraggle =
   '<div class="flex-row flex-center">
-    <textarea id="message-body" name="msg_body" rows="4" cols="48">
+    <textarea id="message-body" name="body" rows="12" cols="32">
     </textarea>
   </div>';
 
 $users_template->missive_form_fraggle =
   '<div class="flex-row flex-center">
-    <input id="missive-text" name="msv_text" class="" />
+    <input id="missive-text" name="body" class="" />
   </div>';
 
 

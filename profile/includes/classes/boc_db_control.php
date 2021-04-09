@@ -23,8 +23,12 @@ class BOC_DB_Control {
         $table_cols['archives'] = "CREATE TABLE archives (
           id mediumint(9) NOT NULL AUTO_INCREMENT,
           hex_index mediumint(9) NOT NULL,
-          moving_lines text NOT NULL,
+          mvng_lines text NOT NULL,
           date_time varchar(64) NOT NULL,
+          post_type text NOT NULL,
+          author text NOT NULL,
+          body text NOT NULL,
+          addressee text NOT NULL,
           PRIMARY KEY(id)
         )";
         $results[] = $this->query($table_cols[$table_name]);

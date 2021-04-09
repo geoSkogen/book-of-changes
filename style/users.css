@@ -41,7 +41,13 @@
 .modal-form {
   z-index: 900;
   margin-top: 1em;
-  display: none;
+  //display: none;
+}
+
+.close-modal-form {
+  padding: 0.25em;
+  font-size: 36px;
+  font-weight: 800;
 }
 
 select.chunky {
