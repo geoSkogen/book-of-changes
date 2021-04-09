@@ -5,6 +5,26 @@ class BOC_Util {
 
   }
 
+  public function sort_fields($post,$fields,$placeholders) {
+    $err_arr = array();
+    $atts_arr = array();
+    $vals_arr = array();
+    foreach( $fields as $field) {
+      if ( !empty($post) && !empty($post[$field]) ) {
+        $atts_arr[$field] = 'value';
+        $vals_arr[$field] = $post[$field];
+      } else {
+        $err_arr[$field] = true;
+        //
+        $atts_arr[$field] = 'placeholder';
+        $vals_arr[$field] = $placeholders[array_search($field,$fields)];
+      }
+    }
+    return (object)array(
+      'atts_arr'=>$atts_arr,'vals_arr'=>$vals_arr, 'err_arr'=>$err_arr
+    );
+  }
+
   public static function do_doc_head_element($style_paths,$title_str) {
     ?>
     <!DOCTYPE html>

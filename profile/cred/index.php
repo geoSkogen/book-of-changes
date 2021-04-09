@@ -8,48 +8,29 @@ if (!class_exists('BOC_Util')) {
 if (!class_exists('BOC_DB_Control')) {
   include_once '../includes/classes/boc_db_control.php';
 }
-
 if (!class_exists('BOC_User')) {
   include_once '../includes/classes/boc_user.php';
 }
 
 include '../includes/templates/creds.php';
 
-$admin = new BOC_Admin();
-if (!$admin->is_logged_in()) {
-  //header('Location: /book-of-changes/profile/');
-}
-// incorporate into util object as static method ? use field arrs as args . . .
-function sort_fields($post) {
-  $err_arr = array();
-  $atts_arr = array();
-  $vals_arr = array();
-  $fields = ['u_name','p_word','new_p_word','renew_p_word'];
-  $placeholders = ['user name','current password','new password','re-type new password'];
-  foreach( $fields as $field) {
-    if ( !empty($post) && !empty($post[$field]) ) {
-      $atts_arr[$field] = 'value';
-      $vals_arr[$field] = $post[$field];
-    } else {
-      $err_arr[$field] = true;
-      //
-      $atts_arr[$field] = 'placeholder';
-      $vals_arr[$field] = $placeholders[array_search($field,$fields)];
-    }
-  }
-  return (object)array(
-    'atts_arr'=>$atts_arr,'vals_arr'=>$vals_arr, 'err_arr'=>$err_arr
-  );
-}
-
 // globals - check form and login states
+$util = new BOC_Util();
+$admin = new BOC_Admin();
+//$admin->get_permission(1,true,'/book-of-changes/profile/');
 
-$fields = sort_fields($_POST);
 $err = null;
 $result = array('resp'=>null,'err'=>null);
-$admin = new BOC_Admin();
-// amy submission
+$modal = '';
+
+$fields = $util->sort_fields(
+  $_POST,
+  ['u_name','p_word','new_p_word','renew_p_word'],
+  ['user name','current password','new password','re-type new password']
+);
+// procedure
 if (!empty($_POST)) {
+  // amy submission
   if (!count(array_keys($fields->err_arr))) {
     // valid fields - try login
     $db = new BOC_DB_Control();
@@ -58,18 +39,21 @@ if (!empty($_POST)) {
       array('p_word'=>$fields->$vals_arr['new_p_word'])
     );
     $result['err'] = (!$result['resp']) ? 1 : $result['err'];
+    // get the results of the update attempt
   } else {
-    $fields->err_arr = [];
+    $err = 4;
+    // some empty fields - error code is length of fields array
   }
 } else {
-  $err = 4;
+  $fields->err_arr = [];
+  // default form state - no errors
 }
-
+// DOM
 // objectify the form template
 $templater = $creds->update_form;
 // begin document
 BOC_Util::do_doc_head_element(['../../style/profile.css'],'Change Password');
-BOC_Util::do_page_header('');
+BOC_Util::do_page_header($modal);
 
 echo $creds->header;
 // pass form status arguments to the template executable

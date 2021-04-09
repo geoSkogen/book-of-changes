@@ -10,12 +10,7 @@ if (!class_exists('BOC_DB_Control')) {
 if (!class_exists('BOC_User')) {
   include_once '../includes/classes/boc_user.php';
 }
-
-$admin = new BOC_Admin();
-if (!$admin->is_logged_in()) {
-  header('Location: /book-of-changes/profile/');
-}
-
+// local function - custom validation
 function sort_fields($post) {
   $err_arr = array();
   $update_assoc = array();
@@ -44,6 +39,9 @@ function sort_fields($post) {
 }
 print_r($_POST);
 // globals - check form and login states
+$admin = new BOC_Admin();
+$admin->get_permission(1,true,'/book-of-changes/profile/');
+}
 $fields = sort_fields($_POST);
 // no empty fields
 if ( !count(array_keys($fields->err_arr)) ) {

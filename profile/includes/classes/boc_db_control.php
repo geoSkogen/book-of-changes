@@ -12,7 +12,7 @@ class BOC_DB_Control {
       if ($this->query($test_query)->num_rows>0) {
 
       } else {
-        
+
         $table_cols['users'] =  "CREATE TABLE users (
           id mediumint(9) NOT NULL AUTO_INCREMENT,
           u_name text NOT NULL,
@@ -43,7 +43,10 @@ class BOC_DB_Control {
       'DB_XTABLE'=> 'archives'
     );
     foreach($db_conn as $key => $val) {
-      DEFINE ($key, $val);
+      if ( !defined($key) ) {
+        DEFINE ($key, $val);
+      }
+
     }
   }
 

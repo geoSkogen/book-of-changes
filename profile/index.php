@@ -8,45 +8,28 @@ if (!class_exists('BOC_Util')) {
 if (!class_exists('BOC_DB_Control')) {
   include_once 'includes/classes/boc_db_control.php';
 }
-
 if (!class_exists('BOC_User')) {
   include_once 'includes/classes/boc_user.php';
 }
-// incorporate into util object as static method ? use field arrs as args . . .
-function sort_fields($post) {
-  $err_arr = array();
-  $atts_arr = array();
-  $vals_arr = array();
-  $fields = ['u_name','p_word'];
-  $placeholders = ['user name','password'];
-  foreach( $fields as $field) {
-    if ( !empty($post) && !empty($post[$field]) ) {
-      $atts_arr[$field] = 'value';
-      $vals_arr[$field] = $post[$field];
-    } else {
-      $err_arr[$field] = true;
-      //
-      $atts_arr[$field] = 'placeholder';
-      $vals_arr[$field] = $placeholders[array_search($field,$fields)];
-    }
-  }
-  return (object)array(
-    'atts_arr'=>$atts_arr,'vals_arr'=>$vals_arr, 'err_arr'=>$err_arr
-  );
-}
-
-
 // globals - check form and login states
 
 //session_start();
 
 //$_SESSION['user'] = 'tonky the pocky';
-$fields = sort_fields($_POST);
+$admin = new BOC_Admin();
+$util = new BOC_Util();
+
 $err = null;
 $result = array('resp'=>null,'err'=>null);
-$admin = new BOC_Admin();
-// amy submission
+
+$fields = $util->sort_fields(
+  $_POST,
+  ['u_name','p_word'],
+  ['user name','password']
+);
+// procedure
 if (!empty($_POST)) {
+  // amy submission
   if (!count(array_keys($fields->err_arr))) {
     // valid fields - try login
     $db = new BOC_DB_Control();
@@ -62,6 +45,7 @@ if (!empty($_POST)) {
   // default state - no submission
   $fields->err_arr = [];
 }
+// DOM
 // session frame : login/logout screen
 $article = $admin->make_session_frame(
   'index.php',$err,$fields->atts_arr,$fields->vals_arr,$fields->err_arr

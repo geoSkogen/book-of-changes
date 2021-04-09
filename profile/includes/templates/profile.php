@@ -22,7 +22,7 @@ $profile->toggle_form = function ($uname,$email) {
         <div class="" id="lock-icon-wrapper">
           <i id="lock-icon" class="fas fa-unlock-alt" data-toggle="1"></i>
         </div>
-        <a class="no-toggle" href='#update_p_word' >change password</a>
+        <a class="no-toggle" href='cred/' >change password</a>
       </div>
     </h5>
     <div class="flex-row flex-center">

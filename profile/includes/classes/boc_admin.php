@@ -11,16 +11,37 @@ class BOC_Admin {
     $this->logged_in = (
       !empty($_SESSION['login']) && !empty($_SESSION['deadline']) &&
       ( ($_SESSION['deadline']-$now) > 0 )
-      ) ? true : false;
+    );
+    $this->uname = (!empty($_SESSION['user'])) ? $_SESSION['user'] : $this->uname;
   }
 
   public function is_logged_in() {
     $now = time();
     $this->logged_in = (
       !empty($_SESSION['login']) && !empty($_SESSION['deadline']) &&
-      ( ($_SESSION['deadline']-$now) > 0 )
+      ( $_SESSION['login'] && ($_SESSION['deadline']-$now) > 0 )
       ) ? true : false;
     return $this->logged_in;
+  }
+
+  public function get_permission($level_int,$deport_bool,$uri_str) {
+    $visa = ($this->is_logged_in()) ? $_SESSION['deadline'] : null;
+    switch($level_int) {
+      case 1 :
+        // is admin . . . etc.
+        // cancel visa
+        break;
+      default :
+    }
+    if (!$visa) {
+      if ($deport_bool) {
+        header("Location: $uri_str");
+      } else {
+        die('A bell is a cup until it is struck.');
+      }
+    } else {
+      return true;
+    }
   }
 
   public function validate_session($uname,$token) {

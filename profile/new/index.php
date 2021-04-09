@@ -15,32 +15,22 @@ if (!class_exists('BOC_User')) {
 // template resource
 include '../includes/templates/new_profile.php';
 
-function sort_fields($post) {
-  $err_arr = array();
-  $atts_arr = array();
-  $vals_arr = array();
-  $fields = ['email','u_name','p_word_1','p_word_2'];
-  $placeholders = ['email address','user name','password','re-enter password'];
-  foreach( $fields as $field) {
-    if ( !empty($post) && !empty($post[$field]) ) {
-      $atts_arr[$field] = 'value';
-      $vals_arr[$field] = $post[$field];
-    } else {
-      $err_arr[$field] = true;
-      //
-      $atts_arr[$field] = 'placeholder';
-      $vals_arr[$field] = $placeholders[array_search($field,$fields)];
-    }
-  }
-  return (object)array(
-    'atts_arr'=>$atts_arr,'vals_arr'=>$vals_arr, 'err_arr'=>$err_arr
-  );
-}
+$util = new BOC_Util();
+$admin = new BOC_Admin();
 
-$fields = sort_fields($_POST);
 $err = null;
 $modal = '';
 $result = array('resp'=>null,'err'=>null);
+
+$fields = $util->sort_fields(
+  $_POST,
+  ['email','u_name','p_word_1','p_word_2'],
+  ['email address','user name','password','re-enter password']
+);
+
+if ($admin->is_logged_in()) {
+  //header('Location: /book-of-changes/profile/');
+}
 
 if (!empty($_POST)) {
   // passwords don't match
@@ -74,6 +64,7 @@ if (!empty($_POST)) {
 } else {
   $fields->err_arr = [];
 }
+// DOM
 // objectify the form template
 $templater = $new_profile->form;
 // begin document
