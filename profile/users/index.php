@@ -19,7 +19,15 @@ $db = new BOC_DB_Control();
 //$admin->get_permission(1,true,'/book-of-changes/profile/');
 $users = new BOC_Users($db);
 $table = $users_template->menu;
+$title_str = 'Users';
+
+
+BOC_Util::do_doc_head_element(['../../style/users.css'],$title_str);
+BOC_Util::do_page_header('');
+
 $table($users->all);
 
+BOC_util::do_page_footer('');
+BOC_Util::do_doc_foot_element(['../../script/nav-modal.js']);
 
 ?>
