@@ -5,9 +5,8 @@ class BOC_Admin {
   public $email;
 
   function __construct() {
-    session_start();
+    //session_start();
     $now = time();
-
 
     $this->logged_in = (
       !empty($_SESSION['login']) && !empty($_SESSION['deadline']) &&
@@ -35,8 +34,6 @@ class BOC_Admin {
     $this->uname = $uname;
     return $_SESSION['deadline'];
   }
-
-
 
   public function make_session_frame($handler_path,$err,$atts_arr,$vals_arr,$err_arr) {
     include 'includes/templates/profile.php';
