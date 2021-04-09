@@ -1,0 +1,39 @@
+#users-menu {
+  margin-top: 2em;
+}
+
+.user-row {
+  padding: 0.75em 0.5em 0 0.25em;;
+  border: 4px solid grey;
+  border-radius: 6px;
+  margin: 0.25em;
+  color: lightgrey;
+  max-width: 300px;
+  min-width: 300px;
+}
+
+.u-name-it {
+  font-size: 20px;
+  padding: 0.5em;
+  margin-top: -0.25em;
+}
+
+.user-wrapper {
+  border-radius: 6px;
+}
+
+#message-user,#hexmessage-user {
+  padding: 0.5em;
+  font-size: 24px;
+  //background-color: lightgrey;
+}
+
+#message-user {
+  border-radius: 6px 0 0 6px;
+  //color: cornflowerblue;
+}
+
+#hexmessage-user {
+  border-radius: 0 6px 6px 0;
+  //color: red;
+}
