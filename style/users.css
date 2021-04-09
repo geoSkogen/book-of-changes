@@ -37,3 +37,44 @@
   border-radius: 0 6px 6px 0;
   //color: red;
 }
+
+.modal-form {
+  z-index: 900;
+  margin-top: 1em;
+  display: none;
+}
+
+select.chunky {
+  padding: 0.33em;
+  margin: 0.66em;
+  font-size: 16px;
+  background-color: lightsteelblue;
+  color: steelblue;
+  font-weight: 800;
+  border-radius: 6px;
+  opacity: 0.66;
+}
+
+#select-msg_hexagram {
+  max-width: 320px;
+  text-align: center;
+}
+
+option.choose {
+  border-radius: 6px;
+  padding: 0.33em;
+  font-weight: 800;
+}
+
+#message-body,#missive-text {
+  border-radius: 6px;
+  font-size: 16px;
+  color:steelblue;
+  font-weight: 800;
+  opacity: 0.66;
+  padding: 0.33em;
+}
+
+#message-body {
+  font-family: Helvetica,Arial,sans-serif;
+}

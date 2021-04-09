@@ -21,7 +21,41 @@ $users_template->menu = function ($users_table) {
 <?php } ?>
   </div>
 <?php
-}
+};
+
+$users_template->select_form_top = function ($handler_path,$form_name) {
+  $str = "<form id='$form_name-modal' class='modal-form' method='POST' action=$handler_path>";
+  return $str;
+};
+
+$users_template->form_coda = "</form>";
+
+$users_template->select_form_fraggle = function ($table,$this_field_name,$key_field_name) {
+  $str = "<div id='$this_field_name-wrapper' class='flex-row flex-center'>";
+  $str .= "<select id='select-$this_field_name' class='chunky' name='$this_field_name' />";
+  foreach ($table as $row) {
+    $this_nickname = ( !empty($row[$key_field_name]) ) ?
+      $row[$key_field_name] : null;
+    $str .= ($this_nickname) ?
+      "<option class='choose' value='$this_nickname' >$this_nickname</option>" : '';
+  }
+  $str .= "</select>";
+  $str .= '</div>';
+  return $str;
+};
+
+$users_template->message_form_fraggle =
+  '<div class="flex-row flex-center">
+    <textarea id="message-body" name="msg_body" rows="4" cols="48">
+    </textarea>
+  </div>';
+
+$users_template->missive_form_fraggle =
+  '<div class="flex-row flex-center">
+    <input id="missive-text" name="msv_text" class="" />
+  </div>';
+
+
 
 
 ?>
