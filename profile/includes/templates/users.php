@@ -9,10 +9,10 @@ $users_template->menu = function ($users_table) {
       <div class="flex-row flex-between user-wrapper">
         <div class="u-name-it"><?php echo $user_row['u_name']?></div>
         <div id="icons-wrapper" cllass="flex-row flex-center">
-          <a href="#message" class="message-user">
+          <a href="#" class="message-user">
             <i class="far fa-envelope"></i>
           </a>
-          <a href="#hexmessage" class="hexmessage-user">
+          <a href="#" class="hexmessage-user">
             <i class="fas fa-bars"></i>
           </a>
         </div>
@@ -28,7 +28,9 @@ $users_template->select_form_top = function ($handler_path,$form_name) {
   return $str;
 };
 
-$users_template->form_coda = "</form>";
+$users_template->form_coda = "<div class='flex-row flex-center'>
+  <input type='submit' value='send' class='no-button' /></div>
+  </form>";
 
 $users_template->close_modal = "<div class='close-modal-form-wrapper flex-row flex-end'>
   <div class='close-modal-form'>&times</div></div>";
@@ -49,13 +51,13 @@ $users_template->select_form_fraggle = function ($table,$this_field_name,$key_fi
 
 $users_template->message_form_fraggle =
   '<div class="flex-row flex-center">
-    <textarea id="message-body" name="body" rows="12" cols="32">
+    <textarea id="message-body" name="body" class="send-body" rows="12" cols="32" >
     </textarea>
   </div>';
 
 $users_template->missive_form_fraggle =
   '<div class="flex-row flex-center">
-    <input id="missive-text" name="body" class="" />
+    <input id="missive-text" name="body" class="send-body" />
   </div>';
 
 

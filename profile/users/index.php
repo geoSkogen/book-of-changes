@@ -35,8 +35,8 @@ $begin_form = $users_template->select_form_top;
 $select_field_users = $select_ui($users->all,'addressee','u_name');
 $select_field_hexes = $select_ui($hexes,'msg_hexagram','hex_name');
 
-$msg_form_top = $begin_form('../messages/new/index.php','message');
-$hex_form_top = $begin_form('../hexmessages/new/index.php','hexmessage');
+$msg_form_top = $begin_form('../archives/new/index.php','message');
+$hex_form_top = $begin_form('../archives/new/index.php','hexmessage');
 
 $msg_modal = $msg_form_top . $users_template->close_modal . $select_field_users .
   $users_template->message_form_fraggle . $users_template->form_coda;

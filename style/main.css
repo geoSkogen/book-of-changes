@@ -259,6 +259,20 @@ div#subnav-modal {
   margin-top: 0.65em;
 }
 
+.no-button {
+  padding: 1em;
+  margin: 0.75em;
+  font-size: 20px;
+  border: none;
+  background-color: cornflowerblue;
+  color: lightgrey;
+  border-radius: 6px;
+  max-width: 200px;
+  min-width: 200px;
+  text-align: center;
+  cursor: pointer;
+}
+
 .flex-row {
   display: flex;
   flex-flow: row wrap;

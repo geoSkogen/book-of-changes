@@ -29,15 +29,17 @@
 
 
 .modal-form {
-  z-index: 900;
+  z-index: 950;
   margin-top: 1em;
   display: none;
 }
 
 .close-modal-form {
-  padding: 0.25em;
+  padding: 0.33em;
   font-size: 36px;
   font-weight: 800;
+  cursor: pointer;
+  z-index: 1050;
 }
 
 select.chunky {
@@ -49,6 +51,7 @@ select.chunky {
   font-weight: 800;
   border-radius: 6px;
   opacity: 0.66;
+  z-index: 1050;
 }
 
 #select-msg_hexagram {
@@ -69,8 +72,15 @@ option.choose {
   font-weight: 800;
   opacity: 0.66;
   padding: 0.33em;
+  z-index: 1000;
 }
 
 #message-body {
   font-family: Helvetica,Arial,sans-serif;
+}
+
+.no-button {
+  max-width: 100px;
+  min-width: 100px;
+  padding: 0.75em;
 }
