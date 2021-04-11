@@ -1,11 +1,15 @@
 <?php
 class BOC_Admin {
+
   public $logged_in;
   public $uname;
   public $email;
+  public $token;
 
   function __construct() {
-    //session_start();
+    if (!session_id() ) {
+     session_start();
+    }
     $now = time();
 
     $this->logged_in = (
