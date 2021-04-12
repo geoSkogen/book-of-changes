@@ -1,10 +1,10 @@
 
-.archive-list,.row-wrapper {
+.row-wrapper {
   width: 100%;
 }
 
 .archive-list {
-  margin-top: 2em;
+  margin-top: 3em;
 }
 
 .fraggle,
@@ -25,18 +25,20 @@
 }
 
 .label-fraggle {
-  margin: 0 1em;
+  margin: 0 0.5em;
   text-decoration: underline;
 }
 
 .author {
-  max-width: 40px;
-  min-width: 40px;
-  margin-left: 1em;
+  max-width: 128px;
+  min-width: 72px;
+  margin-left: 0.5em;
 }
 
 .hex_char {
   font-size: 24px;
+  text-align: center;
+  padding: 0 0.5em;
 }
 
 .body {
@@ -45,7 +47,8 @@
 }
 
 .date_time {
-  min-width: 60px;
-  max-width: 60px;
+  min-width: 128px;
+  max-width: 72px;
   //margin-right: 2em;
+  text-align: right;
 }
