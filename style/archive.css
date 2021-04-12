@@ -1,0 +1,51 @@
+
+.archive-list,.row-wrapper {
+  width: 100%;
+}
+
+.archive-list {
+  margin-top: 2em;
+}
+
+.fraggle,
+.label-fraggle {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0.5em;
+}
+
+.msg-icon {
+  font-size: 24px;
+}
+
+.table-labels-wrapper,
+.row-wrapper,
+.message-wrapper {
+  width: 100%;
+}
+
+.label-fraggle {
+  margin: 0 1em;
+  text-decoration: underline;
+}
+
+.author {
+  max-width: 40px;
+  min-width: 40px;
+  margin-left: 1em;
+}
+
+.hex_char {
+  font-size: 24px;
+}
+
+.body {
+  max-width: 76px;
+  min-width: 76px;
+}
+
+.date_time {
+  min-width: 60px;
+  max-width: 60px;
+  //margin-right: 2em;
+}

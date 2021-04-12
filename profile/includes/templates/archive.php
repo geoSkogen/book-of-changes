@@ -10,21 +10,28 @@ $archive_template->archive_table = function ($table) {
     'author','hex_char','body','date_time',
   ];
   ?>
-  <div id='user-archive' class='archive-list flex-col flex-start'>
+  <div id='message-archive' class='archive-list flex-col flex-start'>
+    <div class="row-wrapper flex-row flex-center">
+      <div class="table-labels-wrapper flex-row flex-between">
+        <div class="label-fraggle">from</div>
+
+        <div class="label-fraggle">when</div>
+      </div>
+    </div>
   <?php
   foreach($table as $row) {
     $row_class = (!empty($row['post_type'])) ? $row['post_type'] . '-row'  : 'no-row';
   ?>
-    <div class="flex-row flex-center">
-      <div class="message-wrapper">
+    <div class="row-wrapper flex-row flex-center">
+      <div class="message-wrapper flex-row flex-between">
         <?php
         foreach ($archive_props as $prop) {
 
           $content = (!empty($row[$prop])) ? $row[$prop] : '';
-          $class = $prop . '-fraggle';
+          $class = $prop . ' fraggle';
           if ($prop==='hex_char') {
             $content = (!empty($row['hex_index'])) ?
-              $hex_data->chars_arr[$row['hex_index']] : '';
+              $hex_data->chars_arr[$row['hex_index']] : "<i class='fas fa-envelope-open-text msg-icon'></i>";
           }
           ?>
           <div class="<?php echo $class; ?>"><?php echo $content; ?></div>

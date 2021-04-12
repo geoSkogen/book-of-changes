@@ -34,7 +34,7 @@ $modal = '';
 $result = array('resp'=>null,'err'=>null);
 $title_str = 'Your Archive';
 //print_r($archives->addressed);
-BOC_Util::do_doc_head_element(['../../style/profile.css'],$title_str);
+BOC_Util::do_doc_head_element(['../../style/archive.css'],$title_str);
 BOC_Util::do_page_header('');
 
 if (!$err) {
