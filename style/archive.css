@@ -1,6 +1,10 @@
 
 .row-wrapper {
   width: 100%;
+  border: 2px solid lightgrey;
+  border-radius: 6px;
+  margin: 0.25em 0;
+
 }
 
 .archive-list {
@@ -22,10 +26,11 @@
 .row-wrapper,
 .message-wrapper {
   width: 100%;
+  border-radius: 6px;
 }
 
 .label-fraggle {
-  margin: 0 0.5em;
+  margin: 0.5em;
   text-decoration: underline;
 }
 
