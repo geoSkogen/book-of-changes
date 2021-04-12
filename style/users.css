@@ -42,7 +42,8 @@
   z-index: 1050;
 }
 
-select.chunky {
+select.chunky,
+.no-button {
   padding: 0.33em;
   margin: 0.66em;
   font-size: 16px;

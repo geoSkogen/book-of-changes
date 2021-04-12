@@ -31,27 +31,26 @@ $fields = $util->sort_fields(
   ['number','hexagram','to','message','moving lines']
 );
 
-//$admin->get_permission(1,true,'/book-of-changes/profile/');
+$redir_uri = (empty($fields->err_arr['hex_index'])) ? '' : 'profile/';
+$redir_arg = '?inv=0';
+$admin->get_permission(1,true,"/book-of-changes/$redir_uri$arg");
+
 if (!empty($_POST)) {
-
+  // a message, etc. can't exist without an addressee --
   if (empty($fields->err_arr['addressee'])) {
-
+    // none of the forms posting to this API address is identical -
+    // the presence of cetain fields in the post superglobal indicates its type
     $type = ( empty($fields->err_arr['msg_hexagram']) ) ?
       'hexmsg' :  ( empty($fields->err_arr['hex_index']) ) ?
       'hexagram' : 'txtmsg';
-
-    $hex_index = ( empty($fields->err_arr['msg_hexagram']) ) ?
-      array_search($fields->vals_arr['msg_hexagram'],$hex_data->names_arr) :
-      ( empty($fields->err_arr['hex_index']) ) ? $fields->vals_arr['hex_index'] : 0;
-
+    // users select hex by name - its number is looked up
+    $hex_index = ( empty($fields->err_arr['hex_index']) ) ?
+      $fields->vals_arr['hex_index'] : 0;
+    //
     $moving_lines = ( empty($fields->err_arr['mvng_lines']) ) ?
        $fields->vals_arr['mvng_lines'] : [];
 
-    $addressee = ( empty($fields->err_arr['addressee']) ) ?
-      $fields->vals_arr['addressee'] : '';
-
-    $body = ( empty($fields->err_arr['body']) ) ? $fields->vals_arr['body'] : '';
-
+    // instatiate the object and database table row
     $archive = new BOC_Archive(
       $hex_index,
       $_SESSION['user'],
@@ -61,8 +60,9 @@ if (!empty($_POST)) {
       $moving_lines,
       $db_client
     );
+
     if ($archive) {
-      header("Location: /book-of-changes/profile/users/?resp=$ype");
+      header("Location: /book-of-changes/profile/users/?resp=$type");
     }  else {
       header("Location: /book-of-changes/profile/users/?inv=-1");
     }
@@ -72,8 +72,5 @@ if (!empty($_POST)) {
 } else {
   header("Location: /book-of-changes/profile/users/");
 }
-
-
-
 
 ?>

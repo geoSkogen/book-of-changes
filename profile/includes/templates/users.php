@@ -38,11 +38,14 @@ $users_template->close_modal = "<div class='close-modal-form-wrapper flex-row fl
 $users_template->select_form_fraggle = function ($table,$this_field_name,$key_field_name) {
   $str = "<div id='$this_field_name-wrapper' class='flex-row flex-center'>";
   $str .= "<select id='select-$this_field_name' class='chunky' name='$this_field_name' />";
+  $count = 1;
   foreach ($table as $row) {
     $this_nickname = ( !empty($row[$key_field_name]) ) ?
       $row[$key_field_name] : null;
+    $value = ($this_field_name==='addressee') ? $this_nickname : $count;
     $str .= ($this_nickname) ?
-      "<option class='choose' value='$this_nickname' >$this_nickname</option>" : '';
+      "<option class='choose' value='$value' >$this_nickname</option>" : '';
+    $count++;
   }
   $str .= "</select>";
   $str .= '</div>';

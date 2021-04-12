@@ -13,9 +13,9 @@ if (!class_exists('BOC_User')) {
 }
 // globals - check form and login states
 
-//session_start();
+//
 
-//$_SESSION['user'] = 'tonky the pocky';
+//$_SESSION['user'] = 'tim';
 $admin = new BOC_Admin();
 $util = new BOC_Util();
 
