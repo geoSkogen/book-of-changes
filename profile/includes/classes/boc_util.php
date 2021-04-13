@@ -9,6 +9,7 @@ class BOC_Util {
     $err_arr = array();
     $atts_arr = array();
     $vals_arr = array();
+    //print_r($post);
     foreach( $fields as $field) {
       if ( !empty($post) && !empty($post[$field]) ) {
         $atts_arr[$field] = 'value';

@@ -38,10 +38,10 @@ class BOC_Archive {
     }
     $sql = "INSERT INTO archives ($prop_str) VALUES ($vals_str)";
     $resp = $this->client->query($sql);
-    print_r($sql);
+    //print_r($sql);
     if ($resp) {
       $result =  $resp;
-      print_r($resp);
+      //print_r($resp);
     }
     return $result;
   }

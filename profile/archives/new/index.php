@@ -33,20 +33,23 @@ $fields = $util->sort_fields(
 
 $redir_uri = (empty($fields->err_arr['hex_index'])) ? '' : 'profile/';
 $redir_arg = '?inv=0';
-$admin->get_permission(1,true,"/book-of-changes/$redir_uri$arg");
+$admin->get_permission(1,true,"/book-of-changes/$redir_uri$redir_arg");
 
 if (!empty($_POST)) {
   // a message, etc. can't exist without an addressee --
   if (empty($fields->err_arr['addressee'])) {
     // none of the forms posting to this API address is identical -
     // the presence of cetain fields in the post superglobal indicates its type
-    $type = ( empty($fields->err_arr['msg_hexagram']) ) ?
-      'hexmsg' :  ( empty($fields->err_arr['hex_index']) ) ?
-      'hexagram' : 'txtmsg';
-    // users select hex by name - its number is looked up
-    $hex_index = ( empty($fields->err_arr['hex_index']) ) ?
-      $fields->vals_arr['hex_index'] : 0;
-    //
+    $type = 'txtmsg';
+    if (is_numeric($fields->vals_arr['msg_hexagram']) && intval($fields->vals_arr['msg_hexagram']) > 0 ) {
+      $hex_index = $fields->vals_arr['msg_hexagram'];
+      $type = 'hexmsg';
+    }
+    if (is_numeric($fields->vals_arr['hex_index']) && intval($fields->vals_arr['msg_hexagram']) > 0 ) {
+      $hex_index = $fields->vals_arr['hex_index'];
+      $type = 'hexagram';
+    }
+
     $moving_lines = ( empty($fields->err_arr['mvng_lines']) ) ?
        $fields->vals_arr['mvng_lines'] : [];
 
@@ -62,6 +65,7 @@ if (!empty($_POST)) {
     );
 
     if ($archive) {
+      //print_r($fields);
       header("Location: /book-of-changes/profile/users/?resp=$type");
     }  else {
       header("Location: /book-of-changes/profile/users/?inv=-1");

@@ -6,6 +6,7 @@ $archive_template = new stdClass;
 
 
 $archive_template->archive_table = function ($table) {
+  global $hex_data;
   $result_table = [];
   $archive_props = [
     'author','hex_char','date_time',

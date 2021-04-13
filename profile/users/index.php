@@ -28,12 +28,12 @@ foreach($hex_data->names_arr as $hex_name) {
     $hexes[] = array('hex_name'=>$hex_name);
   }
 }
-
+//print_r($hexes);
 $select_ui = $users_template->select_form_fraggle;
 $begin_form = $users_template->select_form_top;
 
 $select_field_users = $select_ui($users->all,'addressee','u_name');
-$select_field_hexes = $select_ui($hexes,'msg_hexagram','hex_index');
+$select_field_hexes = $select_ui($hexes,'msg_hexagram','hex_name');
 
 $msg_form_top = $begin_form('../archives/new/index.php','message');
 $hex_form_top = $begin_form('../archives/new/index.php','hexmessage');

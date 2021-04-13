@@ -1,4 +1,7 @@
 <?php
+
+include '../includes/records/boc_data.php';
+
 $users_template = new stdClass;
 
 $users_template->menu = function ($users_table) {
@@ -39,6 +42,7 @@ $users_template->select_form_fraggle = function ($table,$this_field_name,$key_fi
   $str = "<div id='$this_field_name-wrapper' class='flex-row flex-center'>";
   $str .= "<select id='select-$this_field_name' class='chunky' name='$this_field_name' />";
   $count = 1;
+  //print_r($table);
   foreach ($table as $row) {
     $this_nickname = ( !empty($row[$key_field_name]) ) ?
       $row[$key_field_name] : null;
