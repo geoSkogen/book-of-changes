@@ -29,9 +29,36 @@
   border-radius: 6px;
 }
 
+.message-wrapper {
+  cursor: pointer;
+  z-index: 950;
+}
+#message-modal {
+  max-width: 320px;
+  min-width: 320px;
+  z-index: 1000;
+  display: none;
+  margin-top: 2em;
+}
+
+.close-message-modal {
+  z-index: 1050;
+}
+
 .label-fraggle {
   margin: 0.5em;
   text-decoration: underline;
+}
+
+.header-fraggle {
+  margin: 0.5em;
+  font-size: 20px;
+  font-weight: 700px;
+  color: cornflowerblue;
+}
+
+.header-wrapper {
+  margin-top: 1em;
 }
 
 .author {
@@ -51,9 +78,24 @@
   min-width: 76px;
 }
 
+#body {
+  text-align: center;
+  padding: 1em;
+  margin-top: 1em;
+  background-color: lightgrey;
+  color: darkslategrey;
+  font-weight: 600;
+  width: 90%;
+  border-radius: 6px;
+}
+
 .date_time {
   min-width: 128px;
   max-width: 72px;
   //margin-right: 2em;
   text-align: right;
+}
+
+#archive-api {
+  display: none;
 }

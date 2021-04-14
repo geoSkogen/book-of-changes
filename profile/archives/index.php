@@ -30,21 +30,27 @@ $archives = new BOC_Archives($default_filter,$db_client);
 $make_table = $archive_template->archive_table;
 
 $err = ( !count($archives->addressed) ) ? 'messages not found': null;
-$modal = '';
+$modal = $archive_template->archive_modal;
 $result = array('resp'=>null,'err'=>null);
 $title_str = 'Your Archive';
 //print_r($archives->addressed);
 BOC_Util::do_doc_head_element(['../../style/archive.css'],$title_str);
-BOC_Util::do_page_header('');
+BOC_Util::do_page_header($modal);
 
 if (!$err) {
-  $make_table($archives->addressed);
+  $api_el = $make_table($archives->addressed);
 } else {
   echo $err;
 }
 
-BOC_util::do_page_footer('');
-BOC_Util::do_doc_foot_element(['../../script/nav-modal.js']);
+BOC_util::do_page_footer($api_el);
+BOC_Util::do_doc_foot_element(
+  [
+    '../../script/nav-modal.js',
+    '../../script/archive-control.js',
+    '../../resources/hex-chars.js'
+  ]
+);
 
 
 

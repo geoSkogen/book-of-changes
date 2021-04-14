@@ -3,7 +3,18 @@
 include '../includes/records/boc_data.php';
 $archive_template = new stdClass;
 
+$archive_template->archive_modal = "<div class='flex-row flex-center'><div id='message-modal'>";
+$archive_template->archive_modal .= "<div class='close-modal-wrapper flex-row flex-end'>";
+$archive_template->archive_modal .= "<div class='close-message-modal'>&times</div></div>";
 
+$archive_template->archive_modal .= "<div id='header-wrapper' class='flex-row flex-center'>";
+$archive_template->archive_modal .= "<div id='author' class='header-fraggle'></div>";
+$archive_template->archive_modal .= "<div id='hex_index' class='header-fraggle'></div>";
+$archive_template->archive_modal .= "<div id='date_time' class='header-fraggle'></div>";
+$archive_template->archive_modal .= "</div>";
+$archive_template->archive_modal .= "<div id='moving_lines' ></div>";
+$archive_template->archive_modal .= "<div id='body' ></div>";
+$archive_template->archive_modal .= "</div></div>";
 
 $archive_template->archive_table = function ($table) {
   global $hex_data;
@@ -14,6 +25,7 @@ $archive_template->archive_table = function ($table) {
   $api_props = [
    'addressee','author','body','date_time','hex_index','mvng_lines'
   ];
+  $row_index = 0;
   ?>
   <div id='message-archive' class='archive-list flex-col flex-start'>
     <div class="row-wrapper flex-row flex-center">
@@ -29,7 +41,7 @@ $archive_template->archive_table = function ($table) {
     $row_class = (!empty($row['post_type'])) ? $row['post_type'] . '-row'  : 'no-row';
   ?>
     <div class="row-wrapper flex-row flex-center">
-      <div class="message-wrapper flex-row flex-between">
+      <div id="message-<?php echo strval($row_index); ?>" class="message-wrapper flex-row flex-between">
         <?php
         foreach ($archive_props as $prop) {
 
@@ -58,10 +70,10 @@ $archive_template->archive_table = function ($table) {
     </div>
   <?php
   $result_table[] = $result_row;
+  $row_index++;
   }
-  ?>
-  <?php
-  return $result_table;
+  $result = '<div id="archive-api">' . json_encode($result_table) . '</div>';
+  return $result;
 };
 
 $archive_template->get_hex_collection = function ($index) {
