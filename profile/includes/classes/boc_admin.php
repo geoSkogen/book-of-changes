@@ -21,11 +21,11 @@ class BOC_Admin {
 
   public function is_logged_in() {
     $now = time();
-    $this->logged_in = (
+    $logged_in = (
       !empty($_SESSION['login']) && !empty($_SESSION['deadline']) &&
       ( $_SESSION['login'] && ($_SESSION['deadline']-$now) > 0 )
       ) ? true : false;
-    return $this->logged_in;
+    return $logged_in;
   }
 
   public function get_permission($level_int,$deport_bool,$uri_str) {

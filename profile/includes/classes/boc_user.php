@@ -6,6 +6,7 @@ class BOC_User {
   public $id;
   public $client;
   public $token;
+  public static $api_users_path = 'profile/includes/records/creds.php';
 
   function __construct($uname,$db_client) {
     $this->client = $db_client;

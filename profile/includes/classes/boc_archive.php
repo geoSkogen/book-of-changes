@@ -16,7 +16,7 @@ class BOC_Archive {
       'post_type','addressee','body','mvng_lines'
     ];
     $now = date("Y-m-d H:i:s");
-    $movers = implode(',', $mvrs_arr);
+    $movers = ( is_array($mvrs_arr) ) ? implode(',', $mvrs_arr) : $mvrs_arr;
     $args = [
       $id,$usr,$now,$type,$to,$msg,$movers
     ];

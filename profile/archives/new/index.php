@@ -33,6 +33,7 @@ $fields = $util->sort_fields(
 
 $redir_uri = (empty($fields->err_arr['hex_index'])) ? '' : 'profile/';
 $redir_arg = '?inv=0';
+
 $admin->get_permission(1,true,"/book-of-changes/$redir_uri$redir_arg");
 
 if (!empty($_POST)) {
