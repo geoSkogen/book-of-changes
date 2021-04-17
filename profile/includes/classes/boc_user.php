@@ -91,7 +91,7 @@ class BOC_User {
     if ($pword===$resp) {
       $user = $this->select_user($uname);
       if ($user['id']) {
-        $this->token = $user['id'] .':'. time();
+        $this->token = '#' .  $user['id'] .':'. time();
         $this->id = $user['id'];
         $this->uname = $user['u_name'];
         $this->email = $user['email'];

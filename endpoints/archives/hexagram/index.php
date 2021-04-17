@@ -30,13 +30,15 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
 
   $user = new BOC_User('',$db);
 
+  $data = json_decode(file_get_contents("php://input"),true);
+
   $fields = $util->sort_fields(
-    $_POST,
+    $data,
     ['author','addressee','body','hex_index','mvng_lines','post_type','api_user','api_key'],
     ['author','addressee','body','hex_index','mvng_lines','post_type','api_user','api_key']
   );
 
-  $str .=  ' ' . json_encode($_POST) . ' ';
+  $str .=  ' ' . json_encode($data) . ' ' . json_encode($fields);
 
   if ( empty($fields->err_arr['addressee']) && empty($fields->err_arr['hex_index']) ) {
 
@@ -47,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
         $fields->vals_arr['api_key']
       );
 
-      if ($token['resp']) {
+      if (!is_numeric($token['resp'])) {
 
         $fieds->vals_arr['post_type'] = (!empty($fieds->err_arr['post_type'])) ?
           'hexagram' : $fields->vals_arr['post_type'];
@@ -64,10 +66,14 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
           $fields->vals_arr['mvng_lines'],
           $db
         );
+        $str .= ' your hexagram was saved ';
+      } else {
+
       }
+    } else {
+      $str .= ' your session expired ';
     }
     //echo $result;
-    $str .= ' your hexagram was saved ';
     echo $str;
     die();
     //
