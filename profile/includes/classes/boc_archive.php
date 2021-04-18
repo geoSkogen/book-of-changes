@@ -7,23 +7,28 @@ class BOC_Archive {
   public $addressee;
   public $body;
   public $mvng_lines;
+  public static $post_props = [
+    'hex_index','author',
+    'post_type','addressee','body','mvng_lines'
+  ];
 
   public $client;
 
   function __construct($id,$usr,$type,$to,$msg,$mvrs_arr,$db_client) {
-    $props = [
-      'hex_index','author','date_time',
-      'post_type','addressee','body','mvng_lines'
+
+    $this->props = [
+      'hex_index','author','post_type',
+      'addressee','body','mvng_lines'
     ];
+
     $now = date("Y-m-d H:i:s");
     $movers = ( is_array($mvrs_arr) ) ? implode(',', $mvrs_arr) : $mvrs_arr;
-    $args = [
-      $id,$usr,$now,$type,$to,$msg,$movers
-    ];
+    $args = [ $id, $usr, $type,$to, $msg, $movers ];
     for ($i = 0; $i < count($args); $i++) {
-      $this->{$props[$i]} = $args[$i];
+      $this->{$this->props[$i]} = $args[$i];
     }
-    $this->props = $props;
+    //$this->props = $props;
+    $this->date_time = $now;;
     $this->client = $db_client;
     $this->create();
   }

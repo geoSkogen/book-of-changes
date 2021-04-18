@@ -24,9 +24,10 @@ $db_client = new BOC_DB_Control();
 $err = null;
 $modal = '';
 $result = array('resp'=>null,'err'=>null);
+$data = (object) $_POST;
 
 $fields = $util->sort_fields(
-  $_POST,
+  $data,
   ['hex_index','msg_hexagram','addressee','body','mvng_lines'],
   ['number','hexagram','to','message','moving lines']
 );
@@ -69,10 +70,10 @@ if (!empty($_POST)) {
       //print_r($fields);
       header("Location: /book-of-changes/profile/users/?resp=$type");
     }  else {
-      header("Location: /book-of-changes/profile/users/?inv=-1");
+      header("Location: /book-of-changes/profile/users/?inv=-no_archive");
     }
   } else {
-    header("Location: /book-of-changes/profile/users/?inv=1");
+    header("Location: /book-of-changes/profile/users/?inv=no_addressee");
   }
 } else {
   header("Location: /book-of-changes/profile/users/");

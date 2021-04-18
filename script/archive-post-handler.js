@@ -30,7 +30,7 @@ function post_archive(collection) {
       }
 
       xhttp.send( JSON.stringify(collection) )
-      console.log( JSON.stringify(collection) )
+      //console.log( JSON.stringify(collection) )
     } else {
       resp = "to validate a null tuple, assign it an empty string for a value"
       //console.log(resp)
@@ -53,5 +53,5 @@ folder_icon.addEventListener('click', function (event) {
     'api_key' : 'etakeH#333'
   }
   result = post_archive(collection)
-  console.log(result)
+  //console.log(result)
 })
