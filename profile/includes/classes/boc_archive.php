@@ -41,6 +41,7 @@ class BOC_Archive {
       $vals_str .= (array_search($prop,$this->props)) ? "," : "";
       $vals_str .= "'" . $this->{$prop} . "'";
     }
+    $vals_str.= ",'" . $this->date_time . "'";
     $sql = "INSERT INTO archives ($prop_str) VALUES ($vals_str)";
     $resp = $this->client->query($sql);
     //print_r($sql);

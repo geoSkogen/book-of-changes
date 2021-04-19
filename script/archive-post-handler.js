@@ -38,20 +38,41 @@ function post_archive(collection) {
   return resp
 }
 
-var folder_icon = document.querySelector('#hex-archive')
-folder_icon.addEventListener('click', function (event) {
-  var result = {}
+function sort_archive_fields(post_body) {
+  var post_body = ( document.querySelector('#archive-body') ) ?
+    document.querySelector('#archive-body').value : ''
   var collection = {
     // test data
-    'addressee' : 'tom',
+    'addressee' : 'self',
     'author': 'self',
-    'body': 'test post',
-    'hex_index': '65',
-    'mvng_lines' : '1,2,3,4,5',
+    'body': post_body,
+    'hex_index': library.get_hex_index(hex_builder.this_hex),
+    'mvng_lines' : hex_builder.moving_lines.join(','),
     'post_type' : 'txtmsg',
     'api_user' : 'archive_bot_1',
     'api_key' : 'etakeH#333'
   }
-  result = post_archive(collection)
+  return collection
+}
+
+function open_messenger_modal() {
+  document.querySelector('#post-tooltip').style.display = 'block'
+}
+
+function close_messenger_modal() {
+  document.querySelector('#post-tooltip').style.display = 'none'
+}
+
+var folder_icon = document.querySelector('#hex-archive')
+var msg_modal_closer = document.querySelector('#close-msg-modal')
+var msg_submitter = document.querySelector('#post-msg')
+
+msg_modal_closer.addEventListener('click', close_messenger_modal)
+
+folder_icon.addEventListener('click', open_messenger_modal)
+
+msg_submitter.addEventListener('click', function () {
+  var collection = sort_archive_fields()
+  var result = post_archive(collection)
   //console.log(result)
 })
