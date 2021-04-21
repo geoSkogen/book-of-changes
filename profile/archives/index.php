@@ -29,8 +29,6 @@ $archives = new BOC_Archives($default_filter,$db_client);
 
 $make_table = $archive_template->archive_table;
 
-$footer_injectables = $archive_template->$footer_icons . $api_el;
-
 $err = ( !count($archives->addressed) ) ? 'messages not found': null;
 $modal = $archive_template->archive_modal;
 $result = array('resp'=>null,'err'=>null);
@@ -43,7 +41,10 @@ if (!$err) {
   $api_el = $make_table($archives->addressed);
 } else {
   echo $err;
+  $api_el = '';
 }
+
+$footer_injectables = $archive_template->footer_icons . $api_el;
 
 BOC_util::do_page_footer($footer_injectables);
 BOC_Util::do_doc_foot_element(
@@ -52,7 +53,6 @@ BOC_Util::do_doc_foot_element(
     '../../script/nav-modal.js',
     '../../script/archive-control.js',
     '../../script/archive-control.js',
-
   ]
 );
 

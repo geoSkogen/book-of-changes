@@ -52,6 +52,7 @@ $archive_template->archive_table = function ($table) {
             $content = (!empty($row['hex_index'])) ?
               $hex_data->chars_arr[$row['hex_index']] : "<i class='fas fa-envelope-open-text msg-icon'></i>";
           }
+          
           if ($prop==='date_time') {
             $cron_arr = explode(' ',$row[$prop]);
             $date_arr = explode('-',$cron_arr[0]);
@@ -76,7 +77,7 @@ $archive_template->archive_table = function ($table) {
   return $result;
 };
 
-$archive_template->$footer_icons =
+$archive_template->footer_icons =
 "<div id='footer-wrap' class='flex-row flex-between'>
     <i id='hex-new-item' class='fas fa-plus' data-toggle='1'></i>
     <i id='hex-filter' class='fas fa-filter' data-toggle='1'></i>

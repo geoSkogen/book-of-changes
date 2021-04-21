@@ -37,6 +37,7 @@ class BOC_Archive {
     $result = null;
     $prop_str = implode(',',$this->props);
     $vals_str = '';
+    $prop_str .= ',date_time';
     foreach( $this->props as $prop ) {
       $vals_str .= (array_search($prop,$this->props)) ? "," : "";
       $vals_str .= "'" . $this->{$prop} . "'";
