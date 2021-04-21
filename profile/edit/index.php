@@ -23,7 +23,7 @@ function sort_fields($post) {
       $vals_arr[$field] = $post[$field];
       // and in the first half of the form only -
       if ( array_search($field,$fields) < (count($fields)/2) ) {
-        // check if the vals in the second haf don't match
+        // check if the vals in the second half don't match
         if ($post[$field]!=$post['edit_'.$field]) {
           // then add them to the values for the db query
           $update_assoc[$field] = $post['edit_'.$field];
@@ -37,12 +37,12 @@ function sort_fields($post) {
     'vals_arr'=>$vals_arr, 'err_arr'=>$err_arr, 'update_assoc'=>$update_assoc
   );
 }
-print_r($_POST);
+//print_r($_POST);
 // globals - check form and login states
 $admin = new BOC_Admin();
 $admin->get_permission(1,true,'/book-of-changes/profile/');
 }
-$fields = sort_fields($_POST);
+$fields = sort_fields( (object )$_POST);
 // no empty fields
 if ( !count(array_keys($fields->err_arr)) ) {
 

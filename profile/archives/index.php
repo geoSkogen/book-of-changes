@@ -20,7 +20,7 @@ include '../includes/templates/archive.php';
 $util = new BOC_Util();
 $admin = new BOC_Admin();
 
-$admin->get_permission(1,true,'/book-of-change/profile/');
+$admin->get_permission(1,true,'/book-of-changes/profile/');
 
 $default_filter = ($_SESSION['user']) ? $_SESSION['user'] : null;
 $db_client = new BOC_DB_Control();
@@ -28,6 +28,8 @@ $db_client = new BOC_DB_Control();
 $archives = new BOC_Archives($default_filter,$db_client);
 
 $make_table = $archive_template->archive_table;
+
+$footer_injectables = $archive_template->$footer_icons . $api_el;
 
 $err = ( !count($archives->addressed) ) ? 'messages not found': null;
 $modal = $archive_template->archive_modal;
@@ -43,12 +45,14 @@ if (!$err) {
   echo $err;
 }
 
-BOC_util::do_page_footer($api_el);
+BOC_util::do_page_footer($footer_injectables);
 BOC_Util::do_doc_foot_element(
   [
+    '../../resources/hex-chars.js',
     '../../script/nav-modal.js',
     '../../script/archive-control.js',
-    '../../resources/hex-chars.js'
+    '../../script/archive-control.js',
+
   ]
 );
 

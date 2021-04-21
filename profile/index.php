@@ -23,7 +23,7 @@ $err = null;
 $result = array('resp'=>null,'err'=>null);
 
 $fields = $util->sort_fields(
-  $_POST,
+  (object) $_POST,
   ['u_name','p_word'],
   ['user name','password']
 );
@@ -35,7 +35,9 @@ if (!empty($_POST)) {
     $db = new BOC_DB_Control();
     $user = new BOC_User($_POST['u_name'],$db);
     $this_user = $user->validate_user($_POST['u_name'],$_POST['p_word']);
+
     $err = (!is_numeric($this_user)) ? $admin->validate_session($_POST['u_name'],$this_user) : $this_user;
+
     //print($this_user);
   } else {
     // missing fields error code
@@ -55,7 +57,8 @@ $title_str = ($admin->logged_in) ? 'Profile' : 'Log In';
 // begin html document
 BOC_Util::do_doc_head_element(['../style/profile.css'],$title_str);
 BOC_Util::do_page_header('');
-
+print($err);
+print($this_user);
 echo $article;
 
 if ($admin->is_logged_in()) {

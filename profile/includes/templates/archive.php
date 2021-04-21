@@ -76,8 +76,17 @@ $archive_template->archive_table = function ($table) {
   return $result;
 };
 
-$archive_template->get_hex_collection = function ($index) {
-  $collection = array();
-
-  return $collection;
-};
+$archive_template->$footer_icons =
+"<div id='footer-wrap' class='flex-row flex-between'>
+    <i id='hex-new-item' class='fas fa-plus' data-toggle='1'></i>
+    <i id='hex-filter' class='fas fa-filter' data-toggle='1'></i>
+  </div>
+  <div id='filter-menu-frame'>
+    <select id='filter-menu'>
+      <option id='hexagram-filter' class='filter-option'>my hexagrams</option>
+      <option id='txtmsg-filter' class='filter-option' selected>my messages</option>
+      <option id='hexmsg-filter' class='filter-option'>hex-messages</option>
+      <option id='user-filter' class='filter-option'>fllter by user</option>
+      <option id='user-filter' class='filter-option'>all arcives</option>
+    </select>
+  </div>";

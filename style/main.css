@@ -244,7 +244,8 @@ div#subnav-modal {
 }
 
 #hex-refresh,#hex-archive,#hex-mover,
-#hex-filter,#hex-mover-d,#lock-icon {
+#hex-filter,#hex-mover-d,#lock-icon,
+#hex-new-item {
   cursor: pointer;
   font-size: 36px;
   margin: 0.25em;
