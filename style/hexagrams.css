@@ -110,6 +110,7 @@ li.nav-option {
   font-weight: 600;
   border: 3px solid lightgrey;
   border-radius: 4.33px;
+  cursor: pointer;
 }
 
 #filter-menu:active,

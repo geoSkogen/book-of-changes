@@ -33,6 +33,7 @@
   cursor: pointer;
   z-index: 950;
 }
+
 #message-modal {
   max-width: 320px;
   min-width: 320px;
@@ -98,4 +99,73 @@
 
 #archive-api {
   display: none;
+}
+
+#messenger-body {
+  padding: 0.5em;
+  margin: 0 1em 2em 1em;
+  border-radius: 6px;
+  color: black;
+  font-weight: 600;
+  font-size: 16px;
+  border: 2px solid lightgrey;
+}
+
+#filter-menu-frame {
+  //opacity: 0.7;
+  position: relative;
+  width: 100%;
+  height: 1px;
+}
+
+#filter-menu {
+  position: absolute;
+  width: 50%;
+  right:12px;
+  top: 40px;
+  display: none;
+  padding: 0.5em;
+  font-size: 16px;
+  font-weight: 600;
+  border: 3px solid lightgrey;
+  border-radius: 4.33px;
+  background-color: black;
+  color: lightgray;
+}
+
+.filter-option {
+  padding: 0.5em;
+  background-color: black;
+  color: lightgray;
+  font-weight: 600;
+  border: 3px solid lightgrey;
+  border-radius: 4.33px;
+  cursor: pointer;
+}
+
+#filter-menu:active,
+.filter-option:active {
+  border: 3px solid cornflowerblue;
+}
+
+#user-filter-modal {
+  display:none;
+  z-index: 1200;
+  padding-top: 100px;
+}
+
+input#user-filter-field {
+  padding: 0.75em;
+  font-size: 16px;
+  border-radius: 6px;
+  font-weight: 700;
+  z-index: 1200;
+
+}
+
+button#go.no-button {
+  width: 40px;
+  min-width: 64px;
+  max-width: 64px;
+  z-index: 1200;
 }

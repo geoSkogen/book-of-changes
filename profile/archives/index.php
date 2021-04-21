@@ -30,7 +30,7 @@ $archives = new BOC_Archives($default_filter,$db_client);
 $make_table = $archive_template->archive_table;
 
 $err = ( !count($archives->addressed) ) ? 'messages not found': null;
-$modal = $archive_template->archive_modal;
+$modal = $archive_template->archive_modal . $archive_template->header_modals;
 $result = array('resp'=>null,'err'=>null);
 $title_str = 'Your Archive';
 //print_r($archives->addressed);
@@ -52,7 +52,7 @@ BOC_Util::do_doc_foot_element(
     '../../resources/hex-chars.js',
     '../../script/nav-modal.js',
     '../../script/archive-control.js',
-    '../../script/archive-control.js',
+    '../../script/archive-filter.js',
   ]
 );
 

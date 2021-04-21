@@ -52,7 +52,7 @@ $archive_template->archive_table = function ($table) {
             $content = (!empty($row['hex_index'])) ?
               $hex_data->chars_arr[$row['hex_index']] : "<i class='fas fa-envelope-open-text msg-icon'></i>";
           }
-          
+
           if ($prop==='date_time') {
             $cron_arr = explode(' ',$row[$prop]);
             $date_arr = explode('-',$cron_arr[0]);
@@ -78,16 +78,28 @@ $archive_template->archive_table = function ($table) {
 };
 
 $archive_template->footer_icons =
-"<div id='footer-wrap' class='flex-row flex-between'>
+  "<div id='footer-wrap' class='flex-row flex-between'>
     <i id='hex-new-item' class='fas fa-plus' data-toggle='1'></i>
     <i id='hex-filter' class='fas fa-filter' data-toggle='1'></i>
-  </div>
+  </div>";
+
+  $archive_template->header_modals =
+"<div id='relshell-top'/>
   <div id='filter-menu-frame'>
     <select id='filter-menu'>
-      <option id='hexagram-filter' class='filter-option'>my hexagrams</option>
-      <option id='txtmsg-filter' class='filter-option' selected>my messages</option>
-      <option id='hexmsg-filter' class='filter-option'>hex-messages</option>
-      <option id='user-filter' class='filter-option'>fllter by user</option>
-      <option id='user-filter' class='filter-option'>all arcives</option>
+      <option id='hexagram-filter' class='filter-option' value='1'>my hexagrams</option>
+      <option id='txtmsg-filter' class='filter-option' selected value='2'>my messages</option>
+      <option id='hexmsg-filter' class='filter-option' value='3'>hex-messages</option>
+      <option id='user-filter' class='filter-option' value='4' data-toggle='1'>fllter by user</option>
+      <option id='user-filter' class='filter-option' value='0'>all archives</option>
     </select>
-  </div>";
+  </div>
+  <div id='user-filter-modal'>
+    <div class='flex-row flex-center'>
+      <input id='user-filter-field' />
+    </div>
+    <div class='flex-row flex-center'>
+      <button id='go' class='no-button'>go</div>
+    </div>
+  </div>
+</div>";
