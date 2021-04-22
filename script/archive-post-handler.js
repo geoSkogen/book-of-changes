@@ -88,5 +88,5 @@ msg_submitter.addEventListener('click', function () {
   var collection = sort_archive_fields()
   var result = post_archive(collection)
   close_messenger_modal()
-  //console.log(result)
+  console.log(result)
 })

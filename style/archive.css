@@ -139,6 +139,13 @@ li.nav-option {
   color: lightgray;
 }
 
+@media screen and (min-width:900px) {
+  #filter-menu {
+    max-width: 20%;
+    min-width: 20%;
+  }
+}
+
 .filter-option {
   padding: 0.5em;
   background-color: black;

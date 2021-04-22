@@ -8,6 +8,10 @@ var tri_names_arr = [
   ['sky','creative'],['lake','joyous'],['fire','clinging'],['thunder','arousing'],['wind','gentle'],['water','abyssmal'],['mountain','stillness'],['earth','receptive']
 ]
 
+var inner_indices = [23,24,27,28,37,38,39,40,43,44,53,54]
+
+var sovereign_indices = [24,19,11,34,43,1,44,33,12,20,23,2]
+
 var hex_bin_arr = [
                "error",
                "000000",

@@ -5,12 +5,19 @@ var hexagram_menu_tabs = document.querySelectorAll('.menu-tab')
 var hex_modal = document.querySelector('#hex-modal')
 var hex_modal_closer = document.querySelector('#close-hex-modal')
 var filter_icon = document.querySelector('#hex-filter')
-var top_state = 0;
-var data_index = 0
-var menu_index = 0
-var inner_hexes = []
+var filter_menu = document.querySelector('#filter-menu')
+
+function init() {
+  set_dom()
+
+  toggle_tab('1','id-1')
+
+  toggle_hex_modal()
+}
 
 function set_dom () {
+  var data_index = 0
+  var menu_index = 0
   hex_name_arr.forEach( function (hex_names) {
     if (data_index) {
     //console.log(data_index)
@@ -56,6 +63,67 @@ function set_dom () {
         (data_index>16) ? 1 :
           0
   })
+}
+
+function filter_dom(filter_arr) {
+  var hex_frames = document.querySelectorAll('.hex-frame')
+  var these_frames = []
+  for (var i = 0; i < hex_frames.length; i++) {
+    if (filter_arr.indexOf(i+1) > -1) {
+      these_frames.push(hex_frames[i])
+    }
+  }
+  return these_frames
+}
+
+function reset_filtered_dom(els_arr) {
+  var hex_menu_index = 0;
+
+  hexagram_menus.forEach( function (menu) {
+    menu.innerHTML = ''
+  })
+  console.log(els_arr)
+
+  for(var i = 0; i < els_arr.length; i++) {
+    hexagram_menus[hex_menu_index].appendChild(els_arr[i])
+    hex_menu_index = (i>48) ? 3 : (i>32) ? 2 : (i>16) ? 1 : 0
+  }
+
+  for (var i = hex_menu_index; i < hexagram_menu_tabs.length; i++) {
+    hexagram_menu_tabs[i].style.display = 'none'
+  }
+}
+
+function reset_default_dom() {
+  hexagram_menu_tabs.forEach( function (menu_tab) {
+    menu_tab.style.display = 'block'
+  })
+  hexagram_menus.forEach( function (menu) {
+    menu.innerHTML = ''
+  })
+  set_dom()
+  toggle_tab('1','id-1')
+}
+
+function triage_hex_filter(arg) {
+  var result = []
+  var filters = [
+    null,
+    sovereign_indices,
+    inner_indices,
+    [1,2,63,64]
+  ]
+
+  reset_default_dom()
+
+  if (!isNaN(arg)) {
+    if (arg) {
+      result = filter_dom(filters[arg])
+      reset_filtered_dom(result)
+    } else {
+      reset_default_dom()
+    }
+  }
 }
 
 function inject_title_text() {
@@ -276,8 +344,8 @@ filter_icon.addEventListener('click', function (event) {
 
 hex_modal_closer.addEventListener('click',close_hex_modal)
 
-set_dom()
+filter_menu.addEventListener('change', function (event) {
+  triage_hex_filter(this.value)
+})
 
-toggle_tab('1','id-1')
-
-toggle_hex_modal()
+init()
