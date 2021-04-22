@@ -127,22 +127,12 @@
       </div>
     </div><!-- wheelframe -->
 
-    <div id="results-table" class="flex-row flex-center">
-      <div id="first-hex-name" class="hex-name">
-        <!-- hexgram title dynamic render text node 1 -->
-      </div>
-      <i id="hex-mover" class="fas fa-arrow-alt-circle-right"></i>
-      <div id="second-hex-name"  class="hex-name">
-        <!-- hexgram title dynamic render text node 2 -->
-      </div>
-    </div>
-
     <div id="post-tooltip-frame" class="flex-row flex-center">
       <div id="post-tooltip">
         <div id="close-msg-modal" class="close-modal">&laquo;</div>
-        <div id="msg-modal-title">
-          <div id="hex_char"></div>
-          <div id="name_char"></div>
+        <div id="msg-modal-title" class="flex-row flex-center">
+          <div id="hex-char"></div>
+          <div id="name-char"></div>
         </div>
         <div class="flex-row flex-center">
           <textarea id="messenger-body" rows="6" cols="32"></textarea>
@@ -150,6 +140,16 @@
         <div class="flex-row flex-center">
           <button  id="post-msg" class="no-button">send</button>
         </div>
+      </div>
+    </div>
+
+    <div id="results-table" class="flex-row flex-center">
+      <div id="first-hex-name" class="hex-name">
+        <!-- hexgram title dynamic render text node 1 -->
+      </div>
+      <i id="hex-mover" class="fas fa-arrow-alt-circle-right"></i>
+      <div id="second-hex-name"  class="hex-name">
+        <!-- hexgram title dynamic render text node 2 -->
       </div>
     </div>
 
@@ -167,6 +167,7 @@
 </body>
 <!--require global-->
 <script src="script/nav-modal.js"></script>
+<script src="resources/hex-chars.js"></script>
 <script src="script/hex-data.js"></script>
 <script src="script/hex-control.js"></script>
 <!--include local-->

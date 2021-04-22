@@ -55,12 +55,25 @@ function sort_archive_fields() {
   return collection
 }
 
+function render_messenger_header() {
+  var index = library.get_hex_index(hex_builder.this_hex)
+  if (index) {
+    document.querySelector('#hex-char').innerHTML = hex_lines_chars_arr[index]
+    document.querySelector('#name-char').innerHTML = hex_chars_table[index][0]
+  }
+}
+
 function open_messenger_modal() {
+  render_messenger_header()
   document.querySelector('#post-tooltip').style.display = 'block'
+  document.querySelector('#wheel-frame').style.opacity = '0.33'
+  document.querySelector('#second-hex').style.opacity = '0.33'
 }
 
 function close_messenger_modal() {
   document.querySelector('#post-tooltip').style.display = 'none'
+  document.querySelector('#wheel-frame').style.opacity = '1'
+  document.querySelector('#second-hex').style.opacity = '1'
 }
 
 var folder_icon = document.querySelector('#hex-archive')
@@ -74,5 +87,6 @@ folder_icon.addEventListener('click', open_messenger_modal)
 msg_submitter.addEventListener('click', function () {
   var collection = sort_archive_fields()
   var result = post_archive(collection)
+  close_messenger_modal()
   //console.log(result)
 })

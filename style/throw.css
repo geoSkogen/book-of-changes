@@ -75,3 +75,18 @@ i#hex-mover {
   width: 85px;
   margin: 0.5em 0 0.5em 0;
 }
+
+#post-msg {
+  max-width: 82px;
+  min-width: 82px;
+}
+
+#hex-char, #name-char {
+  font-size: 36px;
+  padding: 0.25em 1em;
+  font-weight: 800;
+}
+
+#post-tooltip {
+  top: -128px;
+}
