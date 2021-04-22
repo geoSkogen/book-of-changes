@@ -95,6 +95,9 @@ class BOC_Util {
             <div id="close-nav-modal" class="close-modal">&laquo;</div>
             <ul id="nav-list">
               <li class="nav-option">
+                <a class="nav-anchor"id="throw" data-display="block,none" data-opacity="10,3.3" data-decor="underline,none" href="/book-of-changes/">throw</a>
+              </li>
+              <li class="nav-option">
                 <a class="nav-anchor"id="build" data-display="block,none" data-opacity="10,3.3" data-decor="underline,none" href="/book-of-changes/build/">build</a>
               </li>
               <li class="nav-option">
@@ -120,13 +123,13 @@ class BOC_Util {
                 <div id="subnav-modal">
                   <ul id="profile-list" class="nav-sublist">
                     <li class="nav-suboption">
-                      <a class="subnav-anchor profile" href="#">history</a>
+                      <a class="subnav-anchor profile" href="/book-of-changes/profile/archives/">archives</a>
                     </li>
                     <li class="nav-suboption">
-                      <a class="subnav-anchor profile" href="#">library</a>
+                      <a class="subnav-anchor profile" href="/book-of-changes/profile/users/">message</a>
                     </li>
                     <li class="nav-suboption">
-                      <a class="subnav-anchor profile" href="#">guide</a>
+                      <a class="subnav-anchor profile" href="/book-of-changes/profile/">settings</a>
                     </li>
                     <li class="nav-suboption">
                       <a class="subnav-anchor profile" href="#">logout</a>

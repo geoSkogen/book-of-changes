@@ -1,4 +1,10 @@
 
+li.nav-option {
+    margin: 0 0.5em 0 0.5em;
+    max-width: 60px;
+    min-width: 60px;
+}
+
 .row-wrapper {
   width: 100%;
   border: 2px solid lightgrey;

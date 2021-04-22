@@ -57,8 +57,8 @@ $title_str = ($admin->logged_in) ? 'Profile' : 'Log In';
 // begin html document
 BOC_Util::do_doc_head_element(['../style/profile.css'],$title_str);
 BOC_Util::do_page_header('');
-print($err);
-print($this_user);
+//print($err);
+//print($this_user);
 echo $article;
 
 if ($admin->is_logged_in()) {
