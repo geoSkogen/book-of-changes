@@ -117,7 +117,7 @@ function triage_hex_filter(arg) {
   reset_default_dom()
 
   if (!isNaN(arg)) {
-    if (arg) {
+    if (Number(arg)) {
       result = filter_dom(filters[arg])
       reset_filtered_dom(result)
     } else {
