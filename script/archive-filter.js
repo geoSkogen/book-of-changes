@@ -30,7 +30,6 @@ go_button.addEventListener('click', function (event) {
   render_filtered_archives(el_index_arr)
   toggle_modal_block(user_filter_modal,user_filter)
   background_restore()
-
 })
 
 function toggle_modal_block(toggle_el,trigger_el) {

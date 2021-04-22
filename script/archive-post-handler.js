@@ -38,9 +38,9 @@ function post_archive(collection) {
   return resp
 }
 
-function sort_archive_fields(post_body) {
-  var post_body = ( document.querySelector('#archive-body') ) ?
-    document.querySelector('#archive-body').value : ''
+function sort_archive_fields() {
+  var post_body = ( document.querySelector('#messenger-body') ) ?
+    document.querySelector('#messenger-body').value : ''
   var collection = {
     // test data
     'addressee' : 'self',
@@ -48,7 +48,7 @@ function sort_archive_fields(post_body) {
     'body': post_body,
     'hex_index': library.get_hex_index(hex_builder.this_hex),
     'mvng_lines' : hex_builder.moving_lines.join(','),
-    'post_type' : 'txtmsg',
+    'post_type' : 'hexagram',
     'api_user' : 'archive_bot_1',
     'api_key' : 'etakeH#333'
   }
