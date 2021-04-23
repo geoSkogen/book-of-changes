@@ -6,6 +6,9 @@ var hex_modal = document.querySelector('#hex-modal')
 var hex_modal_closer = document.querySelector('#close-hex-modal')
 var filter_icon = document.querySelector('#hex-filter')
 var filter_menu = document.querySelector('#filter-menu')
+var filter_modal = document.querySelector('#filter-tooltip')
+var filter_modal_closer = document.querySelector('#close-filter-modal')
+var filter_submit = document.querySelector('#filter-submit')
 
 function init() {
   set_dom()
@@ -68,12 +71,34 @@ function set_dom () {
 function filter_dom(filter_arr) {
   var hex_frames = document.querySelectorAll('.hex-frame')
   var these_frames = []
-  for (var i = 0; i < hex_frames.length; i++) {
-    if (filter_arr.indexOf(i+1) > -1) {
-      these_frames.push(hex_frames[i])
+  if (filter_arr.length) {
+    for (var i = 0; i < hex_frames.length; i++) {
+      if (filter_arr.indexOf(i+1) > -1) {
+        these_frames.push(hex_frames[i])
+      }
     }
   }
   return these_frames
+}
+
+function filter_by_trigram(tri_index,side_index) {
+  var result = []
+  var stage_str = ''
+  var begin_slice = (side_index) ? 3 : 0
+  var end_slice = (side_index) ? 6 : 3
+  for (var i = 0; i < hex_bin_arr.length-1; i++) {
+    stage_str = hex_bin_arr[i].slice(begin_slice,end_slice)
+    if (stage_str === tri_bin_arr[tri_index]) {
+      result.push(i)
+      console.log('staged_hex_segment:')
+      console.log(stage_str)
+      console.log('selected_bin_str')
+      console.log(tri_bin_arr[tri_index])
+      console.log("pushed "+ (i).toString() +"\r\n")
+    }
+  }
+  console.log(result)
+  return result
 }
 
 function reset_filtered_dom(els_arr) {
@@ -111,20 +136,47 @@ function triage_hex_filter(arg) {
     null,
     sovereign_indices,
     inner_indices,
-    [1,2,63,64]
+    [1,2,63,64],
+    []
   ]
+  var procs = {
+    4 : function () {
+      open_trigram_filter_modal()
+    }
+  }
 
   reset_default_dom()
 
-  if (!isNaN(arg)) {
-    if (Number(arg)) {
-      result = filter_dom(filters[arg])
-      reset_filtered_dom(result)
+  if (!isNaN(arg) && filters[arg]) {
+
+    if (!filters[arg].length) {
+
+      procs[arg]()
+
     } else {
-      reset_default_dom()
+      if (Number(arg)) {
+        result = filter_dom(filters[arg])
+        reset_filtered_dom(result)
+      } else {
+        reset_default_dom()
+      }
     }
   }
 }
+
+
+function open_trigram_filter_modal() {
+  app_shell.style.opacity = '0.33'
+  filter_menu.style.opacity = '0.16'
+  filter_modal.style.display = 'block'
+}
+
+function close_trigram_filter_modal() {
+  app_shell.style.opacity = '1'
+  filter_menu.style.opacity = '1'
+  filter_modal.style.display = 'none'
+}
+
 
 function inject_title_text() {
   var id_arr = (window.location.href.split('#/')[1]) ?
@@ -346,6 +398,17 @@ hex_modal_closer.addEventListener('click',close_hex_modal)
 
 filter_menu.addEventListener('change', function (event) {
   triage_hex_filter(this.value)
+})
+
+filter_modal_closer.addEventListener('click', close_trigram_filter_modal)
+
+filter_submit.addEventListener('click',function (event) {
+  var trigram_select = document.querySelector('#select-trigram')
+  var hex_side_select = document.querySelector('#select-hex-segment')
+  var hex_indices_arr = filter_by_trigram(trigram_select.value,hex_side_select.value)
+  var els_arr = filter_dom(hex_indices_arr)
+  reset_filtered_dom(els_arr)
+  close_trigram_filter_modal()
 })
 
 init()
