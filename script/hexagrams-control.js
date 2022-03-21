@@ -1,5 +1,6 @@
 'use strict'
 
+
 var hexagram_menus = document.querySelectorAll('.hexagram-menu')
 var hexagram_menu_tabs = document.querySelectorAll('.menu-tab')
 var hex_modal = document.querySelector('#hex-modal')
@@ -117,9 +118,15 @@ function reset_filtered_dom(els_arr) {
   for (var i = hex_menu_index; i < hexagram_menu_tabs.length; i++) {
     hexagram_menu_tabs[i].style.display = 'none'
   }
+
+  document.querySelector('#hexagram-menu-tabs').style.display = 'none'
+  document.querySelectorAll('.hexagram-menu').forEach( (menu) => {
+    menu.style.marginTop = '4.25em';
+  })
 }
 
 function reset_default_dom() {
+  document.querySelector('#hexagram-menu-tabs').style.display = 'flex'
   hexagram_menu_tabs.forEach( function (menu_tab) {
     menu_tab.style.display = 'block'
   })
