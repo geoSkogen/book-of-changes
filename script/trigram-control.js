@@ -153,10 +153,29 @@ function render_modal_text(collection) {
   }
 }
 
+function raise_light(n) {
+  hex_modal.style.opacity = n
+  app_shell.style.opacity = 1-n
+  n+=0.1
+  return n
+}
+
 function open_hex_modal() {
-  hex_modal.style.display = 'block'
-  app_shell.style.opacity = 0.33
-  tri_assembler.icon.style.display = 'none'
+  var n = 0
+  var appear
+  setTimeout( function() {
+      hex_modal.style.display = 'block'
+      hex_modal.style.opacity = '0'
+      appear = setInterval( function () {
+
+        n = raise_light(n)
+        if (n>=1) {
+          clearInterval(appear)
+        }
+      }, 21.32)
+      app_shell.style.opacity = 0.33
+      tri_assembler.icon.style.display = 'none'
+  }, 500 )
 }
 
 function close_hex_modal() {
