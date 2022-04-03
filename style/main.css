@@ -58,12 +58,16 @@ div#app {
 
 #hex-modal {
   display: none;
-  z-index: 850;
+  z-index: 1200;
+}
+
+a#hex-modal-content {
+  z-index: 1200;
 }
 
 .hex-modal-content {
   margin: 0.5em 0.25em 0 0.25em;
-  z-index: 875;
+  z-index: 1200;
 }
 
 .meta-col-tab {
@@ -210,6 +214,7 @@ ul#nav-list {
   width: 100%;
   padding: 0 0 0 0;
   margin: 0 0 0 0;
+  z-index: 1150;
 }
 
 li.nav-option {

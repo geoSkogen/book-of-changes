@@ -1,18 +1,24 @@
 'use strict'
 
-var tri_bin_arr = [
+/**
+*  Exports arrays:
+*    tri_bin_arr, tri_names_arr, inner_indices, sovereign_indices, hex_bin_arr, hex_name_arr, purports_inner, purports_outer, moving_lines_inner, moving_lines_outer
+*  Data queries are handled by hex-control.library
+*/
+
+const tri_bin_arr = [
   '111','110','101','100','011','010','001','000'
 ]
 
-var tri_names_arr = [
+const tri_names_arr = [
   ['sky','creative'],['lake','joyous'],['fire','clinging'],['thunder','arousing'],['wind','gentle'],['water','abyssmal'],['mountain','stillness'],['earth','receptive']
 ]
 
-var inner_indices = [23,24,27,28,37,38,39,40,43,44,53,54]
+const inner_indices = [23,24,27,28,37,38,39,40,43,44,53,54]
 
-var sovereign_indices = [24,19,11,34,43,1,44,33,12,20,23,2]
+const sovereign_indices = [24,19,11,34,43,1,44,33,12,20,23,2]
 
-var hex_bin_arr = [
+const hex_bin_arr = [
                "error",
                "000000",
                "111111",
@@ -81,7 +87,7 @@ var hex_bin_arr = [
                "error"
 ];
 
-var hex_name_arr = [
+const hex_name_arr = [
                 "error",
                 "Field | The Receptive | 'Yin'",
                 "Force | The Creative | 'Yang'",
@@ -150,7 +156,7 @@ var hex_name_arr = [
 
 ];
 
-var purports_inner = [
+const purports_inner = [
     "error",
 
 "In absoulute tranquility, look within--Find chaos in order, and darkness in light.Only within Ying can Yang conceive.Accept and allow perfection.",
@@ -287,7 +293,7 @@ var purports_inner = [
 
 ];
 
-var purports_outer = [
+const purports_outer = [
     "error",
 
 "The open lines suggest the birth canal.Yin attracts, receives, and embodies energy transmitted from Yang.The mercy of Yang is conceived in Yin's awesome severity.Accept the perfect Yang.",
@@ -424,7 +430,7 @@ var purports_outer = [
 ];
 
 
-var moving_lines_inner =
+const moving_lines_inner =
               [ /*opens array!--with sub-arrays*/
       /*0*/   ["error0","error1","error2","error3","error4","error5","error6"],
       /*1*/   ["From the abyss comes the dream.","1. Obstructions blocking the light are cleared in the season of rest.",
@@ -617,7 +623,7 @@ var moving_lines_inner =
               ]; /*closes array!*/
 
 
-var moving_lines_outer = [ /*opens array!--with sub-arrays*/
+const moving_lines_outer = [ /*opens array!--with sub-arrays*/
       /*0*/   ["error0","error1","error2","error3","error4","error5","error6"],
       /*1*/   ["Pause and respond wisely.","1. Check for decay; winter approaches.  Dark and cold are the other sides of light and warmth.",
                    "2. Respond to the blessed forces of earth with balance and harmony.","3. The most excellent qualities are kept in modesty.",
