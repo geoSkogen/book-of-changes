@@ -175,15 +175,15 @@ document.querySelector('#wheel-outer').addEventListener('click', function (event
 
   function get_hex_name(bin_arr) {
     // using hex-data.library
-    var index = library.get_hex_index(bin_arr)
-    var names = library.select_names(index)
+    let index = library.get_hex_index(bin_arr)
+    let names = library.select_names(index)
     return names
   }
 
   function print_hex_headers(this_hex,next_hex,moving_lines) {
-    var hexname_els = document.querySelectorAll('.hex-name')
-    var hex_arrs = [this_hex, next_hex]
-    var name_str = ''
+    const hexname_els = document.querySelectorAll('.hex-name')
+    const hex_arrs = [this_hex, next_hex]
+    let name_str = ''
     for (var i = 0; i < hexname_els.length; i++) {
       name_str = (!i || moving_lines) ? get_hex_name(hex_arrs[i]) : ''
       name_str = (name_str) ? name_str.replace(/\s\|\s/g,'<br/>') : ''
@@ -192,7 +192,7 @@ document.querySelector('#wheel-outer').addEventListener('click', function (event
   }
 
   function print_moving_icon() {
-    var icon = document.querySelector('#hex-mover')
+    const icon = document.querySelector('#hex-mover')
     icon.style.display= 'block'
   }
 
