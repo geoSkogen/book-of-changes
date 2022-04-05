@@ -1,4 +1,11 @@
 'use strict'
+
+/**
+* Imports library from hex-control
+*
+* Exports build_control
+*/
+
 const build_control = {
   hex_names : document.querySelectorAll('.hex-name'),
   hex_modal : document.querySelector('#hex-modal'),
@@ -25,14 +32,14 @@ const build_control = {
 
   line_builder : {
     yang_line :  function () {
-      var line = document.createElement('div')
+      const line = document.createElement('div')
       line.className = "full-line"
       return line
     },
     yin_line : function () {
-      var line_1 = document.createElement('div')
-      var line_2 = document.createElement('div')
-      var wrapper = document.createElement('div')
+      const line_1 = document.createElement('div')
+      const line_2 = document.createElement('div')
+      const wrapper = document.createElement('div')
       wrapper.className = "half-line-frame flex-row flex-between"
       line_1.className = "half-line"
       line_2.className = "half-line"
@@ -54,9 +61,9 @@ const build_control = {
   },
 
   handle_line_click : function (line,line_id) {
-    var id_arr = line_id.split('-')
-    var hex_index = Number(id_arr[id_arr.length-1])-1
-    var line_index = Number(id_arr[id_arr.length-2])-1
+    const id_arr = line_id.split('-')
+    const hex_index = Number(id_arr[id_arr.length-1])-1
+    const line_index = Number(id_arr[id_arr.length-2])-1
     // convert click target to opposite, resets array value
     if (line.id) { this.toggle_line(line,hex_index,line_index) }
     // calculate differences between the two arrays
@@ -71,13 +78,13 @@ const build_control = {
   },
 
   handle_url_query : function (url_str) {
-    var hex_num_arr = (url_str.split('#/')[1]) ?
+    const hex_num_arr = (url_str.split('#/')[1]) ?
       url_str.split('#/')[1].split('/') : []
 
-    var hex_modal_index = (url_str.split('#/')[2]) ?
+    const hex_modal_index = (url_str.split('#/')[2]) ?
       Number( url_str.split('#/')[2].replace(/\//g,'') ) : null
 
-    var is_query = hex_num_arr.length ? true : false
+    const is_query = hex_num_arr.length ? true : false
 
     if (is_query) {
       for (var i = 0; i < hex_num_arr.length; i++) {
@@ -85,8 +92,8 @@ const build_control = {
         console.log(i)
         console.log(hex_num_arr)
         */
-        var hex_data_index = Number(hex_num_arr[i]) ? Number(hex_num_arr[i]) : null
-        var new_lines_arr = (hex_bin_arr[ hex_data_index ]) ? hex_bin_arr[ hex_data_index ].split('') : []
+        let hex_data_index = Number(hex_num_arr[i]) ? Number(hex_num_arr[i]) : null
+        let new_lines_arr = (hex_bin_arr[ hex_data_index ]) ? hex_bin_arr[ hex_data_index ].split('') : []
         /*
         console.log(new_lines_arr)
         console.log(hex_data_index)
@@ -95,8 +102,8 @@ const build_control = {
 
           for (var ii = 0; ii< new_lines_arr.length; ii++) {
             if (this.hex_graph.lines_arr[i][ii] != new_lines_arr[ii]) {
-              var line_index = (i) ? (5-ii)+6 : 5-ii
-              this.handle_line_click(all_lines[line_index],all_lines[line_index].id)
+              let line_index = (i) ? (5-ii)+6 : 5-ii
+              this.handle_line_click(this.all_lines[line_index],this.all_lines[line_index].id)
             }
           }
         }
@@ -309,6 +316,8 @@ const build_control = {
     }
   }
 }
+
+// Event Listeners
 
 build_control.all_lines.forEach( function (line) {
   line.addEventListener('click', function (event) {
