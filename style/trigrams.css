@@ -1,5 +1,6 @@
 #trigram-menu {
   margin-top: 2em;
+  z-index: 330;
 }
 
 .trigram-frame {
@@ -15,6 +16,7 @@
   font-size: 22px;
   padding: 0.15em;
   border-radius: 5px;
+  z-index: 330;
 }
 
 .tri-lines-char {

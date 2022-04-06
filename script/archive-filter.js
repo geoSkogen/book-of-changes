@@ -43,13 +43,13 @@ function toggle_modal_block(toggle_el,trigger_el) {
 }
 
 function background_dimmer() {
-  app_shell.style.opacity = '0.33'
+  document.querySelector('#app').style.opacity = '0.33'
   toggle_modal_block(filter_menu,filter_icon)
 
 }
 
 function background_restore() {
-  app_shell.style.opacity = '1'
+  document.querySelector('#app').style.opacity = '1'
 }
 
 function render_filtered_archives(data_arr) {

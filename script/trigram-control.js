@@ -155,7 +155,7 @@ function render_modal_text(collection) {
 
 function raise_light(n) {
   hex_modal.style.opacity = n
-  app_shell.style.opacity = 1-n
+  document.querySelector('#app').style.opacity = 1-n
   n+=0.1
   return n
 }
@@ -173,14 +173,14 @@ function open_hex_modal() {
           clearInterval(appear)
         }
       }, 21.32)
-      app_shell.style.opacity = 0.33
+      document.querySelector('#app').style.opacity = 0.33
       tri_assembler.icon.style.display = 'none'
   }, 500 )
 }
 
 function close_hex_modal() {
   hex_modal.style.display = 'none'
-  app_shell.style.opacity = 1
+  document.querySelector('#app').style.opacity = 1
   tri_assembler.icon.style.display = 'block'
   //clear_modal_content();
 }

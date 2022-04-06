@@ -173,13 +173,13 @@ function triage_hex_filter(arg) {
 
 
 function open_trigram_filter_modal() {
-  app_shell.style.opacity = '0.33'
+  document.querySelector('#app').style.opacity = '0.33'
   filter_menu.style.opacity = '0.16'
   filter_modal.style.display = 'block'
 }
 
 function close_trigram_filter_modal() {
-  app_shell.style.opacity = '1'
+  document.querySelector('#app').style.opacity = '1'
   filter_menu.style.opacity = '1'
   filter_modal.style.display = 'none'
 }
@@ -264,7 +264,7 @@ function collect_hex_data() {
 
 function raise_light(n) {
   hex_modal.style.opacity = n
-  app_shell.style.opacity = 1-n
+  document.querySelector('#app').style.opacity = 1-n
   n+=0.1
   return n
 }
@@ -377,7 +377,7 @@ function clear_hex_modal() {
 
 function close_hex_modal() {
   hex_modal.style.display = 'none'
-  app_shell.style.opacity = 1
+  document.querySelector('#app').style.opacity = 1
   clear_hex_modal()
   //clear_modal_content();
 }

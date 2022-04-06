@@ -1,6 +1,16 @@
 'use strict'
 
-var library = {
+/**
+* Imports
+*   tri_bin_arr, tri_names_arr, inner_indices, sovereign_indices, hex_bin_arr, hex_name_arr, purports_inner, purports_outer, moving_lines_inner, moving_lines_outer
+*   from
+*   hex-data
+* Imports hex_chars_table, tri_chars_arr from /resources/hex-chars
+*
+* Exports object: library
+*/
+
+const library = {
   get_hex_index : function (the_hex_arr) {
     var bin_str = the_hex_arr.join('')
     return (hex_bin_arr.indexOf(bin_str) > 0 ) ?
@@ -84,11 +94,11 @@ var library = {
 
   },
   get_trigrams_from_hex : function (the_hex_arr) {
-    var result = {
+    const result = {
       top: {names:'',chars:''},
       bottom: {names:'',chars:''}
     }
-    var stage = {
+    const stage = {
       top: [],
       bottom: []
     }
