@@ -3,7 +3,7 @@
 /**
 * Imports library from hex-control
 *
-* Exports build_control
+*  Exports build_control object
 */
 
 const build_control = {

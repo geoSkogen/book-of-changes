@@ -3,6 +3,7 @@
 /**
 *  Exports arrays:
 *    tri_bin_arr, tri_names_arr, inner_indices, sovereign_indices, hex_bin_arr, hex_name_arr, purports_inner, purports_outer, moving_lines_inner, moving_lines_outer
+* 
 *  Data queries are handled by hex-control.library
 */
 

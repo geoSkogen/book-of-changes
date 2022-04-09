@@ -1,11 +1,13 @@
 'use strict'
+
 /**
 * Imports library from hex-control
 * Imports hex_builder from touch-wheel
 *
-* Exports throw_control object
-* Exports global functions: open_hex_modal, close_hex_modal, render_modal_text, clear_modal_content, reset_hexes, get_hex_collection, toggle_tab, raise_light
+*  Exports throw_control object
+*
 */
+
 const throw_control = {
   hex_names : document.querySelectorAll('.hex-name'),
   hex_modal : document.querySelector('#hex-modal'),
