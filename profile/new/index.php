@@ -50,9 +50,10 @@ if (!empty($_POST)) {
       $_POST['u_name'],$_POST['p_word_1'],$_POST['email']
     );
     $err = $result['err'];
-    print('err');
-    print($err);
+    //print('err');
+    //print($err);
   } else {
+
     $err = ($err) ? $err : 5;
   }
   // objectify modal template executables & pass them error codes

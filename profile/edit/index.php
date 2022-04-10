@@ -42,7 +42,7 @@ function sort_fields($post) {
 $admin = new BOC_Admin();
 $admin->get_permission(1,true,'/book-of-changes/profile/');
 }
-$fields = sort_fields( (object )$_POST);
+$fields = sort_fields( $_POST);
 // no empty fields
 if ( !count(array_keys($fields->err_arr)) ) {
 

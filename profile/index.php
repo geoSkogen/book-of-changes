@@ -23,7 +23,7 @@ $err = null;
 $result = array('resp'=>null,'err'=>null);
 
 $fields = $util->sort_fields(
-  (object) $_POST,
+  $_POST,
   ['u_name','p_word'],
   ['user name','password']
 );

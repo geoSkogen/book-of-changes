@@ -39,10 +39,10 @@ class BOC_DB_Control {
 
   public function config() {
     $db_conn = array(
-      'DB_USER'=>'root',
-      'DB_PASSWORD'=>'',
+      'DB_USER'=>'book_of_changes',
+      'DB_PASSWORD'=>'book_of_changeS_22',
       'DB_HOST'=>'localhost',
-      'DB_NAME'=>'book-of-changes',
+      'DB_NAME'=>'book_of_changes',
       'DB_UTABLE'=> 'users',
       'DB_XTABLE'=> 'archives'
     );
@@ -61,7 +61,7 @@ class BOC_DB_Control {
     }
 
     if ($this->connection) {
-
+  
     }
   }
 

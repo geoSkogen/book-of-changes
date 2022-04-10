@@ -24,7 +24,7 @@ $db_client = new BOC_DB_Control();
 $err = null;
 $modal = '';
 $result = array('resp'=>null,'err'=>null);
-$data = (object) $_POST;
+$data = $_POST;
 
 $fields = $util->sort_fields(
   $data,

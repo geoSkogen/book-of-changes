@@ -24,7 +24,7 @@ $result = array('resp'=>null,'err'=>null);
 $modal = '';
 
 $fields = $util->sort_fields(
-  (object) $_POST,
+  $_POST,
   ['u_name','p_word','new_p_word','renew_p_word'],
   ['user name','current password','new password','re-type new password']
 );
