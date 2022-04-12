@@ -11,12 +11,12 @@ class BOC_Util {
     $vals_arr = array();
 
     foreach( $fields as $field) {
-      if ( !empty($post) && !empty($post[$field]) ) {
+      if ( !empty($post) && !empty($post->{$field}) ) {
         $atts_arr[$field] = 'value';
-        $vals_arr[$field] = $post[$field];
+        $vals_arr[$field] = $post->{$field};
       } else {
         $err_arr[$field] = true;
-        
+
         $atts_arr[$field] = 'placeholder';
         $vals_arr[$field] = $placeholders[array_search($field,$fields)];
       }

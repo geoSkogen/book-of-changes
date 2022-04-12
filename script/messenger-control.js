@@ -1,12 +1,13 @@
 'use strict'
 
-var msg_icons = [
+/**
+* Standalone script for the message modal
+*/
+
+const msg_icons = [
   document.querySelectorAll('.message-user'),
   document.querySelectorAll('.hexmessage-user')
 ]
-
-var close_modals = document.querySelectorAll('.close-modal-form')
-var options = document
 
 msg_icons.forEach( function (click_icons) {
   click_icons.forEach( function (click_icon) {
@@ -21,14 +22,14 @@ msg_icons.forEach( function (click_icons) {
       var body = modal.querySelector('.send-body')
       if (body) { body.focus() }
       modal.style.display = 'block'
-      app_shell.style.opacity = '0.33';
+      document.querySelector('#app').style.opacity = '0.33';
     })
   })
 })
 
-close_modals.forEach( function (x_out) {
+document.querySelectorAll('.close-modal-form').forEach( function (x_out) {
   x_out.addEventListener( 'click', function (event) {
     this.parentElement.parentElement.style.display = 'none'
-    app_shell.style.opacity = '1';
+    document.querySelector('#app').style.opacity = '1';
   })
 })

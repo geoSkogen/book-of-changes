@@ -24,7 +24,7 @@ $result = array('resp'=>null,'err'=>null);
 $modal = '';
 
 $fields = $util->sort_fields(
-  $_POST,
+  (object) $_POST,
   ['u_name','p_word','new_p_word','renew_p_word'],
   ['user name','current password','new password','re-type new password']
 );
@@ -35,7 +35,7 @@ if (!empty($_POST)) {
     // valid fields - try login
     $db = new BOC_DB_Control();
     $user = new BOC_User($_POST['u_name'],$db);
-    $result['resp'] = $user->update_user(
+    $result['resp'] = $user->edit_user(
       array('p_word'=>$fields->$vals_arr['new_p_word'])
     );
     $result['err'] = (!$result['resp']) ? 1 : $result['err'];
