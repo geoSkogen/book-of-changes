@@ -20,29 +20,41 @@ const tri_assembler = {
   sides : ['top','bottom'],
   trigrams : [null,null,null],
   select_handler : function (el) {
+    // mode corresponds to top[1] or bottom[2] trigram -- or no trigram[0]
     let mode = Number(el.getAttribute('data-toggle'))
     let index = Number(el.getAttribute('data-index'))
 
     const props = [
-      {'color'  : 'lightgrey', 'backround-color' : 'black', 'border-color' : 'lightgrey' },
+      {'color'  : 'lightgrey', 'background-color' : 'black', 'border-color' : 'lightgrey' },
       {'color' : 'cornflowerblue', 'background-color' : 'lightgrey', 'border-color' : 'cornflowerblue'},
       {'color' : 'red', 'background-color' : 'lightsteelblue', 'border-color' : 'red'},
     ]
 
-    let data_offset = (mode) ?  0 : (this.trigrams[1]) ? 2 : 1
+    let style_prop_index, data_val, data_index
 
-    let data_val = (mode) ? null : index
+    if (mode) {
+      // clicking a selected element nullifies it - array element at data_index is data_val
+      style_prop_index = 0
+      data_val = null
+      data_index = mode
+    } else {
+      style_prop_index = this.trigrams[1] ? 2 : 1
+      data_val = index
+      data_index = style_prop_index
+    }
 
-    let data_index = (mode) ? mode : data_offset
     if (this.trigrams[2] && this.trigrams[1] &&
-        this.trigrams.indexOf(index)<0) {
+        this.trigrams.indexOf(index)<0 && this.trigrams[2] != this.trigrams[1]) {
       return
     } else {
-      el.setAttribute('data-toggle',data_offset)
+      el.setAttribute('data-toggle',style_prop_index)
 
       this.trigrams[data_index] = data_val
+      if (data_index===1) {
+        this.trigrams[2] = data_val
+      }
 
-      this.toggle_trigram(index-1,props[data_offset])
+      this.toggle_trigram(index-1,props[style_prop_index])
 
       console.log(tri_assembler.trigrams)
     }
@@ -138,7 +150,7 @@ const tri_assembler = {
         })
       } else {
         tri_assembler.toggle_trigram(
-          t,{'color': 'lightgrey', 'backround-color': 'black', 'border-color': 'lightgrey' }
+          t,{'color': 'lightgrey', 'background-color': 'black', 'border-color': 'lightgrey' }
         )
       }
     }
