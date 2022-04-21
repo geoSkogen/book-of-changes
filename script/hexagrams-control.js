@@ -12,11 +12,9 @@ const hex_assembler = {
   hexagram_menus : document.querySelectorAll('.hexagram-menu'),
   hexagram_menu_tabs : document.querySelectorAll('.menu-tab'),
   hex_modal : document.querySelector('#hex-modal'),
-//  hex_modal_closer : document.querySelector('#close-hex-modal'),
   filter_icon : document.querySelector('#hex-filter'),
   filter_menu : document.querySelector('#filter-menu'),
   filter_modal : document.querySelector('#filter-tooltip'),
-//  filter_modal_closer : document.querySelector('#close-filter-modal'),
   filter_submit : document.querySelector('#filter-submit'),
   init : function () {
     this.set_dom()
@@ -95,8 +93,8 @@ const hex_assembler = {
     // Using hex_bin_arr, tri_bin_arr from hex-data
     const result = []
     let stage_str = ''
-    const begin_slice = (side_index) ? 3 : 0
-    const end_slice = (side_index) ? 6 : 3
+    const begin_slice = Number(side_index) ? 3 : 0
+    const end_slice = Number(side_index) ? 6 : 3
     for (let i = 0; i < hex_bin_arr.length-1; i++) {
       stage_str = hex_bin_arr[i].slice(begin_slice,end_slice)
       if (stage_str === tri_bin_arr[tri_index]) {
