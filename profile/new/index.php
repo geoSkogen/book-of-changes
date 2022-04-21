@@ -23,7 +23,7 @@ $modal = '';
 $result = array('resp'=>null,'err'=>null);
 
 $fields = $util->sort_fields(
-  $_POST,
+  (object) $_POST,
   ['email','u_name','p_word_1','p_word_2'],
   ['email address','user name','password','re-enter password']
 );

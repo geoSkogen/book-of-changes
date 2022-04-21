@@ -1,0 +1,5 @@
+1.) Push 'new profile created' alert to a login-page redirect
+2.) Refresh the error messaging system on forms
+3.) Fix message routing for archived hexagrams
+4.) Fix filter-by-trigram feature on hex_assembler
+5.) Rework the trigrams tri_assember to allow duplication 

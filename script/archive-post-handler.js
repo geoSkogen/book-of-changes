@@ -1,5 +1,8 @@
 'use strict'
 
+const archive_post_handler = {
+
+}
 
 function post_archive(collection) {
     var valid_fields = 0
@@ -49,8 +52,8 @@ function sort_archive_fields() {
     'hex_index': library.get_hex_index(hex_builder.this_hex),
     'mvng_lines' : hex_builder.moving_lines.join(','),
     'post_type' : 'hexagram',
-    'api_user' : 'archive_bot_1',
-    'api_key' : 'etakeH#333'
+    'api_user' : 'user',
+    'api_key' : 'user'
   }
   return collection
 }
@@ -76,15 +79,11 @@ function close_messenger_modal() {
   document.querySelector('#second-hex').style.opacity = '1'
 }
 
-var folder_icon = document.querySelector('#hex-archive')
-var msg_modal_closer = document.querySelector('#close-msg-modal')
-var msg_submitter = document.querySelector('#post-msg')
+document.querySelector('#close-msg-modal').addEventListener('click', close_messenger_modal)
 
-msg_modal_closer.addEventListener('click', close_messenger_modal)
+document.querySelector('#hex-archive').addEventListener('click', open_messenger_modal)
 
-folder_icon.addEventListener('click', open_messenger_modal)
-
-msg_submitter.addEventListener('click', function () {
+document.querySelector('#post-msg').addEventListener('click', function () {
   var collection = sort_archive_fields()
   var result = post_archive(collection)
   close_messenger_modal()

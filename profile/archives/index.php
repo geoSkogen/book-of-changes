@@ -56,8 +56,4 @@ BOC_Util::do_doc_foot_element(
   ]
 );
 
-
-
-
-
 ?>
