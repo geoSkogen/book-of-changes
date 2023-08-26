@@ -54,6 +54,10 @@ div#app {
   z-index: 800;
   top: -200%;
   cursor: pointer;
+  background: transparent;
+  outline: none;
+  padding-inline: 0 !important;
+  padding-block: 0 !important;
 }
 
 #hex-modal {
@@ -83,6 +87,10 @@ a#hex-modal-content {
   opacity: 0.72;
   cursor: pointer;
   z-index: 900;
+  background: transparent;
+  outline: none;
+  padding-inline: 0 !important;
+  padding-block: 0 !important;
 }
 
 #meta-col-tabs {
@@ -105,7 +113,6 @@ a#hex-modal-content {
   max-width : 95%;
   min-width: 95%;
   padding: 0.666em;
-  //margin: 0.666em;
   background-color: rgb(50,50,50);
   font-size: 18px;
 }
@@ -122,7 +129,6 @@ a#hex-modal-content {
 .hex-purport {
   color: lightgrey;
   font-weight: 700;
-  //font-size: 18px;
   padding: 0.1em;
   margin: 0.1em;
   text-align: center;
@@ -133,7 +139,6 @@ a#hex-modal-content {
 }
 
 .hex-purport {
-  //font-size: 14px;
   text-align: left;
 }
 
@@ -156,7 +161,7 @@ li.moving-line-item {
 
 #inner-link-2,
 #innermost-link-2 {
-  //display: none;
+
 }
 
 #hex-pinyin-1,
@@ -186,7 +191,7 @@ li.moving-line-item {
   background-color: grey;
   height: 4px;
   width: 46px;
-  margin: 3px 5px;
+  margin: 3px;
 }
 
 .close-modal,
@@ -196,12 +201,12 @@ li.moving-line-item {
   color: lightgrey;
   font-size: 36px;
   cursor: pointer;
+  background: transparent;
+  outline: none;
+  padding-inline: 0 !important;
+  padding-block: 0 !important;
 }
-/*
-.close-modal:hover {
-  color: lightgrey;
-}
-*/
+
 #nav-hex:hover {
 
 }
@@ -233,7 +238,7 @@ ul.nav-sublist {
 
 li.nav-suboption {
   margin: 0.75em 0;
-  //padding: 1.25em 0;
+  padding: 1.25em 0;
 
 }
 
@@ -326,7 +331,6 @@ div#subnav-modal {
 }
 
 #post-tooltip-frame {
-  //opacity: 0.7;
   position: relative;
   width: 100%;
   height: 1px;

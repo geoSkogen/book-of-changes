@@ -1,30 +1,30 @@
-div#wheel-frame {
-  //border: 2px solid green;
+#wheel-frame {
   height: 320px;
   width: 320px;
-  //margin-top: 2em;
+
 }
 
-div#wheel-outer {
-  //border: 2px solid gray;
+#wheel-outer {
   border-radius: 100%;
   width: 100%;
   height: 100%;
   background-color: grey;
   cursor: pointer;
+  outline: none;
+  padding-inline: 0 !important;
+  padding-block: 0 !important;
 }
 
-div#wheel-outer-v-align {
+#wheel-outer-v-align {
+  cursor: pointer;
+  height: 100%;
+}
+
+#wheel-outer:hover {
   cursor: pointer;
 }
 
-div#wheel-outer:hover {
-  cursor: pointer;
-  //background-color: lightgrey;
-}
-
-div#wheel-inner {
-  //border: 2px solid red;
+#wheel-inner {
   border-radius: 100%;
   height: 100%;
   width: 90%;
@@ -33,13 +33,12 @@ div#wheel-inner {
   cursor: default;
 }
 
-div#results-table {
+#results-table {
   width: 100%;
 }
 
-div.hex-name {
+.hex-name {
   margin: 0.1em;
-  //padding: 1em;
   font-weight: 600;
   text-align: center;
   font-size: 18px;
@@ -48,13 +47,10 @@ div.hex-name {
 }
 
 i#hex-mover {
-  //margin: 0.1em;
-  //padding: 0.25em;
   display: none;
 }
 
 .control {
-  //border: 2px solid white;
   width: 100%;
 }
 
