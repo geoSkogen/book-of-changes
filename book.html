@@ -9,6 +9,7 @@
   <link rel='icon' href='resources/images/tao-75-red.png' type='image/x-icon'/ >
   <link rel="stylesheet" href="style/main.css"/>
   <link rel="stylesheet" href="style/throw.css"/>
+  <!--<link rel="stylesheet" href="style/modal.css"/>-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <header id="nav-wrapper" class="relshell">
@@ -73,7 +74,7 @@
 
   <!-- interpretive text modal -->
   <div id='hex-modal' class="full-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="hexagrams interpreted">
-    <button id="close-hex-modal" class="close-modal" aria-label="close modal dialog">&laquo;</button>
+    <button id="close-hex-modal" class="close-modal" aria-label="close interpretive modal dialog" title="close interpretive modal dialog">&laquo;</button>
     <div id="hex-modal-content">
       <div id="hex-number" class="hex-title"></div>
       <div id="hex-title-original" class="hex-title"></div>
@@ -129,11 +130,11 @@
   </div>
 
   <div id="results-table" class="flex-row flex-center">
-    <button id="first-hex-name" class="hex-name">
+    <button id="first-hex-name" class="hex-name" aria-controls="hex-modal" aria-expanded="false" aria-label="open first hexagram interpretive modal" title="open first hexagram interpretive modal">
       <!-- hexgram title dynamic render text node 1 -->
     </button>
     <i id="hex-mover" class="fa fa-arrow-circle-right" aria-hidden="true" aria-label="becoming"></i>
-    <button id="second-hex-name"  class="hex-name">
+    <button id="second-hex-name"  class="hex-name" aria-controls="hex-modal" aria-expanded="false" aria-label="open second hexagram interpretive modal" title="open second hexagram interpretive modal">
       <!-- hexgram title dynamic render text node 2 -->
     </button>
   </div>
@@ -155,5 +156,6 @@
 <script src="lib/hexagram.js"></script>
 <script src="lib/book.js"></script>
 <script src="lib/view.js"></script>
+<script src="lib/modal.js"></script>
 <script src="lib/main.js"></script>
 </html>
