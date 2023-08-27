@@ -125,11 +125,11 @@ a#hex-modal-content {
   font-size: 18px;
 }
 
-#meta-col-inner {
+.meta-col[aria-hidden="false"] {
   display: block;
 }
 
-#meta-col-outer {
+.meta-col[aria-hidden="true"]{
   display: none;
 }
 
