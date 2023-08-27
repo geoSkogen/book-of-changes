@@ -13,6 +13,7 @@
   outline: none;
   padding-inline: 0 !important;
   padding-block: 0 !important;
+  border: none !important;
 }
 
 #wheel-outer-v-align {
@@ -44,10 +45,20 @@
   font-size: 18px;
   cursor: pointer;
   z-index: 750;
+  background: transparent;
+  outline: none;
+  padding-inline: 0 !important;
+  padding-block: 0 !important;
+  color: inherit;
+  border: none !important;
 }
 
-i#hex-mover {
+i#hex-mover[aria-hidden="true"] {
   display: none;
+}
+
+i#hex-mover[aria-hidden="false"] {
+  display: block;
 }
 
 .control {

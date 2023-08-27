@@ -61,8 +61,15 @@ div#app {
 }
 
 #hex-modal {
-  display: none;
   z-index: 1200;
+}
+
+#hex-modal[aria-hidden="true"] {
+  display: none;
+}
+
+#hex-modal[aria-hidden="false"] {
+  display: block;
 }
 
 a#hex-modal-content {
@@ -91,6 +98,7 @@ a#hex-modal-content {
   outline: none;
   padding-inline: 0 !important;
   padding-block: 0 !important;
+  border: none !important;
 }
 
 #meta-col-tabs {
@@ -205,6 +213,7 @@ li.moving-line-item {
   outline: none;
   padding-inline: 0 !important;
   padding-block: 0 !important;
+  border: none !important;
 }
 
 #nav-hex:hover {

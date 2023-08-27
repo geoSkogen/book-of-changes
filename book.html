@@ -76,9 +76,9 @@
     <button id="close-hex-modal" class="close-modal" aria-label="close modal dialog">&laquo;</button>
     <div id="hex-modal-content">
       <div id="hex-number" class="hex-title"></div>
-      <div id="hex-name-original" class="hex-title"></div>
-      <div id="hex-name-canonical" class="hex-title"></div>
-      <div id="hex-name-alias" class="hex-title"></div>
+      <div id="hex-title-original" class="hex-title"></div>
+      <div id="hex-title-canonical" class="hex-title"></div>
+      <div id="hex-title-alias" class="hex-title"></div>
       <div id="meta-col-tabs" class="flex-row flex-around" rols="tablist">
         <button id="tab-1" class="meta-col-tab" aria-selected="false" aria-controls="meta-col-inner">INNER</button>
         <button id="tab-2" class="meta-col-tab" aria-selected="false" aria-controls="meta-col-outer">OUTER</button>
@@ -129,13 +129,13 @@
   </div>
 
   <div id="results-table" class="flex-row flex-center">
-    <div id="first-hex-name" class="hex-name">
+    <button id="first-hex-name" class="hex-name">
       <!-- hexgram title dynamic render text node 1 -->
-    </div>
-    <i id="hex-mover" class="fas fa-arrow-alt-circle-right"></i>
-    <div id="second-hex-name"  class="hex-name">
+    </button>
+    <i id="hex-mover" class="fa fa-arrow-circle-right" aria-hidden="true" aria-label="becoming"></i>
+    <button id="second-hex-name"  class="hex-name">
       <!-- hexgram title dynamic render text node 2 -->
-    </div>
+    </button>
   </div>
 
   <div id="second-hex" class="flex-col flex-center">
@@ -144,10 +144,10 @@
 </div><!-- app body end  -->
 
   <!-- footer icons -->
-<div id="footer-wrap" class="flex-row flex-between">
-  <i id="hex-refresh" class="fas fa-retweet"></i>
-  <i id="hex-archive" class="far fa-folder"></i>
-</div>
+<footer id="footer-wrap" class="flex-row flex-between">
+  <i id="hex-refresh" class="fa fa-retweet"></i>
+  <i id="hex-archive" class="fa fa-folder"></i>
+</footer>
 
 </body>
 <script src="lib/builder.js"></script>
