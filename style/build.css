@@ -6,7 +6,6 @@
   max-width: 25%;
   min-width: 25%;
   padding: 0.5em;em 0 0.5em 0.5em;
-  //border: 1px solid white;
 }
 
 .trigram {
@@ -18,8 +17,13 @@
   font-weight: 600;
 }
 
-.line-frame {
+.line-button {
   cursor: pointer;
+  outline: none;
+  padding-inline: 0 !important;
+  padding-block: 0 !important;
+  border: none !important;
+  background: transparent;
 }
 
 @media screen and (min-width: 900px) {

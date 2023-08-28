@@ -4,172 +4,219 @@
   <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <title>
-     易經 I Ching &ndash; Book of Changes
+     易經 Build Hexagrams &ndash; I Ching &ndash; Book of Changes
   </title>
-  <link rel='icon' href='resources/images/tao-75-red.png' type='image/x-icon'/ >
+  <link rel='icon' href='../resources/images/tao-75-red.png' type='image/x-icon'/ >
   <link rel="stylesheet" href="style/main.css"/>
   <link rel="stylesheet" href="style/throw.css"/>
+  <link rel="stylesheet" href="style/build.css"/>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
-<header id="nav-wrapper" class="relshell">
-  <!-- navigation icon -->
-  <button id="nav-hex" aria-controls="nav-modal" aria-expanded="false" aria-label="opens navigation">
-    <div class="nav-hex-line"></div>
-    <div class="nav-hex-line"></div>
-    <div class="nav-hex-line"></div>
-    <div class="nav-hex-line"></div>
-    <div class="nav-hex-line"></div>
-    <div class="nav-hex-line"></div>
-  </button>
+<body>
 
-  <!-- navigation menu -->
-  <div id="nav-modal-shell">
-    <nav id="nav-modal" aria-hidden="true">
-      <button id="close-nav-modal" class="close-modal" aria-label="close navigation">&laquo;</button>
-      <ul id="nav-list" role="menubar">
-        <li class="nav-option" role="none">
-          <a role="menuitem" aria-expanded="false" class="nav-submenu-name-link" id="book-of-changes-submenu" href="#">book of changes</a>
-          <div class="subnav-modal">
-            <ul role="menu" id="book-of-changes-list" class="nav-sublist">
-              <li class="nav-suboption" role="none">
-                <a role="menuitem" class="subnav-link book-of-changes" id="throw" href="/">throw</a>
-              </li>
-              <li class="nav-suboption" role="none">
-                <a role="menuitem" class="subnav-link book-of-changes" id="build" href="build/">build</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="nav-option" role="none">
-          <a role="menuitem" aria-expanded="false" class="nav-submenu-name-link" id="explore-submenu" href="#">explore</a>
-          <div class="subnav-modal">
-            <ul role="menu" id="explore-list" class="nav-sublist">
-              <li class="nav-suboption">
-                <a role="menuitem" class="subnav-link explore" href="trigrams/">八卦<br/>trigrams</a>
-              </li>
-              <li class="nav-suboption">
-                <a role="menuitem" class="subnav-link explore" href="hexagrams/">卦<br/>hexagrams</a>
-              </li>
-              <li class="nav-suboption">
-                <a role="menuitem" class="subnav-link explore" href="i-ching/">易經<br/>the book</a>
-              </li>
-              <li class="nav-suboption">
-                <a role="menuitem" class="subnav-link explore" href="ex-machina/">貞<br/>ex machina</a>
-            </ul>
-          </div>
-        </li>
-        <li class="nav-option" role="none">
-          <a role="menuitem" class="nav-submenu-name-link" id="profile-submenu" href="#">profile</a>
-          <div class="subnav-modal">
-            <ul role="menu" id="profile-list" class="nav-sublist">
-              <li role="none" class="nav-suboption">
-                <a role="menuitem" class="subnav-link profile" href="/book-of-changes/profile/archives/">archives</a>
-              </li>
-              <li role="none" class="nav-suboption">
-                <a role="menuitem" class="subnav-link profile" href="/book-of-changes/profile/users/">message</a>
-              </li>
-              <li role="none" class="nav-suboption">
-                <a role="menuitem" class="subnav-link profile" href="/book-of-changes/profile/">settings</a>
-              </li>
-              <li role="none" class="nav-suboption">
-                <a role="menuitem" class="subnav-link profile" href="#">logout</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </nav><!-- nav modal-->
-  </div><!-- nav modal shell -->
+  <div id="relshell">
 
-  <!-- interpretive text modal -->
-  <div id='hex-modal' class="full-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="hexagrams interpreted">
-    <button id="close-hex-modal" class="close-modal" aria-label="close interpretive modal dialog" title="close interpretive modal dialog">&laquo;</button>
-    <div id="hex-modal-content">
-      <div id="hex-number" class="hex-title"></div>
-      <div id="hex-title-original" class="hex-title"></div>
-      <div id="hex-title-canonical" class="hex-title"></div>
-      <div id="hex-title-alias" class="hex-title"></div>
-      <div id="meta-col-tabs" class="flex-row flex-around" rols="tablist">
-        <button id="tab-inner" class="meta-col-tab" aria-selected="false" aria-controls="meta-col-inner">INNER</button>
-        <button id="tab-outer" class="meta-col-tab" aria-selected="false" aria-controls="meta-col-outer">OUTER</button>
-      </div>
-      <div id="meta-cols" class="flex-row flex-center">
-        <section id="meta-col-inner" class="flex-col flex-between meta-col" aria-hidden="true" aria-labelledby="tab-inner">
-          <div id="hex-meta-inner" class="hex-purport hex-meta"></div>
-          <div id="moving-lines-inner" class="hex-purport moving-meta"></div>
-        </section>
-        <section id="meta-col-outer" class="flex-col flex-between meta-col" aria-hidden="true" aria-labelledby="tab-outer">
-          <div id="hex-meta-outer" class="hex-purport hex-meta"></div>
-          <div id="moving-lines-outer" class="hex-purport moving-meta"></div>
-        </section>
-      </div>
+    <div id="nav-hex">
+      <div class="nav-hex-line"></div>
+      <div class="nav-hex-line"></div>
+      <div class="nav-hex-line"></div>
+      <div class="nav-hex-line"></div>
+      <div class="nav-hex-line"></div>
+      <div class="nav-hex-line"></div>
     </div>
-  </div>
+    <!-- navigation menu -->
+    <div id="nav-modal-shell">
+      <nav id="nav-modal" aria-hidden="true">
+        <button id="close-nav-modal" class="close-modal" aria-label="close navigation">&laquo;</button>
+        <ul id="nav-list" role="menubar">
+          <li class="nav-option" role="none">
+            <a role="menuitem" aria-expanded="false" class="nav-submenu-name-link" id="book-of-changes-submenu" href="#">book of changes</a>
+            <div class="subnav-modal">
+              <ul role="menu" id="book-of-changes-list" class="nav-sublist">
+                <li class="nav-suboption" role="none">
+                  <a role="menuitem" class="subnav-link book-of-changes" id="throw" href="/">throw</a>
+                </li>
+                <li class="nav-suboption" role="none">
+                  <a role="menuitem" class="subnav-link book-of-changes" id="build" href="build/">build</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-option" role="none">
+            <a role="menuitem" aria-expanded="false" class="nav-submenu-name-link" id="explore-submenu" href="#">explore</a>
+            <div class="subnav-modal">
+              <ul role="menu" id="explore-list" class="nav-sublist">
+                <li class="nav-suboption">
+                  <a role="menuitem" class="subnav-link explore" href="trigrams/">八卦<br/>trigrams</a>
+                </li>
+                <li class="nav-suboption">
+                  <a role="menuitem" class="subnav-link explore" href="hexagrams/">卦<br/>hexagrams</a>
+                </li>
+                <li class="nav-suboption">
+                  <a role="menuitem" class="subnav-link explore" href="i-ching/">易經<br/>the book</a>
+                </li>
+                <li class="nav-suboption">
+                  <a role="menuitem" class="subnav-link explore" href="ex-machina/">貞<br/>ex machina</a>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-option" role="none">
+            <a role="menuitem" class="nav-submenu-name-link" id="profile-submenu" href="#">profile</a>
+            <div class="subnav-modal">
+              <ul role="menu" id="profile-list" class="nav-sublist">
+                <li role="none" class="nav-suboption">
+                  <a role="menuitem" class="subnav-link profile" href="/book-of-changes/profile/archives/">archives</a>
+                </li>
+                <li role="none" class="nav-suboption">
+                  <a role="menuitem" class="subnav-link profile" href="/book-of-changes/profile/users/">message</a>
+                </li>
+                <li role="none" class="nav-suboption">
+                  <a role="menuitem" class="subnav-link profile" href="/book-of-changes/profile/">settings</a>
+                </li>
+                <li role="none" class="nav-suboption">
+                  <a role="menuitem" class="subnav-link profile" href="#">logout</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav><!-- nav modal-->
+    </div><!-- nav modal shell -->
 
-</header><!-- relshell end -->
-
-<div id="app" class="flex-row flex-center">
-  <!-- app body -->
-  <div id="wheel-frame" class="flex-row flex-center">
-    <div id="wheel-frame-v-align" class="flex-col flex-center control">
-      <button id="wheel-outer" class="flex-row flex-center">
-        <div id="wheel-outer-v-align" class="flex-col flex-center control">
-          <div id="wheel-inner" class="flex-col flex-center">
-            <!-- hexgram dynamic render element 1 -->
-          </div><!-- wheelinner -->
+    <!-- interpretive text modal -->
+    <div id='hex-modal' class="full-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="hexagrams interpreted">
+      <button id="close-hex-modal" class="close-modal" aria-label="close interpretive modal dialog" title="close interpretive modal dialog">&laquo;</button>
+      <div id="hex-modal-content">
+        <div id="hex-number" class="hex-title"></div>
+        <div id="hex-title-original" class="hex-title"></div>
+        <div id="hex-title-canonical" class="hex-title"></div>
+        <div id="hex-title-alias" class="hex-title"></div>
+        <div id="meta-col-tabs" class="flex-row flex-around" rols="tablist">
+          <button id="tab-inner" class="meta-col-tab" aria-selected="false" aria-controls="meta-col-inner">INNER</button>
+          <button id="tab-outer" class="meta-col-tab" aria-selected="false" aria-controls="meta-col-outer">OUTER</button>
         </div>
-      </button><!-- wheelouter -->
-    </div>
-  </div><!-- wheelframe -->
-
-  <div id="post-tooltip-frame" class="flex-row flex-center">
-    <div id="post-tooltip">
-      <div id="close-msg-modal" class="close-modal">&laquo;</div>
-      <div id="msg-modal-title" class="flex-row flex-center">
-        <div id="hex-char"></div>
-        <div id="name-char"></div>
-      </div>
-      <div class="flex-row flex-center">
-        <textarea id="messenger-body" rows="6" cols="32"></textarea>
-      </div>
-      <div class="flex-row flex-center">
-        <button  id="post-msg" class="no-button">send</button>
+        <div id="meta-cols" class="flex-row flex-center">
+          <section id="meta-col-inner" class="flex-col flex-between meta-col" aria-hidden="true" aria-labelledby="tab-inner">
+            <div id="hex-meta-inner" class="hex-purport hex-meta"></div>
+            <div id="moving-lines-inner" class="hex-purport moving-meta"></div>
+          </section>
+          <section id="meta-col-outer" class="flex-col flex-between meta-col" aria-hidden="true" aria-labelledby="tab-outer">
+            <div id="hex-meta-outer" class="hex-purport hex-meta"></div>
+            <div id="moving-lines-outer" class="hex-purport moving-meta"></div>
+          </section>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div id="results-table" class="flex-row flex-center">
-    <button id="first-hex-name" class="hex-name" aria-controls="hex-modal" aria-expanded="false" aria-label="open first hexagram interpretive modal" title="open first hexagram interpretive modal">
-      <!-- hexgram title dynamic render text node 1 -->
-    </button>
-    <i id="hex-mover" class="fa fa-arrow-circle-right" aria-hidden="true" aria-label="becoming"></i>
-    <button id="second-hex-name"  class="hex-name" aria-controls="hex-modal" aria-expanded="false" aria-label="open second hexagram interpretive modal" title="open second hexagram interpretive modal">
-      <!-- hexgram title dynamic render text node 2 -->
-    </button>
-  </div>
+  </div><!-- relshell -->
 
-  <div id="second-hex" class="flex-col flex-center">
-    <!-- hexgram dynamic render element 2 -->
-  </div>
-</div><!-- app body end  -->
+  <div id="app" class="flex-row flex-center">
 
-  <!-- footer icons -->
-<footer id="footer-wrap" class="flex-row flex-between">
-  <i id="hex-refresh" class="fa fa-retweet"></i>
-  <i id="hex-archive" class="fa fa-folder"></i>
-</footer>
+    <div id="first-hex" class="flex-col flex-center">
+      <!---->
+      <button id="line-frame-6-1" class="flex-row flex-center line-button" aria-label="yin">
+        <div class="half-line-frame flex-row flex-between">
+          <div class="half-line"></div>
+          <div class="half-line"></div>
+        </div>
+      </button>
+      <button id="line-frame-5-1" class="flex-row flex-center line-button" aria-label="yang">
+        <div class="full-line"></div>
+      </button>
+      <button id="line-frame-4-1" class="flex-row flex-center line-button" aria-label="yin">
+        <div class="half-line-frame flex-row flex-between">
+          <div class="half-line"></div>
+          <div class="half-line"></div>
+        </div>
+      </button>
+      <button id="line-frame-3-1" class="flex-row flex-center line-button" aria-label="yang">
+        <div class="full-line"></div>
+      </button>
+      <button id="line-frame-2-1" class="flex-row flex-center line-button" aria-label="yin">
+        <div class="half-line-frame flex-row flex-between">
+          <div class="half-line"></div>
+          <div class="half-line"></div>
+        </div>
+      </button>
+      <button id="line-frame-1-1" class="flex-row flex-center line-button" aria-label="yang">
+        <div class="full-line"></div>
+      </button>
+      <!-- -->
+    </div><!-- first-hex -->
+
+    <div id="first-trigram-col" class="trigrams flex-row flex-center">
+      <div id="first-trigram-top" class="trigram"></div>
+      <div id="first-trigram-bottom" class="trigram"></div>
+    </div>
+
+    <div id="results-table" class="flex-row flex-center">
+      <button id="first-hex-name" class="hex-name" aria-controls="hex-modal" aria-expanded="false" aria-label="open first hexagram interpretive modal" title="open first hexagram interpretive modal">
+        <!-- -->
+      </button
+      <i id="hex-mover" class="fas fa-arrow-alt-circle-right" aria-hidden="true" aria-label="becoming"></i>
+      <button id="second-hex-name"  class="hex-name" aria-controls="hex-modal" aria-expanded="false" aria-label="open second hexagram interpretive modal" title="open second hexagram interpretive modal">
+        <!-- -->
+      </button>
+    </div>
+
+    <div id="second-hex" class="flex-col flex-center">
+      <!-- -->
+      <button id="line-frame-6-2" class="flex-row flex-center line-button" aria-label="yang">
+        <div class="full-line"></div>
+      </button>
+      <button id="line-frame-5-2" class="flex-row flex-center line-button" aria-label="yin">
+        <div class="half-line-frame flex-row flex-between">
+          <div class="half-line"></div>
+          <div class="half-line"></div>
+        </div>
+      </button>
+      <button id="line-frame-4-2" class="flex-row flex-center line-button" aria-label="yang">
+        <div class="full-line"></div>
+      </button>
+      <button id="line-frame-3-2" class="flex-row flex-center line-button" aria-label="yin">
+        <div class="half-line-frame flex-row flex-between">
+          <div class="half-line"></div>
+          <div class="half-line"></div>
+        </div>
+      </button>
+      <button id="line-frame-2-2" class="flex-row flex-center line-button" aria-label="yang">
+        <div class="full-line"></div>
+      </button>
+      <button id="line-frame-1-2" class="flex-row flex-center line-button" aria-label="yin">
+        <div class="half-line-frame flex-row flex-between">
+          <div class="half-line"></div>
+          <div class="half-line"></div>
+        </div>
+      </button>
+      <!-- -->
+    </div><!-- second-hex -->
+
+    <div id="second-trigram-col" class="trigrams flex-row flex-center">
+      <div id="second-trigram-top" class="trigram"></div>
+      <div id="second-trigram-bottom" class="trigram"></div>
+    </div>
+
+  </div><!-- app -->
+
+    <div id="footer-wrap" class="flex-row flex-between">
+      <i id="hex-refresh" class="fas fa-retweet"></i>
+      <i id="hex-archive" class="far fa-folder"></i>
+    </div>
 
 </body>
+
 <script src="lib/nav.js"></script>
 <script src="lib/site-navigation.js"></script>
 
-<script src="lib/builder.js"></script>
-
 <script src="lib/trigram.js"></script>
 <script src="lib/hexagram.js"></script>
+<script src="lib/builder.js"></script>
 <script src="lib/book.js"></script>
-<script src="lib/view.js"></script>
-<script src="lib/modal.js"></script>
 
-<script src="lib/main.js"></script>
+<script src="lib/build/view.js"></script>
+<script src="lib/build/modal.js"></script>
+<script src="lib/build/main.js"></script>
+
 </html>
