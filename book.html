@@ -14,7 +14,7 @@
 </head>
 <header id="nav-wrapper" class="relshell">
   <!-- navigation icon -->
-  <button id="nav-hex" aria-controls="nav-modal" aria-expanded="false" aria-label="open navigation">
+  <button id="nav-hex" aria-controls="nav-modal" aria-expanded="false" aria-label="opens navigation">
     <div class="nav-hex-line"></div>
     <div class="nav-hex-line"></div>
     <div class="nav-hex-line"></div>
@@ -29,41 +29,51 @@
       <button id="close-nav-modal" class="close-modal" aria-label="close navigation">&laquo;</button>
       <ul id="nav-list" role="menubar">
         <li class="nav-option" role="none">
-          <a role="menuitem" class="nav-anchor"id="build" data-display="block,none" data-opacity="10,3.3" data-decor="underline,none" href="build/">build</a>
-        </li>
-        <li class="nav-option" role="none">
-          <a role="menuitem" aria-expanded="false" class="nav-anchor" id="explore" data-display="block,none" data-opacity="10,3.3" data-decor="underline,none" href="#">explore</a>
-          <div id="subnav-modal">
-            <ul role="menu" id="explore-list" class="nav-sublist">
-              <li class="nav-suboption">
-                <a role="menuitem" class="subnav-anchor explore" href="trigrams/">八卦<br/>trigrams</a>
+          <a role="menuitem" aria-expanded="false" class="nav-submenu-name-link" id="book-of-changes-submenu" href="#">book of changes</a>
+          <div class="subnav-modal">
+            <ul role="menu" id="book-of-changes-list" class="nav-sublist">
+              <li class="nav-suboption" role="none">
+                <a role="menuitem" class="subnav-link book-of-changes" id="throw" href="/">throw</a>
               </li>
-              <li class="nav-suboption">
-                <a role="menuitem" class="subnav-anchor explore" href="hexagrams/">卦<br/>hexagrams</a>
+              <li class="nav-suboption" role="none">
+                <a role="menuitem" class="subnav-link book-of-changes" id="build" href="build/">build</a>
               </li>
-              <li class="nav-suboption">
-                <a role="menuitem" class="subnav-anchor explore" href="../i-ching/">易經<br/>the book</a>
-              </li>
-              <li class="nav-suboption">
-                <a role="menuitem" class="subnav-anchor explore" href="../ex-machina/">貞<br/>ex machina</a>
             </ul>
           </div>
         </li>
         <li class="nav-option" role="none">
-          <a role="menuitem" class="nav-anchor" id="profile" data-display="block,none" data-opacity="10,3.3" data-decor="underline,none" href="#">profile</a>
-          <div id="subnav-modal">
+          <a role="menuitem" aria-expanded="false" class="nav-submenu-name-link" id="explore-submenu" href="#">explore</a>
+          <div class="subnav-modal">
+            <ul role="menu" id="explore-list" class="nav-sublist">
+              <li class="nav-suboption">
+                <a role="menuitem" class="subnav-link explore" href="trigrams/">八卦<br/>trigrams</a>
+              </li>
+              <li class="nav-suboption">
+                <a role="menuitem" class="subnav-link explore" href="hexagrams/">卦<br/>hexagrams</a>
+              </li>
+              <li class="nav-suboption">
+                <a role="menuitem" class="subnav-link explore" href="i-ching/">易經<br/>the book</a>
+              </li>
+              <li class="nav-suboption">
+                <a role="menuitem" class="subnav-link explore" href="ex-machina/">貞<br/>ex machina</a>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-option" role="none">
+          <a role="menuitem" class="nav-submenu-name-link" id="profile-submenu" href="#">profile</a>
+          <div class="subnav-modal">
             <ul role="menu" id="profile-list" class="nav-sublist">
               <li role="none" class="nav-suboption">
-                <a role="menuitem" class="subnav-anchor profile" href="/book-of-changes/profile/archives/">archives</a>
+                <a role="menuitem" class="subnav-link profile" href="/book-of-changes/profile/archives/">archives</a>
               </li>
               <li role="none" class="nav-suboption">
-                <a role="menuitem" class="subnav-anchor profile" href="/book-of-changes/profile/users/">message</a>
+                <a role="menuitem" class="subnav-link profile" href="/book-of-changes/profile/users/">message</a>
               </li>
               <li role="none" class="nav-suboption">
-                <a role="menuitem" class="subnav-anchor profile" href="/book-of-changes/profile/">settings</a>
+                <a role="menuitem" class="subnav-link profile" href="/book-of-changes/profile/">settings</a>
               </li>
               <li role="none" class="nav-suboption">
-                <a role="menuitem" class="subnav-anchor profile" href="#">logout</a>
+                <a role="menuitem" class="subnav-link profile" href="#">logout</a>
               </li>
             </ul>
           </div>
@@ -151,11 +161,16 @@
 </footer>
 
 </body>
+<script src="lib/nav.js"></script>
+<script src="lib/site-navigation.js"></script>
+
 <script src="lib/builder.js"></script>
+
 <script src="lib/trigram.js"></script>
 <script src="lib/hexagram.js"></script>
 <script src="lib/book.js"></script>
 <script src="lib/view.js"></script>
 <script src="lib/modal.js"></script>
+
 <script src="lib/main.js"></script>
 </html>

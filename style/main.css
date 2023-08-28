@@ -23,8 +23,8 @@ div#app {
   margin-top: 2em;
 }
 
-#relshell,
-#relwrap {
+.relshell,
+.relwrap {
   position: relative;
   height:1px;
   width: 100%;
@@ -34,13 +34,20 @@ div#app {
   height: 1px;
   width: 100%;
   position: relative;
-  display:none;
 }
 
 #nav-modal {
   position: absolute;
   width: 100%;
   z-index: 800;
+}
+
+#nav-modal[aria-hidden="true"] {
+  display: none;
+}
+
+#nav-modal[aria-hidden="false"] {
+  display: block;
 }
 
 #nav-hex {
@@ -58,6 +65,14 @@ div#app {
   outline: none;
   padding-inline: 0 !important;
   padding-block: 0 !important;
+}
+
+#nav-hex[aria-expanded="true"] {
+  display: none;
+}
+
+#nav-hex[aria-expanded="false"] {
+  display: block;
 }
 
 #hex-modal {
@@ -251,9 +266,11 @@ li.nav-suboption {
 
 }
 
-div#subnav-modal {
+/*
+div.subnav-modal[aria-expanded="false"] {
   display: none;
-}
+
+*/
 
 #footer-wrap {
   width: 100%;
