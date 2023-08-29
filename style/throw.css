@@ -53,14 +53,6 @@
   border: none !important;
 }
 
-i#hex-mover[aria-hidden="true"] {
-  display: none;
-}
-
-i#hex-mover[aria-hidden="false"] {
-  display: block;
-}
-
 .control {
   width: 100%;
 }

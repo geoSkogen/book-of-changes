@@ -297,6 +297,14 @@ div.subnav-modal[aria-expanded="false"] {
   margin-top: 0.65em;
 }
 
+i#hex-mover[aria-hidden="true"] {
+  display: none;
+}
+
+i#hex-mover[aria-hidden="false"] {
+  display: block;
+}
+
 .no-button {
   padding: 1em;
   margin: 0.75em;
