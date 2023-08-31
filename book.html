@@ -4,21 +4,20 @@
   <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <title>
-     易經 Build Hexagrams &ndash; I Ching &ndash; Book of Changes
+     易經 &ndash; I Ching &ndash; Book of Changes
   </title>
   <link rel='icon' href='../resources/images/tao-75-red.png' type='image/x-icon'/ >
   <link rel="stylesheet" href="style/main.css"/>
   <link rel="stylesheet" href="style/throw.css"/>
-  <link rel="stylesheet" href="style/build.css"/>
+  <link rel="stylesheet" href="style/hexagrams.css"/>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>
-
   <header id="nav-wrapper" class="relshell">
-
-    <button id="nav-hex">
+    <!-- navigation icon -->
+    <button id="nav-hex" aria-controls="nav-modal" aria-expanded="false" aria-label="opens navigation">
       <div class="nav-hex-line"></div>
       <div class="nav-hex-line"></div>
       <div class="nav-hex-line"></div>
@@ -26,6 +25,7 @@
       <div class="nav-hex-line"></div>
       <div class="nav-hex-line"></div>
     </button>
+
     <!-- navigation menu -->
     <div id="nav-modal-shell">
       <nav id="nav-modal" aria-hidden="true">
@@ -86,137 +86,142 @@
     </div><!-- nav modal shell -->
 
     <!-- interpretive text modal -->
-    <div id='hex-modal' class="full-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="hexagrams interpreted">
-      <button id="close-hex-modal" class="close-modal" aria-label="close interpretive modal dialog" title="close interpretive modal dialog">&laquo;</button>
-      <div id="hex-modal-content">
-        <div id="hex-number" class="hex-title"></div>
-        <div id="hex-title-original" class="hex-title"></div>
-        <div id="hex-title-canonical" class="hex-title"></div>
-        <div id="hex-title-alias" class="hex-title"></div>
-        <div id="meta-col-tabs" class="flex-row flex-around" rols="tablist">
-          <button id="tab-inner" class="meta-col-tab" aria-selected="false" aria-controls="meta-col-inner">INNER</button>
-          <button id="tab-outer" class="meta-col-tab" aria-selected="false" aria-controls="meta-col-outer">OUTER</button>
+    <div id='hex-modal' class="full-modal" class="hex-modal-content" aria-hidden="true" role="dialog" aria-modal="true" aria-label="hexagrams interpreted">
+      <div id="close-hex-modal" class="close-modal" aria-label="close interpretive modal dialog" title="close interpretive modal dialog">&laquo;</div>
+      <div id="hex-modal-content-first">
+        <div class="flex-row flex-center">
+          <div id="hex-lines-1" class="hex-title"></div>
+          <div id="hex-number-1" class="hex-title"></div>
         </div>
-        <div id="meta-cols" class="flex-row flex-center">
-          <section id="meta-col-inner" class="flex-col flex-between meta-col" aria-hidden="true" aria-labelledby="tab-inner">
-            <div id="hex-meta-inner" class="hex-purport hex-meta"></div>
-            <div id="moving-lines-inner" class="hex-purport moving-meta"></div>
-          </section>
-          <section id="meta-col-outer" class="flex-col flex-between meta-col" aria-hidden="true" aria-labelledby="tab-outer">
-            <div id="hex-meta-outer" class="hex-purport hex-meta"></div>
-            <div id="moving-lines-outer" class="hex-purport moving-meta"></div>
-          </section>
+        <div class="flex-row flex-center">
+          <div id="hex-char-1" class="hex-title"></div>
+          <div id="hex-pinyin-1" class="hex-title"></div>
+        </div>
+        <div id="hex-name-title-1" class="hex-title"></div>
+        <div id="hex-name-alt-1" class="hex-title"></div>
+        <div id="hex-name-mod-1" class="hex-title"></div>
+        <br/>
+        <div class="read-hex-frame flex-row flex-center">
+          <a id="read-link-1" class="read-hex" href="#"></a>
+        </div>
+        <br/>
+        <div class="inner-hex-frame flex-row flex-center">
+          <a id="inner-link-1" class="inner-hex" href="#">inner</a>
+          <div class="inner-pipe">&nbsp;|&nbsp;</div>
+          <a id="innermost-link-1" class="inner-hex" href="#">innermost</a>
+        </div>
+      </div>
+      <div id="icon-d-frame" class="flex-row flex-center">
+        <i id="hex-mover-d" class="fas fa-arrow-alt-circle-down"></i>
+      </div>
+      <div id="hex-modal-content-next" class="hex-modal-content">
+        <div class="flex-row flex-center">
+          <div id="hex-lines-2" class="hex-title"></div>
+          <div id="hex-number-2" class="hex-title"></div>
+        </div>
+        <div class="flex-row flex-center">
+          <div id="hex-char-2" class="hex-title"></div>
+          <div id="hex-pinyin-2" class="hex-title"></div>
+        </div>
+        <div id="hex-name-title-2" class="hex-title"></div>
+        <div id="hex-name-alt-2" class="hex-title"></div>
+        <div id="hex-name-mod-2" class="hex-title"></div>
+        <br/>
+        <div class="read-hex-frame flex-row flex-center">
+          <a id="read-link-2" class="read-hex" href="#"></a>
+        </div>
+        <br/>
+        <div class="inner-hex-frame flex-row flex-center">
+          <a id="inner-link-2" class="inner-hex" href="#">inner</a>
+          <div class="inner-pipe">&nbsp;|&nbsp;</div>
+          <a id="innermost-link-2" class="inner-hex" href="#">innermost</a>
         </div>
       </div>
     </div>
 
-  </header><!-- relshell -->
+  </header><!-- relshell end -->
 
   <div id="app" class="flex-row flex-center">
-
-    <div id="first-hex" class="flex-col flex-center">
-      <!---->
-      <button id="6-1" class="flex-row flex-center line-button" aria-label="yin">
-        <div class="half-line-frame flex-row flex-between">
-          <div class="half-line"></div>
-          <div class="half-line"></div>
-        </div>
-      </button>
-      <button id="5-1" class="flex-row flex-center line-button" aria-label="yang">
-        <div class="full-line"></div>
-      </button>
-      <button id="4-1" class="flex-row flex-center line-button" aria-label="yin">
-        <div class="half-line-frame flex-row flex-between">
-          <div class="half-line"></div>
-          <div class="half-line"></div>
-        </div>
-      </button>
-      <button id="3-1" class="flex-row flex-center line-button" aria-label="yang">
-        <div class="full-line"></div>
-      </button>
-      <button id="2-1" class="flex-row flex-center line-button" aria-label="yin">
-        <div class="half-line-frame flex-row flex-between">
-          <div class="half-line"></div>
-          <div class="half-line"></div>
-        </div>
-      </button>
-      <button id="1-1" class="flex-row flex-center line-button" aria-label="yang">
-        <div class="full-line"></div>
-      </button>
-      <!-- -->
-    </div><!-- first-hex -->
-
-    <div id="first-trigram-col" class="trigrams flex-row flex-center">
-      <div id="first-trigram-top" class="trigram"></div>
-      <div id="first-trigram-bottom" class="trigram"></div>
+    <!-- app body -->
+    <div id="hexagram-menu-tabs" class="flex-row flex-around">
+      <button id="left-tab-1" class="menu-tab" aria-selected="false" aria-controls="hexagram-menu-1">I</button>
+      <button id="middle-tab-2" class="menu-tab" aria-selected="false" aria-controls="hexagram-menu-2">II</button>
+      <button id="middle-tab-3" class="menu-tab" aria-selected="false" aria-controls="hexagram-menu-3">III</button>
+      <button id="right-tab-4" class="menu-tab" aria-selected="false" aria-controls="hexagram-menu-4">IV</button>
     </div>
-
-    <div id="results-table" class="flex-row flex-center">
-      <button id="first-hex-name" class="hex-name" aria-controls="hex-modal" aria-expanded="false" aria-label="open first hexagram interpretive modal" title="open first hexagram interpretive modal">
-        <!-- -->
-      </button>
-      <i id="hex-mover" class="fa fa-arrow-circle-right" aria-hidden="true" aria-label="becoming"></i>
-      <button id="second-hex-name"  class="hex-name" aria-controls="hex-modal" aria-expanded="false" aria-label="open second hexagram interpretive modal" title="open second hexagram interpretive modal">
-        <!-- -->
-      </button>
+    <!-- main -->
+    <div id="hexagram-menu-1" class="flex-row flex-center hexagram-menu" aria-hidden="true" aria-labelledby="left-tab-1">
+      <!-- javascript rendering-->
     </div>
-
-    <div id="second-hex" class="flex-col flex-center">
-      <!-- -->
-      <button id="6-2" class="flex-row flex-center line-button" aria-label="yang">
-        <div class="full-line"></div>
-      </button>
-      <button id="5-2" class="flex-row flex-center line-button" aria-label="yin">
-        <div class="half-line-frame flex-row flex-between">
-          <div class="half-line"></div>
-          <div class="half-line"></div>
-        </div>
-      </button>
-      <button id="4-2" class="flex-row flex-center line-button" aria-label="yang">
-        <div class="full-line"></div>
-      </button>
-      <button id="3-2" class="flex-row flex-center line-button" aria-label="yin">
-        <div class="half-line-frame flex-row flex-between">
-          <div class="half-line"></div>
-          <div class="half-line"></div>
-        </div>
-      </button>
-      <button id="2-2" class="flex-row flex-center line-button" aria-label="yang">
-        <div class="full-line"></div>
-      </button>
-      <button id="1-2" class="flex-row flex-center line-button" aria-label="yin">
-        <div class="half-line-frame flex-row flex-between">
-          <div class="half-line"></div>
-          <div class="half-line"></div>
-        </div>
-      </button>
-      <!-- -->
-    </div><!-- second-hex -->
-
-    <div id="second-trigram-col" class="trigrams flex-row flex-center">
-      <div id="second-trigram-top" class="trigram"></div>
-      <div id="second-trigram-bottom" class="trigram"></div>
+    <div id="hexagram-menu-2" class="flex-row flex-center hexagram-menu" aria-hidden="true" aria-labelledby="middle-tab-1">
+      <!-- javascript rendering-->
     </div>
+    <div id="hexagram-menu-3" class="flex-row flex-center hexagram-menu" aria-hidden="true" aria-labelledby="middle-tab-1">
+      <!-- javascript rendering-->
+    </div>
+    <div id="hexagram-menu-4" class="flex-row flex-center hexagram-menu" aria-hidden="true" aria-labelledby="right-tab-1">
+      <!-- javascript rendering-->
+    </div>
+    <!-- end main -->
+  </div><!-- app body end  -->
 
-  </div><!-- app -->
-
+    <!-- footer icons -->
     <div id="footer-wrap" class="flex-row flex-between">
       <i id="hex-refresh" class="fa fa-retweet"></i>
-      <i id="hex-archive" class="fa fa-folder"></i>
+      <i id="hex-filter" class="fa fa-filter" data-toggle="1"></i>
+    </div>
+
+    <div id="filter-menu-frame">
+      <select id="filter-menu">
+        <option id="0"  value="0" class="filter-option" selected>all</option>
+        <option id="1" value="1" class="filter-option">sovereign</option>
+        <option id="2" value="2" class="filter-option">inner</option>
+        <option id="3" value="3" class="filter-option">innermost</option>
+        <option id="4" value="4" class="filter-option">by trigram</option>
+      </select>
+    </div>
+
+    <div id="filter-tooltip-frame" class="flex-row flex-center">
+      <div id="filter-tooltip">
+        <div id="close-filter-modal" class="close-modal">&laquo;</div>
+        <div class="flex-row flex-center">
+          <div class="filter-modal-flex-item">
+            <div class="select-label">trigram</div>
+            <select id="select-trigram">
+              <option value="0" class="filter=option">sky - creative</option>
+              <option value="1" class="filter-option">lake - joyous</option>
+              <option value="2" class="filter-option">fire - clinging</option>
+              <option value="3" class="filter-option">thunder - arousing</option>
+              <option value="4" class="filter-option">wind - gentle</option>
+              <option value="5" class="filter-option">water - abyssmal</option>
+              <option value="6" class="filter-option">mountain - stillness</option>
+              <option value="7"class="filter-option">earth - receptive</option>
+            </select>
+          </div>
+          <div class="filter-modal-flex-item">
+            <div class="select-label">hex segment</div>
+            <select id="select-hex-segment">
+              <option value="1" class="filter=option">top</option>
+              <option value="0" class="filter-option">bottom</option>
+            </select>
+          </div>
+        </div>
+        <div class="flex-row flex-center">
+          <button  id="filter-submit" class="no-button">filter</button>
+        </div>
+      </div>
     </div>
 
 </body>
-
 <script src="lib/nav.js"></script>
 <script src="lib/site-navigation.js"></script>
 
-<script src="lib/trigram.js"></script>
 <script src="lib/hexagram.js"></script>
 <script src="lib/builder.js"></script>
 <script src="lib/book.js"></script>
 
-<script src="lib/build/view.js"></script>
-<script src="lib/build/modal.js"></script>
-<script src="lib/build/main.js"></script>
+<script src="lib/hexagrams/view.js"></script>
+<script src="lib/hexagrams/modal.js"></script>
+<script src="lib/hexagrams/main.js"></script>
 
 </html>
