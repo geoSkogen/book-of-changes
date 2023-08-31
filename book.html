@@ -95,11 +95,11 @@
         </div>
         <div class="flex-row flex-center">
           <div id="hex-char-1" class="hex-title"></div>
-          <div id="hex-pinyin-1" class="hex-title"></div>
+          <div id="hex-name-1" class="hex-title"></div>
         </div>
-        <div id="hex-name-title-1" class="hex-title"></div>
-        <div id="hex-name-alt-1" class="hex-title"></div>
-        <div id="hex-name-mod-1" class="hex-title"></div>
+        <div id="hex-name-original-1" class="hex-title"></div>
+        <div id="hex-name-canonical-1" class="hex-title"></div>
+        <div id="hex-name-alias-1" class="hex-title"></div>
         <br/>
         <div class="read-hex-frame flex-row flex-center">
           <a id="read-link-1" class="read-hex" href="#"></a>
@@ -112,7 +112,7 @@
         </div>
       </div>
       <div id="icon-d-frame" class="flex-row flex-center">
-        <i id="hex-mover-d" class="fas fa-arrow-alt-circle-down"></i>
+        <i id="hex-mover-d" class="fa fa-arrow-circle-down" aria-hidden="true" aria-label="becoming"></i>
       </div>
       <div id="hex-modal-content-next" class="hex-modal-content">
         <div class="flex-row flex-center">
@@ -121,11 +121,11 @@
         </div>
         <div class="flex-row flex-center">
           <div id="hex-char-2" class="hex-title"></div>
-          <div id="hex-pinyin-2" class="hex-title"></div>
+          <div id="hex-name-2" class="hex-title"></div>
         </div>
-        <div id="hex-name-title-2" class="hex-title"></div>
-        <div id="hex-name-alt-2" class="hex-title"></div>
-        <div id="hex-name-mod-2" class="hex-title"></div>
+        <div id="hex-name-original-2" class="hex-title"></div>
+        <div id="hex-name-canonical-2" class="hex-title"></div>
+        <div id="hex-name-alias-2" class="hex-title"></div>
         <br/>
         <div class="read-hex-frame flex-row flex-center">
           <a id="read-link-2" class="read-hex" href="#"></a>
@@ -144,22 +144,22 @@
   <div id="app" class="flex-row flex-center">
     <!-- app body -->
     <div id="hexagram-menu-tabs" class="flex-row flex-around">
-      <button id="left-tab-1" class="menu-tab" aria-selected="false" aria-controls="hexagram-menu-1">I</button>
-      <button id="middle-tab-2" class="menu-tab" aria-selected="false" aria-controls="hexagram-menu-2">II</button>
-      <button id="middle-tab-3" class="menu-tab" aria-selected="false" aria-controls="hexagram-menu-3">III</button>
-      <button id="right-tab-4" class="menu-tab" aria-selected="false" aria-controls="hexagram-menu-4">IV</button>
+      <button id="panel-tab-1" class="menu-tab" aria-selected="false" aria-controls="hexagram-menu-1">I</button>
+      <button id="panel-tab-2" class="menu-tab" aria-selected="false" aria-controls="hexagram-menu-2">II</button>
+      <button id="panel-tab-3" class="menu-tab" aria-selected="false" aria-controls="hexagram-menu-3">III</button>
+      <button id="panel-tab-4" class="menu-tab" aria-selected="false" aria-controls="hexagram-menu-4">IV</button>
     </div>
     <!-- main -->
-    <div id="hexagram-menu-1" class="flex-row flex-center hexagram-menu" aria-hidden="true" aria-labelledby="left-tab-1">
+    <div id="hexagram-menu-1" class="flex-row flex-center hexagram-menu" aria-hidden="true" aria-labelledby="panel-tab-1">
       <!-- javascript rendering-->
     </div>
-    <div id="hexagram-menu-2" class="flex-row flex-center hexagram-menu" aria-hidden="true" aria-labelledby="middle-tab-1">
+    <div id="hexagram-menu-2" class="flex-row flex-center hexagram-menu" aria-hidden="true" aria-labelledby="panel-tab-2">
       <!-- javascript rendering-->
     </div>
-    <div id="hexagram-menu-3" class="flex-row flex-center hexagram-menu" aria-hidden="true" aria-labelledby="middle-tab-1">
+    <div id="hexagram-menu-3" class="flex-row flex-center hexagram-menu" aria-hidden="true" aria-labelledby="panel-tab-2">
       <!-- javascript rendering-->
     </div>
-    <div id="hexagram-menu-4" class="flex-row flex-center hexagram-menu" aria-hidden="true" aria-labelledby="right-tab-1">
+    <div id="hexagram-menu-4" class="flex-row flex-center hexagram-menu" aria-hidden="true" aria-labelledby="panel-tab-2">
       <!-- javascript rendering-->
     </div>
     <!-- end main -->
@@ -216,6 +216,7 @@
 <script src="lib/nav.js"></script>
 <script src="lib/site-navigation.js"></script>
 
+<script src="lib/trigram.js"></script>
 <script src="lib/hexagram.js"></script>
 <script src="lib/builder.js"></script>
 <script src="lib/book.js"></script>
