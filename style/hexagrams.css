@@ -1,7 +1,25 @@
+#modal-backdrop {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0.8;
+  position: absolute;
+  z-index: 800;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
 .hexagram-menu,
 .menu-tab {
   background-color: rgb(50,50,50);
-
 }
 
 .hexagram-menu[aria-hidden="true"] {

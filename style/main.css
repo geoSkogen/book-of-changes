@@ -77,6 +77,7 @@ div#app {
 
 #hex-modal {
   z-index: 1200;
+  position:relative;
 }
 
 #hex-modal[aria-hidden="true"] {
