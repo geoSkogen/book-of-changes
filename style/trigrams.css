@@ -4,9 +4,7 @@
 }
 
 .trigram-frame {
-  border: 2px solid lightgrey;
-  border-radius: 6.66px;
-  margin: 0.13em;
+
 }
 
 .trigram-char {
@@ -15,8 +13,37 @@
   font-weight: 600;
   font-size: 22px;
   padding: 0.15em;
-  border-radius: 5px;
+  border: 2px solid lightgrey;
+  border-radius: 6.66px;
+  margin: 0.13em;
   z-index: 330;
+  position: relative;
+}
+
+.trigram-char .selected-icon {
+  display: none;
+}
+
+.trigram-char[data-selected="top"] {
+  color: red;
+  border-color: red;
+  background-color: lightsteelblue;
+}
+
+.trigram-char[data-selected="bottom"] {
+  color: cornflowerblue;
+  border-color: cornflowerblue;
+  background-color: lightgray;
+}
+
+.trigram-char[data-selected="top"] .selected-icon,
+.trigram-char[data-selected="bottom"] .selected-icon {
+  color: black;
+  font-size: 24px;
+  display: inline-block;
+  position: absolute;
+  right: 1em;
+  top: 0.4em;
 }
 
 .tri-lines-char {
@@ -47,14 +74,17 @@ li.nav-option {
   top: -200%;
   right: 12px;
   cursor: pointer;
-  display: none;
+  background: transparent;
+  outline: none;
+  padding-inline: 0 !important;
+  padding-block: 0 !important;
 }
 
 .tri-hex-line {
-  background-color: lightgrey;
+  background-color: black;
   height: 4px;
   width: 46px;
-  margin: 3px 5px;
+  margin: 3px 3px;
 }
 
 .yin-wrap {

@@ -1,3 +1,3 @@
-1.) Push 'new profile created' alert to a login-page redirect
-2.) Refresh the error messaging system on forms
-3.) Fix message routing for archived hexagrams
+visible focus and hover for buttons, links, tabs
+manage focus between dialogues
+manage /hexagrams/ and /trigrams/ 'stateful' links with aria roles, (e.g. gridcell uses aria-selected)  

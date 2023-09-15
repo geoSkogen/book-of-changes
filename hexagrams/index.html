@@ -37,10 +37,10 @@
             <div class="subnav-modal">
               <ul role="menu" id="book-of-changes-list" class="nav-sublist">
                 <li class="nav-suboption" role="none">
-                  <a role="menuitem" class="subnav-link book-of-changes" id="throw" href="/">create</a>
+                  <a role="menuitem" class="subnav-link book-of-changes" id="throw" href="../">create</a>
                 </li>
                 <li class="nav-suboption" role="none">
-                  <a role="menuitem" class="subnav-link book-of-changes" id="build" href="build/">build</a>
+                  <a role="menuitem" class="subnav-link book-of-changes" id="build" href="../build/">build</a>
                 </li>
               </ul>
             </div>
@@ -50,16 +50,16 @@
             <div class="subnav-modal">
               <ul role="menu" id="explore-list" class="nav-sublist">
                 <li class="nav-suboption">
-                  <a role="menuitem" class="subnav-link explore" href="trigrams/">八卦<br/>trigrams</a>
+                  <a role="menuitem" class="subnav-link explore" href="../trigrams/">八卦<br/>trigrams</a>
                 </li>
                 <li class="nav-suboption">
-                  <a role="menuitem" class="subnav-link explore" href="hexagrams/">卦<br/>hexagrams</a>
+                  <a role="menuitem" class="subnav-link explore" href="../hexagrams/">卦<br/>hexagrams</a>
                 </li>
                 <li class="nav-suboption">
-                  <a role="menuitem" class="subnav-link explore" href="i-ching/">易經<br/>the book</a>
+                  <a role="menuitem" class="subnav-link explore" href="../i-ching/">易經<br/>the book</a>
                 </li>
                 <li class="nav-suboption">
-                  <a role="menuitem" class="subnav-link explore" href="ex-machina/">貞<br/>ex machina</a>
+                  <a role="menuitem" class="subnav-link explore" href="../ex-machina/">貞<br/>ex machina</a>
               </ul>
             </div>
           </li>
@@ -124,9 +124,9 @@
           <div id="hex-char-2" class="hex-title"></div>
           <div id="hex-name-2" class="hex-title"></div>
         </div>
-        <div id="hex-name-original-2" class="hex-title"></div>
-        <div id="hex-name-canonical-2" class="hex-title"></div>
-        <div id="hex-name-alias-2" class="hex-title"></div>
+        <div id="hex-title-original-2" class="hex-title"></div>
+        <div id="hex-title-canonical-2" class="hex-title"></div>
+        <div id="hex-title-alias-2" class="hex-title"></div>
         <br/>
         <div class="read-hex-frame flex-row flex-center">
           <a id="read-link-2" class="read-hex" href="#"></a>
@@ -142,52 +142,67 @@
 
   </header><!-- relshell end -->
 
-  <div id="app" class="flex-row flex-center">
+  <div id="app">
     <!-- app body -->
-    <div id="hexagram-menu-tabs" class="flex-row flex-around">
-      <button id="panel-tab-1" class="menu-tab" aria-selected="false" aria-controls="hexagram-menu-1">I</button>
-      <button id="panel-tab-2" class="menu-tab" aria-selected="false" aria-controls="hexagram-menu-2">II</button>
-      <button id="panel-tab-3" class="menu-tab" aria-selected="false" aria-controls="hexagram-menu-3">III</button>
-      <button id="panel-tab-4" class="menu-tab" aria-selected="false" aria-controls="hexagram-menu-4">IV</button>
+    <div class="flex-row flex-center">
+      <div id="hexagram-menu-tabs" class="flex-row flex-around" role="tablist">
+        <button id="panel-tab-1" class="menu-tab" aria-selected="false" aria-controls="hexagram-menu-1">I</button>
+        <button id="panel-tab-2" class="menu-tab" aria-selected="false" aria-controls="hexagram-menu-2">II</button>
+        <button id="panel-tab-3" class="menu-tab" aria-selected="false" aria-controls="hexagram-menu-3">III</button>
+        <button id="panel-tab-4" class="menu-tab" aria-selected="false" aria-controls="hexagram-menu-4">IV</button>
+      </div>
     </div>
     <!-- main -->
-    <div id="hexagram-menu-1" class="flex-row flex-center hexagram-menu" aria-hidden="true" aria-labelledby="panel-tab-1">
+    <div class="flex-row flex-center">
+      <div id="hexagram-menu-1" class="flex-row flex-center hexagram-menu" aria-hidden="true" aria-labelledby="panel-tab-1">
       <!-- javascript rendering-->
-    </div>
-    <div id="hexagram-menu-2" class="flex-row flex-center hexagram-menu" aria-hidden="true" aria-labelledby="panel-tab-2">
+      </div>
+      <div id="hexagram-menu-2" class="flex-row flex-center hexagram-menu" aria-hidden="true" aria-labelledby="panel-tab-2">
       <!-- javascript rendering-->
-    </div>
-    <div id="hexagram-menu-3" class="flex-row flex-center hexagram-menu" aria-hidden="true" aria-labelledby="panel-tab-2">
+      </div>
+      <div id="hexagram-menu-3" class="flex-row flex-center hexagram-menu" aria-hidden="true" aria-labelledby="panel-tab-3">
       <!-- javascript rendering-->
-    </div>
-    <div id="hexagram-menu-4" class="flex-row flex-center hexagram-menu" aria-hidden="true" aria-labelledby="panel-tab-2">
+      </div>
+      <div id="hexagram-menu-4" class="flex-row flex-center hexagram-menu" aria-hidden="true" aria-labelledby="panel-tab-4">
       <!-- javascript rendering-->
+      </div>
     </div>
     <!-- end main -->
   </div><!-- app body end  -->
 
     <!-- footer icons -->
-    <div id="footer-wrap" class="flex-row flex-between">
-      <i id="hex-refresh" class="fa fa-retweet"></i>
-      <i id="hex-filter" class="fa fa-filter" data-toggle="1"></i>
-    </div>
+  <footer id="footer-wrap" class="flex-row flex-between">
+    <i id="hex-refresh" class="fa fa-retweet" aria-label="clear filters" role="button"></i>
+    <i id="hex-filter" class="fa fa-filter" aria-label="filter hexagrams" role="button"></i>
+  </footer>
 
-    <div id="filter-menu-frame">
-      <select id="filter-menu">
-        <option id="0"  value="0" class="filter-option" selected>all</option>
-        <option id="1" value="1" class="filter-option">sovereign</option>
-        <option id="2" value="2" class="filter-option">inner</option>
-        <option id="3" value="3" class="filter-option">innermost</option>
-        <option id="4" value="4" class="filter-option">by trigram</option>
-      </select>
+  <div id="filter-menu-frame">
+    <div id="filter-menu"  aria-hidden="true">
+      <div class="flex-row flex-end">
+        <button id="close-menu-modal" class="close-menu" aria-label="close filter menu">&laquo;</button>
+      </div>
+      <form>
+        <label for="filter-menu-options" class="filter-option-label filter-label visually-hidden">filter options:</label>
+        <select id="filter-menu-options">
+          <option id="0" value="0" class="filter-option" selected>all</option>
+          <option id="1" value="1" class="filter-option">sovereign</option>
+          <option id="2" value="2" class="filter-option">inner</option>
+          <option id="3" value="3" class="filter-option">innermost</option>
+          <option id="4" value="4" class="filter-option">by trigram</option>
+        </select>
+      </form>
     </div>
+  </div>
 
-    <div id="filter-tooltip-frame" class="flex-row flex-center">
-      <div id="filter-tooltip">
-        <div id="close-filter-modal" class="close-modal">&laquo;</div>
+  <div id="filter-tooltip-frame" class="flex-row flex-center">
+    <div id="filter-tooltip" aria-hidden="true">
+      <div class="flex-row flex-end">
+        <button id="close-filter-modal" class="close-modal" aria-label="close filter dialog">&laquo;</button>
+      </div>
+      <form>
         <div class="flex-row flex-center">
           <div class="filter-modal-flex-item">
-            <div class="select-label">trigram</div>
+            <label for="select-trigram" class="filter-option-label select-label">trigram</label>
             <select id="select-trigram">
               <option value="0" class="filter=option">sky - creative</option>
               <option value="1" class="filter-option">lake - joyous</option>
@@ -196,22 +211,23 @@
               <option value="4" class="filter-option">wind - gentle</option>
               <option value="5" class="filter-option">water - abyssmal</option>
               <option value="6" class="filter-option">mountain - stillness</option>
-              <option value="7"class="filter-option">earth - receptive</option>
+              <option value="7" class="filter-option">earth - receptive</option>
             </select>
           </div>
           <div class="filter-modal-flex-item">
-            <div class="select-label">hex segment</div>
+            <label for="select-hex-segment" class="filter-option-label select-label">hex segment</label>
             <select id="select-hex-segment">
-              <option value="1" class="filter=option">top</option>
+              <option value="1" class="filter-option">top</option>
               <option value="0" class="filter-option">bottom</option>
             </select>
           </div>
         </div>
-        <div class="flex-row flex-center">
-          <button  id="filter-submit" class="no-button">filter</button>
-        </div>
+      </form>
+      <div class="flex-row flex-center">
+        <div id="filter-submit" class="no-button" role="button">filter</div>
       </div>
     </div>
+  </div>
 
 </body>
 <script src="../lib/nav.js"></script>
@@ -219,10 +235,12 @@
 
 <script src="../lib/trigram.js"></script>
 <script src="../lib/hexagram.js"></script>
+<script src="../lib/builder.js"></script>
 <script src="../lib/book.js"></script>
 
-<script src="../lib/hexagrams/panel.js"></script>
+<script src="../lib/hexagrams/modalpanel.js"></script>
 <script src="../lib/hexagrams/modal.js"></script>
+<script src="../lib/hexagrams/filtermenu.js"></script>
 <script src="../lib/hexagrams/view.js"></script>
 <script src="../lib/hexagrams/main.js"></script>
 

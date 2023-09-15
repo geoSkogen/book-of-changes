@@ -15,7 +15,7 @@
 
 </head>
 <body>
-
+  <div id="modal-backdrop" class="hide"></div>
   <header id="nav-wrapper" class="relshell">
 
     <button id="nav-hex">
@@ -36,10 +36,10 @@
             <div class="subnav-modal">
               <ul role="menu" id="book-of-changes-list" class="nav-sublist">
                 <li class="nav-suboption" role="none">
-                  <a role="menuitem" class="subnav-link book-of-changes" id="throw" href="/">create</a>
+                  <a role="menuitem" class="subnav-link book-of-changes" id="throw" href="../">create</a>
                 </li>
                 <li class="nav-suboption" role="none">
-                  <a role="menuitem" class="subnav-link book-of-changes" id="build" href="build/">build</a>
+                  <a role="menuitem" class="subnav-link book-of-changes" id="build" href="../build">build</a>
                 </li>
               </ul>
             </div>
@@ -49,16 +49,16 @@
             <div class="subnav-modal">
               <ul role="menu" id="explore-list" class="nav-sublist">
                 <li class="nav-suboption">
-                  <a role="menuitem" class="subnav-link explore" href="trigrams/">八卦<br/>trigrams</a>
+                  <a role="menuitem" class="subnav-link explore" href="../trigrams/">八卦<br/>trigrams</a>
                 </li>
                 <li class="nav-suboption">
-                  <a role="menuitem" class="subnav-link explore" href="hexagrams/">卦<br/>hexagrams</a>
+                  <a role="menuitem" class="subnav-link explore" href="../hexagrams/">卦<br/>hexagrams</a>
                 </li>
                 <li class="nav-suboption">
-                  <a role="menuitem" class="subnav-link explore" href="i-ching/">易經<br/>the book</a>
+                  <a role="menuitem" class="subnav-link explore" href="../i-ching/">易經<br/>the book</a>
                 </li>
                 <li class="nav-suboption">
-                  <a role="menuitem" class="subnav-link explore" href="ex-machina/">貞<br/>ex machina</a>
+                  <a role="menuitem" class="subnav-link explore" href="../ex-machina/">貞<br/>ex machina</a>
               </ul>
             </div>
           </li>
@@ -200,10 +200,10 @@
 
   </div><!-- app -->
 
-    <div id="footer-wrap" class="flex-row flex-between">
-      <i id="hex-refresh" class="fa fa-retweet"></i>
-      <i id="hex-archive" class="fa fa-folder"></i>
-    </div>
+  <footer id="footer-wrap" class="flex-row flex-between">
+    <i id="hex-refresh" class="fa fa-retweet" aria-label="share" role="button"></i>
+    <i id="hex-archive" class="fa fa-folder" aria-label="archive" role="button"></i>
+  </footer>
 
 </body>
 

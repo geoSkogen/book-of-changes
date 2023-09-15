@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="style/throw.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+<div id="modal-backdrop" class="hide"></div>
 <header id="nav-wrapper" class="relshell">
   <!-- navigation icon -->
   <button id="nav-hex" aria-controls="nav-modal" aria-expanded="false" aria-label="opens navigation">
@@ -89,7 +90,7 @@
       <div id="hex-title-original" class="hex-title"></div>
       <div id="hex-title-canonical" class="hex-title"></div>
       <div id="hex-title-alias" class="hex-title"></div>
-      <div id="meta-col-tabs" class="flex-row flex-around" rols="tablist">
+      <div id="meta-col-tabs" class="flex-row flex-around" role="tablist">
         <button id="tab-inner" class="meta-col-tab" aria-selected="false" aria-controls="meta-col-inner">INNER</button>
         <button id="tab-outer" class="meta-col-tab" aria-selected="false" aria-controls="meta-col-outer">OUTER</button>
       </div>
@@ -155,8 +156,8 @@
 
   <!-- footer icons -->
 <footer id="footer-wrap" class="flex-row flex-between">
-  <i id="hex-refresh" class="fa fa-retweet"></i>
-  <i id="hex-archive" class="fa fa-folder"></i>
+  <i id="hex-refresh" class="fa fa-retweet" aria-label="share" role="button"></i>
+  <i id="hex-archive" class="fa fa-folder" aria-label="archive" role="button"></i>
 </footer>
 
 </body>
