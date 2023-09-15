@@ -101,13 +101,17 @@
 .lines-frame,
 .name-frame,
 .char-frame {
-  font-weight: 800;
+  font-weight: 400;
   font-size: 20px;
   text-align: center;
 }
 
 .name-frame {
   display:none;
+}
+
+.lines-frame {
+
 }
 
 .hex-frame[aria-selected="false"] .selected-icon {
