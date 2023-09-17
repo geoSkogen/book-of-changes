@@ -25,12 +25,12 @@
 
   <!-- navigation menu -->
   <div id="nav-modal-shell">
-    <nav id="nav-modal" aria-hidden="true">
-      <button id="close-nav-modal" class="close-modal" aria-label="close navigation">&laquo;</button>
-      <ul id="nav-list" role="menubar">
+    <nav id="nav-modal" visually-hidden="true">
+      <button id="close-nav-modal" class="close-modal" aria-label="close navigation" title="close navigation">&laquo;</button>
+      <ul id="nav-list" role="menubar" aria-label="navigation">
         <li class="nav-option" role="none">
-          <a role="menuitem" aria-expanded="false" class="nav-submenu-name-link" id="book-of-changes-submenu" href="#">book of changes</a>
-          <div class="subnav-modal">
+          <a role="menuitem" aria-expanded="false" aria-controls="book-of-changes-list" class="nav-submenu-name-link" id="book-of-changes-submenu" href="#">book of changes</a>
+          <div class="subnav-modal" visually-hidden="true">
             <ul role="menu" id="book-of-changes-list" class="nav-sublist">
               <li class="nav-suboption" role="none">
                 <a role="menuitem" class="subnav-link book-of-changes" id="throw" href="/">create</a>
@@ -42,8 +42,8 @@
           </div>
         </li>
         <li class="nav-option" role="none">
-          <a role="menuitem" aria-expanded="false" class="nav-submenu-name-link" id="explore-submenu" href="#">explore</a>
-          <div class="subnav-modal">
+          <a role="menuitem" aria-expanded="false" aria-controls="explore-list" class="nav-submenu-name-link" id="explore-submenu" href="#">explore</a>
+          <div class="subnav-modal" visually-hidden="true">
             <ul role="menu" id="explore-list" class="nav-sublist">
               <li class="nav-suboption">
                 <a role="menuitem" class="subnav-link explore" href="trigrams/">八卦<br/>trigrams</a>
@@ -60,8 +60,8 @@
           </div>
         </li>
         <li class="nav-option" role="none">
-          <a role="menuitem" class="nav-submenu-name-link" id="profile-submenu" href="#">profile</a>
-          <div class="subnav-modal">
+          <a role="menuitem" aria-expanded="false" aria-controls="profile-list" class="nav-submenu-name-link" id="profile-submenu" href="#">profile</a>
+          <div class="subnav-modal" visually-hidden="true">
             <ul role="menu" id="profile-list" class="nav-sublist">
               <li role="none" class="nav-suboption">
                 <a role="menuitem" class="subnav-link profile" href="/book-of-changes/profile/archives/">archives</a>
@@ -113,7 +113,7 @@
   <!-- app body -->
   <div id="wheel-frame" class="flex-row flex-center">
     <div id="wheel-frame-v-align" class="flex-col flex-center control">
-      <button id="wheel-outer" class="flex-row flex-center">
+      <button id="wheel-outer" class="flex-row flex-center" aria-label="add a line" title="add a line">
         <div id="wheel-outer-v-align" class="flex-col flex-center control">
           <div id="wheel-inner" class="flex-col flex-center">
             <!-- hexgram dynamic render element 1 -->

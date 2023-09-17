@@ -1,7 +1,6 @@
 #wheel-frame {
   height: 320px;
   width: 320px;
-
 }
 
 #wheel-outer {
@@ -19,6 +18,10 @@
 #wheel-outer-v-align {
   cursor: pointer;
   height: 100%;
+}
+
+#wheel-outer:focus {
+  outline: 3.33px solid cornflowerblue;
 }
 
 #wheel-outer:hover {
