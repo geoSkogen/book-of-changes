@@ -30,6 +30,25 @@ div#app {
   width: 100%;
 }
 
+#modal-backdrop {
+  background-color: black;
+  position: absolute;
+  opacity: 0.8;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 750;
+}
+
+#modal-backdrop .show {
+  display: block;
+}
+
+#modal-backdrop .hide {
+  display: none;
+}
+
 #nav-modal-shell {
   height: 1px;
   width: 100%;
@@ -58,7 +77,7 @@ div#app {
   border-radius: 5px;
   padding-top: 2.25px;
   position: absolute;
-  z-index: 800;
+  z-index: 700;
   top: -200%;
   cursor: pointer;
   background: transparent;
@@ -282,19 +301,27 @@ ul#nav-list {
 
 li.nav-option {
   margin: 0 0.5em 0 0.5em;
-  max-width: 90px;
-  min-width: 90px;
+  flex-basis: 108px;
 }
 
 a.nav-submenu-name-link,
 a.subnav-link {
-  padding: 0.33em;
+  padding: 0.5em;
   display: block;
+  border: 2.33px solid black;
 }
 
 a.nav-submenu-name-link:focus,
-a.subnav-link:focus {
-  outline: 2.33px solid cornflowerblue;
+a.nav-submenu-name-link[aria-expanded="true"],
+.focus-el {
+  outline: 2.33px solid lightgray;
+}
+
+a.subnav-link:focus  {
+  border: 2.33px solid black;
+  outline: 1.8px solid lightgray;
+  color: black;
+  background-color: lightgray;
 }
 
 a.nav-submenu-name-link:hover,
@@ -311,16 +338,14 @@ ul.nav-sublist {
 }
 
 li.nav-suboption {
-  margin: 0.75em 0;
-  padding: 1.25em 0;
 
 }
 
-div.subnav-modal[visually-hidden="true"] {
+ul.nav-sublist[visually-hidden="true"] {
   display: none;
 }
 
-div.subnav-modal[visually-hidden="false"] {
+ul.nav-sublist[visually-hidden="false"] {
   display: block;
 }
 
@@ -331,8 +356,8 @@ div.subnav-modal[visually-hidden="false"] {
   bottom: 0px;;
 }
 
-#hex-refresh,#hex-archive,#hex-mover,
-#hex-filter,#hex-mover-d,#lock-icon,
+#hex-refresh,#hex-create,#hex-archive,#hex-share,#hex-build,
+#hex-filter,#hex-mover,#hex-mover-d,#lock-icon,
 #hex-new-item {
   cursor: pointer;
   font-size: 36px;
@@ -340,9 +365,16 @@ div.subnav-modal[visually-hidden="false"] {
   color: grey;
 }
 
-#hex-refresh:hover,#hex-archive:hover,#hex-mover:hover,#hex-filter:hover {
+
+#hex-refresh:hover,#hex-create:hover,#hex-archive:hover,
+#hex-share:hover,#hex-build:hover,#hex-filter:hover {
   cursor: pointer;
   color: lightgrey;
+}
+
+#hex-refresh:focus,#hex-create:focus,#hex-archive:focus,
+#hex-share:focus,#hex-build:focus,#hex-filter:focus {
+  outline: 2.33px solid cornflowerblue;
 }
 
 #hex-mover {
@@ -404,6 +436,14 @@ i#hex-mover[aria-hidden="false"] {
 .flex-start {
   display: flex;
   justify-content: flex-start;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
 }
 
 #messenger-body {

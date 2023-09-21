@@ -9,7 +9,7 @@
   <link rel='icon' href='resources/images/tao-75-red.png' type='image/x-icon'/ >
   <link rel="stylesheet" href="style/main.css"/>
   <link rel="stylesheet" href="style/throw.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" defer>
 </head>
 <div id="modal-backdrop" class="hide"></div>
 <header id="nav-wrapper" class="relshell">
@@ -29,51 +29,48 @@
       <button id="close-nav-modal" class="close-modal" aria-label="close navigation" title="close navigation">&laquo;</button>
       <ul id="nav-list" role="menubar" aria-label="navigation">
         <li class="nav-option" role="none">
-          <a role="menuitem" aria-expanded="false" aria-controls="book-of-changes-list" class="nav-submenu-name-link" id="book-of-changes-submenu" href="#">book of changes</a>
-          <div class="subnav-modal" visually-hidden="true">
-            <ul role="menu" id="book-of-changes-list" class="nav-sublist">
+          <a role="menuitem" aria-expanded="false" aria-controls="book-of-changes-list" haspopup="true" class="nav-submenu-name-link" id="book-of-changes-submenu" href="#">i ching</a>
+          <div class="subnav-modal">
+            <ul role="menu" id="book-of-changes-list" class="nav-sublist" visually-hidden="true">
               <li class="nav-suboption" role="none">
-                <a role="menuitem" class="subnav-link book-of-changes" id="throw" href="/">create</a>
+                <a role="menuitem" tabindex="-1" class="subnav-link book-of-changes" id="throw" href="/">create</a>
               </li>
               <li class="nav-suboption" role="none">
-                <a role="menuitem" class="subnav-link book-of-changes" id="build" href="build/">build</a>
+                <a role="menuitem" tabindex="-1" class="subnav-link book-of-changes" id="build" href="build/">build</a>
               </li>
             </ul>
           </div>
         </li>
         <li class="nav-option" role="none">
-          <a role="menuitem" aria-expanded="false" aria-controls="explore-list" class="nav-submenu-name-link" id="explore-submenu" href="#">explore</a>
-          <div class="subnav-modal" visually-hidden="true">
-            <ul role="menu" id="explore-list" class="nav-sublist">
+          <a role="menuitem" aria-expanded="false" aria-controls="explore-list" haspopup="true" class="nav-submenu-name-link" id="explore-submenu" href="#">explore</a>
+          <div class="subnav-modal">
+            <ul role="menu" id="explore-list" class="nav-sublist" visually-hidden="true">
               <li class="nav-suboption">
-                <a role="menuitem" class="subnav-link explore" href="trigrams/">八卦<br/>trigrams</a>
+                <a role="menuitem" tabindex="-1" class="subnav-link explore" href="trigrams/">八卦<br/>trigrams</a>
               </li>
               <li class="nav-suboption">
-                <a role="menuitem" class="subnav-link explore" href="hexagrams/">卦<br/>hexagrams</a>
+                <a role="menuitem" tabindex="-1" class="subnav-link explore" href="hexagrams/">卦<br/>hexagrams</a>
               </li>
               <li class="nav-suboption">
-                <a role="menuitem" class="subnav-link explore" href="i-ching/">易經<br/>the book</a>
+                <a role="menuitem" tabindex="-1" class="subnav-link explore" href="i-ching/">易經<br/>the book</a>
               </li>
               <li class="nav-suboption">
-                <a role="menuitem" class="subnav-link explore" href="ex-machina/">貞<br/>ex machina</a>
+                <a role="menuitem" tabindex="-1" class="subnav-link explore" href="ex-machina/">貞<br/>ex machina</a>
             </ul>
           </div>
         </li>
         <li class="nav-option" role="none">
-          <a role="menuitem" aria-expanded="false" aria-controls="profile-list" class="nav-submenu-name-link" id="profile-submenu" href="#">profile</a>
-          <div class="subnav-modal" visually-hidden="true">
-            <ul role="menu" id="profile-list" class="nav-sublist">
+          <a role="menuitem" aria-expanded="false" aria-controls="share-list" haspopup="true" class="nav-submenu-name-link" id="share-submenu" href="#">share</a>
+          <div class="subnav-modal">
+            <ul role="menu" id="share-list" class="nav-sublist" visually-hidden="true">
               <li role="none" class="nav-suboption">
-                <a role="menuitem" class="subnav-link profile" href="/book-of-changes/profile/archives/">archives</a>
+                <a role="menuitem" tabindex="-1" class="subnav-link share" href="/book-of-changes/home/archives/">archives</a>
               </li>
               <li role="none" class="nav-suboption">
-                <a role="menuitem" class="subnav-link profile" href="/book-of-changes/profile/users/">message</a>
+                <a role="menuitem" tabindex="-1" class="subnav-link share" href="/book-of-changes/home/message/">message</a>
               </li>
               <li role="none" class="nav-suboption">
-                <a role="menuitem" class="subnav-link profile" href="/book-of-changes/profile/">settings</a>
-              </li>
-              <li role="none" class="nav-suboption">
-                <a role="menuitem" class="subnav-link profile" href="#">logout</a>
+                <a role="menuitem" tabindex="-1" class="subnav-link share" href="/book-of-changes/home/">settings</a>
               </li>
             </ul>
           </div>
@@ -90,6 +87,7 @@
       <div id="hex-title-original" class="hex-title"></div>
       <div id="hex-title-canonical" class="hex-title"></div>
       <div id="hex-title-alias" class="hex-title"></div>
+      <i id="hex-share" class="fa fa-share-alt" aria-label="share" role="button" title="share"></i>
       <div id="meta-col-tabs" class="flex-row flex-around" role="tablist">
         <button id="tab-inner" class="meta-col-tab" aria-selected="false" aria-controls="meta-col-inner">INNER</button>
         <button id="tab-outer" class="meta-col-tab" aria-selected="false" aria-controls="meta-col-outer">OUTER</button>
@@ -156,8 +154,8 @@
 
   <!-- footer icons -->
 <footer id="footer-wrap" class="flex-row flex-between">
-  <i id="hex-refresh" class="fa fa-retweet" aria-label="share" role="button"></i>
-  <i id="hex-archive" class="fa fa-folder" aria-label="archive" role="button"></i>
+  <i id="hex-refresh" class="fa fa-refresh" aria-label="refresh" title="refresh" role="button" tabindex="0"></i>
+  <span id="hex-build" class="" aria-label="build hexagrams" role="button" title="build hexagrams" tabindex="0">䷿</span>
 </footer>
 
 </body>

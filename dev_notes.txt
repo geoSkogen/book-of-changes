@@ -7,6 +7,7 @@ manage /hexagrams/ and /trigrams/ 'stateful' links with aria roles, (e.g. gridce
 manage foreground/background opacity levels with dialog boxes
 Add title attributes to all buttons that close modal/dialogues
 utilize another html attribute besides aria-hidden to toggle display of nav menus
+ensure links in modal dialogues have negative tab index until modal is shown
 
 
 ==

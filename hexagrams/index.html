@@ -29,55 +29,52 @@
 
     <!-- navigation menu -->
     <div id="nav-modal-shell">
-      <nav id="nav-modal" aria-hidden="true">
-        <button id="close-nav-modal" class="close-modal" aria-label="close navigation">&laquo;</button>
-        <ul id="nav-list" role="menubar">
+      <nav id="nav-modal" visually-hidden="true">
+        <button id="close-nav-modal" class="close-modal" aria-label="close navigation" title="close navigation">&laquo;</button>
+        <ul id="nav-list" role="menubar" aria-label="navigation">
           <li class="nav-option" role="none">
-            <a role="menuitem" aria-expanded="false" class="nav-submenu-name-link" id="book-of-changes-submenu" href="#">book of changes</a>
+            <a role="menuitem" aria-expanded="false" aria-controls="book-of-changes-list" haspopup="true" class="nav-submenu-name-link" id="book-of-changes-submenu" href="#">i ching</a>
             <div class="subnav-modal">
-              <ul role="menu" id="book-of-changes-list" class="nav-sublist">
+              <ul role="menu" id="book-of-changes-list" class="nav-sublist" visually-hidden="true">
                 <li class="nav-suboption" role="none">
-                  <a role="menuitem" class="subnav-link book-of-changes" id="throw" href="../">create</a>
+                  <a role="menuitem" tabindex="-1" class="subnav-link book-of-changes" id="throw" href="../">create</a>
                 </li>
                 <li class="nav-suboption" role="none">
-                  <a role="menuitem" class="subnav-link book-of-changes" id="build" href="../build/">build</a>
+                  <a role="menuitem" tabindex="-1" class="subnav-link book-of-changes" id="build" href="../build/">build</a>
                 </li>
               </ul>
             </div>
           </li>
           <li class="nav-option" role="none">
-            <a role="menuitem" aria-expanded="false" class="nav-submenu-name-link" id="explore-submenu" href="#">explore</a>
+            <a role="menuitem" aria-expanded="false" aria-controls="explore-list" haspopup="true" class="nav-submenu-name-link" id="explore-submenu" href="#">explore</a>
             <div class="subnav-modal">
-              <ul role="menu" id="explore-list" class="nav-sublist">
+              <ul role="menu" id="explore-list" class="nav-sublist" visually-hidden="true">
                 <li class="nav-suboption">
-                  <a role="menuitem" class="subnav-link explore" href="../trigrams/">八卦<br/>trigrams</a>
+                  <a role="menuitem" tabindex="-1" class="subnav-link explore" href="../trigrams/">八卦<br/>trigrams</a>
                 </li>
                 <li class="nav-suboption">
-                  <a role="menuitem" class="subnav-link explore" href="../hexagrams/">卦<br/>hexagrams</a>
+                  <a role="menuitem" tabindex="-1" class="subnav-link explore" href="../hexagrams/">卦<br/>hexagrams</a>
                 </li>
                 <li class="nav-suboption">
-                  <a role="menuitem" class="subnav-link explore" href="../i-ching/">易經<br/>the book</a>
+                  <a role="menuitem" tabindex="-1" class="subnav-link explore" href="../i-ching/">易經<br/>the book</a>
                 </li>
                 <li class="nav-suboption">
-                  <a role="menuitem" class="subnav-link explore" href="../ex-machina/">貞<br/>ex machina</a>
+                  <a role="menuitem" tabindex="-1" class="subnav-link explore" href="../ex-machina/">貞<br/>ex machina</a>
               </ul>
             </div>
           </li>
           <li class="nav-option" role="none">
-            <a role="menuitem" class="nav-submenu-name-link" id="profile-submenu" href="#">profile</a>
+            <a role="menuitem" aria-expanded="false" aria-controls="share-list" haspopup="true" class="nav-submenu-name-link" id="share-submenu" href="#">share</a>
             <div class="subnav-modal">
-              <ul role="menu" id="profile-list" class="nav-sublist">
+              <ul role="menu" id="share-list" class="nav-sublist" visually-hidden="true">
                 <li role="none" class="nav-suboption">
-                  <a role="menuitem" class="subnav-link profile" href="/book-of-changes/profile/archives/">archives</a>
+                  <a role="menuitem" tabindex="-1" class="subnav-link share" href="/book-of-changes/home/archives/">archives</a>
                 </li>
                 <li role="none" class="nav-suboption">
-                  <a role="menuitem" class="subnav-link profile" href="/book-of-changes/profile/users/">message</a>
+                  <a role="menuitem" tabindex="-1" class="subnav-link share" href="/book-of-changes/home/message/">message</a>
                 </li>
                 <li role="none" class="nav-suboption">
-                  <a role="menuitem" class="subnav-link profile" href="/book-of-changes/profile/">settings</a>
-                </li>
-                <li role="none" class="nav-suboption">
-                  <a role="menuitem" class="subnav-link profile" href="#">logout</a>
+                  <a role="menuitem" tabindex="-1" class="subnav-link share" href="/book-of-changes/home/">settings</a>
                 </li>
               </ul>
             </div>
@@ -172,8 +169,8 @@
 
     <!-- footer icons -->
   <footer id="footer-wrap" class="flex-row flex-between">
-    <i id="hex-refresh" class="fa fa-retweet" aria-label="clear filters" role="button"></i>
-    <i id="hex-filter" class="fa fa-filter" aria-label="filter hexagrams" role="button"></i>
+    <i id="hex-create" class="fa fa-circle-o" aria-label="create hexagram" title="create hexagrams" role="button"></i>
+    <i id="hex-filter" class="fa fa-filter" aria-label="filter hexagrams" title="filter hexagrams" role="button"></i>
   </footer>
 
   <div id="filter-menu-frame">
