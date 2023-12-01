@@ -36,10 +36,16 @@
             <div class="subnav-modal">
               <ul role="menu" id="book-of-changes-list" class="nav-sublist" visually-hidden="true">
                 <li class="nav-suboption" role="none">
-                  <a role="menuitem" tabindex="-1" class="subnav-link book-of-changes" id="throw" href="../">create</a>
+                  <a role="menuitem" tabindex="-1" class="subnav-link book-of-changes" id="throw" href="../">
+                    <i id="hex-create-deco" class="fa fa-circle-o" aria-hidden="true"></i>
+                    create
+                  </a>
                 </li>
                 <li class="nav-suboption" role="none">
-                  <a role="menuitem" tabindex="-1" class="subnav-link book-of-changes" id="build" href="../build/">build</a>
+                  <a role="menuitem" tabindex="-1" class="subnav-link book-of-changes" id="build" href="../build/">
+                    <span id="hex-build-deco" class="" aria-hidden="true">䷿</span>
+                    build
+                  </a>
                 </li>
               </ul>
             </div>
@@ -83,26 +89,30 @@
     </div><!-- nav modal shell -->
 
     <!-- interpretive text modal -->
-    <div id='hex-modal' class="full-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="hexagrams interpreted">
-      <button id="close-hex-modal" class="close-modal" aria-label="close interpretive modal dialog" title="close interpretive modal dialog">&laquo;</button>
-      <div id="hex-modal-content">
-        <div id="hex-number" class="hex-title"></div>
-        <div id="hex-title-original" class="hex-title"></div>
-        <div id="hex-title-canonical" class="hex-title"></div>
-        <div id="hex-title-alias" class="hex-title"></div>
-        <div id="meta-col-tabs" class="flex-row flex-around" rols="tablist">
-          <button id="tab-inner" class="meta-col-tab" aria-selected="false" aria-controls="meta-col-inner">INNER</button>
-          <button id="tab-outer" class="meta-col-tab" aria-selected="false" aria-controls="meta-col-outer">OUTER</button>
+    <div class="flex-row flex-center">
+      <div id='hex-modal' class="full-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="hexagrams interpreted">
+        <div class="flex-row flex-end">
+          <button id="close-hex-modal" class="close-modal" aria-label="close interpretive modal dialog" title="close interpretive modal dialog">&laquo;</button>
         </div>
-        <div id="meta-cols" class="flex-row flex-center">
-          <section id="meta-col-inner" class="flex-col flex-between meta-col" aria-hidden="true" aria-labelledby="tab-inner">
-            <div id="hex-meta-inner" class="hex-purport hex-meta"></div>
-            <div id="moving-lines-inner" class="hex-purport moving-meta"></div>
-          </section>
-          <section id="meta-col-outer" class="flex-col flex-between meta-col" aria-hidden="true" aria-labelledby="tab-outer">
-            <div id="hex-meta-outer" class="hex-purport hex-meta"></div>
-            <div id="moving-lines-outer" class="hex-purport moving-meta"></div>
-          </section>
+        <div id="hex-modal-content">
+          <div id="hex-number" class="hex-title"></div>
+          <div id="hex-title-original" class="hex-title"></div>
+          <div id="hex-title-canonical" class="hex-title"></div>
+          <div id="hex-title-alias" class="hex-title"></div>
+          <div id="meta-col-tabs" class="flex-row flex-around" rols="tablist">
+            <button id="tab-inner" class="meta-col-tab" aria-selected="false" aria-controls="meta-col-inner">INNER</button>
+            <button id="tab-outer" class="meta-col-tab" aria-selected="false" aria-controls="meta-col-outer">OUTER</button>
+          </div>
+          <div id="meta-cols" class="flex-row flex-center">
+            <section id="meta-col-inner" class="flex-col flex-between meta-col" aria-hidden="true" aria-labelledby="tab-inner">
+              <div id="hex-meta-inner" class="hex-purport hex-meta"></div>
+              <div id="moving-lines-inner" class="hex-purport moving-meta"></div>
+            </section>
+            <section id="meta-col-outer" class="flex-col flex-between meta-col" aria-hidden="true" aria-labelledby="tab-outer">
+              <div id="hex-meta-outer" class="hex-purport hex-meta"></div>
+              <div id="moving-lines-outer" class="hex-purport moving-meta"></div>
+            </section>
+          </div>
         </div>
       </div>
     </div>
@@ -152,7 +162,9 @@
       <button id="first-hex-name" class="hex-name" aria-controls="hex-modal" aria-expanded="false" aria-label="open first hexagram interpretive modal" title="open first hexagram interpretive modal">
         <!-- -->
       </button>
-      <i id="hex-mover" class="fa fa-arrow-circle-right" aria-hidden="true" aria-label="becoming"></i>
+      <span id="hex-mover-frame">
+        <i id="hex-mover" class="fa fa-arrow-circle-right" aria-hidden="true" aria-label="becoming"></i>
+      </span>
       <button id="second-hex-name"  class="hex-name" aria-controls="hex-modal" aria-expanded="false" aria-label="open second hexagram interpretive modal" title="open second hexagram interpretive modal">
         <!-- -->
       </button>
@@ -198,8 +210,12 @@
   </div><!-- app -->
 
   <footer id="footer-wrap" class="flex-row flex-between">
-    <i id="hex-create" class="fa fa-circle-o" aria-label="create hexagrams" title="create hexagrams" role="button"></i>
-    <i id="hex-archive" class="fa fa-folder" aria-label="archive this configuration" title="archive" role="button"></i>
+    <a class="icon-nav-link" href="../" aria-label="create hexagrams" title="create hexagrams">
+      <i id="hex-create" class="fa fa-circle-o"></i>
+    </a>
+    <button class="icon-button" aria-label="archive this configuration" title="archive">
+      <i id="hex-archive" class="fa fa-folder"></i>
+    </button>
   </footer>
 
 </body>

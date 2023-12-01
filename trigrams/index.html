@@ -38,10 +38,16 @@
             <div class="subnav-modal">
               <ul role="menu" id="book-of-changes-list" class="nav-sublist" visually-hidden="true">
                 <li class="nav-suboption" role="none">
-                  <a role="menuitem" tabindex="-1" class="subnav-link book-of-changes" id="throw" href="../">create</a>
+                  <a role="menuitem" tabindex="-1" class="subnav-link book-of-changes" id="throw" href="../">
+                    <i id="hex-create-deco" class="fa fa-circle-o" aria-hidden="true"></i>
+                    create
+                  </a>
                 </li>
                 <li class="nav-suboption" role="none">
-                  <a role="menuitem" tabindex="-1" class="subnav-link book-of-changes" id="build" href="../build/">build</a>
+                  <a role="menuitem" tabindex="-1" class="subnav-link book-of-changes" id="build" href="../build/">
+                    <span id="hex-build-deco" class="" aria-hidden="true">䷿</span>
+                    build
+                  </a>
                 </li>
               </ul>
             </div>
@@ -85,15 +91,19 @@
     </div><!-- nav modal shell -->
 
     <!-- interpretive text modal -->
-    <div id='hex-modal' class="full-modal" aria-hidden="true" role="dialog" aria-modal="true">
-      <button id="close-hex-modal" class="close-modal" aria-label="close interpretive dialog">&laquo;</button>
-      <a href="#" id="hex-modal-content">
-        <div id="hex-lines" class="hex-heading"></div>
-        <div id="hex-char" class="hex-title"></div>
-        <div id="hex-title-original" class="hex-title"></div>
-        <div id="hex-title-canonical" class="hex-title"></div>
-        <div id="hex-title-alias" class="hex-title"></div>
-      </a>
+    <div class-"flex-row flex-center">
+      <div id='hex-modal' class="full-modal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="flex-row flex-end">
+          <button id="close-hex-modal" class="close-modal" aria-label="close interpretive dialog">&laquo;</button>
+        </div>
+        <a href="#" id="hex-modal-content">
+          <div id="hex-lines" class="hex-heading"></div>
+          <div id="hex-char" class="hex-title"></div>
+          <div id="hex-title-original" class="hex-title"></div>
+          <div id="hex-title-canonical" class="hex-title"></div>
+          <div id="hex-title-alias" class="hex-title"></div>
+        </a>
+      </div>
     </div>
 
   </header><!-- relshell end -->
@@ -163,8 +173,12 @@
 
   <!-- footer icons -->
   <footer id="footer-wrap" class="flex-row flex-between">
-    <i id="hex-create" class="fa fa-circle-o" aria-label="create hexagrams" title="create hexagrams" role="button"></i>
-    <span id="hex-build" class="" aria-label="build hexagrams" title="build hexagrams" role="button">䷿</span>
+    <a class="icon-nav-link" href="../" aria-label="create hexagrams" title="create hexagrams">
+      <i id="hex-create" class="fa fa-circle-o"></i>
+    </a>
+    <a class="icon-nav-link" href="../build/" aria-label="build hexagrams" title="build hexagrams">
+      <span id="hex-build" class="footer-nav-symbol">䷿</span>
+    </a>
   </footer>
 
 </body>

@@ -20,10 +20,15 @@
 .line-button {
   cursor: pointer;
   outline: none;
-  padding-inline: 0 !important;
-  padding-block: 0 !important;
-  border: none !important;
+  padding-inline: 0;
+  padding-block: 0;
+  border: 2.8px solid black;
   background: transparent;
+  padding: 0.16em 0.66em 0 0.66em;
+}
+
+.line-button:focus {
+  border: 2.8px solid cornflowerblue;
 }
 
 @media screen and (min-width: 900px) {
