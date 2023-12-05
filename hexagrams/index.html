@@ -29,55 +29,58 @@
 
     <!-- navigation menu -->
     <div id="nav-modal-shell">
-      <nav id="nav-modal" aria-hidden="true">
-        <button id="close-nav-modal" class="close-modal" aria-label="close navigation">&laquo;</button>
-        <ul id="nav-list" role="menubar">
+      <nav id="nav-modal" visually-hidden="true">
+        <button id="close-nav-modal" class="close-modal" aria-label="close navigation" title="close navigation">&laquo;</button>
+        <ul id="nav-list" role="menubar" aria-label="navigation">
           <li class="nav-option" role="none">
-            <a role="menuitem" aria-expanded="false" class="nav-submenu-name-link" id="book-of-changes-submenu" href="#">book of changes</a>
+            <a role="menuitem" aria-expanded="false" aria-controls="book-of-changes-list" haspopup="true" class="nav-submenu-name-link" id="book-of-changes-submenu" href="#">i ching</a>
             <div class="subnav-modal">
-              <ul role="menu" id="book-of-changes-list" class="nav-sublist">
+              <ul role="menu" id="book-of-changes-list" class="nav-sublist" visually-hidden="true">
                 <li class="nav-suboption" role="none">
-                  <a role="menuitem" class="subnav-link book-of-changes" id="throw" href="../">create</a>
+                  <a role="menuitem" tabindex="-1" class="subnav-link book-of-changes" id="throw" href="../">
+                    <i id="hex-create-deco" class="fa fa-circle-o" aria-hidden="true"></i>
+                    create
+                  </a>
                 </li>
                 <li class="nav-suboption" role="none">
-                  <a role="menuitem" class="subnav-link book-of-changes" id="build" href="../build/">build</a>
+                  <a role="menuitem" tabindex="-1" class="subnav-link book-of-changes" id="build" href="../build/">
+                    <span id="hex-build-deco" class="" aria-hidden="true">䷿</span>
+                    build
+                  </a>
                 </li>
               </ul>
             </div>
           </li>
           <li class="nav-option" role="none">
-            <a role="menuitem" aria-expanded="false" class="nav-submenu-name-link" id="explore-submenu" href="#">explore</a>
+            <a role="menuitem" aria-expanded="false" aria-controls="explore-list" haspopup="true" class="nav-submenu-name-link" id="explore-submenu" href="#">explore</a>
             <div class="subnav-modal">
-              <ul role="menu" id="explore-list" class="nav-sublist">
+              <ul role="menu" id="explore-list" class="nav-sublist" visually-hidden="true">
                 <li class="nav-suboption">
-                  <a role="menuitem" class="subnav-link explore" href="../trigrams/">八卦<br/>trigrams</a>
+                  <a role="menuitem" tabindex="-1" class="subnav-link explore" href="../trigrams/">八卦<br/>trigrams</a>
                 </li>
                 <li class="nav-suboption">
-                  <a role="menuitem" class="subnav-link explore" href="../hexagrams/">卦<br/>hexagrams</a>
+                  <a role="menuitem" tabindex="-1" class="subnav-link explore" href="../hexagrams/">卦<br/>hexagrams</a>
                 </li>
                 <li class="nav-suboption">
-                  <a role="menuitem" class="subnav-link explore" href="../i-ching/">易經<br/>the book</a>
+                  <a role="menuitem" tabindex="-1" class="subnav-link explore" href="../i-ching/">易經<br/>the book</a>
                 </li>
                 <li class="nav-suboption">
-                  <a role="menuitem" class="subnav-link explore" href="../ex-machina/">貞<br/>ex machina</a>
+                  <a role="menuitem" tabindex="-1" class="subnav-link explore" href="../ex-machina/">貞<br/>ex machina</a>
               </ul>
             </div>
           </li>
           <li class="nav-option" role="none">
-            <a role="menuitem" class="nav-submenu-name-link" id="profile-submenu" href="#">profile</a>
+            <a role="menuitem" aria-expanded="false" aria-controls="share-list" haspopup="true" class="nav-submenu-name-link" id="share-submenu" href="#">share</a>
             <div class="subnav-modal">
-              <ul role="menu" id="profile-list" class="nav-sublist">
+              <ul role="menu" id="share-list" class="nav-sublist" visually-hidden="true">
                 <li role="none" class="nav-suboption">
-                  <a role="menuitem" class="subnav-link profile" href="/book-of-changes/profile/archives/">archives</a>
+                  <a role="menuitem" tabindex="-1" class="subnav-link share" href="/book-of-changes/home/archives/">archives</a>
                 </li>
                 <li role="none" class="nav-suboption">
-                  <a role="menuitem" class="subnav-link profile" href="/book-of-changes/profile/users/">message</a>
+                  <a role="menuitem" tabindex="-1" class="subnav-link share" href="/book-of-changes/home/message/">message</a>
                 </li>
                 <li role="none" class="nav-suboption">
-                  <a role="menuitem" class="subnav-link profile" href="/book-of-changes/profile/">settings</a>
-                </li>
-                <li role="none" class="nav-suboption">
-                  <a role="menuitem" class="subnav-link profile" href="#">logout</a>
+                  <a role="menuitem" tabindex="-1" class="subnav-link share" href="/book-of-changes/home/">settings</a>
                 </li>
               </ul>
             </div>
@@ -87,55 +90,59 @@
     </div><!-- nav modal shell -->
 
     <!-- interpretive text modal -->
-    <div id='hex-modal' class="full-modal" class="hex-modal-content" aria-hidden="true" role="dialog" aria-modal="true" aria-label="hexagrams interpreted">
-      <div id="close-hex-modal" class="close-modal" aria-label="close interpretive modal dialog" title="close interpretive modal dialog">&laquo;</div>
-      <div id="hex-modal-content-1" class="hex-modal-content">
-        <div class="flex-row flex-center">
-          <div id="hex-lines-1" class="hex-title"></div>
-          <div id="hex-number-1" class="hex-title"></div>
+    <div class="flex-row flex-center">
+      <div id='hex-modal' class="full-modal" class="hex-modal-content" aria-hidden="true" role="dialog" aria-modal="true" aria-label="hexagrams interpreted">
+        <div class="flex-row flex-end">
+          <div id="close-hex-modal" class="close-modal" aria-label="close interpretive modal dialog" title="close interpretive modal dialog">&laquo;</div>
         </div>
-        <div class="flex-row flex-center">
-          <div id="hex-char-1" class="hex-title"></div>
-          <div id="hex-name-1" class="hex-title"></div>
+        <div id="hex-modal-content-1" class="hex-modal-content">
+          <div class="flex-row flex-center">
+            <div id="hex-lines-1" class="hex-title"></div>
+            <div id="hex-number-1" class="hex-title"></div>
+          </div>
+          <div class="flex-row flex-center">
+            <div id="hex-char-1" class="hex-title"></div>
+            <div id="hex-name-1" class="hex-title"></div>
+          </div>
+          <div id="hex-title-original-1" class="hex-title"></div>
+          <div id="hex-title-canonical-1" class="hex-title"></div>
+          <div id="hex-title-alias-1" class="hex-title"></div>
+          <br/>
+          <div class="read-hex-frame flex-row flex-center">
+            <a id="read-link-1" class="read-hex" href="#"></a>
+          </div>
+          <br/>
+          <div class="inner-hex-frame flex-row flex-center">
+            <a id="inner-link-1" class="inner-hex" href="#">inner</a>
+            <div class="inner-pipe">&nbsp;|&nbsp;</div>
+            <a id="innermost-link-1" class="inner-hex" href="#">innermost</a>
+          </div>
         </div>
-        <div id="hex-title-original-1" class="hex-title"></div>
-        <div id="hex-title-canonical-1" class="hex-title"></div>
-        <div id="hex-title-alias-1" class="hex-title"></div>
-        <br/>
-        <div class="read-hex-frame flex-row flex-center">
-          <a id="read-link-1" class="read-hex" href="#"></a>
+        <div id="icon-d-frame" class="flex-row flex-center">
+          <i id="hex-mover-d" class="fa fa-arrow-circle-down" aria-hidden="true" aria-label="becoming"></i>
         </div>
-        <br/>
-        <div class="inner-hex-frame flex-row flex-center">
-          <a id="inner-link-1" class="inner-hex" href="#">inner</a>
-          <div class="inner-pipe">&nbsp;|&nbsp;</div>
-          <a id="innermost-link-1" class="inner-hex" href="#">innermost</a>
-        </div>
-      </div>
-      <div id="icon-d-frame" class="flex-row flex-center">
-        <i id="hex-mover-d" class="fa fa-arrow-circle-down" aria-hidden="true" aria-label="becoming"></i>
-      </div>
-      <div id="hex-modal-content-2" class="hex-modal-content">
-        <div class="flex-row flex-center">
-          <div id="hex-lines-2" class="hex-title"></div>
-          <div id="hex-number-2" class="hex-title"></div>
-        </div>
-        <div class="flex-row flex-center">
-          <div id="hex-char-2" class="hex-title"></div>
-          <div id="hex-name-2" class="hex-title"></div>
-        </div>
-        <div id="hex-title-original-2" class="hex-title"></div>
-        <div id="hex-title-canonical-2" class="hex-title"></div>
-        <div id="hex-title-alias-2" class="hex-title"></div>
-        <br/>
-        <div class="read-hex-frame flex-row flex-center">
-          <a id="read-link-2" class="read-hex" href="#"></a>
-        </div>
-        <br/>
-        <div class="inner-hex-frame flex-row flex-center">
-          <a id="inner-link-2" class="inner-hex" href="#">inner</a>
-          <div class="inner-pipe">&nbsp;|&nbsp;</div>
-          <a id="innermost-link-2" class="inner-hex" href="#">innermost</a>
+        <div id="hex-modal-content-2" class="hex-modal-content">
+          <div class="flex-row flex-center">
+            <div id="hex-lines-2" class="hex-title"></div>
+            <div id="hex-number-2" class="hex-title"></div>
+          </div>
+          <div class="flex-row flex-center">
+            <div id="hex-char-2" class="hex-title"></div>
+            <div id="hex-name-2" class="hex-title"></div>
+          </div>
+          <div id="hex-title-original-2" class="hex-title"></div>
+          <div id="hex-title-canonical-2" class="hex-title"></div>
+          <div id="hex-title-alias-2" class="hex-title"></div>
+          <br/>
+          <div class="read-hex-frame flex-row flex-center">
+            <a id="read-link-2" class="read-hex" href="#"></a>
+          </div>
+          <br/>
+          <div class="inner-hex-frame flex-row flex-center">
+            <a id="inner-link-2" class="inner-hex" href="#">inner</a>
+            <div class="inner-pipe">&nbsp;|&nbsp;</div>
+            <a id="innermost-link-2" class="inner-hex" href="#">innermost</a>
+          </div>
         </div>
       </div>
     </div>
@@ -146,7 +153,7 @@
     <!-- app body -->
     <div class="flex-row flex-center">
       <div id="hexagram-menu-tabs" class="flex-row flex-around" role="tablist">
-        <button id="panel-tab-1" class="menu-tab" aria-selected="false" aria-controls="hexagram-menu-1">I</button>
+        <button id="panel-tab-1" class="menu-tab" aria-selected="true" aria-controls="hexagram-menu-1">I</button>
         <button id="panel-tab-2" class="menu-tab" aria-selected="false" aria-controls="hexagram-menu-2">II</button>
         <button id="panel-tab-3" class="menu-tab" aria-selected="false" aria-controls="hexagram-menu-3">III</button>
         <button id="panel-tab-4" class="menu-tab" aria-selected="false" aria-controls="hexagram-menu-4">IV</button>
@@ -154,7 +161,7 @@
     </div>
     <!-- main -->
     <div class="flex-row flex-center">
-      <div id="hexagram-menu-1" class="flex-row flex-center hexagram-menu" aria-hidden="true" aria-labelledby="panel-tab-1">
+      <div id="hexagram-menu-1" class="flex-row flex-center hexagram-menu" aria-hidden="false" aria-labelledby="panel-tab-1">
       <!-- javascript rendering-->
       </div>
       <div id="hexagram-menu-2" class="flex-row flex-center hexagram-menu" aria-hidden="true" aria-labelledby="panel-tab-2">
@@ -172,8 +179,16 @@
 
     <!-- footer icons -->
   <footer id="footer-wrap" class="flex-row flex-between">
-    <i id="hex-refresh" class="fa fa-retweet" aria-label="clear filters" role="button"></i>
-    <i id="hex-filter" class="fa fa-filter" aria-label="filter hexagrams" role="button"></i>
+    <div class="footer-inner">
+      <a class="icon-nav-link" href="../" aria-label="create hexagrams" title="create hexagrams">
+        <i id="hex-create" class="fa fa-circle-o" ></i>
+      </a>
+    </div>
+    <div class="footer-inner">
+      <button class="icon-button" id="hex-filter-button" aria-label="filter hexagrams" title="filter hexagrams">
+        <i id="hex-filter" class="fa fa-filter"></i>
+      </button>
+    </div>
   </footer>
 
   <div id="filter-menu-frame">

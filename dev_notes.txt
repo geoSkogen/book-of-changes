@@ -1,3 +1,38 @@
+=======
+UX/A11y
+=======
 visible focus and hover for buttons, links, tabs
 manage focus between dialogues
-manage /hexagrams/ and /trigrams/ 'stateful' links with aria roles, (e.g. gridcell uses aria-selected)  
+manage /hexagrams/ and /trigrams/ 'stateful' links with aria roles, (e.g. gridcell uses aria-selected)
+manage foreground/background opacity levels with dialog boxes
+Add title attributes to all buttons that close modal/dialogues
+utilize another html attribute besides aria-hidden to toggle display of nav menus
+
+
+==
+UI
+==
+add more informative text to /trigrams/ modal
+utilize status elements to display the selection state of /hexagrams/ grid
+deactivate the on-select opening of /hexagrams/ dialog, add separate button
+add a clear/reset button to /, experiment with social media share button and OG metadata
+
+=====
+Theme
+=====
+re-implement fade-in effect for Modal::show
+fix alignment of modal dialogues
+fix alignment of hexagram titles in / and /build
+
+=====
+Logic
+=====
+re-implement URL queries for all routes, /#/1/2/, /build/#/1/2 and hexagrams/#/1/2
+  should all set the same Yin => Yang configuration in the UI on page load
+for /hexagrams/ menu, dynamically update the hrefs of all grid-cell link-buttons with the first selection, e.g.:
+  when grid-cell 1 is the first cell selected,
+      all other cell hrefs should update from #/{cell_number} to to /#/1/{cell_number}
+      grid-cell 1 href should update to #
+  when 2 is the second cell selected, its href should update to /#/1 only
+  when the second grid-cell is un-selected and the f
+  when the first grid-cell is un-selected and the second-grid cell is still selected

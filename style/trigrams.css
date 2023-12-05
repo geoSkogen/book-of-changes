@@ -56,12 +56,6 @@
   margin: 0.5em 0 0 0.66em;
 }
 
-li.nav-option {
-  margin: 0 0.5em 0 0.5em;
-  max-width: 60px;
-  min-width: 60px;
-}
-
 #tri-hex {
   width: 55px;
   height: 48px;
