@@ -42,7 +42,7 @@ if ($library && $typeface) {
     $request_query_args[$key_val_arr[0]] = $key_val_arr[1];
   }
 
-  if (isset($request_query_args['id']) && intval($request_query_args['id'])) {
+  if (isset($request_query_args['id'])) {
 
     $controller_args->id = $request_query_args['id'];
 

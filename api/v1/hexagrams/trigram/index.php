@@ -1,9 +1,9 @@
 <?php
 
-require '../../../src/controller/BookOfChangesController.php';
+require '../../../../src/controller/BookOfChangesController.php';
 
-$library_file = file_get_contents('../../../data/book/hex-data.json');
-$typeface_file = file_get_contents('../../../data/book/hex-chars.json');
+$library_file = file_get_contents('../../../../data/book/hex-data.json');
+$typeface_file = file_get_contents('../../../../data/book/hex-chars.json');
 
 $library = $library_file ? json_decode($library_file) : null;
 $typeface = $typeface_file ? json_decode($typeface_file) : null;
@@ -28,6 +28,12 @@ if ($library && $typeface) {
     $library->sovereign_indices
   );
 
+  $controller_args = new stdClass;
+  $controller_args->verbose = false;
+  $controller_args->dual_result = false;
+  $controller_args->moving_lines = '';
+  $controller_args->id = null;
+
   $request_query_args = [];
 
   $queries = explode('&',$_SERVER['QUERY_STRING']);
@@ -36,13 +42,17 @@ if ($library && $typeface) {
     $request_query_args[$key_val_arr[0]] = $key_val_arr[1];
   }
 
-  if (isset($request_query_args['id'])) {
+  if (isset($request_query_args['segment']) && isset($request_query_args['id'])) {
 
-    $response_array = $book->getTrigramBody($request_query_args['id']);
+    $response_array = $book->getHexagramsByTrigram(
+      $request_query_args['segment'],
+      $request_query_args['id']
+    );
 
   } else {
-    $response_array = [ 'error' => 'invalid ID number' ];
+    $response_array = ['error' => 'invalid arguments'];
   }
+
 } else {
   $response_array = [ 'error' => 'database not found' ];
 }

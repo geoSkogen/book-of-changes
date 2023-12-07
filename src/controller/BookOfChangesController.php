@@ -109,6 +109,33 @@ class BookOfChangesController {
     return $response_arr;
   }
 
+  public function getHexagramsByTrigram(string $segment, string $trigram_line_config) {
+    $response_arr = [];
+    $error = '';
+    if (preg_match('/^[10]{3}$/',$trigram_line_config)) {
+      $match_indices = [];
+      foreach($this->hexagramLineConfigurations as $hex_index => $hex_line_config) {
+        if ($segment==='upper') {
+          if ($trigram_line_config === substr($hex_line_config,3,3)) {
+            $response_arr[] = $this->getHexHeader(strval($hex_index));
+          }
+        } else if ($segment==='lower') {
+          if ($trigram_line_config === substr($hex_line_config,0,3)) {
+            $response_arr[] = $this->getHexHeader(strval($hex_index));
+          }
+        } else {
+          $error = 'unrecognized argument';
+        }
+      }
+    } else {
+      $error = 'unrecognized data format';
+    }
+    if ($error) {
+      $response_arr = ['error' => $error];
+    }
+    return $response_arr;
+  }
+
   public function getTrigramBody(string $line_config) {
     $response_arr = [];
     if ($index = array_search($line_config,$this->trigramLineConfigurations)) {
@@ -185,6 +212,7 @@ class BookOfChangesController {
     $response = [];
     $hex_index = intval($hex_id);
     $response['title'] = $this->hexagramTitles[$hex_index];
+    $response['uri'] = '/api/v1/hexagrams/?id=' . $hex_id;
     $response['id'] = $hex_id;
     return $response;
   }
