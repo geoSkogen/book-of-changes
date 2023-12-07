@@ -75,22 +75,67 @@ class BookOfChangesController {
 
   public function getHexagram(string $hex_id, string $moving_lines, bool $verbose, bool $dual_result) {
     $response_arr = [];
-    if (intval($hex_id) && isset($this->hexagramLineConfigurations[intval($hex_id)])) {
-      if (strlen($moving_lines) && $dual_result) {
-        $response_arr = [
-          $this->getHexBody($hex_id,$moving_lines,$verbose),
-          $this->getHexBody(
-            $this->getHexIdByMovingLines(
-              $this->hexagramLineConfigurations[intval($hex_id)],
-              $moving_lines,
+
+    if (preg_match('/^[10]{6}$/',$hex_id)) {
+      $hex_index = array_search($hex_id,$this->hexagramLineConfigurations);
+    } else if (intval($hex_id)) {
+      $hex_index = intval($hex_id);
+    } else {
+      $hex_index = null;
+    }
+
+    if ($hex_index) {
+      if (isset($this->hexagramLineConfigurations[$hex_index])) {
+        if (strlen($moving_lines) && $dual_result) {
+          $response_arr = [
+            $this->getHexBody(strval($hex_index),$moving_lines,$verbose),
+            $this->getHexBody(
+              $this->getHexIdByMovingLines(
+                $this->hexagramLineConfigurations[$hex_index],
+                $moving_lines,
+                $verbose
+              ),
+              '',
               $verbose
-            ),
-            '',
-            $verbose
-          )
-        ];
-      } else {
-        $response_arr = $this->getHexBody($hex_id,$moving_lines,$verbose);
+            )
+          ];
+        } else {
+          $response_arr = $this->getHexBody(strval($hex_index),$moving_lines,$verbose);
+        }
+      }
+    } else {
+      $response_arr = ['error'=> 'unrecognized ID format'];
+    }
+
+    return $response_arr;
+  }
+
+  public function getTrigrams(string $hex_id) {
+    $response_arr = [];
+    if (isset($this->hexagramLineConfigurations[intval($hex_id)])) {
+      $lower_line_config = substr(
+        $this->hexagramLineConfigurations[intval($hex_id)],
+        0,
+        3
+      );
+      $upper_line_config = substr(
+        $this->hexagramLineConfigurations[intval($hex_id)],
+        3,
+        3
+      );
+      if ($lower_index = array_search($lower_line_config,$this->trigramLineConfigurations)) {
+        $response_arr['lower'] = [];
+        $response_arr['lower']['title'] = $this->trigramTitleElements[$lower_index] . '|' . $this->trigramQualities[$lower_index];
+        $response_arr['lower']['name'] = $this->trigramNames[$lower_index];
+        $response['lower']['character'] = $this->trigramCharacters[$hex_index];
+        $response['lower']['lines'] = $this->trigramLineCharacters[$hex_index];
+      }
+      if ($upper_index = array_search($upper_line_config,$this->trigramLineConfigurations)) {
+        $response_arr['upper'] = [];
+        $response_arr['upper']['title'] = $this->trigramTitleElements[$upper_index] . '|' . $this->trigramQualities[$upper_index];
+        $response_arr['upper']['name'] = $this->trigramNames[$upper_index];
+        $response['upper']['character'] = $this->trigramCharacters[$hex_index];
+        $response['upper']['lines'] = $this->trigramLineCharacters[$hex_index];
       }
     }
     return $response_arr;
@@ -115,18 +160,25 @@ class BookOfChangesController {
       $response['lines_inner'] = [$this->linePurportsInner[$hex_index][0]];
       $response['lines_outer'] = [$this->linePurportsOuter[$hex_index][0]];
     }
-    $response['inner_hexagram'] = $this->getHexHeader(
-      $this->getInnerHexIdByLineConfig(
-        $this->hexagramLineConfigurations[$hex_index]
-      )
-    );
-    $response['innermost_hexagram'] = $this->getHexHeader(
-      $this->getInnerHexIdByLineConfig(
-        $this->hexagramLineConfigurations[intval($response['inner_hexagram']['id'])]
-      )
-    );
     if ($verbose) {
-      $response[''] = '';
+      $trigrams = $this->getTrigrams($hex_id);
+      $response['trigram_lower'] = $trigrams['lower'];
+      $response['trigram_upper'] = $trigrams['upper'];
+
+      $response['name'] = $this->hexagramNames[$hex_index];
+      $response['character'] = $this->hexagramCharacters[$hex_index];
+      $response['lines'] = $this->hexagramLineCharacters[$hex_index];
+
+      $response['inner_hexagram'] = $this->getHexHeader(
+        $this->getInnerHexIdByLineConfig(
+          $this->hexagramLineConfigurations[$hex_index]
+        )
+      );
+      $response['innermost_hexagram'] = $this->getHexHeader(
+        $this->getInnerHexIdByLineConfig(
+          $this->hexagramLineConfigurations[intval($response['inner_hexagram']['id'])]
+        )
+      );
     }
     return $response;
   }

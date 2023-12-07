@@ -31,7 +31,7 @@ if ($library && $typeface) {
   $controller_args = new stdClass;
   $controller_args->verbose = false;
   $controller_args->dual_result = false;
-  $controller_args->moving_lines = [];
+  $controller_args->moving_lines = '';
   $controller_args->id = null;
 
   $request_query_args = [];
