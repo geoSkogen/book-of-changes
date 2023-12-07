@@ -106,7 +106,17 @@ class BookOfChangesController {
     } else {
       $response_arr = ['error'=> 'unrecognized ID format'];
     }
+    return $response_arr;
+  }
 
+  public function getTrigramBody(string $line_config) {
+    $response_arr = [];
+    if ($index = array_search($line_config,$this->trigramLineConfigurations)) {
+      $response_arr['title'] = $this->trigramTitleElements[$index] . ' | ' . $this->trigramQualities[$index];
+      $response_arr['name'] = $this->trigramNames[$index];
+      $response_arr['character'] = $this->trigramCharacters[$index];
+      $response_arr['lines'] = $this->trigramLineCharacters[$index];
+    }
     return $response_arr;
   }
 
@@ -123,20 +133,8 @@ class BookOfChangesController {
         3,
         3
       );
-      if ($lower_index = array_search($lower_line_config,$this->trigramLineConfigurations)) {
-        $response_arr['lower'] = [];
-        $response_arr['lower']['title'] = $this->trigramTitleElements[$lower_index] . ' | ' . $this->trigramQualities[$lower_index];
-        $response_arr['lower']['name'] = $this->trigramNames[$lower_index];
-        $response_arr['lower']['character'] = $this->trigramCharacters[$lower_index];
-        $response_arr['lower']['lines'] = $this->trigramLineCharacters[$lower_index];
-      }
-      if ($upper_index = array_search($upper_line_config,$this->trigramLineConfigurations)) {
-        $response_arr['upper'] = [];
-        $response_arr['upper']['title'] = $this->trigramTitleElements[$upper_index] . ' | ' . $this->trigramQualities[$upper_index];
-        $response_arr['upper']['name'] = $this->trigramNames[$upper_index];
-        $response_arr['upper']['character'] = $this->trigramCharacters[$upper_index];
-        $response_arr['upper']['lines'] = $this->trigramLineCharacters[$upper_index];
-      }
+      $response_arr['lower'] = $this->getTrigramBody($lower_line_config);
+      $response_arr['upper'] = $this->getTrigramBody($upper_line_config);
     }
     return $response_arr;
   }
