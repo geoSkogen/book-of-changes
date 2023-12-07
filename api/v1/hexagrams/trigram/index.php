@@ -1,5 +1,9 @@
 <?php
 
+$response_array = [];
+
+if ($_SERVER['REQUEST_METHOD']==='GET') {
+
 require '../../../../src/controller/BookOfChangesController.php';
 
 $library_file = file_get_contents('../../../../data/book/hex-data.json');
@@ -28,33 +32,20 @@ if ($library && $typeface) {
     $library->sovereign_indices
   );
 
-  $controller_args = new stdClass;
-  $controller_args->verbose = false;
-  $controller_args->dual_result = false;
-  $controller_args->moving_lines = '';
-  $controller_args->id = null;
-
-  $request_query_args = [];
-
-  $queries = explode('&',$_SERVER['QUERY_STRING']);
-  foreach($queries as $index => $query_str) {
-    $key_val_arr = explode('=',$query_str);
-    $request_query_args[$key_val_arr[0]] = $key_val_arr[1];
-  }
-
-  if (isset($request_query_args['segment']) && isset($request_query_args['id'])) {
+  if (isset($_GET['segment']) && isset($_GET['id'])) {
 
     $response_array = $book->getHexagramsByTrigram(
-      $request_query_args['segment'],
-      $request_query_args['id']
+      $_GET['segment'],
+      $_GET['id']
     );
 
-  } else {
-    $response_array = ['error' => 'invalid arguments'];
   }
-
 } else {
   $response_array = [ 'error' => 'database not found' ];
+}
+
+} else {
+  $response_array = [ 'error' => 'unsupported HTTP method' ];
 }
 
 print(json_encode($response_array));

@@ -1,5 +1,9 @@
 <?php
 
+$response_array = [];
+
+if ($_SERVER['REQUEST_METHOD']==='GET') {
+
 require '../../../src/controller/BookOfChangesController.php';
 
 $library_file = file_get_contents('../../../data/book/hex-data.json');
@@ -7,8 +11,6 @@ $typeface_file = file_get_contents('../../../data/book/hex-chars.json');
 
 $library = $library_file ? json_decode($library_file) : null;
 $typeface = $typeface_file ? json_decode($typeface_file) : null;
-
-$response_array = '';
 
 if ($library && $typeface) {
   $book = new BookOfChangesController(
@@ -28,23 +30,17 @@ if ($library && $typeface) {
     $library->sovereign_indices
   );
 
-  $request_query_args = [];
+  if (isset($_GET['id'])) {
 
-  $queries = explode('&',$_SERVER['QUERY_STRING']);
-  foreach($queries as $index => $query_str) {
-    $key_val_arr = explode('=',$query_str);
-    $request_query_args[$key_val_arr[0]] = $key_val_arr[1];
-  }
+    $response_array = $book->getTrigramBody($_GET['id']);
 
-  if (isset($request_query_args['id'])) {
-
-    $response_array = $book->getTrigramBody($request_query_args['id']);
-
-  } else {
-    $response_array = [ 'error' => 'invalid ID number' ];
   }
 } else {
   $response_array = [ 'error' => 'database not found' ];
+}
+
+} else {
+  $response_array = [ 'error' => 'unsupported HTTP method' ];
 }
 
 print(json_encode($response_array));

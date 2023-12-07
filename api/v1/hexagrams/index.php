@@ -1,5 +1,9 @@
 <?php
 
+$response_array = [];
+
+if ($_SERVER['REQUEST_METHOD']==='GET') {
+
 require '../../../src/controller/BookOfChangesController.php';
 
 $library_file = file_get_contents('../../../data/book/hex-data.json');
@@ -7,8 +11,6 @@ $typeface_file = file_get_contents('../../../data/book/hex-chars.json');
 
 $library = $library_file ? json_decode($library_file) : null;
 $typeface = $typeface_file ? json_decode($typeface_file) : null;
-
-$response_array = '';
 
 if ($library && $typeface) {
   $book = new BookOfChangesController(
@@ -34,38 +36,30 @@ if ($library && $typeface) {
   $controller_args->moving_lines = '';
   $controller_args->id = null;
 
-  $request_query_args = [];
+  if (isset($_GET['id'])) {
 
-  $queries = explode('&',$_SERVER['QUERY_STRING']);
-  foreach($queries as $index => $query_str) {
-    $key_val_arr = explode('=',$query_str);
-    $request_query_args[$key_val_arr[0]] = $key_val_arr[1];
-  }
-
-  if (isset($request_query_args['id'])) {
-
-    $controller_args->id = $request_query_args['id'];
+    $controller_args->id = $_GET['id'];
 
     if (
-      isset($request_query_args['verbose']) &&
-      ($request_query_args['verbose']==='true' || $request_query_args['verbose']==='TRUE')
+      isset($_GET['verbose']) &&
+      ($_GET['verbose']==='true' || $_GET['verbose']==='TRUE')
     ) {
       $controller_args->verbose = true;
     }
 
     if (
-      isset($request_query_args['dual']) &&
-      ($request_query_args['dual']==='true' || $request_query_args['dual']==='TRUE')
+      isset($_GET['dual']) &&
+      ($_GET['dual']==='true' || $_GET['dual']==='TRUE')
     ) {
       $controller_args->dual_result = true;
     }
 
-    if (isset($request_query_args['moving_lines'])) {
+    if (isset($_GET['moving_lines'])) {
       $valid_arg_str = '';
-      for ($char_index = 0; $char_index < strlen($request_query_args['moving_lines']); $char_index++) {
+      for ($char_index = 0; $char_index < strlen($_GET['moving_lines']); $char_index++) {
         if ($char_index <= 6) {
-          if (intval($request_query_args['moving_lines'][$char_index]) <= 6) {
-            $valid_arg_str .= $request_query_args['moving_lines'][$char_index];
+          if (intval($_GET['moving_lines'][$char_index]) <= 6) {
+            $valid_arg_str .= $_GET['moving_lines'][$char_index];
           }
         }
       }
@@ -80,11 +74,13 @@ if ($library && $typeface) {
       $controller_args->verbose,
       $controller_args->dual_result
     );
-  } else {
-    $response_array = [ 'error' => 'invalid ID number' ];
   }
 } else {
   $response_array = [ 'error' => 'database not found' ];
+}
+
+} else {
+  $response_array = [ 'error' => 'unsupported HTTP method' ];
 }
 
 print(json_encode($response_array));
