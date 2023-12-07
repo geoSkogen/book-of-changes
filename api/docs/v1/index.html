@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title>
+     易經 Book of Changes API v1 Docs
+  </title>
+  <link rel='icon' href='../../../resources/images/tao-75-red.png' type='image/x-icon'/ >
+  <link rel="stylesheet" href="../../../style/docs.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" defer>
+</head>
+<body class="flex-row flex-center">
+  <div id="app">
+    <header>
+      <h1>Book of Changes API v1 Documentation</h1>
+      <p class="sub-title">Book of Changes API v1 is a read-only repository for fetching I Ching data.</p>
+    </header>
+    <article>
+      <h2>Hexagrams</h2>
+      <section>
+        <h3>The Hexagrams endpoint</h3>
+        <p><span class="code">/api/v1/hexagrams</span></p>
+        <h4>Arguments:</h4>
+        <ul>
+          <li>
+            <p><span class="code">id</span>&nbsp;&mdash;Required: accepts integers 1 through 64 or any six-digit cobmination of 1 and 0</p>
+            <p>Example: both <span class="code">id=011110</span> and <span class="code">id=28</span> will return results for "Great Exceeding | Great Preponderance | 'Potential'"</p>
+          </li>
+          <li>
+            <p><span class="code">moving_lines</span>&nbsp;&mdash;Optional: accepts a combination of integers 1 through 6 no more than six digits</p>
+            <p>Example: passing <span class="code">moving_lines=345</span> will return messages for the respective lines of the requested Hexagram; omitting this argument will return the 'still lines' message.</p>
+          </li>
+          <li>
+            <p><span class="code">dual</span>&nbsp;&mdash;Optional: accepts true or false</p>
+            <p>Passing <span class="code">dual=true</span> along with a moving lines argument will return two Hexagrams: the Hexagram requested by the <span class="code">id</span> argument and the Hexagram formed by applying the moving lines to requested Hexagram's lines.</p>
+          </li>
+          <li>
+            <p><span class="code">verbose</span>&nbsp;&mdash;Optional: accepts true or false</p>
+            <p>Passing <span class="code">verbose=true</span> will return additional fields: inner and innermost Hexagrams, upper and lower Trigrams, and special unicode characters.
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3>The Hexagrams-filtered-by-Trigram endpoint</h3>
+        <p><span class="code">/api/v1/hexagrams/trigram</span></p>
+        <h4>Arguments:</h4>
+        <ul>
+          <li>
+            <p><span class="code">segment</span>&nbsp;&mdash;Required: accepts 'upper' or 'lower'</p>
+          </li>
+          <li>
+            <p><span class="code">id</span>&nbsp;&mdash;Required: accepts any three-digit cobmination of 1 and 0</p>
+          </li>
+        </ul>
+        <p>Example: the query <span class="code">?id=101&segment=upper</span> will return all Hexagrams with "Fire" as their upper Trigram.</p>
+      </section>
+      <section>
+        <h3>The Inner Hexagrams endpoint</h3>
+        <p><span class="code">/api/v1/hexagrams/inner</span></p>
+        <p>Returns all Inner Hexagrams</p>
+      </section>
+      <section>
+        <h3>The Sovereign Hexagrams endpoint</h3>
+        <p><span class="code">/api/v1/hexagrams/sovereign</span></p>
+        <p>Returns all Sovereign Hexagrams</p>
+      </section>
+      <h2>Trigrams</h2>
+      <section>
+        <h3>The Trigrams endpoint</h3>
+        <p><span class="code">/api/v1/trigrams</span></p>
+        <h4>Arguments:</h4>
+        <ul>
+          <li>
+            <p><span class="code">id</span>&nbsp;&mdash;Required: accepts any three-digit cobmination of 1 and 0</p>
+            <p>Example: the query <span class="code">?id=101</span> will return the "Fire" Trigram.</p>
+          </li>
+        </ul>
+      </section>
+    </article>
+  </div>
+</body>
+</html>
