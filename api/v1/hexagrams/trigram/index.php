@@ -12,8 +12,6 @@ $typeface_file = file_get_contents('../../../../data/book/hex-chars.json');
 $library = $library_file ? json_decode($library_file) : null;
 $typeface = $typeface_file ? json_decode($typeface_file) : null;
 
-$response_array = '';
-
 if ($library && $typeface) {
   $book = new BookOfChangesController(
     $library->hex_bin_arr,
