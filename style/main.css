@@ -535,3 +535,8 @@ i#hex-mover[aria-hidden="false"] {
   z-index: 1050;
   display: none;
 }
+
+label.visually-hidden {
+  height: 1px;
+  display: block;
+}
