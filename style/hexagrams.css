@@ -251,7 +251,6 @@ a.inner-hex:focus {
   }
 }
 
-
 .filter-option {
   padding: 0.5em;
   background-color: black;
@@ -260,4 +259,12 @@ a.inner-hex:focus {
   border: 3px solid lightgrey;
   border-radius: 4.33px;
   cursor: pointer;
+}
+
+.hex-modal-content[aria-hidden="true"] {
+  display: none;
+}
+
+#hex-mover-d[aria-hidden="true"] {
+  display: none;
 }
