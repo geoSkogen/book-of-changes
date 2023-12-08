@@ -3,6 +3,16 @@
   background-color: rgb(50,50,50);
 }
 
+.hexagram-menu {
+  min-height: 750px;
+}
+
+@media screen and (min-width: 900px) {
+  .hexagram-menu {
+    min-width: 760px;
+  }
+}
+
 .hexagram-menu[aria-hidden="true"],
 .menu-tab[aria-hidden="true"] {
   display: none;
@@ -18,12 +28,14 @@
 
 #hexagram-menu-tabs {
   width:90%;
-  margin-top: 2.66em;
+  min-height: 32px;
+  margin-top: 2.66e
 }
 
 @media screen and (min-width: 900px) {
   #hexagram-menu-tabs {
     width: 60%;
+    min-height: 50px;
     justify-content: center;
   }
 }
@@ -87,6 +99,7 @@
   margin: 0.5em;
   max-width: 15%;
   min-width: 15%;
+  max-height: 172px;
   border-radius: 6.33px;
   z-index: 725;
   position: relative;
@@ -168,18 +181,59 @@ a.inner-hex:focus {
 }
 
 #filter-menu-frame {
-  opacity: 0.7;
   position: relative;
+  opacity: 0.7;
   width: 100%;
   height: 1px;
+  z-index: 1050;
 }
 
 #filter-menu {
   position: absolute;
+  top: -650px;
+  right: 32px;
   width: 50%;
-  right:12px;
-  top: 40px;
   z-index: 1050;
+}
+
+@media screen and (min-width: 432px) {
+  #filter-menu {
+    right: 64px;
+    max-width: 40%;
+    min-width: 40%;
+  }
+}
+
+@media screen and (min-width:900px) {
+  #filter-menu {
+    right: 128px;
+    max-width: 20%;
+    min-width: 20%;
+  }
+}
+
+@media screen and (min-height:520px) {
+  #filter-menu {
+    top: -550px;
+  }
+}
+
+@media screen and (min-height:680px) {
+  #filter-menu {
+    top: -450px;
+  }
+}
+
+@media screen and (min-height:890px) {
+  #filter-menu {
+    top: -350px;
+  }
+}
+
+@media screen and (min-height:1040px) {
+  #filter-menu {
+    top: -150px;
+  }
 }
 
 #filter-menu-options {
@@ -201,7 +255,13 @@ a.inner-hex:focus {
 #filter-tooltip {
   position: absolute;
   z-index: 1050;
-  top: 100px;
+  top: 10px;
+}
+
+@media screen and (min-height:520px) {
+  #filter-tooltip {
+    top: 100px;
+  }
 }
 
 #filter-menu[aria-hidden="true"],
@@ -243,14 +303,6 @@ a.inner-hex:focus {
   padding: 0.5em;
 }
 
-
-@media screen and (min-width:900px) {
-  #filter-menu {
-    max-width: 20%;
-    min-width: 20%;
-  }
-}
-
 .filter-option {
   padding: 0.5em;
   background-color: black;
@@ -267,4 +319,9 @@ a.inner-hex:focus {
 
 #hex-mover-d[aria-hidden="true"] {
   display: none;
+}
+
+#footer-wrap {
+  background-color: black;
+  z-index: 1040;
 }
