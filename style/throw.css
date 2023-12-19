@@ -34,15 +34,15 @@
   width: 90%;
   margin: 1em;
   background-color: black;
-  cursor: default;
+  cursor: defalelt;
 }
 
-#results-table {
+#results-table, .results-tabe {
   width: 100%;
 }
 
 .hex-name {
-  margin: 0.4em 0.4em 0.4em 0.4em ;
+  margin: 0.66em;
   font-weight: 600;
   text-align: center;
   font-size: 18px;

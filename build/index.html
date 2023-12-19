@@ -120,7 +120,9 @@
   </header><!-- relshell -->
 
   <div id="app" class="flex-row flex-center">
+    <div id="app-center-wrapper">
 
+    <div class="flex-row flex-start">
     <div id="first-hex" class="flex-col flex-center">
       <!---->
       <button id="6-1" class="flex-row flex-center line-button" aria-label="yin">
@@ -153,23 +155,32 @@
       <!-- -->
     </div><!-- first-hex -->
 
-    <div id="first-trigram-col" class="trigrams flex-row flex-center">
+    <div id="first-trigram-col" class="trigrams flex-col flex-around">
       <div id="first-trigram-top" class="trigram"></div>
       <div id="first-trigram-bottom" class="trigram"></div>
     </div>
 
-    <div id="results-table" class="flex-row flex-center">
+  </div><!-- first flex-start hex+trigrams wrapper-->
+
+    <div id="results-table">
+    <div class="results-table">
       <button id="first-hex-name" class="hex-name" aria-controls="hex-modal" aria-expanded="false" aria-label="open first hexagram interpretive modal" title="open first hexagram interpretive modal">
         <!-- -->
       </button>
+      <!--
       <span id="hex-mover-frame">
         <i id="hex-mover" class="fa fa-arrow-circle-right" aria-hidden="true" aria-label="becoming"></i>
       </span>
+      -->
+    </div>
+    <div class="results-table">
       <button id="second-hex-name"  class="hex-name" aria-controls="hex-modal" aria-expanded="false" aria-label="open second hexagram interpretive modal" title="open second hexagram interpretive modal">
         <!-- -->
       </button>
     </div>
+    </div>
 
+    <div class="flex-row flex-start">
     <div id="second-hex" class="flex-col flex-center">
       <!-- -->
       <button id="6-2" class="flex-row flex-center line-button" aria-label="yang">
@@ -202,11 +213,14 @@
       <!-- -->
     </div><!-- second-hex -->
 
-    <div id="second-trigram-col" class="trigrams flex-row flex-center">
+    <div id="second-trigram-col" class="trigrams flex-col flex-around">
       <div id="second-trigram-top" class="trigram"></div>
       <div id="second-trigram-bottom" class="trigram"></div>
     </div>
 
+  </div><!-- second flex-start hex+trigrams wrapper-->
+
+    </div><!-- app center inner wrapper -->
   </div><!-- app -->
 
   <footer id="footer-wrap" class="flex-row flex-between">
