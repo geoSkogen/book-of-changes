@@ -34,10 +34,10 @@
   width: 90%;
   margin: 1em;
   background-color: black;
-  cursor: defalelt;
+  cursor: default;
 }
 
-#results-table, .results-tabe {
+#results-table, .results-table {
   width: 100%;
 }
 
