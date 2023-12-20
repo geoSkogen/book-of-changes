@@ -1,3 +1,13 @@
+#app-center-wrapper {
+  margin-top: 5.33em;
+}
+
+@media screen and (min-width: 900px) {
+  #app-center-wrapper {
+    margin-top: 0;
+  }
+}
+
 .hexagram-menu,
 .menu-tab {
   background-color: rgb(50,50,50);
@@ -29,7 +39,6 @@
 #hexagram-menu-tabs {
   width:90%;
   min-height: 32px;
-  margin-top: 2.66e
 }
 
 @media screen and (min-width: 900px) {
