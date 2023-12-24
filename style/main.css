@@ -125,6 +125,13 @@ div#app {
 #hex-modal {
   z-index: 1100;
   position: absolute;
+  width: 100%;
+}
+
+@media only screen and (min-width: 900px) {
+  #hex-modal {
+    width: 900px;
+  }
 }
 
 #hex-modal[aria-hidden="true"] {
