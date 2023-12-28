@@ -13,8 +13,8 @@ a:link,a:visited,a:active,a:hover {
   font-weight: 600;
 }
 
-a.hav-anchor,
-a.subhav-anchor {
+a.nav-anchor,
+a.subnav-anchor {
 
 }
 
@@ -253,8 +253,22 @@ li.moving-line-item {
   padding: 0.5em 0 0.5em 0;
 }
 
-.inner-hex {
+a.inner-hex, a.link-hex {
+  padding: 1em;
+  margin: 0.5em 0.5em;
+  border: 2px solid lightgray;
+  border-radius: 6px;
+  outline: 0.66px solid transparent;
+}
 
+a.link-hex:hover, a.inner-hex:hover {
+ text-decoration: underline;
+}
+
+a.link-hex:focus, a.inner-hex:focus {
+ text-decoration: none;
+ border: 2px solid cornflowerblue;
+ outline: 0.66px solid cornflowerblue;
 }
 
 #inner-link-2,
@@ -344,7 +358,7 @@ a.nav-submenu-name-link,
 a.subnav-link {
   padding: 0.5em;
   display: block;
-  border: 2.33px solid black;
+  border: 2.33px solid transparent;
 }
 
 a.nav-submenu-name-link:focus,
