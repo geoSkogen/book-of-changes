@@ -1,19 +1,23 @@
 =======
 UX/A11y
 =======
-recalculate modal-backdrop vs. filter-modal top on short screens (horizontal/landscape)
-redefine roles for /hexagrams HTML -- grid -> gridcell may work
+Recalculate modal-backdrop vs. filter-modal top on short screens (horizontal/landscape)
 
 
 ==
 UI
 ==
 add more informative text to /trigrams modal
-add full hexagram data to /hexagrams modal
-experiment with social media share button and OG metadata for /throw
+
+experiment with social media share button and OG metadata for /throw and
+add copy-able share link with current config queries rendered into the /throw URL
 
 
 =====
 Theme
 =====
-Apply fade-out/fade-in only to the hexagram name being updates in /build
+
+
+=====
+Logic
+=====

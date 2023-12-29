@@ -173,11 +173,11 @@
   }
 }
 
-.hex-frame[aria-selected="false"] .selected-icon {
+.hex-frame[aria-expanded="false"] .selected-icon {
   display: none;
 }
 
-.hex-frame[aria-selected="true"] .selected-icon {
+.hex-frame[aria-expanded="true"] .selected-icon {
   display: inline-block;
 }
 
