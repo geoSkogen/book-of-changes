@@ -69,9 +69,13 @@
   right: 12px;
   cursor: pointer;
   background: transparent;
-  outline: none;
+  outline: 2px solid black;
   padding-inline: 0 !important;
   padding-block: 0 !important;
+}
+
+#tri-hex:focus {
+  outline: 2px solid cornflowerblue;
 }
 
 .tri-hex-line {
@@ -96,4 +100,23 @@
 
 .tri-bottom {
   background-color: cornflowerblue;
+}
+
+#hex-link {
+  border: 2px solid transparent;
+  padding: 1em;
+  display: inline-block;
+}
+
+#hex-link:focus {
+  outline: none;
+  border: 2px solid cornflowerblue;
+}
+
+#hex-link:hover .hex-title {
+  text-decoration: underline;
+}
+
+#hex-link:hover #hex-char {
+  text-decoration: none;
 }
