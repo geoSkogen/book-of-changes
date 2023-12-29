@@ -24,37 +24,22 @@ class BookOfChangesController {
   protected $innerHexagramIndices = [];
   protected $sovereignHexagramIndices = [];
 
-  function __construct(
-    array $hex_bin_arr,
-    array $tri_bin_arr,
-    array $hex_name_arr,
-    array $tri_names_arr,
-    array $purports_inner,
-    array $purports_outer,
-    array $moving_lines_inner,
-    array $moving_lines_outer,
-    array $hex_lines_chars_arr,
-    array $hex_chars_table,
-    array $tri_lines_chars_arr,
-    array $tri_chars_arr,
-    array $inner_indices,
-    array $sovereign_indices
-  )
+  function __construct(stdClass $library,stdClass $typeface)
   {
-    $this->hexagramLineConfigurations = $hex_bin_arr;
-    $this->trigramLineConfigurations = $tri_bin_arr;
+    $this->hexagramLineConfigurations = $library->hex_bin_arr;
+    $this->trigramLineConfigurations = $library->tri_bin_arr;
 
-    $this->hexagramTitles = $hex_name_arr;
-    $this->generalPurportsInner = $purports_inner;
-    $this->generalPurportsOuter = $purports_outer;
-    $this->linePurportsInner = $moving_lines_inner;
-    $this->linePurportsOuter = $moving_lines_outer;
+    $this->hexagramTitles = $library->hex_name_arr;
+    $this->generalPurportsInner = $library->purports_inner;
+    $this->generalPurportsOuter = $library->purports_outer;
+    $this->linePurportsInner = $library->moving_lines_inner;
+    $this->linePurportsOuter = $library->moving_lines_outer;
 
-    $this->hexagramLineCharacters = $hex_lines_chars_arr;
-    $this->trigramLineCharacters = $tri_lines_chars_arr;
+    $this->hexagramLineCharacters = $typeface->hex_lines_chars_arr;
+    $this->trigramLineCharacters = $typeface->tri_lines_chars_arr;
 
-    $this->innerHexagramIndices = $inner_indices;
-    $this->sovereignHexagramIndices = $sovereign_indices;
+    $this->innerHexagramIndices = $library->inner_indices;
+    $this->sovereignHexagramIndices = $library->sovereign_indices;
 
 
     foreach ($tri_names_arr as $table_row) {
