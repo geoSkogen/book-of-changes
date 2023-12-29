@@ -13,22 +13,8 @@ $library = $library_file ? json_decode($library_file) : null;
 $typeface = $typeface_file ? json_decode($typeface_file) : null;
 
 if ($library && $typeface) {
-  $book = new BookOfChangesController(
-    $library->hex_bin_arr,
-    $library->tri_bin_arr,
-    $library->hex_name_arr,
-    $library->tri_names_arr,
-    $library->purports_inner,
-    $library->purports_outer,
-    $library->moving_lines_inner,
-    $library->moving_lines_outer,
-    $typeface->hex_lines_chars_arr,
-    $typeface->hex_chars_table,
-    $typeface->tri_lines_chars_arr,
-    $typeface->tri_chars_arr,
-    $library->inner_indices,
-    $library->sovereign_indices
-  );
+
+  $book = new BookOfChangesController($library,$typeface);
 
   $controller_args = new stdClass;
   $controller_args->verbose = false;
