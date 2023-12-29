@@ -93,20 +93,22 @@
     <div class="flex-row flex-center">
       <div id='hex-modal' class="full-modal" class="hex-modal-content" aria-hidden="true" role="dialog" aria-modal="true" aria-label="hexagrams interpreted">
         <div class="flex-row flex-end">
-          <div id="close-hex-modal" class="close-modal" aria-label="close interpretive modal dialog" title="close interpretive modal dialog">&laquo;</div>
+          <button id="close-hex-modal" class="close-modal" aria-label="close interpretive modal dialog" title="close interpretive modal dialog">&laquo;</button>
         </div>
         <div id="hex-modal-content-1" class="hex-modal-content">
-          <div class="flex-row flex-center">
-            <div id="hex-lines-1" class="hex-title"></div>
-            <div id="hex-number-1" class="hex-title"></div>
+          <div id="hex-title-focusable" tabindex="-1" role="none">
+            <div class="flex-row flex-center">
+              <div id="hex-lines-1" class="hex-title"></div>
+              <div id="hex-number-1" class="hex-title"></div>
+            </div>
+            <div class="flex-row flex-center">
+              <div id="hex-char-1" class="hex-title"></div>
+              <div id="hex-name-1" class="hex-title"></div>
+            </div>
+            <div id="hex-title-original-1" class="hex-title"></div>
+            <div id="hex-title-canonical-1" class="hex-title"></div>
+            <div id="hex-title-alias-1" class="hex-title"></div>
           </div>
-          <div class="flex-row flex-center">
-            <div id="hex-char-1" class="hex-title"></div>
-            <div id="hex-name-1" class="hex-title"></div>
-          </div>
-          <div id="hex-title-original-1" class="hex-title"></div>
-          <div id="hex-title-canonical-1" class="hex-title"></div>
-          <div id="hex-title-alias-1" class="hex-title"></div>
           <br/>
           <div class="inner-hex-frame flex-row flex-center">
             <a id="inner-link-1" class="inner-hex" href="#">inner</a>

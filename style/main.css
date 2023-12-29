@@ -236,6 +236,10 @@ a#hex-modal-content {
   font-size: 18px;
 }
 
+#hex-title-focusable:focus {
+  outline: none;
+}
+
 .hex-purport {
   text-align: left;
 }

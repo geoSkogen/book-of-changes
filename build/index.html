@@ -95,10 +95,12 @@
           <button id="close-hex-modal" class="close-modal" aria-label="close interpretive modal dialog" title="close interpretive modal dialog">&laquo;</button>
         </div>
         <div id="hex-modal-content">
-          <div id="hex-number" class="hex-title"></div>
-          <div id="hex-title-original" class="hex-title"></div>
-          <div id="hex-title-canonical" class="hex-title"></div>
-          <div id="hex-title-alias" class="hex-title"></div>
+          <div id="hex-title-focusable" tabindex="-1" role="none">
+            <div id="hex-number" class="hex-title"></div>
+            <div id="hex-title-original" class="hex-title"></div>
+            <div id="hex-title-canonical" class="hex-title"></div>
+            <div id="hex-title-alias" class="hex-title"></div>
+          </div>
           <div id="meta-col-tabs" class="flex-row flex-around" rols="tablist">
             <button id="tab-inner" class="meta-col-tab" aria-selected="false" aria-controls="meta-col-inner">INNER</button>
             <button id="tab-outer" class="meta-col-tab" aria-selected="false" aria-controls="meta-col-outer">OUTER</button>

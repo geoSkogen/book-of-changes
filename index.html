@@ -135,10 +135,12 @@
         <button id="close-hex-modal" class="close-modal" aria-label="close interpretive modal dialog" title="close interpretive modal dialog">&laquo;</button>
       </div>
       <div id="hex-modal-content">
-        <div id="hex-number" class="hex-title"></div>
-        <div id="hex-title-original" class="hex-title"></div>
-        <div id="hex-title-canonical" class="hex-title"></div>
-        <div id="hex-title-alias" class="hex-title"></div>
+        <div id="hex-title-focusable" tabindex="-1" role="none">
+          <div id="hex-number" class="hex-title"></div>
+          <div id="hex-title-original" class="hex-title"></div>
+          <div id="hex-title-canonical" class="hex-title"></div>
+          <div id="hex-title-alias" class="hex-title"></div>
+        </div>
         <i id="hex-share" class="fa fa-share-alt" aria-label="share" role="button" title="share"></i>
         <div id="meta-col-tabs" class="flex-row flex-around" role="tablist">
           <button id="tab-inner" class="meta-col-tab" aria-selected="false" aria-controls="meta-col-inner">INNER</button>
@@ -209,12 +211,12 @@
 
   <!-- footer icons -->
 <footer id="footer-wrap" class="flex-row flex-between">
-  <button class="icon-button" id="hex-refresh-button" aria-label="refresh" title="refresh">
-    <i id="hex-refresh" class="fa fa-refresh"></i>
-  </button>
   <a class="icon-nav-link" href="build/" aria-label="build hexagrams" title="build hexagrams">
     <span id="hex-build" class="footer-nav-symbol">䷿</span>
   </a>
+  <button class="icon-button" id="hex-refresh-button" aria-label="refresh" title="refresh">
+    <i id="hex-refresh" class="fa fa-refresh"></i>
+  </button>
 </footer>
 
 </body>
