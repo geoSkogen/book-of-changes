@@ -426,13 +426,13 @@ ul.nav-sublist[visually-hidden="false"] {
 }
 
 #hex-refresh:hover,#hex-create:hover,#hex-archive:hover,
-#hex-share:hover,#hex-build:hover,#hex-filter:hover {
+#hex-share:hover,#hex-build:hover,#hex-filter:hover,#copy-button:hover {
   cursor: pointer;
   color: lightgrey;
 }
 
 #hex-refresh:focus,#hex-create:focus,#hex-archive:focus,
-#hex-share:focus,#hex-build:focus,#hex-filter:focus {
+#hex-share:focus,#hex-build:focus,#hex-filter:focus,#copy-button:focus {
   outline: 2.33px solid cornflowerblue;
 }
 
@@ -462,6 +462,32 @@ i#hex-mover[aria-hidden="false"] {
 
 #hex-build-deco {
   font-weight: 400;
+}
+
+#copy-button {
+  font-size: 24px;
+  padding: 0.33em;
+}
+
+#hex-share, #copy-button {
+  border-radius: 6px;
+}
+
+#shareable-link {
+  margin: 0.2em;
+}
+
+#show-hide-shareable {
+  padding-top: 0.25em;
+  margin-left: 0.5em;
+}
+
+#show-hide-shareable[aria-hidden="true"] {
+  display: none;
+}
+
+#show-hide-shareable[aria-hidden="false"] {
+  display: block;
 }
 
 .no-button {
@@ -580,4 +606,13 @@ i#hex-mover[aria-hidden="false"] {
 label.visually-hidden {
   height: 1px;
   display: block;
+}
+
+span.code {
+  font-family: monospace;
+  padding: 0.33em;
+  background-color: gainsboro;
+  color: black;
+  opacity: 0.75;
+  border-radius: 2px;
 }

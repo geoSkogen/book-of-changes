@@ -141,7 +141,13 @@
           <div id="hex-title-canonical" class="hex-title"></div>
           <div id="hex-title-alias" class="hex-title"></div>
         </div>
-        <i id="hex-share" class="fa fa-share-alt" aria-label="share" role="button" title="share"></i>
+        <div id="share-widget" class="flex-row flex-start">
+          <i id="hex-share" class="fa fa-share-alt" aria-label="share" role="button" title="share" tabindex="0" aria-controls="show-hide-shareable" aria-expanded="false"></i>
+          <div id="show-hide-shareable" aria-hidden="true">
+            <span id="shareable-link" class="code">https://thisisfun.com</span>
+            <i id="copy-button" class="fa fa-files-o" aria-label="copy to clipboard" role="button" title="copy to clipboard" tabindex="0"></i>
+          </div>
+        </div>
         <div id="meta-col-tabs" class="flex-row flex-around" role="tablist">
           <button id="tab-inner" class="meta-col-tab" aria-selected="false" aria-controls="meta-col-inner">INNER</button>
           <button id="tab-outer" class="meta-col-tab" aria-selected="false" aria-controls="meta-col-outer">OUTER</button>
