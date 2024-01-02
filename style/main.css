@@ -490,6 +490,20 @@ i#hex-mover[aria-hidden="false"] {
   display: block;
 }
 
+#copied-tooltip {
+  position: absolute;
+  right: 0;
+  top: -4em;
+}
+
+#copied-tooltip[aria-hidden="true"] {
+  display: none;
+}
+
+#copied-tooltip[aria-hidden="false"] {
+  display: block;
+}
+
 .no-button {
   padding: 1em;
   margin: 0.75em;

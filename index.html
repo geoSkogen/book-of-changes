@@ -144,8 +144,11 @@
         <div id="share-widget" class="flex-row flex-start">
           <i id="hex-share" class="fa fa-share-alt" aria-label="share" role="button" title="share" tabindex="0" aria-controls="show-hide-shareable" aria-expanded="false"></i>
           <div id="show-hide-shareable" aria-hidden="true">
-            <span id="shareable-link" class="code">https://thisisfun.com</span>
+            <span id="shareable-link" class="code"></span>
             <i id="copy-button" class="fa fa-files-o" aria-label="copy to clipboard" role="button" title="copy to clipboard" tabindex="0"></i>
+            <div class="relshell">
+              <div id="copied-tooltip" class="clipboard-tooltip" aria-hidden="true"></div>
+            </div>
           </div>
         </div>
         <div id="meta-col-tabs" class="flex-row flex-around" role="tablist">
@@ -181,22 +184,6 @@
       </button><!-- wheelouter -->
     </div>
   </div><!-- wheelframe -->
-
-  <div id="post-tooltip-frame" class="flex-row flex-center">
-    <div id="post-tooltip">
-      <div id="close-msg-modal" class="close-modal">&laquo;</div>
-      <div id="msg-modal-title" class="flex-row flex-center">
-        <div id="hex-char"></div>
-        <div id="name-char"></div>
-      </div>
-      <div class="flex-row flex-center">
-        <textarea id="messenger-body" rows="6" cols="32"></textarea>
-      </div>
-      <div class="flex-row flex-center">
-        <button  id="post-msg" class="no-button">send</button>
-      </div>
-    </div>
-  </div>
 
   <div id="results-table" class="flex-row flex-center">
     <button id="first-hex-name" class="hex-name" aria-controls="hex-modal" aria-expanded="false" aria-hidden="true" aria-label="open first hexagram interpretive modal" title="open first hexagram interpretive modal">
