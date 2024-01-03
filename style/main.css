@@ -426,13 +426,15 @@ ul.nav-sublist[visually-hidden="false"] {
 }
 
 #hex-refresh:hover,#hex-create:hover,#hex-archive:hover,
-#hex-share:hover,#hex-build:hover,#hex-filter:hover {
+#hex-share:hover,#hex-build:hover,#hex-filter:hover,#copy-button:hover,
+#share-facebook-icon:hover,#share-reddit-icon:hover {
   cursor: pointer;
   color: lightgrey;
 }
 
 #hex-refresh:focus,#hex-create:focus,#hex-archive:focus,
-#hex-share:focus,#hex-build:focus,#hex-filter:focus {
+#hex-share:focus,#hex-build:focus,#hex-filter:focus,#copy-button:focus,
+#share-facebook-icon:focus,#share-reddit-icon:focus {
   outline: 2.33px solid cornflowerblue;
 }
 
@@ -462,6 +464,60 @@ i#hex-mover[aria-hidden="false"] {
 
 #hex-build-deco {
   font-weight: 400;
+}
+
+#hex-share, #copy-button, #share-facebook-icon, #share-reddit-icon {
+  border-radius: 6px;
+}
+
+#copy-button, #share-facebook-icon, #share-reddit-icon {
+  color: grey;
+  font-size: 24px;
+  padding: 0.33em;
+}
+
+#shareable-link {
+  margin: 0.2em;
+}
+
+#shareable-link {
+  display: none;
+}
+
+@media only screen and (min-width: 760px) {
+  #shareable-link {
+    display: inline;
+  }
+}
+
+#show-hide-shareable {
+  padding-top: 0.25em;
+  margin-left: 0.5em;
+}
+
+#show-hide-shareable[aria-hidden="true"] {
+  display: none;
+}
+
+#show-hide-shareable[aria-hidden="false"] {
+  display: block;
+}
+
+#copied-tooltip {
+  position: absolute;
+  background-color: black;
+  padding: 0.66em;
+  border-radius: 6px;
+  right: 0;
+  top: -4em;
+}
+
+#copied-tooltip[aria-hidden="true"] {
+  display: none;
+}
+
+#copied-tooltip[aria-hidden="false"] {
+  display: block;
 }
 
 .no-button {
@@ -580,4 +636,13 @@ i#hex-mover[aria-hidden="false"] {
 label.visually-hidden {
   height: 1px;
   display: block;
+}
+
+span.code {
+  font-family: monospace;
+  padding: 0.33em;
+  background-color: gainsboro;
+  color: black;
+  opacity: 0.75;
+  border-radius: 2px;
 }

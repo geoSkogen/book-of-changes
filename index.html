@@ -141,7 +141,22 @@
           <div id="hex-title-canonical" class="hex-title"></div>
           <div id="hex-title-alias" class="hex-title"></div>
         </div>
-        <i id="hex-share" class="fa fa-share-alt" aria-label="share" role="button" title="share"></i>
+        <div id="share-widget" class="flex-row flex-start">
+          <i id="hex-share" class="fa fa-share-alt" aria-label="share" role="button" title="share" tabindex="0" aria-controls="show-hide-shareable" aria-expanded="false"></i>
+          <div id="show-hide-shareable" aria-hidden="true">
+            <span id="shareable-link" class="code"></span>
+            <i id="copy-button" class="fa fa-files-o" aria-label="copy link" role="button" title="copy link" tabindex="0"></i>
+            <span class="relshell">
+              <div id="copied-tooltip" class="clipboard-tooltip" aria-hidden="true"></div>
+            </span>
+            <a id="share-reddit-link" class="social-share-link" target="_blank" rel="nofollow noopener" href="https://reddit.com/submit">
+              <i id="share-reddit-icon" class="fa fa-reddit-alien" aria-label="share to reddit" role="button" title="share to reddit" tabindex="0"></i>
+            </a>
+            <a id="share-facebook-link" class="social-share-link" target="_blank" rel="nofollow noopener" href="https://www.facebook.com/sharer/sharer.php">
+              <i id="share-facebook-icon" class="fa fa-facebook-square" aria-label="share to facebook" role="button" title="share to facebook" tabindex="0"></i>
+            </a>
+          </div>
+        </div>
         <div id="meta-col-tabs" class="flex-row flex-around" role="tablist">
           <button id="tab-inner" class="meta-col-tab" aria-selected="false" aria-controls="meta-col-inner">INNER</button>
           <button id="tab-outer" class="meta-col-tab" aria-selected="false" aria-controls="meta-col-outer">OUTER</button>
@@ -175,22 +190,6 @@
       </button><!-- wheelouter -->
     </div>
   </div><!-- wheelframe -->
-
-  <div id="post-tooltip-frame" class="flex-row flex-center">
-    <div id="post-tooltip">
-      <div id="close-msg-modal" class="close-modal">&laquo;</div>
-      <div id="msg-modal-title" class="flex-row flex-center">
-        <div id="hex-char"></div>
-        <div id="name-char"></div>
-      </div>
-      <div class="flex-row flex-center">
-        <textarea id="messenger-body" rows="6" cols="32"></textarea>
-      </div>
-      <div class="flex-row flex-center">
-        <button  id="post-msg" class="no-button">send</button>
-      </div>
-    </div>
-  </div>
 
   <div id="results-table" class="flex-row flex-center">
     <button id="first-hex-name" class="hex-name" aria-controls="hex-modal" aria-expanded="false" aria-hidden="true" aria-label="open first hexagram interpretive modal" title="open first hexagram interpretive modal">
@@ -229,6 +228,8 @@
 <script src="lib/hexagram.js"></script>
 <script src="lib/builder.js"></script>
 <script src="lib/book.js"></script>
+
+<script src="lib/opengraph.js"></script>
 
 <script src="lib/throw/view.js"></script>
 <script src="lib/throw/modal.js"></script>
