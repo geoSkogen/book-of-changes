@@ -8,9 +8,7 @@ Recalculate modal-backdrop vs. filter-modal top on short screens (horizontal/lan
 UI
 ==
 add more informative text to /trigrams modal
-
-experiment with social media share button and OG metadata for /throw and
-add copy-able share link with current config queries rendered into the /throw URL
+experiment with social media share button and OG metadata for /throw
 
 
 =====

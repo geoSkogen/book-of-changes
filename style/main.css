@@ -426,13 +426,15 @@ ul.nav-sublist[visually-hidden="false"] {
 }
 
 #hex-refresh:hover,#hex-create:hover,#hex-archive:hover,
-#hex-share:hover,#hex-build:hover,#hex-filter:hover,#copy-button:hover {
+#hex-share:hover,#hex-build:hover,#hex-filter:hover,#copy-button:hover,
+#share-facebook-icon:hover,#share-reddit-icon:hover {
   cursor: pointer;
   color: lightgrey;
 }
 
 #hex-refresh:focus,#hex-create:focus,#hex-archive:focus,
-#hex-share:focus,#hex-build:focus,#hex-filter:focus,#copy-button:focus {
+#hex-share:focus,#hex-build:focus,#hex-filter:focus,#copy-button:focus,
+#share-facebook-icon:focus,#share-reddit-icon:focus {
   outline: 2.33px solid cornflowerblue;
 }
 
@@ -464,17 +466,28 @@ i#hex-mover[aria-hidden="false"] {
   font-weight: 400;
 }
 
-#copy-button {
+#hex-share, #copy-button, #share-facebook-icon, #share-reddit-icon {
+  border-radius: 6px;
+}
+
+#copy-button, #share-facebook-icon, #share-reddit-icon {
+  color: grey;
   font-size: 24px;
   padding: 0.33em;
 }
 
-#hex-share, #copy-button {
-  border-radius: 6px;
+#shareable-link {
+  margin: 0.2em;
 }
 
 #shareable-link {
-  margin: 0.2em;
+  display: none;
+}
+
+@media only screen and (min-width: 760px) {
+  #shareable-link {
+    display: inline;
+  }
 }
 
 #show-hide-shareable {
@@ -492,6 +505,9 @@ i#hex-mover[aria-hidden="false"] {
 
 #copied-tooltip {
   position: absolute;
+  background-color: black;
+  padding: 0.66em;
+  border-radius: 6px;
   right: 0;
   top: -4em;
 }
