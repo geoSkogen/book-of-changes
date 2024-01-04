@@ -1,14 +1,13 @@
 =======
 UX/A11y
 =======
-Recalculate modal-backdrop vs. filter-modal top on short screens (horizontal/landscape)
+Recalculate modal-backdrop vs. filter-modal top on short screens (horizontal)
 
 
 ==
 UI
 ==
 add more informative text to /trigrams modal
-experiment with social media share button and OG metadata for /throw
 
 
 =====

@@ -418,7 +418,7 @@ ul.nav-sublist[visually-hidden="false"] {
 }
 
 #hex-refresh,#hex-create,#hex-archive,#hex-share,#hex-build,
-#hex-filter,#hex-mover,#hex-mover-d,#lock-icon,
+#hex-filter,#hex-mover,#hex-mover-d,#lock-icon,#tri-icon,
 #hex-new-item {
   font-size: 36px;
   padding: 0.25em;
@@ -464,6 +464,10 @@ i#hex-mover[aria-hidden="false"] {
 
 #hex-build-deco {
   font-weight: 400;
+}
+
+#tri-icon {
+  font-weight: bold;
 }
 
 #hex-share, #copy-button, #share-facebook-icon, #share-reddit-icon {

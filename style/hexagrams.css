@@ -334,3 +334,10 @@ a.inner-hex:focus {
   background-color: black;
   z-index: 1040;
 }
+
+#hex-filter-button {
+  position: absolute;
+  z-index: 700;
+  top: -200%;
+  right: 12px;
+}
