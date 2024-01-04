@@ -1,13 +1,3 @@
-#tabs-center-wrapper {
-  margin-top: 5.33em;
-}
-
-@media screen and (min-width: 900px) {
-  #tabs-center-wrapper {
-    margin-top: 0;
-  }
-}
-
 #hex-tiles-center-wrapper {
   margin-bottom: 4em;
 }
@@ -25,6 +15,7 @@
 
 .hexagram-menu {
   min-height: 750px;
+  min-width: 320px;
 }
 
 @media screen and (min-width: 900px) {
@@ -209,7 +200,7 @@ a.inner-hex:focus {
 
 #filter-menu {
   position: absolute;
-  top: -650px;
+  top: 52px;
   right: 32px;
   width: 50%;
   z-index: 1050;
@@ -231,6 +222,7 @@ a.inner-hex:focus {
   }
 }
 
+/*
 @media screen and (min-height:520px) {
   #filter-menu {
     top: -550px;
@@ -254,6 +246,7 @@ a.inner-hex:focus {
     top: -150px;
   }
 }
+*/
 
 #filter-menu-options {
   padding: 0.5em;
@@ -274,12 +267,12 @@ a.inner-hex:focus {
 #filter-tooltip {
   position: absolute;
   z-index: 1050;
-  top: 10px;
+  top: 152px;
 }
 
 @media screen and (min-height:520px) {
   #filter-tooltip {
-    top: 100px;
+    top: 152px;
   }
 }
 
@@ -342,7 +335,7 @@ a.inner-hex:focus {
 
 #footer-wrap {
   background-color: black;
-  z-index: 1040;
+  z-index: 750;
 }
 
 #hex-filter-button {

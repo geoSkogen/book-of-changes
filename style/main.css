@@ -52,7 +52,7 @@ div#app {
 
 @media only screen and (min-height:721px) {
   #modal-backdrop {
-    height: 100%;
+    height: 110%;
   }
 }
 
