@@ -1,13 +1,12 @@
 =======
 UX/A11y
 =======
-Recalculate modal-backdrop vs. filter-modal top on short screens (horizontal)
+Restore focus to the /build button after toggle animation has completed.
 
 
 ==
 UI
 ==
-add more informative text to /trigrams modal
 
 
 =====

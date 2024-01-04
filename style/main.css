@@ -37,8 +37,23 @@ div#app {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
   z-index: 790;
+}
+
+#modal-backdrop {
+  height: 200%;
+}
+
+@media only screen and (min-height:541px) {
+  #modal-backdrop {
+    height: 125%;
+  }
+}
+
+@media only screen and (min-height:721px) {
+  #modal-backdrop {
+    height: 100%;
+  }
 }
 
 #line-flash-backdrop {
