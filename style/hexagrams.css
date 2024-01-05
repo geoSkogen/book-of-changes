@@ -344,3 +344,11 @@ a.inner-hex:focus {
   top: -200%;
   right: 12px;
 }
+
+#status-bar {
+  margin-top: 2em;
+}
+
+.clear-filter-link {
+  padding: 0.66em;
+}

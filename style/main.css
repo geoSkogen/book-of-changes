@@ -56,6 +56,12 @@ div#app {
   }
 }
 
+@media only screen and (min-height:900px) {
+  #modal-backdrop {
+    height: 100%;
+  }
+}
+
 #line-flash-backdrop {
   background: transparent;
   position: absolute;
