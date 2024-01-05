@@ -100,11 +100,11 @@ class BookOfChangesController {
     if (preg_match('/^[10]{3}$/',$trigram_line_config)) {
       $match_indices = [];
       foreach($this->hexagramLineConfigurations as $hex_index => $hex_line_config) {
-        if ($segment==='upper') {
+        if ($segment==='top') {
           if ($trigram_line_config === substr($hex_line_config,3,3)) {
             $response_arr[] = $this->getHexHeader(strval($hex_index));
           }
-        } else if ($segment==='lower') {
+        } else if ($segment==='bottom') {
           if ($trigram_line_config === substr($hex_line_config,0,3)) {
             $response_arr[] = $this->getHexHeader(strval($hex_index));
           }
