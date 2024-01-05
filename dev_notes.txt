@@ -1,7 +1,6 @@
 =======
 UX/A11y
 =======
-Restore focus to the /build button after toggle animation has completed.
 
 
 ==
