@@ -120,3 +120,8 @@
 #hex-link:hover #hex-char {
   text-decoration: none;
 }
+
+.trigram-label {
+  padding-top: 0.2em;
+  padding-right: 0.2em;
+}
