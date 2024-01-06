@@ -44,7 +44,8 @@
       <section>
         <h3>The Hexagrams-filtered-by-Trigram endpoint</h3>
         <p><span class="code">/api/v1/hexagrams/trigram</span></p>
-        <h4>Arguments:</h4>
+        <h4>Arguments</h4>
+        <h5>To return a set of hexagrams with a specific trigram:</h5>
         <ul>
           <li>
             <p><span class="code">segment</span>&nbsp;&mdash;Required: accepts 'top' or 'bottom'</p>
@@ -54,6 +55,16 @@
           </li>
         </ul>
         <p>Example: the query <span class="code">?id=101&segment=top</span> will return all Hexagrams with "Fire" as their upper Trigram.</p>
+        <h5>To return a single hexagram from two trigrams:</h5>
+        <ul>
+          <li>
+            <p><span class="code">top</span>&nbsp;&mdash;Required: accepts any three-digit cobmination of 1 and 0</p>
+          </li>
+          <li>
+            <p><span class="code">bottom</span>&nbsp;&mdash;Required: accepts any three-digit cobmination of 1 and 0</p>
+          </li>
+        </ul>
+        <p>Example: the query <span class="code">?top=101&bottom=010</span> will return hexagam 64.</p>
       </section>
       <section>
         <h3>The Inner Hexagrams endpoint</h3>

@@ -8,7 +8,7 @@ The /build page allows users to modify hexagram configuration lines, creating ne
 ####Explore Trigrams
 The /trigrams page allows users to assemble various trigrams into a hexagram.  
 ####Explore Hexagrams
-The /hexagrams page provides filterable a tabbed view of all hexagrams with interpretive modals. 
+The /hexagrams page provides filterable a tabbed view of all hexagrams with interpretive modals.
 ###What's new in version 2?
 ####Accessibility
 All components can be operated with a keyboard according to established ARIA design patterns, and the application is screen-reader compatible.  
@@ -24,7 +24,7 @@ Example:
     /hexagrams/?segment=top&id=101  
 This will render all hexagrams whose top trigram is fire.  
 ####API
-All data operations in this application can be recreated headlessly with the API.
+All data operations in this application can be recreated with the API.
 For example this request:
     /api/v1/hexagrams/?id=13&moving_lines=345&dual=true&verbose=true  
 --would return the same raw data utilized to render this page:

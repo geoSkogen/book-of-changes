@@ -23,6 +23,13 @@ if ($library && $typeface) {
       $_GET['id']
     );
 
+  } else if (isset($_GET['top']) && isset($_GET['bottom'])) {
+
+    $response_array = $book->getHexagramByTrigrams($_GET['bottom'],$_GET['top']);
+
+  } else {
+
+    $response_array = [ 'error' => 'unrecognized arguments'];
   }
 } else {
   $response_array = [ 'error' => 'database not found' ];

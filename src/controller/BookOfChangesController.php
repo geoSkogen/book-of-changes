@@ -235,6 +235,17 @@ class BookOfChangesController {
       )
     );
   }
+
+  public function getHexagramByTrigrams(string $bottom_line_config, string $top_line_config) {
+    $response_arr = [];
+    if (preg_match('/^[10]{3}$/',$bottom_line_config) && preg_match('/^[10]{3}$/',$top_line_config)) {
+      $hex_id = array_search($bottom_line_config . $top_line_config,$this->hexagramLineConfigurations);
+      $response_arr = $this->getHexHeader($hex_id);
+    } else {
+      $response_arr = ['error' => 'unrecognized data format'];
+    }
+    return $response_arr;
+  }
 }
 
 ?>
