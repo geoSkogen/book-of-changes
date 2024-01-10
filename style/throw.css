@@ -1,30 +1,34 @@
-div#wheel-frame {
-  //border: 2px solid green;
+#wheel-frame {
   height: 320px;
   width: 320px;
-  //margin-top: 2em;
 }
 
-div#wheel-outer {
-  //border: 2px solid gray;
+#wheel-outer {
   border-radius: 100%;
   width: 100%;
   height: 100%;
   background-color: grey;
   cursor: pointer;
+  outline: none;
+  padding-inline: 0 !important;
+  padding-block: 0 !important;
+  border: none !important;
 }
 
-div#wheel-outer-v-align {
+#wheel-outer-v-align {
+  cursor: pointer;
+  height: 100%;
+}
+
+#wheel-outer:focus {
+  outline: 3.33px solid cornflowerblue;
+}
+
+#wheel-outer:hover {
   cursor: pointer;
 }
 
-div#wheel-outer:hover {
-  cursor: pointer;
-  //background-color: lightgrey;
-}
-
-div#wheel-inner {
-  //border: 2px solid red;
+#wheel-inner {
   border-radius: 100%;
   height: 100%;
   width: 90%;
@@ -33,28 +37,45 @@ div#wheel-inner {
   cursor: default;
 }
 
-div#results-table {
+#results-table, .results-table {
   width: 100%;
 }
 
-div.hex-name {
-  margin: 0.1em;
-  //padding: 1em;
+.hex-name {
+  margin: 0.66em;
   font-weight: 600;
   text-align: center;
   font-size: 18px;
   cursor: pointer;
   z-index: 750;
+  background: transparent;
+  outline: 2px solid gray;
+  padding-inline: 0;
+  padding-block: 0;
+  color: inherit;
+  border: 2.8px solid black;
+  padding: 0.5em;
+  border-radius: 6.33px;
 }
 
-i#hex-mover {
-  //margin: 0.1em;
-  //padding: 0.25em;
+
+.hex-name:hover {
+  text-decoration: underline;
+}
+
+.hex-name:focus {
+  border: 2.8px solid cornflowerblue;
+}
+
+.hex-name[aria-hidden="true"] {
   display: none;
 }
 
+.hex-name[aria-hidden="false"] {
+  display: inline-block;
+}
+
 .control {
-  //border: 2px solid white;
   width: 100%;
 }
 

@@ -1,32 +1,48 @@
-#first-hex,#first-trigram-col {
+#first-hex, #first-trigram-col {
   margin-top: 2em;
 }
 
+#app-center-wrapper {
+  margin-top: 1em;
+}
+
 .trigrams {
-  max-width: 25%;
   min-width: 25%;
-  padding: 0.5em;em 0 0.5em 0.5em;
-  //border: 1px solid white;
+  padding: 0.5em;
 }
 
 .trigram {
   text-align: center;
-  max-width: 100%;
-  min-width: 100%;
-  margin: 0.66em;
-  padding: 0.66em;
+  width: 150px;
+  margin: 1em 0;
+  padding: 1em 0;
   font-weight: 600;
 }
 
-.line-frame {
-  cursor: pointer;
+.trigrams {
+  display: none;
 }
 
-@media screen and (min-width: 900px) {
-  #second-hex-name {
-    margin-right: 20%;
+@media only screen and (min-width: 540px) {
+  .trigrams {
+    display: flex;
   }
 }
+
+.line-button {
+  cursor: pointer;
+  outline: none;
+  padding-inline: 0;
+  padding-block: 0;
+  border: 2.8px solid black;
+  background: transparent;
+  padding: 0.16em 0.66em 0 0.66em;
+}
+
+.line-button:focus {
+  border: 2.8px solid cornflowerblue;
+}
+
 /*
 .meta-col-tab {
   height: 1.66em;
