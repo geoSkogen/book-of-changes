@@ -19,7 +19,11 @@ if ($library && $typeface) {
 
     $response_array = $book->getTrigramBody($_GET['id']);
 
+  } else {
+
+    $response_array = [ 'error' => 'unrecognized argument'];
   }
+
 } else {
   $response_array = [ 'error' => 'database not found' ];
 }
