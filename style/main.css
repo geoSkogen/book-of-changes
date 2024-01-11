@@ -459,6 +459,10 @@ ul.nav-sublist[visually-hidden="false"] {
   outline: 2.33px solid cornflowerblue;
 }
 
+#hex-build {
+  font-size: 42px;
+}
+
 #hex-mover-frame {
   position: relative;
   width: 32px;
