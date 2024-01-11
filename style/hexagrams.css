@@ -297,6 +297,10 @@ a.inner-hex:focus {
   color: lightgray;
 }
 
+.filter-modal-flex-item {
+  margin: 1em 0;
+}
+
 #select-hex-segment {
 
 }
