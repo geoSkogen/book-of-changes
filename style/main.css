@@ -447,20 +447,36 @@ ul.nav-sublist[visually-hidden="false"] {
 }
 
 #hex-refresh:hover,#hex-create:hover,#hex-archive:hover,
-#hex-share:hover,#hex-build:hover,#hex-filter:hover,#copy-button:hover,
+#hex-share:hover,#hex-build:hover,#tri-icon:hover,#hex-filter:hover,#copy-button:hover,
 #share-facebook-icon:hover,#share-reddit-icon:hover {
   cursor: pointer;
   color: lightgrey;
 }
 
 #hex-refresh:focus,#hex-create:focus,#hex-archive:focus,
-#hex-share:focus,#hex-build:focus,#hex-filter:focus,#copy-button:focus,
+#hex-share:focus,#hex-build:focus,#tri-icon:focus,#hex-filter:focus,#copy-button:focus,
 #share-facebook-icon:focus,#share-reddit-icon:focus {
   outline: 2.33px solid cornflowerblue;
 }
 
-#hex-build {
+#hex-build,#tri-icon {
   font-size: 42px;
+  font-weight: bold;
+  display: block;
+}
+
+#hex-build {
+  padding: 0 0 0.2em 0.2em;
+}
+
+#tri-icon {
+  padding: 0 0.2em 0.2em 0;
+}
+
+@media only screen and (min-width: 900px) {
+  #hex-build,#tri-icon {
+    font-weight: normal;
+  }
 }
 
 #hex-mover-frame {
