@@ -377,6 +377,7 @@ ul#nav-list {
 li.nav-option {
   margin: 0 0.5em 0 0.5em;
   flex-basis: 108px;
+  text-align: center;
 }
 
 a.nav-submenu-name-link,
