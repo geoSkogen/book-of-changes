@@ -126,3 +126,8 @@
   padding-top: 0.2em;
   padding-right: 0.2em;
 }
+
+#footer-wrap {
+  background-color: black;
+  z-index: 750;
+}
