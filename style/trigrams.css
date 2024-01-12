@@ -1,5 +1,6 @@
 #trigram-menu {
   margin-top: 3.33em;
+  margin-bottom: 5em;
   z-index: 330;
 }
 
@@ -124,4 +125,9 @@
 .trigram-label {
   padding-top: 0.2em;
   padding-right: 0.2em;
+}
+
+#footer-wrap {
+  background-color: black;
+  z-index: 750;
 }
